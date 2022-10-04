@@ -70,7 +70,7 @@ class MainApp extends StatelessWidget {
 }
 
 Future appInitializer(AppConfig appConfig) async {
-  bool isAuthorized = true;
+  bool isAuthorized = false;
 
   AppStateNotifier appStateNotifier = AppStateNotifier(
     isAuthorized: isAuthorized,

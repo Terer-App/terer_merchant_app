@@ -32,10 +32,9 @@ dependencies:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons:
-    ^1.0.2
+  cupertino_icons: ^1.0.2
 
-    # UI
+  # UI
   sizer: 2.0.15
   fluttertoast: 8.0.9
   intl: 0.17.0
@@ -55,9 +54,9 @@ dependencies:
   file_picker: 4.6.1
   get_it: 7.2.0
   dartz: 0.10.1
-  json_annotation: 4.5.0
+  json_annotation: 4.7.0
   uuid: 3.0.6
-  freezed_annotation: 1.1.0
+  freezed_annotation: 2.1.0
   counter: 0.2.2
   email_validator: 2.0.1
   hive: 2.2.2
@@ -82,12 +81,13 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: 2.0.0
 
-  build_runner: 2.1.7
-  injectable_generator: 1.5.2
-  freezed: 1.0.2+1
-  json_serializable: 6.2.0
+  build_runner: 2.2.1
+  injectable_generator: 1.5.4
+  freezed: 2.1.0+1
+  json_serializable: 6.4.1
+  analyzer: ^4.0.0
   flutter_launcher_icons: 0.9.3
   flutter_native_splash:
 

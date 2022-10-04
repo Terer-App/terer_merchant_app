@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:terer_merchant/presentation/auth/getting_started_screen.dart';
+import 'package:terer_merchant/presentation/auth/login_screen.dart';
+import 'package:terer_merchant/presentation/auth/verify_otp_screen.dart';
+import 'package:terer_merchant/presentation/deals/deals_screen.dart';
 import '../../../../infrastructure/platform/platform_enum.dart';
 import '../../../../presentation/home/home_screen.dart';
 import '../../../core/configs/determine_platform.dart';
@@ -28,6 +31,24 @@ Route<dynamic> commonNavigation(RouteSettings settings) {
   //Navigation for un authorized or common pages(Home,etc)
   final routingData = settings.name!.getRoutingData;
   switch (routingData.route) {
+    case AuthRoutes.logInRoute:
+      return _getPageRoute(
+        LoginScreen(),
+        settings,
+      );
+
+    case AuthRoutes.verifyOtpRoute:
+      return _getPageRoute(
+        const VerifyOtpScreen(),
+        settings,
+      );
+
+    case CoreRoute.dealsRoute:
+      return _getPageRoute(
+        const DealsScreen(),
+        settings,
+      );
+
     case AuthRoutes.gettingStartedRoute:
     default:
       return _getPageRoute(
