@@ -1,10 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:terer_merchant/presentation/about_us/about_us_screen.dart';
+import 'package:terer_merchant/presentation/about_us/terms_screen.dart';
 import 'package:terer_merchant/presentation/auth/getting_started_screen.dart';
 import 'package:terer_merchant/presentation/auth/login_screen.dart';
 import 'package:terer_merchant/presentation/auth/verify_otp_screen.dart';
+import 'package:terer_merchant/presentation/contact_us/contact_us_screen.dart';
+import 'package:terer_merchant/presentation/deals/add_deal_screen.dart';
 import 'package:terer_merchant/presentation/deals/deals_screen.dart';
+import 'package:terer_merchant/presentation/deals/reports/purchased_reports_screen.dart';
+import 'package:terer_merchant/presentation/deals/reports/redeemed_reports_screen.dart';
+import 'package:terer_merchant/presentation/profile/profile_screen.dart';
 import '../../../../infrastructure/platform/platform_enum.dart';
+import '../../../../presentation/dispute_report/dispute_report_screen.dart';
 import '../../../../presentation/home/home_screen.dart';
 import '../../../core/configs/determine_platform.dart';
 import 'route_names.dart';
@@ -15,10 +23,65 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
   final routingData = settings.name!.getRoutingData;
   switch (routingData.route) {
     case CoreRoute.homeRoute:
-      final routeData = routingData.queryParameters;
+      // final routeData = routingData.queryParameters;
 
       return _getPageRoute(
-        const HomeScreen(),
+        const HomeScreen(
+          startPage: 0,
+        ),
+        settings,
+      );
+
+    case CoreRoute.purchasedRoute:
+      return _getPageRoute(
+        const PurchasedReportsScreen(),
+        settings,
+      );
+
+    case CoreRoute.redeemedRoute:
+      return _getPageRoute(
+        const RedeemedReportsScreen(),
+        settings,
+      );
+
+    case CoreRoute.addDealRoute:
+      return _getPageRoute(
+        const AddDealScreen(),
+        settings,
+      );
+
+    case CoreRoute.dealsRoute:
+      return _getPageRoute(
+        const DealsScreen(),
+        settings,
+      );
+
+    case CoreRoute.profileRoute:
+      return _getPageRoute(
+        ProfileScreen(),
+        settings,
+      );
+
+    case CoreRoute.disputeReportRoute:
+      return _getPageRoute(
+        const DisputeReportScreen(),
+        settings,
+      );
+
+    case CoreRoute.contactUsRoute:
+      return _getPageRoute(
+        const ContactUsScreen(),
+        settings,
+      );
+
+    case CoreRoute.aboutUsRoute:
+      return _getPageRoute(
+        const AboutUsScreen(),
+        settings,
+      );
+    case CoreRoute.termsRoute:
+      return _getPageRoute(
+        const TermsAndConditionScreen(),
         settings,
       );
 

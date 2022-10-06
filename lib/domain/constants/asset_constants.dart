@@ -18,6 +18,10 @@ class AssetConstants {
   static const String warning = '${imagePath}warning.png';
 
   static const String rightImage = '${imagePath}right.png';
+  static const String manageDeals = '${imagePath}manage-deals.png';
+  static const String purchased = '${imagePath}purchased.png';
+  static const String payout = '${imagePath}pay-out.png';
+  static const String redeemed = '${imagePath}redeemed.png';
 
   static const String appBarBackSvg = '${imagePath}app_bar_back.svg';
   static const String emptyCartSvg = '${imagePath}empty_cart.svg';
@@ -27,6 +31,7 @@ class AssetConstants {
   static const String crossSvg = '${vectorPath}cross.svg';
   static const String homeIcon = '${imagePath}home.png';
   static const String profileIcon = '${imagePath}profile.png';
+  static const String scanIcon = '${imagePath}scan.png';
   static const String redeemIcon = '${imagePath}coupon.png';
   static const String searchIcon = '${imagePath}search-icon.png';
 
@@ -45,6 +50,8 @@ class AssetConstants {
   static const String markSvg = '${vectorPath}mark.svg';
   static const String successSvg = '${vectorPath}success.svg';
   static const String warningSvg = '${vectorPath}warning.svg';
+  static const String uploadArrowSvg = '${vectorPath}upload-arrow.svg';
+  static const String uploadDashSvg = '${vectorPath}upload-dash.svg';
 
   static const String cupAnimation = '${animationPath}cup_animation.gif';
 }

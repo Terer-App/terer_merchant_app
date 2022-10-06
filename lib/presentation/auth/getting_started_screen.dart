@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
@@ -70,9 +71,11 @@ class GettingStartedScreen extends StatelessWidget {
                                 textFontSize: 16.sp,
                                 btnText: AuthConstants.createAnAccount,
                                 onPressedBtn: () {
-                                  navigator<NavigationService>().navigateTo(
-                                    AuthRoutes.registerRoute,
-                                  );
+                                  launchUrl(
+                                      Uri.parse(
+                                        'https://www.facebook.com/',
+                                      ),
+                                      mode: LaunchMode.inAppWebView);
                                 }),
                             SizedBox(
                               height: 3.h,

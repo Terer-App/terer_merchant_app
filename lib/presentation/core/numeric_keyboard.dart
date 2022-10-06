@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_haptic/haptic.dart';
 import 'package:sizer/sizer.dart';
 

@@ -22,7 +22,7 @@ class CustomAppBar extends StatelessWidget {
               onTap: () {
                 navigator<NavigationService>().goBack();
               },
-              child: Icon(Icons.arrow_back),
+              child: const Icon(Icons.arrow_back),
               // SvgPicture.asset(AssetConstants.backSvg, width: 7.w),),
             )),
           ),

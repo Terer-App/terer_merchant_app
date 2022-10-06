@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-
 import 'package:sizer/sizer.dart';
-import './widgets/deal_item.dart';
+
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
 
-class DealsScreen extends StatelessWidget {
-  const DealsScreen({
-    Key? key,
-  }) : super(key: key);
+class ScanScreen extends StatelessWidget {
+  const ScanScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
@@ -32,7 +27,7 @@ class DealsScreen extends StatelessWidget {
             width: 7.w,
           ),
         ),
-        title: Text(AppConstants.dealsTitle,
+        title: Text(AppConstants.scanTitle,
             style: Theme.of(context)
                 .textTheme
                 .titleMedium!
@@ -48,28 +43,31 @@ class DealsScreen extends StatelessWidget {
                   bottomRight: Radius.circular(15),
                   bottomLeft: Radius.circular(15),
                 )),
-            height: 10.w,
+            height: 2.h,
           ),
           Expanded(
-            child: ModalProgressHUD(
-              // inAsyncCall: state.isLoading,
-              inAsyncCall: false,
-              color: Colors.transparent,
-              child: ListView.separated(
-                padding: EdgeInsets.symmetric(vertical: 2.h, horizontal: 5.w)
-                    .copyWith(bottom: 8.h),
-                itemBuilder: (bCtx, index) {
-                  return const DealItem();
-                },
-                separatorBuilder: (bCtx2, index2) {
-                  return SizedBox(
-                    height: 2.h,
-                  );
-                },
-                itemCount: 2,
-              ),
+              child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
+            child: Column(
+              children: [
+                Container(
+                  height: 40.h,
+                  width: 100.w,
+                  color: Theme.of(context).colorScheme.background,
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Text(
+                  ScanConstants.scanQRInstruction,
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        color: Theme.of(context).colorScheme.secondary,
+                        fontSize: 12.sp,
+                      ),
+                )
+              ],
             ),
-          ),
+          )),
         ],
       ),
     );

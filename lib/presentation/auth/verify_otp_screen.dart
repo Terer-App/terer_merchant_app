@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
-import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:terer_merchant/domain/core/configs/injection.dart';
 import 'package:terer_merchant/domain/services/navigation_service/navigation_service.dart';
@@ -12,7 +10,6 @@ import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
 import '../core/custom_app_bar.dart';
 import '../core/custom_button.dart';
-import '../core/custom_toast.dart';
 import '../core/numeric_keyboard.dart';
 import 'getting_started_screen.dart';
 
@@ -131,8 +128,8 @@ class VerifyOtpScreen extends StatelessWidget {
                               SecondaryButton(
                                   btnText: AuthConstants.done,
                                   onPressedBtn: () {
-                                    navigator<NavigationService>()
-                                        .navigateTo(CoreRoute.dealsRoute);
+                                    navigator<NavigationService>().navigateTo(
+                                        CoreRoute.disputeReportRoute);
                                     // if (state.formKey.currentState!
                                     //     .validate()) {
                                     //   context.read<VerifyOtpBloc>().add(
@@ -150,7 +147,7 @@ class VerifyOtpScreen extends StatelessWidget {
                                       : SystemMouseCursors.wait,
                                   child: GestureDetector(
                                     onTap: 1 == 0
-                                        // state.canResed
+                                        // state.canResend
                                         ? () {
                                             // context
                                             //     .read<VerifyOtpBloc>()

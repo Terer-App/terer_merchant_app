@@ -69,6 +69,7 @@ class SecondaryButton extends StatelessWidget {
   final Color? btnTextColor;
   final BorderSide? btnBorder;
   final double? btnBorderRadius;
+  final TextStyle? textStyle;
 
   final Widget? newChild;
   final EdgeInsets? btnPadding;
@@ -79,6 +80,7 @@ class SecondaryButton extends StatelessWidget {
     required this.btnText,
     required this.onPressedBtn,
     this.bgColor,
+    this.textStyle,
     this.btnBorderRadius,
     this.btnTextColor,
     this.height,
@@ -110,12 +112,13 @@ class SecondaryButton extends StatelessWidget {
       child: newChild ??
           Text(
             btnText!,
-            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  letterSpacing: 1.1,
-                  fontSize: textFontSize ?? 18.sp,
-                  color: btnTextColor ?? Theme.of(context).primaryColor,
-                  fontWeight: textFontWeight ?? FontWeight.w600,
-                ),
+            style: textStyle ??
+                Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      letterSpacing: 1.1,
+                      fontSize: textFontSize ?? 18.sp,
+                      color: btnTextColor ?? Theme.of(context).primaryColor,
+                      fontWeight: textFontWeight ?? FontWeight.w600,
+                    ),
           ),
     );
   }

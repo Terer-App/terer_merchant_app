@@ -6,12 +6,14 @@ part of 'routing_dto.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+// ignore: non_constant_identifier_names
 _$_RoutingDto _$$_RoutingDtoFromJson(Map<String, dynamic> json) =>
     _$_RoutingDto(
       route: json['route'] as String,
       queryParameters: Map<String, String>.from(json['queryParameters'] as Map),
     );
 
+// ignore: non_constant_identifier_names
 Map<String, dynamic> _$$_RoutingDtoToJson(_$_RoutingDto instance) =>
     <String, dynamic>{
       'route': instance.route,
