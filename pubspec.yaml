@@ -47,6 +47,7 @@ dependencies:
   shimmer: 2.0.0
   flutter_widget_from_html_core: 0.8.5+3
   flutter_zoom_drawer: 3.0.2
+  qr_code_scanner: 1.0.1
 
   # Utilities
   flutter_bloc: 8.0.1
