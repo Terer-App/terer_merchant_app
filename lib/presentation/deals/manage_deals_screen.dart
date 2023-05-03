@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
+import 'package:intl/intl.dart';
 
 import 'package:sizer/sizer.dart';
 import 'package:terer_merchant/domain/core/configs/injection.dart';
 import 'package:terer_merchant/domain/services/navigation_service/navigation_service.dart';
 import 'package:terer_merchant/domain/services/navigation_service/routers/route_names.dart';
+import 'package:terer_merchant/presentation/deals/widgets/purchased_item.dart';
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
-import '../core/custom_button.dart';
 
 class ManageDealsScreen extends StatelessWidget {
   final ZoomDrawerController zoomDrawerController;
@@ -25,7 +26,10 @@ class ManageDealsScreen extends StatelessWidget {
       color: Colors.transparent,
       height: 100.h,
       child: Stack(children: [
-        SizedBox(
+        Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.background,
+          ),
           child: Stack(children: [
             Column(
               children: [
@@ -35,10 +39,11 @@ class ManageDealsScreen extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(0.w),
-                        bottomRight: Radius.circular(8.w),
-                        topLeft: Radius.circular(0.w),
-                        bottomLeft: Radius.circular(8.w)),
+                      topRight: Radius.circular(0.w),
+                      bottomRight: Radius.circular(8.w),
+                      topLeft: Radius.circular(0.w),
+                      bottomLeft: Radius.circular(8.w),
+                    ),
                   ),
                   child: Row(
                     children: <Widget>[
@@ -66,103 +71,82 @@ class ManageDealsScreen extends StatelessWidget {
                 ),
                 Expanded(
                   child: Container(
-                      width: double.maxFinite,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.background,
-                        borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(7.w),
-                            bottomRight: Radius.circular(0.w),
-                            topLeft: Radius.circular(7.w),
-                            bottomLeft: Radius.circular(0.w)),
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Theme.of(context)
-                                  .colorScheme
-                                  .secondaryContainer,
-                              boxShadow: const [
-                                BoxShadow(
-                                    color: Colors.grey,
-                                    blurRadius: 4.0,
-                                    offset: Offset(0, 5)),
-                              ],
-                              borderRadius: BorderRadius.circular(8.w),
+                    width: double.maxFinite,
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.background,
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(7.w),
+                          bottomRight: Radius.circular(0.w),
+                          topLeft: Radius.circular(7.w),
+                          bottomLeft: Radius.circular(0.w)),
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            CustomCard(
+                              image: AssetConstants.balance,
+                              title: DealsConstants.balance,
+                              onClick: () {
+                                navigator<NavigationService>()
+                                    .navigateTo(CoreRoute.balanceReportRoute);
+                              },
                             ),
-                            height: 16.h,
-                            width: 100.w,
-                            padding: EdgeInsets.all(4.w),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Image.asset(
-                                  AssetConstants.manageDeals,
-                                ),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      DealsConstants.manageDeals,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            fontSize: 14.sp,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                    ),
-                                    SecondaryButton(
-                                      btnText: DealsConstants.open,
-                                      width: 30.w,
-                                      height: 4.h,
-                                      textFontSize: 12.sp,
-                                      btnBorderRadius: 7.w,
-                                      onPressedBtn: () {},
-                                    )
-                                  ],
-                                )
-                              ],
+                            CustomCard(
+                              isPrimaryColor: false,
+                              image: AssetConstants.redeemed,
+                              title: DealsConstants.redeemed,
+                              onClick: () {
+                                navigator<NavigationService>()
+                                    .navigateTo(CoreRoute.redeemedReportRoute);
+                              },
                             ),
-                          ),
-                          SizedBox(
-                            height: 5.h,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              CustomCard(
-                                image: AssetConstants.purchased,
-                                title: DealsConstants.purchased,
-                                onClick: () {
-                                  navigator<NavigationService>()
-                                      .navigateTo(CoreRoute.purchasedRoute);
-                                },
-                              ),
-                              CustomCard(
-                                isPrimaryColor: false,
-                                image: AssetConstants.payout,
-                                title: DealsConstants.payOut,
-                                onClick: () {},
-                              ),
-                              CustomCard(
-                                image: AssetConstants.redeemed,
-                                title: DealsConstants.redeemed,
-                                onClick: () {
-                                  navigator<NavigationService>()
-                                      .navigateTo(CoreRoute.redeemedRoute);
-                                },
-                              )
-                            ],
-                          )
-                        ],
-                      )),
+                            CustomCard(
+                              image: AssetConstants.verified,
+                              title: DealsConstants.verified,
+                              onClick: () {
+                                navigator<NavigationService>()
+                                    .navigateTo(CoreRoute.verifyReportRoute);
+                              },
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ),
+                Text(
+                  DateFormat('d MMM y').format(DateTime.now()),
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w700,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                ),
+                SizedBox(
+                  height: 2.h,
+                ),
+                Expanded(
+                    child: SingleChildScrollView(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    color: Theme.of(context).colorScheme.background,
+                    child: Column(
+                      children: List.generate(
+                        1,
+                        (index) {
+                          return const BalanceItem();
+                        },
+                      ),
+                    ),
+                  ),
+                ))
               ],
             )
           ]),
@@ -186,7 +170,9 @@ class ManageDealsScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Padding(
-                  padding: EdgeInsets.fromLTRB(5.w, 0, 0, 0),
+                  padding: EdgeInsets.only(
+                    left: 5.w,
+                  ),
                   child: Text(
                     AppConstants.hello,
                     style: TextStyle(
@@ -196,7 +182,9 @@ class ManageDealsScreen extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(5.w, 0, 0, 0),
+                  padding: EdgeInsets.only(
+                    left: 5.w,
+                  ),
                   child: Text(
                     'Hipster Coffee Shop',
                     // state.appStateNotifier.customer!.firstName

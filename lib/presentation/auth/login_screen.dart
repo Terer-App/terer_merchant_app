@@ -1,221 +1,170 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:sizer/sizer.dart';
+import 'package:terer_merchant/application/login/login_bloc.dart';
 
+import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
 
 import '../../domain/core/configs/injection.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
 
-import '../core/country_picker.dart';
-import '../core/custom_app_bar.dart';
 import '../core/custom_button.dart';
-import '../core/custom_text_field.dart';
 
-import 'getting_started_screen.dart';
+import '../core/custom_rounded_textfield.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: ModalProgressHUD(
-        // inAsyncCall: state.isLoading,
-        inAsyncCall: false,
-        child: GestureDetector(
-          onTap: () {
-            FocusScope.of(context).unfocus();
-          },
-          child: Stack(children: [
-            const GettingStartedScreen(
-              asBackground: true,
-            ),
-            SizedBox(
-              height: 100.h,
-              width: 100.w,
-              child: Scaffold(
-                backgroundColor:
-                    Theme.of(context).scaffoldBackgroundColor.withOpacity(0.9),
-                appBar: const CustomAppBar().wrapWithPreferredSize,
-                body: Form(
-                  // key: state.formKey,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 1.h,
-                          ),
-                          Text(
-                            AuthConstants.login,
-                            style: Theme.of(context)
-                                .textTheme
-                                .titleMedium!
-                                .copyWith(fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 0.5.h,
-                          ),
-                          Text(
-                              '${AuthConstants.askMobileNumber} ${(AuthConstants.login).toLowerCase()}',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyMedium!
-                                  .copyWith(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary
-                                          .withOpacity(0.7))),
-                          SizedBox(
-                            height: 5.h,
-                          ),
-                          PrimaryTextField(
-                            inputWithLabel: true,
-                            labelText: AuthConstants.askMobileNumber,
-                            // controller: state.phoneNumberController,
-                            hintText: AuthConstants.phoneNumberHint,
-                            keyboardType: TextInputType.phone,
-                            // inputFormatters: [],
-                            validator: (value) {
-                              final phoneNumber = value!;
-                              if (phoneNumber.isEmpty) {
-                                return ErrorConstants.requiredError;
-                              }
-                              return null;
-                            },
-                            prefixWidget: GestureDetector(
-                              onTap: () {
-                                showModalBottomSheet(
-                                  backgroundColor: Theme.of(context)
-                                      .scaffoldBackgroundColor
-                                      .withOpacity(0),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
-                                  ),
-                                  context: context,
-                                  isScrollControlled: true,
-                                  builder: (context) => const CountryPicker(
-                                      selectedCountryDialCode: '+91'),
-                                ).then((value) {
-                                  if (value != null) {
-                                    // context.read<RequestOtpBloc>().add(
-                                    //     RequestOtpEvent.updateCountryCode(
-                                    //         selectedCountry: value));
-                                  }
-                                });
-                              },
-                              child: Container(
-                                width: 20.w,
-                                height: 48,
-                                margin: const EdgeInsets.only(right: 10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  border: Border.all(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer
-                                        .withAlpha(140),
-                                    width: 1,
-                                  ),
-                                ),
-                                child: Row(children: [
-                                  SizedBox(
-                                    width: 1.w,
-                                  ),
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(3.sp),
-                                    child: SizedBox(
-                                      height: 15.sp,
-                                      width: 20.sp,
-                                      child: Image.asset(
-                                        "assets/flags/in.png",
+    return BlocProvider(
+      create: (context) => LoginBloc(LoginState.initial()),
+      child: const LoginConsumer(),
+    );
+  }
+}
 
-                                        // "assets/flags/${state.selectedCountry["locale"].toString().toLowerCase()}.png",
-                                        fit: BoxFit.fill,
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(width: 1.w),
-                                  Text(
-                                    '91',
-                                    // state.selectedCountry['dial_code']
-                                    //     .toString(),
-                                    textScaleFactor: 1.0,
-                                    softWrap: true,
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .caption!
-                                        .copyWith(
-                                            fontWeight: FontWeight.w700,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .secondary),
-                                  ),
-                                ]),
-                              ),
+class LoginConsumer extends StatelessWidget {
+  const LoginConsumer({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<LoginBloc, LoginState>(
+      listener: (context, state) {},
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: Colors.white.withOpacity(0.85),
+          body: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 7.w),
+            physics: const BouncingScrollPhysics(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 6.h,
+                ),
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        navigator<NavigationService>().goBack();
+                      },
+                      child: CircleAvatar(
+                        radius: 7.w,
+                        backgroundColor: Colors.white,
+                        child: SvgPicture.asset(
+                          AssetConstants.backSvg,
+                          width: 7.w,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 1.5.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.only(left: 3.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        AuthConstants.login,
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                              fontWeight: FontWeight.w700,
                             ),
-                          ),
-                          SizedBox(
-                            height: 7.h,
-                          ),
-                          PrimaryButton(
-                              btnText: AuthConstants.login,
-                              width: 100.w,
-                              onPressedBtn: () {
-                                navigator<NavigationService>()
-                                    .navigateTo(AuthRoutes.verifyOtpRoute);
-                                // if (state.formKey.currentState!
-                                //     .validate()) {
-                                //   // context
-                                //   //     .read<RequestOtpBloc>()
-                                //   //     .add(const RequestOtpEvent.login());
-                                // }
-                              }),
-                          const Spacer(),
-                          Center(
-                            child: RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(children: [
-                                  TextSpan(
-                                      text: AuthConstants.donNotHaveAccount,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium),
-                                  TextSpan(
-                                      text: AuthConstants.register,
-                                      recognizer: TapGestureRecognizer()
-                                        ..onTap = () {
-                                          navigator<NavigationService>()
-                                              .navigateTo(
-                                                  AuthRoutes.registerRoute);
-                                        },
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyMedium!
-                                          .copyWith(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary,
-                                          ))
-                                ])),
-                          ),
-                          SizedBox(
-                            height: 3.h,
-                          ),
-                        ]),
+                      ),
+                      Text(
+                        AuthConstants.loginInfo,
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              fontSize: 13.5.sp,
+                              fontWeight: FontWeight.w300,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                      ),
+                      SizedBox(
+                        height: 1.h,
+                      ),
+                      CustomRoundedInput(
+                        isTitle: true,
+                        labelTextStyle:
+                            Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  fontSize: 15.sp,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primaryContainer,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                        boxDecorationContainer: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          boxShadow: const [
+                            BoxShadow(
+                              offset: Offset(0, 4),
+                              color: Colors.grey,
+                              blurRadius: 3,
+                            ),
+                          ],
+                        ),
+                        titleText: AuthConstants.userName,
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 4.w,
+                          vertical: 2.w,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 3.h,
+                      ),
+                      CustomRoundedInput(
+                        isTitle: true,
+                        labelTextStyle:
+                            Theme.of(context).textTheme.bodyMedium!.copyWith(
+                                  fontSize: 15.sp,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primaryContainer,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                        boxDecorationContainer: BoxDecoration(
+                          borderRadius: BorderRadius.circular(25),
+                          boxShadow: const [
+                            BoxShadow(
+                              offset: Offset(0, 4),
+                              color: Colors.grey,
+                              blurRadius: 3,
+                            ),
+                          ],
+                        ),
+                        titleText: AuthConstants.password,
+                        contentPadding: EdgeInsets.symmetric(
+                          horizontal: 4.w,
+                          vertical: 2.w,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6.h,
+                      ),
+                      Center(
+                        child: PrimaryButton(
+                            btnText: AuthConstants.login,
+                            width: 75.w,
+                            onPressedBtn: () {
+                              navigator<NavigationService>().navigateTo(
+                                CoreRoute.homeRoute,
+                              );
+                            }),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-            )
-          ]),
-        ),
-      ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

@@ -29,7 +29,7 @@ class YellowBgSingle extends StatelessWidget {
           Column(
             children: [
               Padding(
-                padding: EdgeInsets.fromLTRB(2.h, 0, 2.h, 0),
+                padding: EdgeInsets.symmetric(horizontal: 5.w),
                 child: Row(
                   children: <Widget>[
                     ElevatedButton(
@@ -37,11 +37,12 @@ class YellowBgSingle extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           elevation: 0,
                           shape: const CircleBorder(),
-                          primary: Theme.of(context)
+                          backgroundColor: Theme.of(context)
                               .colorScheme
                               .tertiary
                               .withOpacity(0.7),
-                          onPrimary: Theme.of(context).colorScheme.primary,
+                          foregroundColor:
+                              Theme.of(context).colorScheme.primary,
                         ),
                         child: Icon(
                           Icons.arrow_back,

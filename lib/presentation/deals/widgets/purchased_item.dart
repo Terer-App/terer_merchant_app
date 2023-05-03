@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../domain/constants/asset_constants.dart';
 
-import '../../core/custom_button.dart';
+import '../../../domain/constants/string_constants.dart';
 
-class PurchasedItem extends StatelessWidget {
-  const PurchasedItem({
+class BalanceItem extends StatelessWidget {
+  const BalanceItem({
     Key? key,
   }) : super(key: key);
 
@@ -31,108 +30,52 @@ class PurchasedItem extends StatelessWidget {
                 height: double.infinity,
                 fit: BoxFit.cover,
               ),
-              // child: CachedNetworkImage(
-              //   imageUrl: deal.imageUrl!,
-              //   width: 30.w,
-              //   height: double.infinity,
-              //   fit: BoxFit.cover,
-              // ),
             ),
-            Flexible(
+            Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: 3.w,
+                  vertical: 1.5.h,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      'Andrew',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            color: Theme.of(context).colorScheme.background,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 10.sp,
-                            overflow: TextOverflow.ellipsis,
+                    RichText(
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        text: TextSpan(
+                          text: 'Andrew',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(
+                                color: Theme.of(context).colorScheme.background,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 10.sp,
+                              ),
+                        )),
+                    RichText(
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      text: TextSpan(
+                        text: '10 Hot Coffee Beverage',
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              color: Theme.of(context).colorScheme.background,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 10.sp,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                      ),
+                    ),
+                    RichText(
+                        text: TextSpan(
+                      text: '${DealsConstants.balance}: 4/5 coupon left',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.w500,
                           ),
-                    ),
-                    Text(
-                      '10 Hot Coffee Beverage',
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            color: Theme.of(context).colorScheme.background,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 10.sp,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                    ),
-                    SizedBox(
-                      height: 0.2.h,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Date Of Purchase',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(
-                                fontSize: 9.sp,
-                                color: Theme.of(context).colorScheme.background,
-                              ),
-                        ),
-                        Text(
-                          '15th Oct 2022',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(
-                                fontSize: 9.sp,
-                                color: Theme.of(context).colorScheme.background,
-                              ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 0.5.h,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Expiry: ',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(
-                                fontSize: 9.sp,
-                                color: Theme.of(context).colorScheme.background,
-                              ),
-                        ),
-                        SizedBox(
-                            height: 3.h,
-                            width: 28.w,
-                            child: SecondaryButton(
-                              btnText: DateFormat('d MMM yyyy')
-                                  .format(DateTime.now()),
-                              bgColor: Theme.of(context).colorScheme.primary,
-                              btnTextColor:
-                                  Theme.of(context).colorScheme.secondary,
-                              textStyle: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(
-                                    fontSize: 10.sp,
-                                    fontWeight: FontWeight.bold,
-                                    color:
-                                        Theme.of(context).colorScheme.secondary,
-                                  ),
-                              btnBorderRadius: 2.w,
-                              onPressedBtn: 1 == 0 ? () async {} : null,
-                            )),
-                      ],
-                    )
+                    ))
                   ],
                 ),
               ),

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
-import 'package:terer_merchant/presentation/deals/widgets/purchased_item.dart';
+import 'package:terer_merchant/domain/constants/string_constants.dart';
+import 'package:terer_merchant/presentation/deals/widgets/redeemed_item.dart';
 
 import '../../../domain/constants/asset_constants.dart';
 import '../../../domain/core/configs/injection.dart';
 import '../../../domain/services/navigation_service/navigation_service.dart';
-import '../../core/custom_button.dart';
+import '../../core/report_filter_tab.dart';
 
-class PurchasedReportsScreen extends StatelessWidget {
-  const PurchasedReportsScreen({Key? key}) : super(key: key);
+class RedeemedReportScreen extends StatelessWidget {
+  const RedeemedReportScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,9 +30,9 @@ class PurchasedReportsScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   shape: const CircleBorder(),
-                  primary:
+                  backgroundColor:
                       Theme.of(context).colorScheme.tertiary.withOpacity(0.7),
-                  onPrimary: Theme.of(context).colorScheme.primary,
+                  foregroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 child: SvgPicture.asset(
                   AssetConstants.backSvg,
@@ -41,11 +42,11 @@ class PurchasedReportsScreen extends StatelessWidget {
         ),
         title: Padding(
           padding: EdgeInsets.only(left: 5.w),
-          child: Text('Purchased',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
+          child: Text(DealsConstants.redeemedReport,
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  fontSize: 18.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold)),
         ),
         elevation: 0,
       ),
@@ -66,17 +67,17 @@ class PurchasedReportsScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              TimePeriodWidget(
-                title: 'Today',
+              ReportFilterTab(
+                title: DealsConstants.balance,
+                onClick: () {},
+              ),
+              ReportFilterTab(
+                title: DealsConstants.redeemed,
                 onClick: () {},
                 isActive: true,
               ),
-              TimePeriodWidget(
-                title: 'Week',
-                onClick: () {},
-              ),
-              TimePeriodWidget(
-                title: 'All',
+              ReportFilterTab(
+                title: DealsConstants.verify,
                 onClick: () {},
               ),
             ],
@@ -89,46 +90,11 @@ class PurchasedReportsScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 2.h),
             child: Column(
               children: const [
-                PurchasedItem(),
+                RedeemedOrVerifyItem(),
               ],
             ),
           )),
         ],
-      ),
-    );
-  }
-}
-
-class TimePeriodWidget extends StatelessWidget {
-  final String title;
-  final bool isActive;
-  final Function()? onClick;
-
-  const TimePeriodWidget({
-    Key? key,
-    this.onClick,
-    this.isActive = false,
-    required this.title,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 4.h,
-      width: 25.w,
-      child: SecondaryButton(
-        btnText: title,
-        bgColor: isActive
-            ? Theme.of(context).colorScheme.secondary
-            : Theme.of(context).colorScheme.primary,
-        btnTextColor: Theme.of(context).colorScheme.secondary,
-        textStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
-              fontSize: 12.sp,
-              fontWeight: FontWeight.bold,
-              color: Theme.of(context).colorScheme.secondaryContainer,
-            ),
-        btnBorderRadius: 3.w,
-        onPressedBtn: onClick,
       ),
     );
   }

@@ -71,9 +71,13 @@ class HomeScreenConsumer extends StatelessWidget {
                         //     zoomDrawerController: zoomDrawerController,
                         //   )
                         : state.currentPage == 1
-                            ? const ScanScreen()
+                            ? ScanScreen(
+                                zoomDrawerController: zoomDrawerController,
+                              )
                             : state.currentPage == 2
-                                ? const ProfileScreen()
+                                ? ProfileScreen(
+                                    zoomDrawerController: zoomDrawerController,
+                                  )
                                 : Container(),
                   ),
                   bottomNavigationBar: const CustomNavbar(),

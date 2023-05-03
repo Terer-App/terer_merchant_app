@@ -9,6 +9,8 @@ class AppConstants {
   static const String rekeyInYourNewPin = 'Re-enter your NEW 6-digit Pin';
   static const String redeem = 'Redeem';
   static const String back = 'Back';
+  static const String backToHome = 'Back to home';
+
   static const String successful = 'successful';
   static const String contactUsTitle = 'Contact Us';
   static const String myProfileTitle = 'Profile';
@@ -68,10 +70,14 @@ class AuthConstants {
 
   static const String phoneNumberHint = '123 456 789';
   static const String login = 'Login';
+
   static const String next = 'Next';
   static const String done = 'Done';
   static const String verification = 'Verification';
   static const String createAPin = 'Create A 6-digit Pin';
+
+  static const String userName = 'User Name';
+  static const String password = 'Password';
 
   static const String newPin = 'New pin';
   static const String rePin = 'Re-Type pin';
@@ -81,6 +87,7 @@ class AuthConstants {
   static const String welcomeCreateAccount = 'Welcome, Create your Account';
   static const String askMobileNumber = 'Enter your mobile number to';
   static const String enterOtpWeJustSent = 'Enter OTP code';
+  static const String loginInfo = 'Enter user name and\npassword to log in';
 
   static const String resendOtp = 'resend OTP';
   static const String resendOtpRequest = 'Resend';
@@ -134,20 +141,14 @@ class ContactUsConstants {
   static const String attachFile = 'Attach File';
   static const String enterMsg = 'Enter Message';
 
-  static const String thankYouForReporting = '''Thank you\nfor contacting us.
-
-We will look into this matter
-within 48 hours and get back
-to you via email.
-''';
-
 // hint text
   static const String hintWriteMsg = 'Write Message';
 
   // dialog msg
   static const String thankyouForReport = 'Thank you for your report.';
-  static const String getBackViaEmail =
-      'We will get back to you via email. Have a terer day!';
+  static const String getBackViaEmail = '''Thank you\n for your report.
+      
+      We will get back to you via email. Have a terer day!''';
   static const String backToRedeem = 'Back to Redeem';
 }
 
@@ -156,9 +157,17 @@ class DisputeReportConstants {
   static const String tellUsAboutReport =
       'Tell us why you would like to make a report';
   static const String attachFile = 'Attach File';
+  static const String backToHome = 'Back to home';
 
 // hint text
   static const String hintWriteReport = 'Write Report...';
+
+  static const String thankYouForReporting = '''Thank you\nfor your report.
+
+We will look into this matter
+within 48 hours and get back
+to you via email.
+''';
 }
 
 class DealsConstants {
@@ -172,9 +181,18 @@ class DealsConstants {
   static const String uploadImage = 'Upload image : (1080px X 1080px)';
 
   static const String manageDeals = 'Manage Deals';
-  static const String purchased = 'Purchased';
-  static const String payOut = 'Pay Out';
+  static const String balance = 'Balance';
+  static const String balanceReport = 'Balance Report';
+
   static const String redeemed = 'Redeemed';
+  static const String redeemedReport = 'Redeemed Report';
+
+  static const String verified = 'Verified';
+  static const String verify = 'Verify';
+  static const String verifyReport = 'Verify Report';
+
+  static const String notVerified = 'Not verified';
+
   static const String open = 'Open';
   static const String deals = 'Deals';
   static const String expired = 'Expired';

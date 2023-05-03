@@ -36,20 +36,20 @@ class PrimaryButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         fixedSize: Size(width ?? 100, height ?? 50),
         padding: btnPadding,
-        primary: bgColor ?? Theme.of(context).primaryColor,
+        backgroundColor: bgColor ?? Theme.of(context).primaryColor,
         // onPrimary: btnTextColor ?? Theme.of(context).primaryColor,
         side: btnBorder,
       ).copyWith(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18.0),
+                  borderRadius: BorderRadius.circular(5.w),
                   side: BorderSide(
                       color: bgColor ?? Theme.of(context).primaryColor)))),
       child: newChild ??
           Text(
             btnText!,
             style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  fontSize: textFontSize ?? 18,
+                  fontSize: textFontSize ?? 16.sp,
                   color:
                       btnTextColor ?? Theme.of(context).colorScheme.secondary,
                   fontWeight: textFontWeight ?? FontWeight.bold,
@@ -97,10 +97,10 @@ class SecondaryButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () => onPressedBtn!(),
       style: ElevatedButton.styleFrom(
-        fixedSize: Size(width ?? 100, height ?? 50),
+        fixedSize: Size(width ?? 100.w, height ?? 4.h),
         padding: btnPadding,
-        primary: bgColor ?? Theme.of(context).colorScheme.secondary,
-        onPrimary: btnTextColor ?? Theme.of(context).primaryColor,
+        backgroundColor: bgColor ?? Theme.of(context).colorScheme.secondary,
+        foregroundColor: btnTextColor ?? Theme.of(context).primaryColor,
         side: btnBorder,
       ).copyWith(
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(

@@ -19,14 +19,17 @@ class AssetConstants {
 
   static const String rightImage = '${imagePath}right.png';
   static const String manageDeals = '${imagePath}manage-deals.png';
-  static const String purchased = '${imagePath}purchased.png';
-  static const String payout = '${imagePath}pay-out.png';
-  static const String redeemed = '${imagePath}redeemed.png';
+  static const String balance = '${imagePath}purchased.png';
+  static const String redeemed = '${imagePath}pay-out.png';
+  static const String verified = '${imagePath}redeemed.png';
 
   static const String appBarBackSvg = '${imagePath}app_bar_back.svg';
   static const String emptyCartSvg = '${imagePath}empty_cart.svg';
   static const String backSvg = '${vectorPath}back.svg';
   static const String reportSvg = '${vectorPath}report.svg';
+  static const String exMarkSvg = '${vectorPath}ex-mark.svg';
+  static const String tickSvg = '${vectorPath}tick.svg';
+
   static const String searchSvg = '${vectorPath}search.svg';
   static const String crossSvg = '${vectorPath}cross.svg';
   static const String homeIcon = '${imagePath}home.png';

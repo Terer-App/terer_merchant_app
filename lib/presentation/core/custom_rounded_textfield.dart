@@ -9,6 +9,8 @@ class CustomRoundedInput extends StatefulWidget {
   final String? hintText;
   final String? errorText;
   final bool enabled;
+  final BorderSide? borderSide;
+  final BoxDecoration? boxDecorationContainer;
 
   final TextStyle? hintTextStyle;
   final TextStyle? labelTextStyle;
@@ -38,6 +40,8 @@ class CustomRoundedInput extends StatefulWidget {
 
   const CustomRoundedInput({
     Key? key,
+    this.borderSide,
+    this.boxDecorationContainer,
     this.hintText,
     this.isTitle = false,
     this.readOnly = false,
@@ -87,6 +91,16 @@ class _CustomRoundedInputState extends State<CustomRoundedInput> {
 
   @override
   Widget build(BuildContext context) {
+    OutlineInputBorder outlineInputBorder = OutlineInputBorder(
+      borderSide: widget.borderSide ??
+          const BorderSide(
+            width: 1,
+            color: Colors.white,
+          ),
+      borderRadius:
+          BorderRadius.all(Radius.circular(widget.textFieldRadius ?? 25)),
+    );
+
     return SizedBox(
       width: widget.width ?? double.infinity,
       height: widget.height,
@@ -100,7 +114,7 @@ class _CustomRoundedInputState extends State<CustomRoundedInput> {
                       children: [
                         Text(
                           widget.titleText ?? '',
-                          style:
+                          style: widget.labelTextStyle ??
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     color: widget.titleColor ??
                                         Theme.of(context).colorScheme.secondary,
@@ -115,48 +129,60 @@ class _CustomRoundedInputState extends State<CustomRoundedInput> {
                   ],
                 )
               : const SizedBox(),
-          TextFormField(
-            enabled: widget.enabled,
-            style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  fontSize: 13.sp,
-                ),
-            readOnly: widget.readOnly,
-            onChanged: widget.onChanged != null
-                ? widget.hasDebounce
-                    ? _onSearchChanged
-                    : widget.onChanged
-                : null,
-            controller: widget.controller,
-            onTap: widget.onTap,
-            validator: widget.validator,
-            autovalidateMode: AutovalidateMode.onUserInteraction,
-            keyboardType: widget.keyboardTextType,
-            inputFormatters: widget.textInputFormat,
-            maxLines: widget.maxLines,
-            maxLength: widget.maxLength,
-            decoration: InputDecoration(
-              counterText: '',
-              fillColor: !widget.enabled
-                  ? Colors.grey.withOpacity(0.5)
-                  : Theme.of(context).colorScheme.onTertiary,
-              filled: true,
-              errorText: widget.errorText,
-              errorStyle: Theme.of(context)
-                  .textTheme
-                  .bodyLarge!
-                  .copyWith(fontSize: 10.sp, color: Colors.red),
-              labelText: widget.labelText,
-              suffixIcon: widget.suffixIcon,
-              hintText: widget.hintText,
-              hintStyle: widget.hintTextStyle ??
-                  Theme.of(context).textTheme.bodyLarge!.copyWith(
+          Container(
+            decoration: widget.boxDecorationContainer,
+            child: TextFormField(
+              enabled: widget.enabled,
+              style: Theme.of(context).textTheme.bodyLarge!.copyWith(
+                    fontSize: 13.sp,
+                  ),
+              readOnly: widget.readOnly,
+              onChanged: widget.onChanged != null
+                  ? widget.hasDebounce
+                      ? _onSearchChanged
+                      : widget.onChanged
+                  : null,
+              controller: widget.controller,
+              onTap: widget.onTap,
+              validator: widget.validator,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              keyboardType: widget.keyboardTextType,
+              inputFormatters: widget.textInputFormat,
+              maxLines: widget.maxLines,
+              maxLength: widget.maxLength,
+              decoration: InputDecoration(
+                counterText: '',
+                fillColor: !widget.enabled
+                    ? Colors.grey.withOpacity(0.5)
+                    : Theme.of(context).colorScheme.onTertiary,
+                filled: true,
+                errorText: widget.errorText,
+                errorStyle: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(fontSize: 10.sp, color: Colors.red),
+                labelText: widget.labelText,
+                suffixIcon: widget.suffixIcon,
+                hintText: widget.hintText,
+                hintStyle: widget.hintTextStyle ??
+                    Theme.of(context).textTheme.bodyLarge!.copyWith(
                         fontSize: 10.sp,
-                      ),
-              contentPadding: widget.contentPadding ??
-                  EdgeInsets.symmetric(horizontal: 10.sp, vertical: 14.sp),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.all(
-                    Radius.circular(widget.textFieldRadius ?? 25)),
+                        color: Theme.of(context).colorScheme.secondary),
+                contentPadding: widget.contentPadding ??
+                    EdgeInsets.symmetric(horizontal: 10.sp, vertical: 14.sp),
+                border: outlineInputBorder,
+                enabledBorder: outlineInputBorder,
+                focusedBorder: outlineInputBorder.copyWith(
+                    borderSide: BorderSide(
+                  width: 1,
+                  color: Theme.of(context).primaryColor,
+                )),
+                errorBorder: outlineInputBorder.copyWith(
+                  borderSide: const BorderSide(
+                    width: 1,
+                    color: Colors.red,
+                  ),
+                ),
               ),
             ),
           ),

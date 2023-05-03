@@ -4,13 +4,10 @@ import 'package:terer_merchant/presentation/about_us/about_us_screen.dart';
 import 'package:terer_merchant/presentation/about_us/terms_screen.dart';
 import 'package:terer_merchant/presentation/auth/getting_started_screen.dart';
 import 'package:terer_merchant/presentation/auth/login_screen.dart';
-import 'package:terer_merchant/presentation/auth/verify_otp_screen.dart';
 import 'package:terer_merchant/presentation/contact_us/contact_us_screen.dart';
-import 'package:terer_merchant/presentation/deals/add_deal_screen.dart';
-import 'package:terer_merchant/presentation/deals/deals_screen.dart';
-import 'package:terer_merchant/presentation/deals/reports/purchased_reports_screen.dart';
-import 'package:terer_merchant/presentation/deals/reports/redeemed_reports_screen.dart';
-import 'package:terer_merchant/presentation/profile/profile_screen.dart';
+import 'package:terer_merchant/presentation/deals/reports/balance_report_screen.dart';
+import 'package:terer_merchant/presentation/deals/reports/redeemed_report_screen.dart';
+import 'package:terer_merchant/presentation/deals/reports/verify_report_screen.dart';
 import '../../../../infrastructure/platform/platform_enum.dart';
 import '../../../../presentation/dispute_report/dispute_report_screen.dart';
 import '../../../../presentation/home/home_screen.dart';
@@ -32,33 +29,21 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
         settings,
       );
 
-    case CoreRoute.purchasedRoute:
+    case CoreRoute.balanceReportRoute:
       return _getPageRoute(
-        const PurchasedReportsScreen(),
+        const BalanceReportScreen(),
         settings,
       );
 
-    case CoreRoute.redeemedRoute:
+    case CoreRoute.redeemedReportRoute:
       return _getPageRoute(
-        const RedeemedReportsScreen(),
+        const RedeemedReportScreen(),
         settings,
       );
 
-    case CoreRoute.addDealRoute:
+    case CoreRoute.verifyReportRoute:
       return _getPageRoute(
-        const AddDealScreen(),
-        settings,
-      );
-
-    case CoreRoute.dealsRoute:
-      return _getPageRoute(
-        const DealsScreen(),
-        settings,
-      );
-
-    case CoreRoute.profileRoute:
-      return _getPageRoute(
-        ProfileScreen(),
+        const VerifyReportScreen(),
         settings,
       );
 
@@ -96,19 +81,7 @@ Route<dynamic> commonNavigation(RouteSettings settings) {
   switch (routingData.route) {
     case AuthRoutes.logInRoute:
       return _getPageRoute(
-        LoginScreen(),
-        settings,
-      );
-
-    case AuthRoutes.verifyOtpRoute:
-      return _getPageRoute(
-        const VerifyOtpScreen(),
-        settings,
-      );
-
-    case CoreRoute.dealsRoute:
-      return _getPageRoute(
-        const DealsScreen(),
+        const LoginScreen(),
         settings,
       );
 

@@ -17,6 +17,7 @@ class CoreRoute {
   static const String contactUsRoute = 'contactUs';
   static const String termsRoute = 'termsConditions';
   static const String aboutUsRoute = 'aboutUs';
-  static const String purchasedRoute = 'purchased';
-  static const String redeemedRoute = 'redeemed';
+  static const String balanceReportRoute = 'balanceReport';
+  static const String redeemedReportRoute = 'redeemedReport';
+  static const String verifyReportRoute = 'verifyReport';
 }

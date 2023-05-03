@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_zoom_drawer/config.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:sizer/sizer.dart';
 
@@ -9,7 +10,10 @@ import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
 
 class ScanScreen extends StatefulWidget {
-  const ScanScreen({Key? key}) : super(key: key);
+  final ZoomDrawerController zoomDrawerController;
+
+  const ScanScreen({Key? key, required this.zoomDrawerController})
+      : super(key: key);
 
   @override
   State<ScanScreen> createState() => _ScanScreenState();
@@ -53,11 +57,11 @@ class _ScanScreenState extends State<ScanScreen> {
         centerTitle: true,
         leading: IconButton(
           onPressed: () async {
-            // if (state.zoomDrawerController.isOpen!()) {
-            //   state.zoomDrawerController.close!();
-            // } else {
-            //   state.zoomDrawerController.open!();
-            // }
+            if (widget.zoomDrawerController.isOpen!()) {
+              widget.zoomDrawerController.close!();
+            } else {
+              widget.zoomDrawerController.open!();
+            }
           },
           icon: SvgPicture.asset(
             AssetConstants.burgerSvg,

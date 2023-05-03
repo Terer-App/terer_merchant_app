@@ -19,11 +19,12 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'Poppins',
-        primaryColor: const Color(0xfff8a31d),
+        primaryColor: const Color(0xffF9A31A),
         scaffoldBackgroundColor: const Color(0xffffffff),
         colorScheme: ThemeData().colorScheme.copyWith(
-              primary: const Color(0xfff8a31d),
-              secondary: const Color(0xff1d3562),
+              primary: const Color(0xffF9A31A),
+              onPrimary: const Color(0xffF8A41E),
+              secondary: const Color(0xff1D3463),
               tertiary: const Color(0xfffef4e4),
               background: const Color(0xFFe4e5e6),
               primaryContainer: Colors.black,
@@ -52,10 +53,12 @@ class MainApp extends StatelessWidget {
           decoration: SizerUtil.width == 430
               ? const BoxDecoration(
                   border: Border.symmetric(
-                      vertical: BorderSide(
-                  color: Colors.black,
-                  width: 2,
-                )))
+                    vertical: BorderSide(
+                      color: Colors.black,
+                      width: 2,
+                    ),
+                  ),
+                )
               : null,
           child: child!),
       navigatorKey: navigator<NavigationService>().navigatorKey,

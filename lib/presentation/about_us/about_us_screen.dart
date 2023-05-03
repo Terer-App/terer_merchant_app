@@ -30,9 +30,9 @@ class AboutUsScreen extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
                   shape: const CircleBorder(),
-                  primary:
+                  backgroundColor:
                       Theme.of(context).colorScheme.tertiary.withOpacity(0.7),
-                  onPrimary: Theme.of(context).colorScheme.primary,
+                  foregroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 child: SvgPicture.asset(
                   AssetConstants.backSvg,
@@ -176,7 +176,6 @@ class AboutUsScreen extends StatelessWidget {
           )
         ],
       ),
-      // bottomNavigationBar: const CustomNavbar(),
     );
   }
 }

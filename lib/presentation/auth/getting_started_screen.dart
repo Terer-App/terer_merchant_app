@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:sizer/sizer.dart';
+import 'package:terer_merchant/presentation/auth/login_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
-import '../../domain/core/configs/injection.dart';
-import '../../domain/services/navigation_service/navigation_service.dart';
-import '../../domain/services/navigation_service/routers/route_names.dart';
+
 import '../core/custom_button.dart';
 
 class GettingStartedScreen extends StatelessWidget {
@@ -87,8 +87,11 @@ class GettingStartedScreen extends StatelessWidget {
                                     Theme.of(context).colorScheme.secondary,
                                 btnTextColor: Theme.of(context).primaryColor,
                                 onPressedBtn: () {
-                                  navigator<NavigationService>().navigateTo(
-                                    AuthRoutes.logInRoute,
+                                  showDialog(
+                                    context: context,
+                                    builder: (ctx) {
+                                      return const LoginScreen();
+                                    },
                                   );
                                 }),
                           ]),
