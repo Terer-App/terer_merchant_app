@@ -23,8 +23,6 @@ class AppStateNotifier extends ChangeNotifier {
 class AppConfig extends InheritedWidget {
   final String appTitle;
   final String serverUrl;
-  final String merchantApi;
-
   final String buildFlavor;
   @override
   // ignore: overridden_fields
@@ -35,7 +33,6 @@ class AppConfig extends InheritedWidget {
       {required this.appTitle,
       required this.buildFlavor,
       required this.child,
-      required this.merchantApi,
       required this.serverUrl})
       : super(child: child);
 

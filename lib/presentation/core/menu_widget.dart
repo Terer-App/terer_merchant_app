@@ -63,7 +63,7 @@ class MenuWidget extends StatelessWidget {
               onClick: () {
                 zoomDrawerController.close!();
                 navigator<NavigationService>()
-                    .navigateTo(CoreRoute.disputeReportRoute);
+                    .navigateTo(CoreRoutes.disputeReportRoute);
               },
             ),
             MenuItem(
@@ -72,7 +72,8 @@ class MenuWidget extends StatelessWidget {
               title: MenuConstants.termsAndConditions,
               onClick: () {
                 zoomDrawerController.close!();
-                navigator<NavigationService>().navigateTo(CoreRoute.termsRoute);
+                navigator<NavigationService>()
+                    .navigateTo(CoreRoutes.termsRoute);
               },
             ),
             MenuItem(
@@ -82,7 +83,7 @@ class MenuWidget extends StatelessWidget {
               onClick: () {
                 zoomDrawerController.close!();
                 navigator<NavigationService>()
-                    .navigateTo(CoreRoute.contactUsRoute);
+                    .navigateTo(CoreRoutes.contactUsRoute);
               },
             ),
             MenuItem(
@@ -92,7 +93,7 @@ class MenuWidget extends StatelessWidget {
               onClick: () {
                 zoomDrawerController.close!();
                 navigator<NavigationService>()
-                    .navigateTo(CoreRoute.aboutUsRoute);
+                    .navigateTo(CoreRoutes.aboutUsRoute);
               },
             ),
             const Spacer(),

@@ -13,11 +13,10 @@ class LoginState with _$LoginState {
     required ShopMerchantRepository shopMerchantRepository,
     required TextEditingController userNameController,
     required TextEditingController passwordController,
-    MerchantDto? merchantDto,
+    MerchantDto? profile,
   }) = _LoginState;
 
-  factory LoginState.initial(
-      {required String merchantApi, required String serverUrl}) {
+  factory LoginState.initial({required String serverUrl}) {
     return LoginState(
       isLoading: false,
       isFailed: false,
@@ -25,10 +24,10 @@ class LoginState with _$LoginState {
       validateForm: false,
       showMessage: '',
       shopMerchantRepository: IShopMerchantRepository(
-        serverUrl: serverUrl,
+        serverUrl: OtherConstants.oldServerUrl,
       ),
       authRepository: IAuthRepository(
-        merchantApi: merchantApi,
+        serverUrl: serverUrl,
       ),
       formKey: GlobalKey<FormState>(),
       userNameController: TextEditingController(),

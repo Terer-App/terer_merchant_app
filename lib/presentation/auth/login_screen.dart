@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:provider/provider.dart';
 
 import 'package:sizer/sizer.dart';
 import 'package:terer_merchant/application/login/login_bloc.dart';
 import 'package:terer_merchant/domain/core/configs/app_config.dart';
+import 'package:terer_merchant/domain/services/navigation_service/routers/route_names.dart';
 import 'package:terer_merchant/presentation/core/custom_toast.dart';
 
 import '../../domain/constants/asset_constants.dart';
@@ -22,12 +26,10 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String merchantApi = AppConfig.of(context)!.merchantApi;
     String serverUrl = AppConfig.of(context)!.serverUrl;
 
     return BlocProvider(
       create: (context) => LoginBloc(LoginState.initial(
-        merchantApi: merchantApi,
         serverUrl: serverUrl,
       )),
       child: const LoginConsumer(),
@@ -43,12 +45,23 @@ class LoginConsumer extends StatelessWidget {
     return BlocConsumer<LoginBloc, LoginState>(
       listener: (context, state) {
         if (state.isSuccess) {
-          context.read<LoginBloc>().add(LoginEvent.emitFromAnywhere(
-              state: state.copyWith(isFailed: false, showMessage: '')));
+          Provider.of<AppStateNotifier>(context, listen: false).updateAuthState(
+            isAuthorized: true,
+            profile: state.profile,
+          );
+
+          Future.delayed(const Duration(milliseconds: 100), () {
+            context.read<LoginBloc>().add(LoginEvent.emitFromAnywhere(
+                state: state.copyWith(isLoading: false, isSuccess: false)));
+
+            navigator<NavigationService>()
+                .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
+          });
         } else if (state.isFailed) {
           if (state.showMessage.isNotEmpty) {
             CustomToast.showToast(
               msg: state.showMessage,
+              toastGravity: ToastGravity.BOTTOM,
             );
           }
 
@@ -59,158 +72,169 @@ class LoginConsumer extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           backgroundColor: Colors.white.withOpacity(0.85),
-          body: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 7.w),
-            physics: const BouncingScrollPhysics(),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 6.h,
-                ),
-                Row(
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        navigator<NavigationService>().goBack();
-                      },
-                      child: CircleAvatar(
-                        radius: 7.w,
-                        backgroundColor: Colors.white,
-                        child: SvgPicture.asset(
-                          AssetConstants.backSvg,
-                          width: 7.w,
+          body: ModalProgressHUD(
+            inAsyncCall: state.isLoading,
+            child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 7.w),
+              physics: const BouncingScrollPhysics(),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          navigator<NavigationService>().goBack();
+                        },
+                        child: CircleAvatar(
+                          radius: 7.w,
+                          backgroundColor: Colors.white,
+                          child: SvgPicture.asset(
+                            AssetConstants.backSvg,
+                            width: 7.w,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 1.5.h,
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 3.w),
-                  child: Form(
-                    key: state.formKey,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          AuthConstants.login,
-                          style:
-                              Theme.of(context).textTheme.titleLarge!.copyWith(
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                        ),
-                        Text(
-                          AuthConstants.loginInfo,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyMedium!
-                              .copyWith(
-                                fontSize: 13.5.sp,
-                                fontWeight: FontWeight.w300,
-                                color: Theme.of(context).colorScheme.secondary,
-                              ),
-                        ),
-                        SizedBox(
-                          height: 1.h,
-                        ),
-                        CustomRoundedInput(
-                          isTitle: true,
-                          controller: state.userNameController,
-                          labelTextStyle:
-                              Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    fontSize: 15.sp,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                          boxDecorationContainer: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            boxShadow: const [
-                              BoxShadow(
-                                offset: Offset(0, 4),
-                                color: Colors.grey,
-                                blurRadius: 3,
-                              ),
-                            ],
+                    ],
+                  ),
+                  SizedBox(
+                    height: 1.5.h,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 3.w),
+                    child: Form(
+                      key: state.formKey,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            AuthConstants.login,
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge!
+                                .copyWith(
+                                  fontWeight: FontWeight.w700,
+                                ),
                           ),
-                          titleText: AuthConstants.userName,
-                          contentPadding: EdgeInsets.symmetric(
-                            horizontal: 4.w,
-                            vertical: 2.w,
+                          Text(
+                            AuthConstants.loginInfo,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  fontSize: 13.5.sp,
+                                  fontWeight: FontWeight.w300,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                ),
                           ),
-                          validator: (val) {
-                            if (!state.validateForm) return null;
-
-                            if (val == null || val.isEmpty) {
-                              return ErrorConstants.requiredError;
-                            }
-
-                            return null;
-                          },
-                        ),
-                        SizedBox(
-                          height: 3.h,
-                        ),
-                        CustomRoundedInput(
-                          isTitle: true,
-                          controller: state.passwordController,
-                          labelTextStyle:
-                              Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    fontSize: 15.sp,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                          boxDecorationContainer: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            boxShadow: const [
-                              BoxShadow(
-                                offset: Offset(0, 4),
-                                color: Colors.grey,
-                                blurRadius: 3,
-                              ),
-                            ],
+                          SizedBox(
+                            height: 1.h,
                           ),
-                          titleText: AuthConstants.password,
-                          contentPadding: EdgeInsets.symmetric(
-                            horizontal: 4.w,
-                            vertical: 2.w,
-                          ),
-                          validator: (val) {
-                            if (!state.validateForm) return null;
+                          CustomRoundedInput(
+                            isTitle: true,
+                            controller: state.userNameController,
+                            labelTextStyle: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  fontSize: 15.sp,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primaryContainer,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                            boxDecorationContainer: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              boxShadow: const [
+                                BoxShadow(
+                                  offset: Offset(0, 4),
+                                  color: Colors.grey,
+                                  blurRadius: 3,
+                                ),
+                              ],
+                            ),
+                            titleText: AuthConstants.userName,
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 4.w,
+                              vertical: 2.w,
+                            ),
+                            validator: (val) {
+                              if (!state.validateForm) return null;
 
-                            if (val == null || val.isEmpty) {
-                              return ErrorConstants.requiredError;
-                            }
+                              if (val == null || val.isEmpty) {
+                                return ErrorConstants.requiredError;
+                              }
 
-                            return null;
-                          },
-                        ),
-                        SizedBox(
-                          height: 6.h,
-                        ),
-                        Center(
-                          child: PrimaryButton(
-                            btnText: AuthConstants.login,
-                            width: 75.w,
-                            onPressedBtn: () {
-                              FocusScope.of(context).unfocus();
-                              context
-                                  .read<LoginBloc>()
-                                  .add(const LoginEvent.onLogin());
+                              return null;
                             },
                           ),
-                        ),
-                      ],
+                          SizedBox(
+                            height: 3.h,
+                          ),
+                          CustomRoundedInput(
+                            isTitle: true,
+                            obscureText: true,
+                            controller: state.passwordController,
+                            labelTextStyle: Theme.of(context)
+                                .textTheme
+                                .bodyMedium!
+                                .copyWith(
+                                  fontSize: 15.sp,
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primaryContainer,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                            boxDecorationContainer: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25),
+                              boxShadow: const [
+                                BoxShadow(
+                                  offset: Offset(0, 4),
+                                  color: Colors.grey,
+                                  blurRadius: 3,
+                                ),
+                              ],
+                            ),
+                            titleText: AuthConstants.password,
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 4.w,
+                              vertical: 2.w,
+                            ),
+                            validator: (val) {
+                              if (!state.validateForm) return null;
+
+                              if (val == null || val.isEmpty) {
+                                return ErrorConstants.requiredError;
+                              }
+
+                              return null;
+                            },
+                          ),
+                          SizedBox(
+                            height: 6.h,
+                          ),
+                          Center(
+                            child: PrimaryButton(
+                              btnText: AuthConstants.login,
+                              width: 75.w,
+                              onPressedBtn: () {
+                                FocusScope.of(context).unfocus();
+                                context
+                                    .read<LoginBloc>()
+                                    .add(const LoginEvent.onLogin());
+                              },
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

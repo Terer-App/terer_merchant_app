@@ -8,16 +8,16 @@ import 'package:terer_merchant/domain/services/network_service/rest_service.dart
 import '../../domain/auth/auth_repository.dart';
 
 class IAuthRepository extends AuthRepository {
-  final String merchantApi;
+  final String serverUrl;
 
-  IAuthRepository({required this.merchantApi});
+  IAuthRepository({required this.serverUrl});
 
   @override
   Future<Either<String, String>> loginAsMerchant({
     required String userName,
     required String password,
   }) async {
-    final url = merchantApi + APIConstants.loginAsMerchant;
+    final url = serverUrl + APIConstants.loginAsMerchant;
     try {
       final res = await RESTService.performPOSTRequest(
           httpUrl: url,

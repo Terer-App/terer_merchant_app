@@ -28,6 +28,7 @@ class CustomRoundedInput extends StatefulWidget {
   final bool readOnly;
 
   final bool hasDebounce;
+  final bool obscureText;
 
   final int? maxLines;
   final int? maxLength;
@@ -43,6 +44,7 @@ class CustomRoundedInput extends StatefulWidget {
     this.borderSide,
     this.boxDecorationContainer,
     this.hintText,
+    this.obscureText = false,
     this.isTitle = false,
     this.readOnly = false,
     this.hasDebounce = false,
@@ -144,6 +146,7 @@ class _CustomRoundedInputState extends State<CustomRoundedInput> {
                   : null,
               controller: widget.controller,
               onTap: widget.onTap,
+              obscureText: widget.obscureText,
               validator: widget.validator,
               autovalidateMode: AutovalidateMode.onUserInteraction,
               keyboardType: widget.keyboardTextType,

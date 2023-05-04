@@ -95,7 +95,7 @@ class ManageDealsScreen extends StatelessWidget {
                               title: DealsConstants.balance,
                               onClick: () {
                                 navigator<NavigationService>()
-                                    .navigateTo(CoreRoute.balanceReportRoute);
+                                    .navigateTo(CoreRoutes.balanceReportRoute);
                               },
                             ),
                             CustomCard(
@@ -104,7 +104,7 @@ class ManageDealsScreen extends StatelessWidget {
                               title: DealsConstants.redeemed,
                               onClick: () {
                                 navigator<NavigationService>()
-                                    .navigateTo(CoreRoute.redeemedReportRoute);
+                                    .navigateTo(CoreRoutes.redeemedReportRoute);
                               },
                             ),
                             CustomCard(
@@ -112,7 +112,7 @@ class ManageDealsScreen extends StatelessWidget {
                               title: DealsConstants.verified,
                               onClick: () {
                                 navigator<NavigationService>()
-                                    .navigateTo(CoreRoute.verifyReportRoute);
+                                    .navigateTo(CoreRoutes.verifyReportRoute);
                               },
                             )
                           ],

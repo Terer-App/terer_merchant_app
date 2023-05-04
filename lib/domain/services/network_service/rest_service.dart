@@ -64,8 +64,6 @@ class RESTService {
     request.followRedirects = false;
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
-    print(httpUrl);
-    print(headers);
 
     if (response.statusCode == 200) {
       final resultResponse = await http.Response.fromStream(response);

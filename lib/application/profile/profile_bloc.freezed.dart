@@ -447,6 +447,8 @@ abstract class _EmitFromAnywhere implements ProfileEvent {
 /// @nodoc
 mixin _$ProfileState {
   bool get isLoading => throw _privateConstructorUsedError;
+  AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
+  MerchantDto? get profile => throw _privateConstructorUsedError;
   ZoomDrawerController get zoomDrawerController =>
       throw _privateConstructorUsedError;
 
@@ -460,7 +462,13 @@ abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
           ProfileState value, $Res Function(ProfileState) then) =
       _$ProfileStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, ZoomDrawerController zoomDrawerController});
+  $Res call(
+      {bool isLoading,
+      AppStateNotifier appStateNotifier,
+      MerchantDto? profile,
+      ZoomDrawerController zoomDrawerController});
+
+  $MerchantDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -474,6 +482,8 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? appStateNotifier = freezed,
+    Object? profile = freezed,
     Object? zoomDrawerController = freezed,
   }) {
     return _then(_value.copyWith(
@@ -481,11 +491,30 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      appStateNotifier: appStateNotifier == freezed
+          ? _value.appStateNotifier
+          : appStateNotifier // ignore: cast_nullable_to_non_nullable
+              as AppStateNotifier,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
       zoomDrawerController: zoomDrawerController == freezed
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
               as ZoomDrawerController,
     ));
+  }
+
+  @override
+  $MerchantDtoCopyWith<$Res>? get profile {
+    if (_value.profile == null) {
+      return null;
+    }
+
+    return $MerchantDtoCopyWith<$Res>(_value.profile!, (value) {
+      return _then(_value.copyWith(profile: value));
+    });
   }
 }
 
@@ -496,7 +525,14 @@ abstract class _$$_ProfileStateCopyWith<$Res>
           _$_ProfileState value, $Res Function(_$_ProfileState) then) =
       __$$_ProfileStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, ZoomDrawerController zoomDrawerController});
+  $Res call(
+      {bool isLoading,
+      AppStateNotifier appStateNotifier,
+      MerchantDto? profile,
+      ZoomDrawerController zoomDrawerController});
+
+  @override
+  $MerchantDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -513,6 +549,8 @@ class __$$_ProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? appStateNotifier = freezed,
+    Object? profile = freezed,
     Object? zoomDrawerController = freezed,
   }) {
     return _then(_$_ProfileState(
@@ -520,6 +558,14 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      appStateNotifier: appStateNotifier == freezed
+          ? _value.appStateNotifier
+          : appStateNotifier // ignore: cast_nullable_to_non_nullable
+              as AppStateNotifier,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
       zoomDrawerController: zoomDrawerController == freezed
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
@@ -532,16 +578,23 @@ class __$$_ProfileStateCopyWithImpl<$Res>
 
 class _$_ProfileState implements _ProfileState {
   const _$_ProfileState(
-      {required this.isLoading, required this.zoomDrawerController});
+      {required this.isLoading,
+      required this.appStateNotifier,
+      this.profile,
+      required this.zoomDrawerController});
 
   @override
   final bool isLoading;
+  @override
+  final AppStateNotifier appStateNotifier;
+  @override
+  final MerchantDto? profile;
   @override
   final ZoomDrawerController zoomDrawerController;
 
   @override
   String toString() {
-    return 'ProfileState(isLoading: $isLoading, zoomDrawerController: $zoomDrawerController)';
+    return 'ProfileState(isLoading: $isLoading, appStateNotifier: $appStateNotifier, profile: $profile, zoomDrawerController: $zoomDrawerController)';
   }
 
   @override
@@ -551,6 +604,9 @@ class _$_ProfileState implements _ProfileState {
             other is _$_ProfileState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
+                .equals(other.appStateNotifier, appStateNotifier) &&
+            const DeepCollectionEquality().equals(other.profile, profile) &&
+            const DeepCollectionEquality()
                 .equals(other.zoomDrawerController, zoomDrawerController));
   }
 
@@ -558,6 +614,8 @@ class _$_ProfileState implements _ProfileState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(appStateNotifier),
+      const DeepCollectionEquality().hash(profile),
       const DeepCollectionEquality().hash(zoomDrawerController));
 
   @JsonKey(ignore: true)
@@ -569,11 +627,17 @@ class _$_ProfileState implements _ProfileState {
 abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
           {required final bool isLoading,
+          required final AppStateNotifier appStateNotifier,
+          final MerchantDto? profile,
           required final ZoomDrawerController zoomDrawerController}) =
       _$_ProfileState;
 
   @override
   bool get isLoading;
+  @override
+  AppStateNotifier get appStateNotifier;
+  @override
+  MerchantDto? get profile;
   @override
   ZoomDrawerController get zoomDrawerController;
   @override

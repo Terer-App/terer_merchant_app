@@ -2,6 +2,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:terer_merchant/domain/core/configs/app_config.dart';
+import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';

@@ -5,7 +5,7 @@ class AuthRoutes {
   static const String verifyOtpRoute = 'verify_otp';
 }
 
-class CoreRoute {
+class CoreRoutes {
   static const String homeRoute = 'home';
   static const String dealsRoute = 'deals';
 

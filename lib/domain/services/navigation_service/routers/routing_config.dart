@@ -19,7 +19,7 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
   //Navigation for un authorized or common pages(Home,login,etc)
   final routingData = settings.name!.getRoutingData;
   switch (routingData.route) {
-    case CoreRoute.homeRoute:
+    case CoreRoutes.homeRoute:
       // final routeData = routingData.queryParameters;
 
       return _getPageRoute(
@@ -29,42 +29,42 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
         settings,
       );
 
-    case CoreRoute.balanceReportRoute:
+    case CoreRoutes.balanceReportRoute:
       return _getPageRoute(
         const BalanceReportScreen(),
         settings,
       );
 
-    case CoreRoute.redeemedReportRoute:
+    case CoreRoutes.redeemedReportRoute:
       return _getPageRoute(
         const RedeemedReportScreen(),
         settings,
       );
 
-    case CoreRoute.verifyReportRoute:
+    case CoreRoutes.verifyReportRoute:
       return _getPageRoute(
         const VerifyReportScreen(),
         settings,
       );
 
-    case CoreRoute.disputeReportRoute:
+    case CoreRoutes.disputeReportRoute:
       return _getPageRoute(
         const DisputeReportScreen(),
         settings,
       );
 
-    case CoreRoute.contactUsRoute:
+    case CoreRoutes.contactUsRoute:
       return _getPageRoute(
         const ContactUsScreen(),
         settings,
       );
 
-    case CoreRoute.aboutUsRoute:
+    case CoreRoutes.aboutUsRoute:
       return _getPageRoute(
         const AboutUsScreen(),
         settings,
       );
-    case CoreRoute.termsRoute:
+    case CoreRoutes.termsRoute:
       return _getPageRoute(
         const TermsAndConditionScreen(),
         settings,

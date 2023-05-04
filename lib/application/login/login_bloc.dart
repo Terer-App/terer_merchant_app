@@ -3,6 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:terer_merchant/domain/auth/auth_repository.dart';
+import 'package:terer_merchant/domain/constants/other_constants.dart';
 import 'package:terer_merchant/domain/services/storage_service/auth_service.dart';
 import 'package:terer_merchant/domain/shop_merchant/shop_merchant_repository.dart';
 import 'package:terer_merchant/infrastructure/auth/i_auth_repository.dart';
@@ -33,7 +34,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         Future.delayed(const Duration(milliseconds: 100), () {
           state.formKey.currentState!.validate();
         });
+        return;
       }
+
+      emit(
+        state.copyWith(
+          isLoading: true,
+        ),
+      );
 
       final res = await state.authRepository
           .loginAsMerchant(password: password, userName: userName);
@@ -41,13 +49,16 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       res.fold((l) {
         emit(state.copyWith(
           isFailed: true,
+          isLoading: false,
           showMessage: l,
         ));
       }, (r) async {
         await AuthTokenService.setIsLogin(isAuthorized: true);
 
         await AuthTokenService.setMerchantToken(merchantToken: r);
-        await Future.delayed(const Duration(seconds: 5));
+        await Future.delayed(const Duration(
+          seconds: 10,
+        ));
         final merchantProfile =
             await state.shopMerchantRepository.merchantProfile(token: r);
 
@@ -55,13 +66,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           add(LoginEvent.emitFromAnywhere(
               state: state.copyWith(
             isFailed: true,
+            isLoading: false,
             showMessage: 'Profile not found!',
           )));
         } else {
           add(LoginEvent.emitFromAnywhere(
               state: state.copyWith(
             isSuccess: true,
-            merchantDto: merchantProfile,
+            profile: merchantProfile,
           )));
         }
       });

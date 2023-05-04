@@ -598,7 +598,7 @@ mixin _$LoginState {
       throw _privateConstructorUsedError;
   TextEditingController get passwordController =>
       throw _privateConstructorUsedError;
-  MerchantDto? get merchantDto => throw _privateConstructorUsedError;
+  MerchantDto? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -621,9 +621,9 @@ abstract class $LoginStateCopyWith<$Res> {
       ShopMerchantRepository shopMerchantRepository,
       TextEditingController userNameController,
       TextEditingController passwordController,
-      MerchantDto? merchantDto});
+      MerchantDto? profile});
 
-  $MerchantDtoCopyWith<$Res>? get merchantDto;
+  $MerchantDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -646,7 +646,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
     Object? shopMerchantRepository = freezed,
     Object? userNameController = freezed,
     Object? passwordController = freezed,
-    Object? merchantDto = freezed,
+    Object? profile = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -689,21 +689,21 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
           ? _value.passwordController
           : passwordController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
-      merchantDto: merchantDto == freezed
-          ? _value.merchantDto
-          : merchantDto // ignore: cast_nullable_to_non_nullable
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
               as MerchantDto?,
     ));
   }
 
   @override
-  $MerchantDtoCopyWith<$Res>? get merchantDto {
-    if (_value.merchantDto == null) {
+  $MerchantDtoCopyWith<$Res>? get profile {
+    if (_value.profile == null) {
       return null;
     }
 
-    return $MerchantDtoCopyWith<$Res>(_value.merchantDto!, (value) {
-      return _then(_value.copyWith(merchantDto: value));
+    return $MerchantDtoCopyWith<$Res>(_value.profile!, (value) {
+      return _then(_value.copyWith(profile: value));
     });
   }
 }
@@ -726,10 +726,10 @@ abstract class _$$_LoginStateCopyWith<$Res>
       ShopMerchantRepository shopMerchantRepository,
       TextEditingController userNameController,
       TextEditingController passwordController,
-      MerchantDto? merchantDto});
+      MerchantDto? profile});
 
   @override
-  $MerchantDtoCopyWith<$Res>? get merchantDto;
+  $MerchantDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -754,7 +754,7 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
     Object? shopMerchantRepository = freezed,
     Object? userNameController = freezed,
     Object? passwordController = freezed,
-    Object? merchantDto = freezed,
+    Object? profile = freezed,
   }) {
     return _then(_$_LoginState(
       isLoading: isLoading == freezed
@@ -797,9 +797,9 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
           ? _value.passwordController
           : passwordController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
-      merchantDto: merchantDto == freezed
-          ? _value.merchantDto
-          : merchantDto // ignore: cast_nullable_to_non_nullable
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
               as MerchantDto?,
     ));
   }
@@ -819,7 +819,7 @@ class _$_LoginState implements _LoginState {
       required this.shopMerchantRepository,
       required this.userNameController,
       required this.passwordController,
-      this.merchantDto});
+      this.profile});
 
   @override
   final bool isLoading;
@@ -842,11 +842,11 @@ class _$_LoginState implements _LoginState {
   @override
   final TextEditingController passwordController;
   @override
-  final MerchantDto? merchantDto;
+  final MerchantDto? profile;
 
   @override
   String toString() {
-    return 'LoginState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, validateForm: $validateForm, showMessage: $showMessage, formKey: $formKey, authRepository: $authRepository, shopMerchantRepository: $shopMerchantRepository, userNameController: $userNameController, passwordController: $passwordController, merchantDto: $merchantDto)';
+    return 'LoginState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, validateForm: $validateForm, showMessage: $showMessage, formKey: $formKey, authRepository: $authRepository, shopMerchantRepository: $shopMerchantRepository, userNameController: $userNameController, passwordController: $passwordController, profile: $profile)';
   }
 
   @override
@@ -870,8 +870,7 @@ class _$_LoginState implements _LoginState {
                 .equals(other.userNameController, userNameController) &&
             const DeepCollectionEquality()
                 .equals(other.passwordController, passwordController) &&
-            const DeepCollectionEquality()
-                .equals(other.merchantDto, merchantDto));
+            const DeepCollectionEquality().equals(other.profile, profile));
   }
 
   @override
@@ -887,7 +886,7 @@ class _$_LoginState implements _LoginState {
       const DeepCollectionEquality().hash(shopMerchantRepository),
       const DeepCollectionEquality().hash(userNameController),
       const DeepCollectionEquality().hash(passwordController),
-      const DeepCollectionEquality().hash(merchantDto));
+      const DeepCollectionEquality().hash(profile));
 
   @JsonKey(ignore: true)
   @override
@@ -907,7 +906,7 @@ abstract class _LoginState implements LoginState {
       required final ShopMerchantRepository shopMerchantRepository,
       required final TextEditingController userNameController,
       required final TextEditingController passwordController,
-      final MerchantDto? merchantDto}) = _$_LoginState;
+      final MerchantDto? profile}) = _$_LoginState;
 
   @override
   bool get isLoading;
@@ -930,7 +929,7 @@ abstract class _LoginState implements LoginState {
   @override
   TextEditingController get passwordController;
   @override
-  MerchantDto? get merchantDto;
+  MerchantDto? get profile;
   @override
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>

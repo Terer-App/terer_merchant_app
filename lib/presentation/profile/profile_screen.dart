@@ -6,9 +6,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:provider/provider.dart';
 
 import 'package:sizer/sizer.dart';
 import 'package:terer_merchant/application/profile/profile_bloc.dart';
+import 'package:terer_merchant/domain/core/configs/app_config.dart';
 
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
@@ -26,9 +28,13 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppStateNotifier appStateNotifier =
+        Provider.of<AppStateNotifier>(context);
     return BlocProvider(
-      create: (context) => ProfileBloc(
-          ProfileState.initial(zoomDrawerController: zoomDrawerController)),
+      create: (context) => ProfileBloc(ProfileState.initial(
+        zoomDrawerController: zoomDrawerController,
+        appStateNotifier: appStateNotifier,
+      )),
       child: const ProfileConsumer(),
     );
   }
