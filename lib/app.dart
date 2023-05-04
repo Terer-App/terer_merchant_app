@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import 'package:terer_merchant/domain/constants/other_constants.dart';
 import 'package:terer_merchant/domain/services/storage_service/auth_service.dart';
 import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
 import 'package:terer_merchant/infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
@@ -82,8 +81,13 @@ Future appInitializer(AppConfig appConfig) async {
 
   if (isAuthorized) {
     profile = await IShopMerchantRepository(
-      serverUrl: OtherConstants.oldServerUrl,
+      serverUrl: appConfig.serverUrl,
     ).merchantProfile();
+
+    if (profile == null) {
+      await AuthTokenService.clearBox();
+      isAuthorized = false;
+    }
   }
 
   AppStateNotifier appStateNotifier = AppStateNotifier(

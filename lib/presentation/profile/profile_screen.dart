@@ -11,12 +11,15 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:terer_merchant/application/profile/profile_bloc.dart';
 import 'package:terer_merchant/domain/core/configs/app_config.dart';
+import 'package:terer_merchant/domain/services/navigation_service/routers/route_names.dart';
+import 'package:terer_merchant/presentation/core/custom_toast.dart';
 
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
 
 import '../../domain/core/configs/injection.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
+import '../../domain/services/storage_service/auth_service.dart';
 import '../core/custom_alert.dart';
 import '../core/custom_rounded_textfield.dart';
 import '../core/custom_text_field.dart';
@@ -28,13 +31,17 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String serverUrl = AppConfig.of(context)!.serverUrl;
+
     final AppStateNotifier appStateNotifier =
         Provider.of<AppStateNotifier>(context);
     return BlocProvider(
       create: (context) => ProfileBloc(ProfileState.initial(
         zoomDrawerController: zoomDrawerController,
         appStateNotifier: appStateNotifier,
-      )),
+        serverUrl: serverUrl,
+      ))
+        ..add(const ProfileEvent.init()),
       child: const ProfileConsumer(),
     );
   }
@@ -48,10 +55,51 @@ class ProfileConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileBloc, ProfileState>(
-      listener: (context, state) {},
+      listener: (context, state) async {
+        if (state.isSuccess) {
+        } else if (state.isFailed) {
+          if (state.showMessage.isNotEmpty) {
+            CustomToast.showToast(
+              msg: state.showMessage,
+            );
+          }
+
+          context.read<ProfileBloc>().add(
+                ProfileEvent.emitFromAnywhere(
+                  state: state.copyWith(
+                    isFailed: false,
+                    showMessage: '',
+                  ),
+                ),
+              );
+        }
+
+        if (state.isAccountDeleted) {
+          Provider.of<AppStateNotifier>(context, listen: false)
+              .updateAuthState(isAuthorized: false, profile: null);
+
+          await AuthTokenService.clearBox();
+
+          Future.delayed(const Duration(milliseconds: 100), () {
+            context.read<ProfileBloc>().add(
+                  ProfileEvent.emitFromAnywhere(
+                    state: state.copyWith(
+                      isAccountDeleted: false,
+                      isLoading: false,
+                    ),
+                  ),
+                );
+
+            navigator<NavigationService>().navigateTo(
+              AuthRoutes.gettingStartedRoute,
+              isClearStack: true,
+            );
+          });
+        }
+      },
       builder: (context, state) {
         return ModalProgressHUD(
-          inAsyncCall: false,
+          inAsyncCall: state.isLoading,
           child: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(
@@ -100,7 +148,8 @@ class ProfileConsumer extends StatelessWidget {
                             CustomRoundedInput(
                               isTitle: true,
                               enabled: false,
-                              titleText: MyProfileConstants.firstName,
+                              controller: state.shopNameController,
+                              titleText: MyProfileConstants.shopName,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
                               validator: (newVal) {
@@ -118,8 +167,9 @@ class ProfileConsumer extends StatelessWidget {
                             CustomRoundedInput(
                               isTitle: true,
                               enabled: false,
+                              controller: state.shopAddressController,
                               maxLines: 2,
-                              titleText: MyProfileConstants.lastName,
+                              titleText: MyProfileConstants.shopAddress,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
                               validator: (newVal) {
@@ -137,7 +187,8 @@ class ProfileConsumer extends StatelessWidget {
                             CustomRoundedInput(
                               isTitle: true,
                               enabled: false,
-                              titleText: MyProfileConstants.emailAddress,
+                              controller: state.shopEmailController,
+                              titleText: MyProfileConstants.shopEmail,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
                             ),
@@ -150,9 +201,10 @@ class ProfileConsumer extends StatelessWidget {
                             PrimaryTextField(
                               enabled: false,
                               inputWithLabel: true,
+                              controller: state.shopPhoneController,
                               labelColor:
                                   Theme.of(context).colorScheme.secondary,
-                              labelText: MyProfileConstants.phoneNumber,
+                              labelText: MyProfileConstants.shopPhone,
                               inputBorderRadius: 25,
                               hintText: MyProfileConstants.hintPhoneNumber,
                               keyboardType: TextInputType.phone,
@@ -249,7 +301,12 @@ class ProfileConsumer extends StatelessWidget {
                                               button2Text: AppConstants.noText
                                                   .toUpperCase(),
                                               // on press yes
-                                              onPressed: () async {},
+                                              onPressed: () async {
+                                                navigator<NavigationService>()
+                                                    .goBack(
+                                                  responseObject: true,
+                                                );
+                                              },
                                               isExtraBtn: true,
                                               makeTextBold: true,
                                               buttonText: AppConstants.yesText
@@ -258,7 +315,13 @@ class ProfileConsumer extends StatelessWidget {
                                                   .deleteYourAccount,
                                               svgUrl: AssetConstants.warning,
                                             );
-                                          }).then((value) {});
+                                          }).then((value) {
+                                        if (value != null) {
+                                          context.read<ProfileBloc>().add(
+                                              const ProfileEvent
+                                                  .onDeleteAccount());
+                                        }
+                                      });
                                     }),
                             ),
 

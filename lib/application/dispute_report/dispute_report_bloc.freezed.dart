@@ -20,6 +20,8 @@ mixin _$DisputeReportEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() attachFile,
+    required TResult Function() onSubmit,
     required TResult Function(DisputeReportState state) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +29,8 @@ mixin _$DisputeReportEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
     TResult Function(DisputeReportState state)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +38,8 @@ mixin _$DisputeReportEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
     TResult Function(DisputeReportState state)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -42,6 +48,8 @@ mixin _$DisputeReportEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_AttachFile value) attachFile,
+    required TResult Function(_OnSubmit value) onSubmit,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +57,8 @@ mixin _$DisputeReportEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +66,8 @@ mixin _$DisputeReportEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -119,6 +131,8 @@ class _$_Init implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() attachFile,
+    required TResult Function() onSubmit,
     required TResult Function(DisputeReportState state) emitFromAnywhere,
   }) {
     return init();
@@ -129,6 +143,8 @@ class _$_Init implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
     TResult Function(DisputeReportState state)? emitFromAnywhere,
   }) {
     return init?.call();
@@ -139,6 +155,8 @@ class _$_Init implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
     TResult Function(DisputeReportState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -153,6 +171,8 @@ class _$_Init implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_AttachFile value) attachFile,
+    required TResult Function(_OnSubmit value) onSubmit,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return init(this);
@@ -163,6 +183,8 @@ class _$_Init implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return init?.call(this);
@@ -173,6 +195,8 @@ class _$_Init implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -228,6 +252,8 @@ class _$_OnLoad implements _OnLoad {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() attachFile,
+    required TResult Function() onSubmit,
     required TResult Function(DisputeReportState state) emitFromAnywhere,
   }) {
     return onLoad();
@@ -238,6 +264,8 @@ class _$_OnLoad implements _OnLoad {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
     TResult Function(DisputeReportState state)? emitFromAnywhere,
   }) {
     return onLoad?.call();
@@ -248,6 +276,8 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
     TResult Function(DisputeReportState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -262,6 +292,8 @@ class _$_OnLoad implements _OnLoad {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_AttachFile value) attachFile,
+    required TResult Function(_OnSubmit value) onSubmit,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return onLoad(this);
@@ -272,6 +304,8 @@ class _$_OnLoad implements _OnLoad {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return onLoad?.call(this);
@@ -282,6 +316,8 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -294,6 +330,252 @@ class _$_OnLoad implements _OnLoad {
 
 abstract class _OnLoad implements DisputeReportEvent {
   const factory _OnLoad() = _$_OnLoad;
+}
+
+/// @nodoc
+abstract class _$$_AttachFileCopyWith<$Res> {
+  factory _$$_AttachFileCopyWith(
+          _$_AttachFile value, $Res Function(_$_AttachFile) then) =
+      __$$_AttachFileCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_AttachFileCopyWithImpl<$Res>
+    extends _$DisputeReportEventCopyWithImpl<$Res>
+    implements _$$_AttachFileCopyWith<$Res> {
+  __$$_AttachFileCopyWithImpl(
+      _$_AttachFile _value, $Res Function(_$_AttachFile) _then)
+      : super(_value, (v) => _then(v as _$_AttachFile));
+
+  @override
+  _$_AttachFile get _value => super._value as _$_AttachFile;
+}
+
+/// @nodoc
+
+class _$_AttachFile implements _AttachFile {
+  const _$_AttachFile();
+
+  @override
+  String toString() {
+    return 'DisputeReportEvent.attachFile()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_AttachFile);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function() attachFile,
+    required TResult Function() onSubmit,
+    required TResult Function(DisputeReportState state) emitFromAnywhere,
+  }) {
+    return attachFile();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
+    TResult Function(DisputeReportState state)? emitFromAnywhere,
+  }) {
+    return attachFile?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
+    TResult Function(DisputeReportState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (attachFile != null) {
+      return attachFile();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_AttachFile value) attachFile,
+    required TResult Function(_OnSubmit value) onSubmit,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return attachFile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return attachFile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (attachFile != null) {
+      return attachFile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AttachFile implements DisputeReportEvent {
+  const factory _AttachFile() = _$_AttachFile;
+}
+
+/// @nodoc
+abstract class _$$_OnSubmitCopyWith<$Res> {
+  factory _$$_OnSubmitCopyWith(
+          _$_OnSubmit value, $Res Function(_$_OnSubmit) then) =
+      __$$_OnSubmitCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OnSubmitCopyWithImpl<$Res>
+    extends _$DisputeReportEventCopyWithImpl<$Res>
+    implements _$$_OnSubmitCopyWith<$Res> {
+  __$$_OnSubmitCopyWithImpl(
+      _$_OnSubmit _value, $Res Function(_$_OnSubmit) _then)
+      : super(_value, (v) => _then(v as _$_OnSubmit));
+
+  @override
+  _$_OnSubmit get _value => super._value as _$_OnSubmit;
+}
+
+/// @nodoc
+
+class _$_OnSubmit implements _OnSubmit {
+  const _$_OnSubmit();
+
+  @override
+  String toString() {
+    return 'DisputeReportEvent.onSubmit()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OnSubmit);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function() attachFile,
+    required TResult Function() onSubmit,
+    required TResult Function(DisputeReportState state) emitFromAnywhere,
+  }) {
+    return onSubmit();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
+    TResult Function(DisputeReportState state)? emitFromAnywhere,
+  }) {
+    return onSubmit?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
+    TResult Function(DisputeReportState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (onSubmit != null) {
+      return onSubmit();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_AttachFile value) attachFile,
+    required TResult Function(_OnSubmit value) onSubmit,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return onSubmit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return onSubmit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (onSubmit != null) {
+      return onSubmit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnSubmit implements DisputeReportEvent {
+  const factory _OnSubmit() = _$_OnSubmit;
 }
 
 /// @nodoc
@@ -372,6 +654,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() attachFile,
+    required TResult Function() onSubmit,
     required TResult Function(DisputeReportState state) emitFromAnywhere,
   }) {
     return emitFromAnywhere(state);
@@ -382,6 +666,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
     TResult Function(DisputeReportState state)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(state);
@@ -392,6 +678,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? attachFile,
+    TResult Function()? onSubmit,
     TResult Function(DisputeReportState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -406,6 +694,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_AttachFile value) attachFile,
+    required TResult Function(_OnSubmit value) onSubmit,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return emitFromAnywhere(this);
@@ -416,6 +706,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(this);
@@ -426,6 +718,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_AttachFile value)? attachFile,
+    TResult Function(_OnSubmit value)? onSubmit,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -449,6 +743,22 @@ abstract class _EmitFromAnywhere implements DisputeReportEvent {
 /// @nodoc
 mixin _$DisputeReportState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isFailed => throw _privateConstructorUsedError;
+  bool get isSuccess => throw _privateConstructorUsedError;
+  bool get validateForm => throw _privateConstructorUsedError;
+  AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
+  String get serverUrl => throw _privateConstructorUsedError;
+  String get showMessage => throw _privateConstructorUsedError;
+  GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
+  UploadFileRepository get uploadFileRepository =>
+      throw _privateConstructorUsedError;
+  ShopMerchantRepository get shopMerchantRepository =>
+      throw _privateConstructorUsedError;
+  TextEditingController get messageController =>
+      throw _privateConstructorUsedError;
+  MerchantDto? get profile => throw _privateConstructorUsedError;
+  http.MultipartFile? get attachImageFile => throw _privateConstructorUsedError;
+  String get attachImagePath => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $DisputeReportStateCopyWith<DisputeReportState> get copyWith =>
@@ -460,7 +770,23 @@ abstract class $DisputeReportStateCopyWith<$Res> {
   factory $DisputeReportStateCopyWith(
           DisputeReportState value, $Res Function(DisputeReportState) then) =
       _$DisputeReportStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading});
+  $Res call(
+      {bool isLoading,
+      bool isFailed,
+      bool isSuccess,
+      bool validateForm,
+      AppStateNotifier appStateNotifier,
+      String serverUrl,
+      String showMessage,
+      GlobalKey<FormState> formKey,
+      UploadFileRepository uploadFileRepository,
+      ShopMerchantRepository shopMerchantRepository,
+      TextEditingController messageController,
+      MerchantDto? profile,
+      http.MultipartFile? attachImageFile,
+      String attachImagePath});
+
+  $MerchantDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -475,13 +801,89 @@ class _$DisputeReportStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isFailed = freezed,
+    Object? isSuccess = freezed,
+    Object? validateForm = freezed,
+    Object? appStateNotifier = freezed,
+    Object? serverUrl = freezed,
+    Object? showMessage = freezed,
+    Object? formKey = freezed,
+    Object? uploadFileRepository = freezed,
+    Object? shopMerchantRepository = freezed,
+    Object? messageController = freezed,
+    Object? profile = freezed,
+    Object? attachImageFile = freezed,
+    Object? attachImagePath = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isFailed: isFailed == freezed
+          ? _value.isFailed
+          : isFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccess: isSuccess == freezed
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      validateForm: validateForm == freezed
+          ? _value.validateForm
+          : validateForm // ignore: cast_nullable_to_non_nullable
+              as bool,
+      appStateNotifier: appStateNotifier == freezed
+          ? _value.appStateNotifier
+          : appStateNotifier // ignore: cast_nullable_to_non_nullable
+              as AppStateNotifier,
+      serverUrl: serverUrl == freezed
+          ? _value.serverUrl
+          : serverUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      showMessage: showMessage == freezed
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      formKey: formKey == freezed
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
+      uploadFileRepository: uploadFileRepository == freezed
+          ? _value.uploadFileRepository
+          : uploadFileRepository // ignore: cast_nullable_to_non_nullable
+              as UploadFileRepository,
+      shopMerchantRepository: shopMerchantRepository == freezed
+          ? _value.shopMerchantRepository
+          : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
+              as ShopMerchantRepository,
+      messageController: messageController == freezed
+          ? _value.messageController
+          : messageController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
+      attachImageFile: attachImageFile == freezed
+          ? _value.attachImageFile
+          : attachImageFile // ignore: cast_nullable_to_non_nullable
+              as http.MultipartFile?,
+      attachImagePath: attachImagePath == freezed
+          ? _value.attachImagePath
+          : attachImagePath // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
+  }
+
+  @override
+  $MerchantDtoCopyWith<$Res>? get profile {
+    if (_value.profile == null) {
+      return null;
+    }
+
+    return $MerchantDtoCopyWith<$Res>(_value.profile!, (value) {
+      return _then(_value.copyWith(profile: value));
+    });
   }
 }
 
@@ -492,7 +894,24 @@ abstract class _$$_DisputeReportStateCopyWith<$Res>
           $Res Function(_$_DisputeReportState) then) =
       __$$_DisputeReportStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading});
+  $Res call(
+      {bool isLoading,
+      bool isFailed,
+      bool isSuccess,
+      bool validateForm,
+      AppStateNotifier appStateNotifier,
+      String serverUrl,
+      String showMessage,
+      GlobalKey<FormState> formKey,
+      UploadFileRepository uploadFileRepository,
+      ShopMerchantRepository shopMerchantRepository,
+      TextEditingController messageController,
+      MerchantDto? profile,
+      http.MultipartFile? attachImageFile,
+      String attachImagePath});
+
+  @override
+  $MerchantDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -509,12 +928,77 @@ class __$$_DisputeReportStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isFailed = freezed,
+    Object? isSuccess = freezed,
+    Object? validateForm = freezed,
+    Object? appStateNotifier = freezed,
+    Object? serverUrl = freezed,
+    Object? showMessage = freezed,
+    Object? formKey = freezed,
+    Object? uploadFileRepository = freezed,
+    Object? shopMerchantRepository = freezed,
+    Object? messageController = freezed,
+    Object? profile = freezed,
+    Object? attachImageFile = freezed,
+    Object? attachImagePath = freezed,
   }) {
     return _then(_$_DisputeReportState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isFailed: isFailed == freezed
+          ? _value.isFailed
+          : isFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccess: isSuccess == freezed
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      validateForm: validateForm == freezed
+          ? _value.validateForm
+          : validateForm // ignore: cast_nullable_to_non_nullable
+              as bool,
+      appStateNotifier: appStateNotifier == freezed
+          ? _value.appStateNotifier
+          : appStateNotifier // ignore: cast_nullable_to_non_nullable
+              as AppStateNotifier,
+      serverUrl: serverUrl == freezed
+          ? _value.serverUrl
+          : serverUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      showMessage: showMessage == freezed
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      formKey: formKey == freezed
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
+      uploadFileRepository: uploadFileRepository == freezed
+          ? _value.uploadFileRepository
+          : uploadFileRepository // ignore: cast_nullable_to_non_nullable
+              as UploadFileRepository,
+      shopMerchantRepository: shopMerchantRepository == freezed
+          ? _value.shopMerchantRepository
+          : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
+              as ShopMerchantRepository,
+      messageController: messageController == freezed
+          ? _value.messageController
+          : messageController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
+      attachImageFile: attachImageFile == freezed
+          ? _value.attachImageFile
+          : attachImageFile // ignore: cast_nullable_to_non_nullable
+              as http.MultipartFile?,
+      attachImagePath: attachImagePath == freezed
+          ? _value.attachImagePath
+          : attachImagePath // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -522,14 +1006,54 @@ class __$$_DisputeReportStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_DisputeReportState implements _DisputeReportState {
-  const _$_DisputeReportState({required this.isLoading});
+  const _$_DisputeReportState(
+      {required this.isLoading,
+      required this.isFailed,
+      required this.isSuccess,
+      required this.validateForm,
+      required this.appStateNotifier,
+      required this.serverUrl,
+      required this.showMessage,
+      required this.formKey,
+      required this.uploadFileRepository,
+      required this.shopMerchantRepository,
+      required this.messageController,
+      this.profile,
+      this.attachImageFile,
+      required this.attachImagePath});
 
   @override
   final bool isLoading;
+  @override
+  final bool isFailed;
+  @override
+  final bool isSuccess;
+  @override
+  final bool validateForm;
+  @override
+  final AppStateNotifier appStateNotifier;
+  @override
+  final String serverUrl;
+  @override
+  final String showMessage;
+  @override
+  final GlobalKey<FormState> formKey;
+  @override
+  final UploadFileRepository uploadFileRepository;
+  @override
+  final ShopMerchantRepository shopMerchantRepository;
+  @override
+  final TextEditingController messageController;
+  @override
+  final MerchantDto? profile;
+  @override
+  final http.MultipartFile? attachImageFile;
+  @override
+  final String attachImagePath;
 
   @override
   String toString() {
-    return 'DisputeReportState(isLoading: $isLoading)';
+    return 'DisputeReportState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, validateForm: $validateForm, appStateNotifier: $appStateNotifier, serverUrl: $serverUrl, showMessage: $showMessage, formKey: $formKey, uploadFileRepository: $uploadFileRepository, shopMerchantRepository: $shopMerchantRepository, messageController: $messageController, profile: $profile, attachImageFile: $attachImageFile, attachImagePath: $attachImagePath)';
   }
 
   @override
@@ -537,12 +1061,47 @@ class _$_DisputeReportState implements _DisputeReportState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_DisputeReportState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading));
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(other.isFailed, isFailed) &&
+            const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
+            const DeepCollectionEquality()
+                .equals(other.validateForm, validateForm) &&
+            const DeepCollectionEquality()
+                .equals(other.appStateNotifier, appStateNotifier) &&
+            const DeepCollectionEquality().equals(other.serverUrl, serverUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.showMessage, showMessage) &&
+            const DeepCollectionEquality().equals(other.formKey, formKey) &&
+            const DeepCollectionEquality()
+                .equals(other.uploadFileRepository, uploadFileRepository) &&
+            const DeepCollectionEquality()
+                .equals(other.shopMerchantRepository, shopMerchantRepository) &&
+            const DeepCollectionEquality()
+                .equals(other.messageController, messageController) &&
+            const DeepCollectionEquality().equals(other.profile, profile) &&
+            const DeepCollectionEquality()
+                .equals(other.attachImageFile, attachImageFile) &&
+            const DeepCollectionEquality()
+                .equals(other.attachImagePath, attachImagePath));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isLoading));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isFailed),
+      const DeepCollectionEquality().hash(isSuccess),
+      const DeepCollectionEquality().hash(validateForm),
+      const DeepCollectionEquality().hash(appStateNotifier),
+      const DeepCollectionEquality().hash(serverUrl),
+      const DeepCollectionEquality().hash(showMessage),
+      const DeepCollectionEquality().hash(formKey),
+      const DeepCollectionEquality().hash(uploadFileRepository),
+      const DeepCollectionEquality().hash(shopMerchantRepository),
+      const DeepCollectionEquality().hash(messageController),
+      const DeepCollectionEquality().hash(profile),
+      const DeepCollectionEquality().hash(attachImageFile),
+      const DeepCollectionEquality().hash(attachImagePath));
 
   @JsonKey(ignore: true)
   @override
@@ -552,11 +1111,50 @@ class _$_DisputeReportState implements _DisputeReportState {
 }
 
 abstract class _DisputeReportState implements DisputeReportState {
-  const factory _DisputeReportState({required final bool isLoading}) =
-      _$_DisputeReportState;
+  const factory _DisputeReportState(
+      {required final bool isLoading,
+      required final bool isFailed,
+      required final bool isSuccess,
+      required final bool validateForm,
+      required final AppStateNotifier appStateNotifier,
+      required final String serverUrl,
+      required final String showMessage,
+      required final GlobalKey<FormState> formKey,
+      required final UploadFileRepository uploadFileRepository,
+      required final ShopMerchantRepository shopMerchantRepository,
+      required final TextEditingController messageController,
+      final MerchantDto? profile,
+      final http.MultipartFile? attachImageFile,
+      required final String attachImagePath}) = _$_DisputeReportState;
 
   @override
   bool get isLoading;
+  @override
+  bool get isFailed;
+  @override
+  bool get isSuccess;
+  @override
+  bool get validateForm;
+  @override
+  AppStateNotifier get appStateNotifier;
+  @override
+  String get serverUrl;
+  @override
+  String get showMessage;
+  @override
+  GlobalKey<FormState> get formKey;
+  @override
+  UploadFileRepository get uploadFileRepository;
+  @override
+  ShopMerchantRepository get shopMerchantRepository;
+  @override
+  TextEditingController get messageController;
+  @override
+  MerchantDto? get profile;
+  @override
+  http.MultipartFile? get attachImageFile;
+  @override
+  String get attachImagePath;
   @override
   @JsonKey(ignore: true)
   _$$_DisputeReportStateCopyWith<_$_DisputeReportState> get copyWith =>

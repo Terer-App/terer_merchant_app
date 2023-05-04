@@ -3,7 +3,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:terer_merchant/domain/auth/auth_repository.dart';
-import 'package:terer_merchant/domain/constants/other_constants.dart';
 import 'package:terer_merchant/domain/services/storage_service/auth_service.dart';
 import 'package:terer_merchant/domain/shop_merchant/shop_merchant_repository.dart';
 import 'package:terer_merchant/infrastructure/auth/i_auth_repository.dart';

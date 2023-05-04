@@ -136,8 +136,8 @@ class _CustomRoundedInputState extends State<CustomRoundedInput> {
             child: TextFormField(
               enabled: widget.enabled,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    fontSize: 13.sp,
-                  ),
+                  fontSize: 13.sp,
+                  color: Theme.of(context).colorScheme.primaryContainer),
               readOnly: widget.readOnly,
               onChanged: widget.onChanged != null
                   ? widget.hasDebounce

@@ -53,7 +53,7 @@ class ErrorConstants {
   static const String pinTooShort = 'Pin is too short';
   static const String otpTooShort = 'OTP is too short';
   static const String genericNetworkIssue =
-      'Something went wrong! please try again...';
+      'Something went wrong, please try again!';
 }
 
 class AuthConstants {
@@ -207,10 +207,10 @@ class ScanConstants {
 
 class MyProfileConstants {
   //label text
-  static const String firstName = 'Shop Name';
-  static const String lastName = 'Shop Address';
-  static const String emailAddress = 'Email Address';
-  static const String phoneNumber = 'Phone Number';
+  static const String shopName = 'Shop Name';
+  static const String shopAddress = 'Shop Address';
+  static const String shopEmail = 'Email Address';
+  static const String shopPhone = 'Phone Number';
   static const String pin6Digit = '6-digit pin';
   static const String profileUpdated = 'Profile Updated';
   static const String pinUpdated = 'Pin Updated';

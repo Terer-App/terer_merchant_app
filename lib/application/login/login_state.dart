@@ -24,7 +24,7 @@ class LoginState with _$LoginState {
       validateForm: false,
       showMessage: '',
       shopMerchantRepository: IShopMerchantRepository(
-        serverUrl: OtherConstants.oldServerUrl,
+        serverUrl: serverUrl,
       ),
       authRepository: IAuthRepository(
         serverUrl: serverUrl,

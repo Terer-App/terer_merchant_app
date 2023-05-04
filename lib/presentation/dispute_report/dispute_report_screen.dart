@@ -1,14 +1,19 @@
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'package:terer_merchant/application/dispute_report/dispute_report_bloc.dart';
+import 'package:terer_merchant/domain/services/navigation_service/routers/route_names.dart';
+import 'package:terer_merchant/presentation/core/custom_toast.dart';
 
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
+import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../core/custom_alert.dart';
@@ -20,8 +25,14 @@ class DisputeReportScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppStateNotifier appStateNotifier =
+        Provider.of<AppStateNotifier>(context);
+    String serverUrl = AppConfig.of(context)!.serverUrl;
     return BlocProvider(
-      create: (context) => DisputeReportBloc(DisputeReportState.initial()),
+      create: (context) => DisputeReportBloc(DisputeReportState.initial(
+        appStateNotifier: appStateNotifier,
+        serverUrl: serverUrl,
+      )),
       child: const DisputeReportConsumer(),
     );
   }
@@ -35,14 +46,48 @@ class DisputeReportConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<DisputeReportBloc, DisputeReportState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state.isSuccess) {
+          showDialog(
+              barrierColor: Colors.white.withOpacity(0.5),
+              barrierDismissible: false,
+              context: context,
+              builder: (context) {
+                return CustomAlert(
+                  onPressed: () {
+                    navigator<NavigationService>().goBack();
+                  },
+                  isReport: true,
+                  makeTextBold: true,
+                  buttonText: AppConstants.backToHome,
+                  content: DisputeReportConstants.thankYouForReporting,
+                  svgUrl: AssetConstants.successSvg,
+                );
+              }).then((value) {
+            context.read<DisputeReportBloc>().add(
+                DisputeReportEvent.emitFromAnywhere(
+                    state: state.copyWith(isSuccess: false, showMessage: '')));
+            navigator<NavigationService>()
+                .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
+          });
+        } else if (state.isFailed) {
+          if (state.showMessage.isNotEmpty) {
+            CustomToast.showToast(
+                msg: state.showMessage, toastGravity: ToastGravity.BOTTOM);
+          }
+
+          context.read<DisputeReportBloc>().add(
+              DisputeReportEvent.emitFromAnywhere(
+                  state: state.copyWith(isFailed: false, showMessage: '')));
+        }
+      },
       builder: (context, state) {
         return GestureDetector(
           onTap: () {
             FocusScope.of(context).unfocus();
           },
           child: ModalProgressHUD(
-            inAsyncCall: false,
+            inAsyncCall: state.isLoading,
             child: Scaffold(
               appBar: AppBar(
                 backgroundColor: Theme.of(context).primaryColor,
@@ -93,7 +138,7 @@ class DisputeReportConsumer extends StatelessWidget {
                   ),
                   Expanded(
                     child: Form(
-                      // key: state.formKey,
+                      key: state.formKey,
                       child: SingleChildScrollView(
                         child: Padding(
                           padding: EdgeInsets.symmetric(
@@ -120,8 +165,15 @@ class DisputeReportConsumer extends StatelessWidget {
                               CustomRoundedInput(
                                 maxLines: 5,
                                 validator: (newVal) {
+                                  if (!state.validateForm) return null;
+
+                                  if (newVal == null || newVal.isEmpty) {
+                                    return ErrorConstants.requiredError;
+                                  }
+
                                   return null;
                                 },
+                                controller: state.messageController,
                                 borderSide: BorderSide(
                                   width: 1,
                                   color:
@@ -151,7 +203,13 @@ class DisputeReportConsumer extends StatelessWidget {
                                 height: 5.w,
                               ),
                               InkWell(
-                                onTap: 1 == 0 ? () {} : null,
+                                onTap: state.attachImagePath.isEmpty
+                                    ? () {
+                                        context.read<DisputeReportBloc>().add(
+                                            const DisputeReportEvent
+                                                .attachFile());
+                                      }
+                                    : null,
                                 child: Container(
                                   height: 40.w,
                                   width: double.infinity,
@@ -162,28 +220,33 @@ class DisputeReportConsumer extends StatelessWidget {
                                         .secondary
                                         .withOpacity(0.2),
                                   ),
-                                  child: 1 == 0
+                                  child: state.attachImagePath.isNotEmpty
                                       ? Stack(
                                           children: [
-                                            const Center(
-                                                child: kIsWeb
-                                                    ? SizedBox()
-                                                    //  Image.memory(
-                                                    //     state.attachImageMemory!,
-                                                    //     fit: BoxFit.cover,
-                                                    //   )
-                                                    : SizedBox()
-                                                //  Image.file(
-                                                //     File(state
-                                                //         .attachImagePath),
-                                                //     fit: BoxFit.cover,
-                                                //   ),
-                                                ),
+                                            Center(
+                                              child: Image.file(
+                                                File(state.attachImagePath),
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
                                             Positioned(
                                               right: 10,
                                               top: 10,
                                               child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  context
+                                                      .read<DisputeReportBloc>()
+                                                      .add(
+                                                        DisputeReportEvent
+                                                            .emitFromAnywhere(
+                                                          state: state.copyWith(
+                                                              attachImageFile:
+                                                                  null,
+                                                              attachImagePath:
+                                                                  ''),
+                                                        ),
+                                                      );
+                                                },
                                                 child: CircleAvatar(
                                                   backgroundColor: Colors.red,
                                                   radius: 15,
@@ -221,25 +284,11 @@ class DisputeReportConsumer extends StatelessWidget {
                                   btnBorderRadius: 7.w,
                                   height: 8.h,
                                   onPressedBtn: () {
-                                    showDialog(
-                                        barrierColor:
-                                            Colors.white.withOpacity(0.5),
-                                        barrierDismissible: false,
-                                        context: context,
-                                        builder: (context) {
-                                          return CustomAlert(
-                                            onPressed: () {
-                                              navigator<NavigationService>()
-                                                  .goBack();
-                                            },
-                                            isReport: true,
-                                            makeTextBold: true,
-                                            buttonText: AppConstants.backToHome,
-                                            content: DisputeReportConstants
-                                                .thankYouForReporting,
-                                            svgUrl: AssetConstants.successSvg,
-                                          );
-                                        }).then((value) {});
+                                    FocusScope.of(context).unfocus();
+
+                                    context.read<DisputeReportBloc>().add(
+                                          const DisputeReportEvent.onSubmit(),
+                                        );
                                   }),
                               SizedBox(
                                 height: 10.h,

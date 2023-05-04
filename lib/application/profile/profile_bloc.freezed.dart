@@ -20,6 +20,7 @@ mixin _$ProfileEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() onDeleteAccount,
     required TResult Function(ProfileState state) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +28,7 @@ mixin _$ProfileEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
     TResult Function(ProfileState state)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +36,7 @@ mixin _$ProfileEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
     TResult Function(ProfileState state)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$ProfileEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnDeleteAccount value) onDeleteAccount,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$ProfileEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$ProfileEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -118,6 +124,7 @@ class _$_Init implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() onDeleteAccount,
     required TResult Function(ProfileState state) emitFromAnywhere,
   }) {
     return init();
@@ -128,6 +135,7 @@ class _$_Init implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
     TResult Function(ProfileState state)? emitFromAnywhere,
   }) {
     return init?.call();
@@ -138,6 +146,7 @@ class _$_Init implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
     TResult Function(ProfileState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -152,6 +161,7 @@ class _$_Init implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnDeleteAccount value) onDeleteAccount,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return init(this);
@@ -162,6 +172,7 @@ class _$_Init implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return init?.call(this);
@@ -172,6 +183,7 @@ class _$_Init implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -226,6 +238,7 @@ class _$_OnLoad implements _OnLoad {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() onDeleteAccount,
     required TResult Function(ProfileState state) emitFromAnywhere,
   }) {
     return onLoad();
@@ -236,6 +249,7 @@ class _$_OnLoad implements _OnLoad {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
     TResult Function(ProfileState state)? emitFromAnywhere,
   }) {
     return onLoad?.call();
@@ -246,6 +260,7 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
     TResult Function(ProfileState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -260,6 +275,7 @@ class _$_OnLoad implements _OnLoad {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnDeleteAccount value) onDeleteAccount,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return onLoad(this);
@@ -270,6 +286,7 @@ class _$_OnLoad implements _OnLoad {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return onLoad?.call(this);
@@ -280,6 +297,7 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -292,6 +310,123 @@ class _$_OnLoad implements _OnLoad {
 
 abstract class _OnLoad implements ProfileEvent {
   const factory _OnLoad() = _$_OnLoad;
+}
+
+/// @nodoc
+abstract class _$$_OnDeleteAccountCopyWith<$Res> {
+  factory _$$_OnDeleteAccountCopyWith(
+          _$_OnDeleteAccount value, $Res Function(_$_OnDeleteAccount) then) =
+      __$$_OnDeleteAccountCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OnDeleteAccountCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$$_OnDeleteAccountCopyWith<$Res> {
+  __$$_OnDeleteAccountCopyWithImpl(
+      _$_OnDeleteAccount _value, $Res Function(_$_OnDeleteAccount) _then)
+      : super(_value, (v) => _then(v as _$_OnDeleteAccount));
+
+  @override
+  _$_OnDeleteAccount get _value => super._value as _$_OnDeleteAccount;
+}
+
+/// @nodoc
+
+class _$_OnDeleteAccount implements _OnDeleteAccount {
+  const _$_OnDeleteAccount();
+
+  @override
+  String toString() {
+    return 'ProfileEvent.onDeleteAccount()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OnDeleteAccount);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function() onDeleteAccount,
+    required TResult Function(ProfileState state) emitFromAnywhere,
+  }) {
+    return onDeleteAccount();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
+    TResult Function(ProfileState state)? emitFromAnywhere,
+  }) {
+    return onDeleteAccount?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
+    TResult Function(ProfileState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (onDeleteAccount != null) {
+      return onDeleteAccount();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnDeleteAccount value) onDeleteAccount,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return onDeleteAccount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return onDeleteAccount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (onDeleteAccount != null) {
+      return onDeleteAccount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnDeleteAccount implements ProfileEvent {
+  const factory _OnDeleteAccount() = _$_OnDeleteAccount;
 }
 
 /// @nodoc
@@ -370,6 +505,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() onDeleteAccount,
     required TResult Function(ProfileState state) emitFromAnywhere,
   }) {
     return emitFromAnywhere(state);
@@ -380,6 +516,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
     TResult Function(ProfileState state)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(state);
@@ -390,6 +527,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onDeleteAccount,
     TResult Function(ProfileState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -404,6 +542,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnDeleteAccount value) onDeleteAccount,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return emitFromAnywhere(this);
@@ -414,6 +553,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(this);
@@ -424,6 +564,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnDeleteAccount value)? onDeleteAccount,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -447,10 +588,25 @@ abstract class _EmitFromAnywhere implements ProfileEvent {
 /// @nodoc
 mixin _$ProfileState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isFailed => throw _privateConstructorUsedError;
+  bool get isSuccess => throw _privateConstructorUsedError;
+  bool get isAccountDeleted => throw _privateConstructorUsedError;
+  String get serverUrl => throw _privateConstructorUsedError;
+  String get showMessage => throw _privateConstructorUsedError;
   AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
-  MerchantDto? get profile => throw _privateConstructorUsedError;
+  ShopMerchantRepository get shopMerchantRepository =>
+      throw _privateConstructorUsedError;
   ZoomDrawerController get zoomDrawerController =>
       throw _privateConstructorUsedError;
+  TextEditingController get shopNameController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get shopAddressController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get shopEmailController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get shopPhoneController =>
+      throw _privateConstructorUsedError;
+  MerchantDto? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ProfileStateCopyWith<ProfileState> get copyWith =>
@@ -464,9 +620,19 @@ abstract class $ProfileStateCopyWith<$Res> {
       _$ProfileStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
+      bool isFailed,
+      bool isSuccess,
+      bool isAccountDeleted,
+      String serverUrl,
+      String showMessage,
       AppStateNotifier appStateNotifier,
-      MerchantDto? profile,
-      ZoomDrawerController zoomDrawerController});
+      ShopMerchantRepository shopMerchantRepository,
+      ZoomDrawerController zoomDrawerController,
+      TextEditingController shopNameController,
+      TextEditingController shopAddressController,
+      TextEditingController shopEmailController,
+      TextEditingController shopPhoneController,
+      MerchantDto? profile});
 
   $MerchantDtoCopyWith<$Res>? get profile;
 }
@@ -482,27 +648,77 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isFailed = freezed,
+    Object? isSuccess = freezed,
+    Object? isAccountDeleted = freezed,
+    Object? serverUrl = freezed,
+    Object? showMessage = freezed,
     Object? appStateNotifier = freezed,
-    Object? profile = freezed,
+    Object? shopMerchantRepository = freezed,
     Object? zoomDrawerController = freezed,
+    Object? shopNameController = freezed,
+    Object? shopAddressController = freezed,
+    Object? shopEmailController = freezed,
+    Object? shopPhoneController = freezed,
+    Object? profile = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isFailed: isFailed == freezed
+          ? _value.isFailed
+          : isFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccess: isSuccess == freezed
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAccountDeleted: isAccountDeleted == freezed
+          ? _value.isAccountDeleted
+          : isAccountDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      serverUrl: serverUrl == freezed
+          ? _value.serverUrl
+          : serverUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      showMessage: showMessage == freezed
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       appStateNotifier: appStateNotifier == freezed
           ? _value.appStateNotifier
           : appStateNotifier // ignore: cast_nullable_to_non_nullable
               as AppStateNotifier,
-      profile: profile == freezed
-          ? _value.profile
-          : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+      shopMerchantRepository: shopMerchantRepository == freezed
+          ? _value.shopMerchantRepository
+          : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
+              as ShopMerchantRepository,
       zoomDrawerController: zoomDrawerController == freezed
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
               as ZoomDrawerController,
+      shopNameController: shopNameController == freezed
+          ? _value.shopNameController
+          : shopNameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      shopAddressController: shopAddressController == freezed
+          ? _value.shopAddressController
+          : shopAddressController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      shopEmailController: shopEmailController == freezed
+          ? _value.shopEmailController
+          : shopEmailController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      shopPhoneController: shopPhoneController == freezed
+          ? _value.shopPhoneController
+          : shopPhoneController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
     ));
   }
 
@@ -527,9 +743,19 @@ abstract class _$$_ProfileStateCopyWith<$Res>
   @override
   $Res call(
       {bool isLoading,
+      bool isFailed,
+      bool isSuccess,
+      bool isAccountDeleted,
+      String serverUrl,
+      String showMessage,
       AppStateNotifier appStateNotifier,
-      MerchantDto? profile,
-      ZoomDrawerController zoomDrawerController});
+      ShopMerchantRepository shopMerchantRepository,
+      ZoomDrawerController zoomDrawerController,
+      TextEditingController shopNameController,
+      TextEditingController shopAddressController,
+      TextEditingController shopEmailController,
+      TextEditingController shopPhoneController,
+      MerchantDto? profile});
 
   @override
   $MerchantDtoCopyWith<$Res>? get profile;
@@ -549,27 +775,77 @@ class __$$_ProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isFailed = freezed,
+    Object? isSuccess = freezed,
+    Object? isAccountDeleted = freezed,
+    Object? serverUrl = freezed,
+    Object? showMessage = freezed,
     Object? appStateNotifier = freezed,
-    Object? profile = freezed,
+    Object? shopMerchantRepository = freezed,
     Object? zoomDrawerController = freezed,
+    Object? shopNameController = freezed,
+    Object? shopAddressController = freezed,
+    Object? shopEmailController = freezed,
+    Object? shopPhoneController = freezed,
+    Object? profile = freezed,
   }) {
     return _then(_$_ProfileState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isFailed: isFailed == freezed
+          ? _value.isFailed
+          : isFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccess: isSuccess == freezed
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isAccountDeleted: isAccountDeleted == freezed
+          ? _value.isAccountDeleted
+          : isAccountDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      serverUrl: serverUrl == freezed
+          ? _value.serverUrl
+          : serverUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+      showMessage: showMessage == freezed
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
+              as String,
       appStateNotifier: appStateNotifier == freezed
           ? _value.appStateNotifier
           : appStateNotifier // ignore: cast_nullable_to_non_nullable
               as AppStateNotifier,
-      profile: profile == freezed
-          ? _value.profile
-          : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+      shopMerchantRepository: shopMerchantRepository == freezed
+          ? _value.shopMerchantRepository
+          : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
+              as ShopMerchantRepository,
       zoomDrawerController: zoomDrawerController == freezed
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
               as ZoomDrawerController,
+      shopNameController: shopNameController == freezed
+          ? _value.shopNameController
+          : shopNameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      shopAddressController: shopAddressController == freezed
+          ? _value.shopAddressController
+          : shopAddressController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      shopEmailController: shopEmailController == freezed
+          ? _value.shopEmailController
+          : shopEmailController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      shopPhoneController: shopPhoneController == freezed
+          ? _value.shopPhoneController
+          : shopPhoneController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
     ));
   }
 }
@@ -579,22 +855,52 @@ class __$$_ProfileStateCopyWithImpl<$Res>
 class _$_ProfileState implements _ProfileState {
   const _$_ProfileState(
       {required this.isLoading,
+      required this.isFailed,
+      required this.isSuccess,
+      required this.isAccountDeleted,
+      required this.serverUrl,
+      required this.showMessage,
       required this.appStateNotifier,
-      this.profile,
-      required this.zoomDrawerController});
+      required this.shopMerchantRepository,
+      required this.zoomDrawerController,
+      required this.shopNameController,
+      required this.shopAddressController,
+      required this.shopEmailController,
+      required this.shopPhoneController,
+      this.profile});
 
   @override
   final bool isLoading;
   @override
+  final bool isFailed;
+  @override
+  final bool isSuccess;
+  @override
+  final bool isAccountDeleted;
+  @override
+  final String serverUrl;
+  @override
+  final String showMessage;
+  @override
   final AppStateNotifier appStateNotifier;
   @override
-  final MerchantDto? profile;
+  final ShopMerchantRepository shopMerchantRepository;
   @override
   final ZoomDrawerController zoomDrawerController;
+  @override
+  final TextEditingController shopNameController;
+  @override
+  final TextEditingController shopAddressController;
+  @override
+  final TextEditingController shopEmailController;
+  @override
+  final TextEditingController shopPhoneController;
+  @override
+  final MerchantDto? profile;
 
   @override
   String toString() {
-    return 'ProfileState(isLoading: $isLoading, appStateNotifier: $appStateNotifier, profile: $profile, zoomDrawerController: $zoomDrawerController)';
+    return 'ProfileState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, shopNameController: $shopNameController, shopAddressController: $shopAddressController, shopEmailController: $shopEmailController, shopPhoneController: $shopPhoneController, profile: $profile)';
   }
 
   @override
@@ -603,20 +909,47 @@ class _$_ProfileState implements _ProfileState {
         (other.runtimeType == runtimeType &&
             other is _$_ProfileState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(other.isFailed, isFailed) &&
+            const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
+            const DeepCollectionEquality()
+                .equals(other.isAccountDeleted, isAccountDeleted) &&
+            const DeepCollectionEquality().equals(other.serverUrl, serverUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.showMessage, showMessage) &&
             const DeepCollectionEquality()
                 .equals(other.appStateNotifier, appStateNotifier) &&
-            const DeepCollectionEquality().equals(other.profile, profile) &&
             const DeepCollectionEquality()
-                .equals(other.zoomDrawerController, zoomDrawerController));
+                .equals(other.shopMerchantRepository, shopMerchantRepository) &&
+            const DeepCollectionEquality()
+                .equals(other.zoomDrawerController, zoomDrawerController) &&
+            const DeepCollectionEquality()
+                .equals(other.shopNameController, shopNameController) &&
+            const DeepCollectionEquality()
+                .equals(other.shopAddressController, shopAddressController) &&
+            const DeepCollectionEquality()
+                .equals(other.shopEmailController, shopEmailController) &&
+            const DeepCollectionEquality()
+                .equals(other.shopPhoneController, shopPhoneController) &&
+            const DeepCollectionEquality().equals(other.profile, profile));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isFailed),
+      const DeepCollectionEquality().hash(isSuccess),
+      const DeepCollectionEquality().hash(isAccountDeleted),
+      const DeepCollectionEquality().hash(serverUrl),
+      const DeepCollectionEquality().hash(showMessage),
       const DeepCollectionEquality().hash(appStateNotifier),
-      const DeepCollectionEquality().hash(profile),
-      const DeepCollectionEquality().hash(zoomDrawerController));
+      const DeepCollectionEquality().hash(shopMerchantRepository),
+      const DeepCollectionEquality().hash(zoomDrawerController),
+      const DeepCollectionEquality().hash(shopNameController),
+      const DeepCollectionEquality().hash(shopAddressController),
+      const DeepCollectionEquality().hash(shopEmailController),
+      const DeepCollectionEquality().hash(shopPhoneController),
+      const DeepCollectionEquality().hash(profile));
 
   @JsonKey(ignore: true)
   @override
@@ -626,20 +959,49 @@ class _$_ProfileState implements _ProfileState {
 
 abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
-          {required final bool isLoading,
-          required final AppStateNotifier appStateNotifier,
-          final MerchantDto? profile,
-          required final ZoomDrawerController zoomDrawerController}) =
-      _$_ProfileState;
+      {required final bool isLoading,
+      required final bool isFailed,
+      required final bool isSuccess,
+      required final bool isAccountDeleted,
+      required final String serverUrl,
+      required final String showMessage,
+      required final AppStateNotifier appStateNotifier,
+      required final ShopMerchantRepository shopMerchantRepository,
+      required final ZoomDrawerController zoomDrawerController,
+      required final TextEditingController shopNameController,
+      required final TextEditingController shopAddressController,
+      required final TextEditingController shopEmailController,
+      required final TextEditingController shopPhoneController,
+      final MerchantDto? profile}) = _$_ProfileState;
 
   @override
   bool get isLoading;
   @override
+  bool get isFailed;
+  @override
+  bool get isSuccess;
+  @override
+  bool get isAccountDeleted;
+  @override
+  String get serverUrl;
+  @override
+  String get showMessage;
+  @override
   AppStateNotifier get appStateNotifier;
   @override
-  MerchantDto? get profile;
+  ShopMerchantRepository get shopMerchantRepository;
   @override
   ZoomDrawerController get zoomDrawerController;
+  @override
+  TextEditingController get shopNameController;
+  @override
+  TextEditingController get shopAddressController;
+  @override
+  TextEditingController get shopEmailController;
+  @override
+  TextEditingController get shopPhoneController;
+  @override
+  MerchantDto? get profile;
   @override
   @JsonKey(ignore: true)
   _$$_ProfileStateCopyWith<_$_ProfileState> get copyWith =>
