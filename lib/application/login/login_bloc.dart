@@ -47,9 +47,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         await AuthTokenService.setIsLogin(isAuthorized: true);
 
         await AuthTokenService.setMerchantToken(merchantToken: r);
-
+        await Future.delayed(const Duration(seconds: 5));
         final merchantProfile =
-            await state.shopMerchantRepository.merchantProfile();
+            await state.shopMerchantRepository.merchantProfile(token: r);
 
         if (merchantProfile == null) {
           add(LoginEvent.emitFromAnywhere(

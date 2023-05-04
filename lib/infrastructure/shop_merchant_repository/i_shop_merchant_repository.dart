@@ -13,15 +13,15 @@ class IShopMerchantRepository extends ShopMerchantRepository {
   IShopMerchantRepository({required this.serverUrl});
 
   @override
-  Future<MerchantDto?> merchantProfile() async {
+  Future<MerchantDto?> merchantProfile({String? token}) async {
     MerchantDto? merchantProfile;
     final url = serverUrl + APIConstants.merchantProfile;
     try {
-      final token = await AuthTokenService.getMerchantToken();
+      final currentToken = token ?? await AuthTokenService.getMerchantToken();
       final res = await RESTService.performGETRequest(
         httpUrl: url,
         isAuth: true,
-        token: token,
+        token: currentToken,
       );
 
       final response = json.decode(res.body);
