@@ -20,6 +20,7 @@ mixin _$LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() onLogin,
     required TResult Function(LoginState state) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -27,6 +28,7 @@ mixin _$LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onLogin,
     TResult Function(LoginState state)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -34,6 +36,7 @@ mixin _$LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onLogin,
     TResult Function(LoginState state)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnLogin value) onLogin,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$LoginEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$LoginEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -118,6 +124,7 @@ class _$_Init implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() onLogin,
     required TResult Function(LoginState state) emitFromAnywhere,
   }) {
     return init();
@@ -128,6 +135,7 @@ class _$_Init implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onLogin,
     TResult Function(LoginState state)? emitFromAnywhere,
   }) {
     return init?.call();
@@ -138,6 +146,7 @@ class _$_Init implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onLogin,
     TResult Function(LoginState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -152,6 +161,7 @@ class _$_Init implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnLogin value) onLogin,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return init(this);
@@ -162,6 +172,7 @@ class _$_Init implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return init?.call(this);
@@ -172,6 +183,7 @@ class _$_Init implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -226,6 +238,7 @@ class _$_OnLoad implements _OnLoad {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() onLogin,
     required TResult Function(LoginState state) emitFromAnywhere,
   }) {
     return onLoad();
@@ -236,6 +249,7 @@ class _$_OnLoad implements _OnLoad {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onLogin,
     TResult Function(LoginState state)? emitFromAnywhere,
   }) {
     return onLoad?.call();
@@ -246,6 +260,7 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onLogin,
     TResult Function(LoginState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -260,6 +275,7 @@ class _$_OnLoad implements _OnLoad {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnLogin value) onLogin,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return onLoad(this);
@@ -270,6 +286,7 @@ class _$_OnLoad implements _OnLoad {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return onLoad?.call(this);
@@ -280,6 +297,7 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -292,6 +310,121 @@ class _$_OnLoad implements _OnLoad {
 
 abstract class _OnLoad implements LoginEvent {
   const factory _OnLoad() = _$_OnLoad;
+}
+
+/// @nodoc
+abstract class _$$_OnLoginCopyWith<$Res> {
+  factory _$$_OnLoginCopyWith(
+          _$_OnLogin value, $Res Function(_$_OnLogin) then) =
+      __$$_OnLoginCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OnLoginCopyWithImpl<$Res> extends _$LoginEventCopyWithImpl<$Res>
+    implements _$$_OnLoginCopyWith<$Res> {
+  __$$_OnLoginCopyWithImpl(_$_OnLogin _value, $Res Function(_$_OnLogin) _then)
+      : super(_value, (v) => _then(v as _$_OnLogin));
+
+  @override
+  _$_OnLogin get _value => super._value as _$_OnLogin;
+}
+
+/// @nodoc
+
+class _$_OnLogin implements _OnLogin {
+  const _$_OnLogin();
+
+  @override
+  String toString() {
+    return 'LoginEvent.onLogin()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OnLogin);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function() onLogin,
+    required TResult Function(LoginState state) emitFromAnywhere,
+  }) {
+    return onLogin();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? onLogin,
+    TResult Function(LoginState state)? emitFromAnywhere,
+  }) {
+    return onLogin?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? onLogin,
+    TResult Function(LoginState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (onLogin != null) {
+      return onLogin();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnLogin value) onLogin,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return onLogin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return onLogin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (onLogin != null) {
+      return onLogin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnLogin implements LoginEvent {
+  const factory _OnLogin() = _$_OnLogin;
 }
 
 /// @nodoc
@@ -370,6 +503,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() onLogin,
     required TResult Function(LoginState state) emitFromAnywhere,
   }) {
     return emitFromAnywhere(state);
@@ -380,6 +514,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onLogin,
     TResult Function(LoginState state)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(state);
@@ -390,6 +525,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? onLogin,
     TResult Function(LoginState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -404,6 +540,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_OnLogin value) onLogin,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return emitFromAnywhere(this);
@@ -414,6 +551,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(this);
@@ -424,6 +562,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -447,6 +586,19 @@ abstract class _EmitFromAnywhere implements LoginEvent {
 /// @nodoc
 mixin _$LoginState {
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isFailed => throw _privateConstructorUsedError;
+  bool get isSuccess => throw _privateConstructorUsedError;
+  bool get validateForm => throw _privateConstructorUsedError;
+  String get showMessage => throw _privateConstructorUsedError;
+  GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
+  AuthRepository get authRepository => throw _privateConstructorUsedError;
+  ShopMerchantRepository get shopMerchantRepository =>
+      throw _privateConstructorUsedError;
+  TextEditingController get userNameController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get passwordController =>
+      throw _privateConstructorUsedError;
+  MerchantDto? get merchantDto => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -458,7 +610,20 @@ abstract class $LoginStateCopyWith<$Res> {
   factory $LoginStateCopyWith(
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading});
+  $Res call(
+      {bool isLoading,
+      bool isFailed,
+      bool isSuccess,
+      bool validateForm,
+      String showMessage,
+      GlobalKey<FormState> formKey,
+      AuthRepository authRepository,
+      ShopMerchantRepository shopMerchantRepository,
+      TextEditingController userNameController,
+      TextEditingController passwordController,
+      MerchantDto? merchantDto});
+
+  $MerchantDtoCopyWith<$Res>? get merchantDto;
 }
 
 /// @nodoc
@@ -472,13 +637,74 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isFailed = freezed,
+    Object? isSuccess = freezed,
+    Object? validateForm = freezed,
+    Object? showMessage = freezed,
+    Object? formKey = freezed,
+    Object? authRepository = freezed,
+    Object? shopMerchantRepository = freezed,
+    Object? userNameController = freezed,
+    Object? passwordController = freezed,
+    Object? merchantDto = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isFailed: isFailed == freezed
+          ? _value.isFailed
+          : isFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccess: isSuccess == freezed
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      validateForm: validateForm == freezed
+          ? _value.validateForm
+          : validateForm // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showMessage: showMessage == freezed
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      formKey: formKey == freezed
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
+      authRepository: authRepository == freezed
+          ? _value.authRepository
+          : authRepository // ignore: cast_nullable_to_non_nullable
+              as AuthRepository,
+      shopMerchantRepository: shopMerchantRepository == freezed
+          ? _value.shopMerchantRepository
+          : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
+              as ShopMerchantRepository,
+      userNameController: userNameController == freezed
+          ? _value.userNameController
+          : userNameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      passwordController: passwordController == freezed
+          ? _value.passwordController
+          : passwordController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      merchantDto: merchantDto == freezed
+          ? _value.merchantDto
+          : merchantDto // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
     ));
+  }
+
+  @override
+  $MerchantDtoCopyWith<$Res>? get merchantDto {
+    if (_value.merchantDto == null) {
+      return null;
+    }
+
+    return $MerchantDtoCopyWith<$Res>(_value.merchantDto!, (value) {
+      return _then(_value.copyWith(merchantDto: value));
+    });
   }
 }
 
@@ -489,7 +715,21 @@ abstract class _$$_LoginStateCopyWith<$Res>
           _$_LoginState value, $Res Function(_$_LoginState) then) =
       __$$_LoginStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading});
+  $Res call(
+      {bool isLoading,
+      bool isFailed,
+      bool isSuccess,
+      bool validateForm,
+      String showMessage,
+      GlobalKey<FormState> formKey,
+      AuthRepository authRepository,
+      ShopMerchantRepository shopMerchantRepository,
+      TextEditingController userNameController,
+      TextEditingController passwordController,
+      MerchantDto? merchantDto});
+
+  @override
+  $MerchantDtoCopyWith<$Res>? get merchantDto;
 }
 
 /// @nodoc
@@ -505,12 +745,62 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? isFailed = freezed,
+    Object? isSuccess = freezed,
+    Object? validateForm = freezed,
+    Object? showMessage = freezed,
+    Object? formKey = freezed,
+    Object? authRepository = freezed,
+    Object? shopMerchantRepository = freezed,
+    Object? userNameController = freezed,
+    Object? passwordController = freezed,
+    Object? merchantDto = freezed,
   }) {
     return _then(_$_LoginState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      isFailed: isFailed == freezed
+          ? _value.isFailed
+          : isFailed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSuccess: isSuccess == freezed
+          ? _value.isSuccess
+          : isSuccess // ignore: cast_nullable_to_non_nullable
+              as bool,
+      validateForm: validateForm == freezed
+          ? _value.validateForm
+          : validateForm // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showMessage: showMessage == freezed
+          ? _value.showMessage
+          : showMessage // ignore: cast_nullable_to_non_nullable
+              as String,
+      formKey: formKey == freezed
+          ? _value.formKey
+          : formKey // ignore: cast_nullable_to_non_nullable
+              as GlobalKey<FormState>,
+      authRepository: authRepository == freezed
+          ? _value.authRepository
+          : authRepository // ignore: cast_nullable_to_non_nullable
+              as AuthRepository,
+      shopMerchantRepository: shopMerchantRepository == freezed
+          ? _value.shopMerchantRepository
+          : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
+              as ShopMerchantRepository,
+      userNameController: userNameController == freezed
+          ? _value.userNameController
+          : userNameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      passwordController: passwordController == freezed
+          ? _value.passwordController
+          : passwordController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      merchantDto: merchantDto == freezed
+          ? _value.merchantDto
+          : merchantDto // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
     ));
   }
 }
@@ -518,14 +808,45 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_LoginState implements _LoginState {
-  const _$_LoginState({required this.isLoading});
+  const _$_LoginState(
+      {required this.isLoading,
+      required this.isFailed,
+      required this.isSuccess,
+      required this.validateForm,
+      required this.showMessage,
+      required this.formKey,
+      required this.authRepository,
+      required this.shopMerchantRepository,
+      required this.userNameController,
+      required this.passwordController,
+      this.merchantDto});
 
   @override
   final bool isLoading;
+  @override
+  final bool isFailed;
+  @override
+  final bool isSuccess;
+  @override
+  final bool validateForm;
+  @override
+  final String showMessage;
+  @override
+  final GlobalKey<FormState> formKey;
+  @override
+  final AuthRepository authRepository;
+  @override
+  final ShopMerchantRepository shopMerchantRepository;
+  @override
+  final TextEditingController userNameController;
+  @override
+  final TextEditingController passwordController;
+  @override
+  final MerchantDto? merchantDto;
 
   @override
   String toString() {
-    return 'LoginState(isLoading: $isLoading)';
+    return 'LoginState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, validateForm: $validateForm, showMessage: $showMessage, formKey: $formKey, authRepository: $authRepository, shopMerchantRepository: $shopMerchantRepository, userNameController: $userNameController, passwordController: $passwordController, merchantDto: $merchantDto)';
   }
 
   @override
@@ -533,12 +854,40 @@ class _$_LoginState implements _LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_LoginState &&
-            const DeepCollectionEquality().equals(other.isLoading, isLoading));
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(other.isFailed, isFailed) &&
+            const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
+            const DeepCollectionEquality()
+                .equals(other.validateForm, validateForm) &&
+            const DeepCollectionEquality()
+                .equals(other.showMessage, showMessage) &&
+            const DeepCollectionEquality().equals(other.formKey, formKey) &&
+            const DeepCollectionEquality()
+                .equals(other.authRepository, authRepository) &&
+            const DeepCollectionEquality()
+                .equals(other.shopMerchantRepository, shopMerchantRepository) &&
+            const DeepCollectionEquality()
+                .equals(other.userNameController, userNameController) &&
+            const DeepCollectionEquality()
+                .equals(other.passwordController, passwordController) &&
+            const DeepCollectionEquality()
+                .equals(other.merchantDto, merchantDto));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isLoading));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(isFailed),
+      const DeepCollectionEquality().hash(isSuccess),
+      const DeepCollectionEquality().hash(validateForm),
+      const DeepCollectionEquality().hash(showMessage),
+      const DeepCollectionEquality().hash(formKey),
+      const DeepCollectionEquality().hash(authRepository),
+      const DeepCollectionEquality().hash(shopMerchantRepository),
+      const DeepCollectionEquality().hash(userNameController),
+      const DeepCollectionEquality().hash(passwordController),
+      const DeepCollectionEquality().hash(merchantDto));
 
   @JsonKey(ignore: true)
   @override
@@ -547,10 +896,41 @@ class _$_LoginState implements _LoginState {
 }
 
 abstract class _LoginState implements LoginState {
-  const factory _LoginState({required final bool isLoading}) = _$_LoginState;
+  const factory _LoginState(
+      {required final bool isLoading,
+      required final bool isFailed,
+      required final bool isSuccess,
+      required final bool validateForm,
+      required final String showMessage,
+      required final GlobalKey<FormState> formKey,
+      required final AuthRepository authRepository,
+      required final ShopMerchantRepository shopMerchantRepository,
+      required final TextEditingController userNameController,
+      required final TextEditingController passwordController,
+      final MerchantDto? merchantDto}) = _$_LoginState;
 
   @override
   bool get isLoading;
+  @override
+  bool get isFailed;
+  @override
+  bool get isSuccess;
+  @override
+  bool get validateForm;
+  @override
+  String get showMessage;
+  @override
+  GlobalKey<FormState> get formKey;
+  @override
+  AuthRepository get authRepository;
+  @override
+  ShopMerchantRepository get shopMerchantRepository;
+  @override
+  TextEditingController get userNameController;
+  @override
+  TextEditingController get passwordController;
+  @override
+  MerchantDto? get merchantDto;
   @override
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>

@@ -44,7 +44,7 @@ class RESTService {
   static Future<http.Response> performGETRequest({
     required String httpUrl,
     bool isAuth = false,
-    String defaultToken = '',
+    String token = '',
     Map<String, String>? header,
     Map<String, String> param = const {},
   }) async {
@@ -54,22 +54,19 @@ class RESTService {
 
     final request = http.Request('GET', Uri.parse(httpUrl));
     final Map<String, String> headers = {'Access-Control-Allow-Origin': '*'};
-    // if (isAuth) {
-    //   String token;
-    //   if (defaultToken.isEmpty) {
-    //     token = await FirebaseAuth.instance.currentUser!.getIdToken(true);
-    //   } else {
-    //     token = defaultToken;
-    //   }
-    //   headers['Authorization'] = 'Bearer $token';
-    //   if (header != null) {
-    //     headers.addAll(header);
-    //   }
-    // }
+    if (isAuth) {
+      headers['Authorization'] = 'Bearer $token';
+      if (header != null) {
+        headers.addAll(header);
+      }
+    }
+
     request.followRedirects = false;
     request.headers.addAll(headers);
     http.StreamedResponse response = await request.send();
-    
+    print(httpUrl);
+    print(headers);
+
     if (response.statusCode == 200) {
       final resultResponse = await http.Response.fromStream(response);
       return resultResponse;

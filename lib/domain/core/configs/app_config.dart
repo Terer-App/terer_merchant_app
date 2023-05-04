@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
 
 class AppStateNotifier extends ChangeNotifier {
   bool isAuthorized;
+  MerchantDto? profile;
 
   AppStateNotifier({
     required this.isAuthorized,
+    this.profile,
   });
   void updateAuthState({
     required bool isAuthorized,
+    required MerchantDto? profile,
   }) {
     this.isAuthorized = isAuthorized;
+    this.profile = profile;
 
     notifyListeners();
   }
@@ -18,6 +23,8 @@ class AppStateNotifier extends ChangeNotifier {
 class AppConfig extends InheritedWidget {
   final String appTitle;
   final String serverUrl;
+  final String merchantApi;
+
   final String buildFlavor;
   @override
   // ignore: overridden_fields
@@ -28,6 +35,7 @@ class AppConfig extends InheritedWidget {
       {required this.appTitle,
       required this.buildFlavor,
       required this.child,
+      required this.merchantApi,
       required this.serverUrl})
       : super(child: child);
 

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'package:terer_merchant/domain/services/storage_service/auth_service.dart';
+import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import 'package:terer_merchant/infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 import 'domain/core/configs/app_config.dart';
 import 'domain/core/configs/injection.dart';
 import 'domain/extensions/sizer_extension.dart';
@@ -73,13 +76,21 @@ class MainApp extends StatelessWidget {
 }
 
 Future appInitializer(AppConfig appConfig) async {
-  bool isAuthorized = true;
+  MerchantDto? profile;
+  bool isAuthorized = await AuthTokenService.isLogin();
+
+  if (isAuthorized) {
+    profile = await IShopMerchantRepository(serverUrl: appConfig.serverUrl)
+        .merchantProfile();
+  }
 
   AppStateNotifier appStateNotifier = AppStateNotifier(
     isAuthorized: isAuthorized,
+    profile: profile,
   );
   final AppConfig configuredApp = AppConfig(
     appTitle: appConfig.appTitle,
+    merchantApi: appConfig.merchantApi,
     serverUrl: appConfig.serverUrl,
     buildFlavor: appConfig.buildFlavor,
     child: ChangeNotifierProvider<AppStateNotifier>(

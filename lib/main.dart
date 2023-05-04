@@ -16,6 +16,7 @@ void main() async {
   final appConfig = AppConfig(
     appTitle: 'Terer',
     serverUrl: '',
+    merchantApi: '',
     buildFlavor: 'Production',
     child: Container(),
   );
