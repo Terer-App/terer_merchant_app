@@ -21,6 +21,7 @@ class CustomAlert extends StatelessWidget {
   final bool isReport;
   final bool isPayment;
   final bool isPurchase;
+  final bool reverseColor;
 
   final bool makeTextBold;
 
@@ -34,6 +35,7 @@ class CustomAlert extends StatelessWidget {
       this.customWidget,
       this.onPressed2,
       this.button2Text,
+      this.reverseColor = false,
       this.isPurchase = false,
       this.isReport = false,
       this.makeTextBold = false,
@@ -149,6 +151,10 @@ class CustomAlert extends StatelessWidget {
               width: double.infinity,
               child: SecondaryButton(
                 btnText: button2Text ?? '',
+                bgColor: reverseColor ? Theme.of(context).primaryColor : null,
+                btnTextColor: reverseColor
+                    ? Theme.of(context).colorScheme.secondary
+                    : null,
                 textFontWeight: FontWeight.w900,
                 textFontSize:
                     (SizerUtilExtension.checkSizerIsSupported) ? 10.sp : 14,

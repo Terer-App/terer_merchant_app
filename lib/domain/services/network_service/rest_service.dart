@@ -6,6 +6,7 @@ class RESTService {
     bool isAuth = false,
     String contentType = 'application/json',
     String? body,
+    String token = '',
     Map<String, String>? header,
     Map<String, String> param = const {},
   }) async {
@@ -17,13 +18,12 @@ class RESTService {
     final Map<String, String> headers = {
       'Content-Type': contentType,
     };
-    // if (isAuth) {
-    //   final token = await FirebaseAuth.instance.currentUser!.getIdToken(true);
-    //   headers['Authorization'] = 'Bearer $token';
-    //   if (header != null) {
-    //     headers.addAll(header);
-    //   }
-    // }
+    if (isAuth && token.isNotEmpty) {
+      headers['Authorization'] = 'Bearer $token';
+      if (header != null) {
+        headers.addAll(header);
+      }
+    }
     if (body != null) {
       request.body = body;
     }

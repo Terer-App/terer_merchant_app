@@ -18,4 +18,11 @@ abstract class ShopMerchantRepository {
   });
 
   Future<Either<String, String>> deleteAccount();
+
+  Future<Either<String, Map<String, dynamic>>> verifyCustomerDeal({
+    required Map<String, dynamic> data,
+  });
+  Future<Either<String, Map<String, dynamic>>> verifyDealAnyways({
+    required Map<String, dynamic> data,
+  });
 }

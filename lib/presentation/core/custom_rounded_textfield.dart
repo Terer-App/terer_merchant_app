@@ -132,7 +132,8 @@ class _CustomRoundedInputState extends State<CustomRoundedInput> {
                 )
               : const SizedBox(),
           Container(
-            decoration: widget.boxDecorationContainer,
+            decoration: null,
+            // widget.boxDecorationContainer ,
             child: TextFormField(
               enabled: widget.enabled,
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
