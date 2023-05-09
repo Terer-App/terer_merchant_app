@@ -10,6 +10,8 @@ import 'package:sizer/sizer.dart';
 import 'package:terer_merchant/domain/core/configs/app_config.dart';
 import 'package:terer_merchant/domain/core/configs/injection.dart';
 import 'package:terer_merchant/domain/services/navigation_service/navigation_service.dart';
+import 'package:terer_merchant/domain/services/navigation_service/routers/route_names.dart';
+import 'package:terer_merchant/infrastructure/dtos/deal_info_dto/deal_info_dto.dart';
 import 'package:terer_merchant/infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 import 'package:terer_merchant/presentation/core/custom_toast.dart';
 
@@ -76,8 +78,12 @@ class _ScanScreenState extends State<ScanScreen> {
     }, (r) {
       setState(() {
         isLoading = false;
-        isResult = false;
         result = null;
+      });
+      Future.delayed(const Duration(seconds: 5)).then((value) {
+        setState(() {
+          isResult = false;
+        });
       });
       String content = "${r['msg'] ?? ''}\n${r['desc'] ?? ''}";
 
@@ -91,12 +97,15 @@ class _ScanScreenState extends State<ScanScreen> {
               reverseColor: r['type'] == 1 || r['type'] == 2,
               onPressed2: () {
                 if (r['type'] == 2) {
-                  navigator<NavigationService>().goBack(responseObject: {
-                    'type': 2,
+                  return navigator<NavigationService>().goBack(responseObject: {
+                    'secondaryButton': 1,
                   });
-                } else {
-                  navigator<NavigationService>().goBack();
+                } else if (r['type'] == 1) {
+                  return navigator<NavigationService>().goBack(responseObject: {
+                    'secondaryButton': 2,
+                  });
                 }
+                navigator<NavigationService>().goBack();
               },
               button2Text: r['type'] == 1
                   ? AppConstants.reportDispute
@@ -104,7 +113,14 @@ class _ScanScreenState extends State<ScanScreen> {
                       ? AppConstants.verifyAnyways
                       : '',
               onPressed: () async {
-                navigator<NavigationService>().goBack();
+                if (r['type'] == 1 || r['type'] == 2) {
+                  return navigator<NavigationService>().goBack(responseObject: {
+                    'primaryButton': 1,
+                  });
+                }
+                navigator<NavigationService>().goBack(responseObject: {
+                  'primaryButton': 0,
+                });
               },
               isExtraBtn: r['type'] == 1 || r['type'] == 2,
               makeTextBold: true,
@@ -119,7 +135,7 @@ class _ScanScreenState extends State<ScanScreen> {
           }).then((res) {
         if (res != null) {
           // verify deal anyways
-          if (res['type'] == 2) {
+          if (res['secondaryButton'] == 1) {
             setState(() {
               isLoading = true;
             });
@@ -128,6 +144,84 @@ class _ScanScreenState extends State<ScanScreen> {
               {'dealRefId': data['dealRefId']},
               isAnywayDeal: true,
             );
+          } else if (res['secondaryButton'] == 2) {
+            navigator<NavigationService>()
+                .navigateTo(CoreRoutes.disputeReportRoute);
+          } else if (res['primaryButton'] == 0) {
+            navigator<NavigationService>()
+                .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
+          } else if (res['primaryButton'] == 1) {
+            //
+            final DealInfoDto dealInfo = r['dealInfo'] as DealInfoDto;
+            showDialog(
+                barrierColor: Colors.white,
+                barrierDismissible: false,
+                context: context,
+                builder: (context) {
+                  return CustomAlert(
+                    onPressed: () {
+                      navigator<NavigationService>().goBack();
+                    },
+                    buttonText: ContactUsConstants.backToRedeem,
+                    content: '',
+                    customWidget: Column(
+                      children: [
+                        Text(
+                          dealInfo.dealName,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(
+                                color: Theme.of(context).colorScheme.secondary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.sp,
+                              ),
+                        ),
+                        Text(
+                          '${AppConstants.date}: ${dealInfo.redeemDate}',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                  fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          '${AppConstants.time}: ${dealInfo.redeemTime}',
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(
+                                  color:
+                                      Theme.of(context).colorScheme.secondary,
+                                  fontWeight: FontWeight.bold),
+                        ),
+                        RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(children: [
+                              TextSpan(
+                                text:
+                                    '${DealsConstants.totalTerer}:${dealInfo.redeemDeals}',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        fontWeight: FontWeight.bold),
+                              )
+                            ]))
+                      ],
+                    ),
+                    height: 45.h,
+                    svgUrl: AssetConstants.successSvg,
+                  );
+                });
           }
         }
       });

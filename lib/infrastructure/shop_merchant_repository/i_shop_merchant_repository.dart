@@ -6,6 +6,7 @@ import 'package:terer_merchant/domain/constants/api_constants.dart';
 import 'package:terer_merchant/domain/constants/string_constants.dart';
 import 'package:terer_merchant/domain/services/storage_service/auth_service.dart';
 import 'package:terer_merchant/domain/shop_merchant/shop_merchant_repository.dart';
+import 'package:terer_merchant/infrastructure/dtos/deal_info_dto/deal_info_dto.dart';
 import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
 
 import '../../domain/services/network_service/rest_service.dart';
@@ -162,12 +163,17 @@ class IShopMerchantRepository extends ShopMerchantRepository {
 
       if (response['status'] == 1 ||
           response['response_code'] == 'DEAL_ALREADY_VERIFIED') {
-        return right({
+        final responseData = {
           'msg': response['message'],
           'desc': response['desc'],
           'type': typeOfResponse(response['response_code']),
           'isSuccess': response['response_code'] == 'DEAL_VERIFIED',
-        });
+        };
+        if (response['dealInfo'] != null) {
+          responseData['dealInfo'] = DealInfoDto.fromJson(
+              response['dealInfo'] as Map<String, dynamic>);
+        }
+        return right(responseData);
       } else {
         return left(response['message']);
       }

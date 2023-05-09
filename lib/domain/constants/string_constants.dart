@@ -149,6 +149,9 @@ to you via email.
 
 class DealsConstants {
   //label text
+  
+    static const String totalTerer = 'Total Terer';
+
   static const String productName = 'Product Name';
   static const String originalPrice = 'Original Price';
   static const String dealPrice = 'Deal Price';
