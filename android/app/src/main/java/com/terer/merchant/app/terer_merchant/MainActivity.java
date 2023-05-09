@@ -1,4 +1,4 @@
-package com.terer.merchant.app.terer_merchant;
+package com.terer.merchant.app;
 
 import io.flutter.embedding.android.FlutterActivity;
 
