@@ -88,9 +88,23 @@ dev_dependencies:
   injectable_generator: 1.5.4
   freezed: 2.1.0+1
   json_serializable: 6.4.1
-  analyzer: ^4.0.0
-  flutter_launcher_icons: 0.9.3
+  analyzer: 4.0.0
+  flutter_launcher_icons: 
   flutter_native_splash:
+
+
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  adaptive_icon_background: "assets/icons/app_icon/android/app_bg.png"
+  adaptive_icon_foreground: "assets/icons/app_icon/android/app_fg.png"
+  image_path: "assets/icons/app_icon/android/app_logo.png"
+  remove_alpha_ios: false
+  web:
+    generate: false
+  windows:
+    generate: false
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
