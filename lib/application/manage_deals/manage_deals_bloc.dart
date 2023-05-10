@@ -37,6 +37,10 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
           isLoading: false,
           currentPage: res['currentPage'],
         ));
+      } else {
+        emit(state.copyWith(
+          isLoading: false,
+        ));
       }
 
       if (state.hasMoreDocs) {
