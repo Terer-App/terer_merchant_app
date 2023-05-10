@@ -88,10 +88,13 @@ dev_dependencies:
   injectable_generator: 1.5.4
   freezed: 2.1.0+1
   json_serializable: 6.4.1
-  analyzer: 4.0.0
+  analyzer: 4.7.0
   flutter_launcher_icons: 
   flutter_native_splash:
 
+flutter_native_splash:
+  color: "#faa51a"
+  image: assets/icons/app_icon/splash.png
 
 
 flutter_icons:
