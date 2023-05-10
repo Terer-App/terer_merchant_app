@@ -9,10 +9,10 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 
 import 'package:sizer/sizer.dart';
-import 'package:terer_merchant/application/profile/profile_bloc.dart';
-import 'package:terer_merchant/domain/core/configs/app_config.dart';
-import 'package:terer_merchant/domain/services/navigation_service/routers/route_names.dart';
-import 'package:terer_merchant/presentation/core/custom_toast.dart';
+import '../../application/profile/profile_bloc.dart';
+import '../../domain/core/configs/app_config.dart';
+import '../../domain/services/navigation_service/routers/route_names.dart';
+import '../core/custom_toast.dart';
 
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
@@ -244,7 +244,7 @@ class ProfileConsumer extends StatelessWidget {
                                         height: 15.sp,
                                         width: 20.sp,
                                         child: Image.asset(
-                                          "assets/flags/in.png",
+                                          'assets/flags/in.png',
 
                                           // "assets/flags/${state.selectedCountry['locale'].toString().toLowerCase()}.png",
                                           fit: BoxFit.fill,

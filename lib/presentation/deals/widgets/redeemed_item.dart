@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:intl/intl.dart';
 import 'package:sizer/sizer.dart';
-import 'package:terer_merchant/domain/constants/string_constants.dart';
+import '../../../domain/constants/string_constants.dart';
 
 import '../../../domain/constants/asset_constants.dart';
+import '../../../infrastructure/dtos/merchant_deal_dto/merchant_deal_dto.dart';
 
 class RedeemedOrVerifyItem extends StatelessWidget {
+  final MerchantDealDto dealDto;
   const RedeemedOrVerifyItem({
     Key? key,
+    required this.dealDto,
   }) : super(key: key);
 
   @override
@@ -32,8 +34,8 @@ class RedeemedOrVerifyItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(40),
-            child: Image.asset(
-              AssetConstants.coffeeImage,
+            child: Image.network(
+              dealDto.imageUrl,
               width: 40.w,
               height: double.infinity,
               fit: BoxFit.cover,
@@ -52,7 +54,9 @@ class RedeemedOrVerifyItem extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           text: TextSpan(
-                            text: 'Andrew',
+                            text: dealDto.isVerified
+                                ? dealDto.customerName
+                                : dealDto.customerName.split(' ')[0],
                             style: commonTextStyle.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
@@ -61,8 +65,7 @@ class RedeemedOrVerifyItem extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         text: TextSpan(
-                          text:
-                              '10 Hot Coffee Beverage is good food u must try at hine',
+                          text: dealDto.dealTitle,
                           style: commonTextStyle.copyWith(
                             fontWeight: FontWeight.bold,
                           ),
@@ -79,12 +82,12 @@ class RedeemedOrVerifyItem extends StatelessWidget {
                               text: TextSpan(
                                   style: commonTextStyle.copyWith(),
                                   text:
-                                      'Date:  ${DateFormat('d MMM y').format(DateTime.now())}\nTime:  ${DateFormat('HH:MM').format(DateTime.now())}')),
+                                      'Date:  ${dealDto.buyingDate}\nTime: ${dealDto.buyingTime}')),
                           RichText(
                             maxLines: 1,
                             text: TextSpan(
                                 style: commonTextStyle.copyWith(),
-                                text: 'Quantity: 2'),
+                                text: 'Quantity: ${dealDto.noOfredeemDeals}'),
                           ),
                         ],
                       )
@@ -97,13 +100,13 @@ class RedeemedOrVerifyItem extends StatelessWidget {
                       radius: 4.w,
                       backgroundColor: Theme.of(context).primaryColor,
                       child: SvgPicture.asset(
-                        1 == 1
-                            ? AssetConstants.exMarkSvg
-                            : AssetConstants.tickSvg,
+                        dealDto.isVerified
+                            ? AssetConstants.tickSvg
+                            : AssetConstants.exMarkSvg,
                       ),
                     ),
                   ),
-                  if (1 == 1)
+                  if (dealDto.isVerified)
                     Positioned(
                       right: 1.w,
                       child: Text(

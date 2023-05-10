@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
-import 'package:terer_merchant/domain/services/storage_service/auth_service.dart';
-import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
-import 'package:terer_merchant/infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
+import 'domain/services/storage_service/auth_service.dart';
+import 'infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import 'infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 import 'domain/core/configs/app_config.dart';
 import 'domain/core/configs/injection.dart';
 import 'domain/extensions/sizer_extension.dart';

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../domain/constants/asset_constants.dart';
-
 import '../../../domain/constants/string_constants.dart';
+import '../../../infrastructure/dtos/merchant_deal_dto/merchant_deal_dto.dart';
 
 class BalanceItem extends StatelessWidget {
+  final MerchantDealDto dealDto;
   const BalanceItem({
     Key? key,
+    required this.dealDto,
   }) : super(key: key);
 
   @override
@@ -24,8 +25,8 @@ class BalanceItem extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(40),
-              child: Image.asset(
-                AssetConstants.coffeeImage,
+              child: Image.network(
+                dealDto.imageUrl,
                 width: 40.w,
                 height: double.infinity,
                 fit: BoxFit.cover,
@@ -45,7 +46,7 @@ class BalanceItem extends StatelessWidget {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         text: TextSpan(
-                          text: 'Andrew',
+                          text: dealDto.customerName,
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!
@@ -59,7 +60,7 @@ class BalanceItem extends StatelessWidget {
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       text: TextSpan(
-                        text: '10 Hot Coffee Beverage',
+                        text: dealDto.dealTitle,
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: Theme.of(context).colorScheme.background,
                               fontWeight: FontWeight.bold,

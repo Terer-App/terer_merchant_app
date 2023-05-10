@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:sizer/sizer.dart';
-import 'package:terer_merchant/presentation/deals/manage_deals_screen.dart';
-import 'package:terer_merchant/presentation/scan/scan_screen.dart';
+import '../deals/manage_deals_screen.dart';
+import '../scan/scan_screen.dart';
 
 import '../../application/home_screen/home_screen_bloc.dart';
 import '../auth/getting_started_screen.dart';
@@ -67,9 +67,6 @@ class HomeScreenConsumer extends StatelessWidget {
                         ? ManageDealsScreen(
                             zoomDrawerController: zoomDrawerController,
                           )
-                        //  ShopProducts(
-                        //     zoomDrawerController: zoomDrawerController,
-                        //   )
                         : state.currentPage == 1
                             ? ScanScreen(
                                 zoomDrawerController: zoomDrawerController,

@@ -4,10 +4,10 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:terer_merchant/domain/core/configs/app_config.dart';
-import 'package:terer_merchant/domain/shop_merchant/shop_merchant_repository.dart';
-import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
-import 'package:terer_merchant/infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
+import '../../domain/core/configs/app_config.dart';
+import '../../domain/shop_merchant/shop_merchant_repository.dart';
+import '../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 
 part 'profile_event.dart';
 part 'profile_state.dart';

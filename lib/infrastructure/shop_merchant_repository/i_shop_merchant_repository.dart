@@ -2,14 +2,16 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
-import 'package:terer_merchant/domain/constants/api_constants.dart';
-import 'package:terer_merchant/domain/constants/string_constants.dart';
-import 'package:terer_merchant/domain/services/storage_service/auth_service.dart';
-import 'package:terer_merchant/domain/shop_merchant/shop_merchant_repository.dart';
-import 'package:terer_merchant/infrastructure/dtos/deal_info_dto/deal_info_dto.dart';
-import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../domain/constants/api_constants.dart';
+import '../../domain/constants/string_constants.dart';
+import '../../domain/services/storage_service/auth_service.dart';
+import '../../domain/shop_merchant/shop_merchant_repository.dart';
+import '../dtos/deal_info_dto/deal_info_dto.dart';
+import '../dtos/merchant_deal_dto/merchant_deal_dto.dart';
+import '../dtos/merchant_dto/merchant_dto.dart';
 
 import '../../domain/services/network_service/rest_service.dart';
+import '../enums/deal_type.dart';
 
 class IShopMerchantRepository extends ShopMerchantRepository {
   final String serverUrl;
@@ -228,5 +230,63 @@ class IShopMerchantRepository extends ShopMerchantRepository {
     }
 
     return type;
+  }
+
+  @override
+  Future<Map<String, dynamic>> merchantDeals(
+      {required String dealType, int page = 1, String? currentDate}) async {
+    Map<String, dynamic> result = {};
+    final url = serverUrl + APIConstants.merchantDeals;
+    try {
+      Map<String, String> data = {
+        'page': page.toString(),
+        'dealtype': dealType
+      };
+
+      final token = await AuthTokenService.getMerchantToken();
+
+      if (dealType == DealType.REDEEMED.name.toLowerCase() &&
+          currentDate != null) {
+        data['date'] = currentDate;
+      }
+
+      final res = await RESTService.performPOSTRequest(
+        httpUrl: url,
+        param: data,
+        token: token,
+        isAuth: true,
+      );
+
+      final response = json.decode(res.body);
+      if (response['status'] == 1) {
+        String dealName = dealType == DealType.REDEEMED.name.toLowerCase()
+            ? 'redeemDeals'
+            : dealType == DealType.VERIFIED.name.toLowerCase()
+                ? 'verifyDeals'
+                : 'balanceDeals';
+        final pageData = response['data']['pagedata'] ?? {};
+
+        final dealsData = response['data'][dealName];
+
+        if ((pageData as Map<String, dynamic>).isNotEmpty &&
+            (dealsData as List<dynamic>).isNotEmpty) {
+          final List<MerchantDealDto> lsOfDeals = [];
+
+          for (var deal in dealsData) {
+            lsOfDeals.add(MerchantDealDto.fromJson(deal));
+          }
+
+          result = {
+            'lsOfDeals': lsOfDeals,
+            'totalDeals': pageData['totalDeals'],
+            'currentPage': pageData['currentPage'],
+          };
+        }
+      }
+
+      return result;
+    } catch (e) {
+      return result;
+    }
   }
 }

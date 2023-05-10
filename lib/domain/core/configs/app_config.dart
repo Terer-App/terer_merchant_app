@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
 
 class AppStateNotifier extends ChangeNotifier {
   bool isAuthorized;

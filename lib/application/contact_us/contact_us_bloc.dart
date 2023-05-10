@@ -5,12 +5,12 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:http/http.dart' as http;
-import 'package:terer_merchant/domain/core/configs/app_config.dart';
-import 'package:terer_merchant/domain/shop_merchant/shop_merchant_repository.dart';
-import 'package:terer_merchant/domain/upload/upload_repository.dart';
-import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
-import 'package:terer_merchant/infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
-import 'package:terer_merchant/infrastructure/upload/i_upload_repository.dart';
+import '../../domain/core/configs/app_config.dart';
+import '../../domain/shop_merchant/shop_merchant_repository.dart';
+import '../../domain/upload/upload_repository.dart';
+import '../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
+import '../../infrastructure/upload/i_upload_repository.dart';
 
 part 'contact_us_event.dart';
 part 'contact_us_state.dart';

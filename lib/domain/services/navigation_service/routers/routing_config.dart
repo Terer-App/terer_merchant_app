@@ -1,14 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:terer_merchant/presentation/about_us/about_us_screen.dart';
-import 'package:terer_merchant/presentation/about_us/terms_screen.dart';
-import 'package:terer_merchant/presentation/auth/getting_started_screen.dart';
-import 'package:terer_merchant/presentation/auth/login_screen.dart';
-import 'package:terer_merchant/presentation/contact_us/contact_us_screen.dart';
-import 'package:terer_merchant/presentation/deals/reports/balance_report_screen.dart';
-import 'package:terer_merchant/presentation/deals/reports/redeemed_report_screen.dart';
-import 'package:terer_merchant/presentation/deals/reports/verify_report_screen.dart';
+import '../../../../presentation/about_us/about_us_screen.dart';
+import '../../../../presentation/about_us/terms_screen.dart';
+import '../../../../presentation/auth/getting_started_screen.dart';
+import '../../../../presentation/auth/login_screen.dart';
+import '../../../../presentation/contact_us/contact_us_screen.dart';
 import '../../../../infrastructure/platform/platform_enum.dart';
+import '../../../../presentation/deals/reports/reports_screen.dart';
 import '../../../../presentation/dispute_report/dispute_report_screen.dart';
 import '../../../../presentation/home/home_screen.dart';
 import '../../../core/configs/determine_platform.dart';
@@ -20,8 +18,6 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
   final routingData = settings.name!.getRoutingData;
   switch (routingData.route) {
     case CoreRoutes.homeRoute:
-      // final routeData = routingData.queryParameters;
-
       return _getPageRoute(
         const HomeScreen(
           startPage: 0,
@@ -29,21 +25,13 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
         settings,
       );
 
-    case CoreRoutes.balanceReportRoute:
+    case CoreRoutes.reportsRoute:
+      final routeData = routingData.queryParameters;
       return _getPageRoute(
-        const BalanceReportScreen(),
-        settings,
-      );
-
-    case CoreRoutes.redeemedReportRoute:
-      return _getPageRoute(
-        const RedeemedReportScreen(),
-        settings,
-      );
-
-    case CoreRoutes.verifyReportRoute:
-      return _getPageRoute(
-        const VerifyReportScreen(),
+        ReportsScreen(
+          tabIndex: int.parse(routeData['tabIndex'] ?? '0'),
+          tabName: routeData['tabName'] ?? '',
+        ),
         settings,
       );
 
@@ -79,12 +67,6 @@ Route<dynamic> commonNavigation(RouteSettings settings) {
   //Navigation for un authorized or common pages(Home,etc)
   final routingData = settings.name!.getRoutingData;
   switch (routingData.route) {
-    case AuthRoutes.logInRoute:
-      return _getPageRoute(
-        const LoginScreen(),
-        settings,
-      );
-
     case AuthRoutes.gettingStartedRoute:
     default:
       return _getPageRoute(

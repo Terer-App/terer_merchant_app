@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:sizer/sizer.dart';
-import 'package:terer_merchant/presentation/auth/login_screen.dart';
+import 'login_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/constants/asset_constants.dart';

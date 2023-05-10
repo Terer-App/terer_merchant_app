@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
+import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
+import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
 import '../../domain/extensions/sizer_extension.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
+import '../../domain/services/storage_service/auth_service.dart';
 import 'custom_button.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -119,7 +122,18 @@ class MenuWidget extends StatelessWidget {
                       const Spacer(),
                     ]),
                     btnText: '',
-                    onPressedBtn: () async {}))
+                    onPressedBtn: () async {
+                      await AuthTokenService.clearBox();
+
+                      Provider.of<AppStateNotifier>(context, listen: false)
+                          .updateAuthState(
+                        isAuthorized: false,
+                        profile: null,
+                      );
+
+                      navigator<NavigationService>()
+                          .navigateTo(AuthRoutes.gettingStartedRoute);
+                    }))
           ]),
         ),
       ),

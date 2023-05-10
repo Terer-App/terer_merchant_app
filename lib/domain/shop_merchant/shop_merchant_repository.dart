@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
-import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
 
 abstract class ShopMerchantRepository {
   Future<MerchantDto?> merchantProfile({String? token});
@@ -24,5 +24,11 @@ abstract class ShopMerchantRepository {
   });
   Future<Either<String, Map<String, dynamic>>> verifyDealAnyways({
     required Map<String, dynamic> data,
+  });
+
+  Future<Map<String, dynamic>> merchantDeals({
+    required String dealType,
+    int page = 1,
+    String? currentDate,
   });
 }

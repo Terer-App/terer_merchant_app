@@ -2,12 +2,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:terer_merchant/domain/auth/auth_repository.dart';
-import 'package:terer_merchant/domain/services/storage_service/auth_service.dart';
-import 'package:terer_merchant/domain/shop_merchant/shop_merchant_repository.dart';
-import 'package:terer_merchant/infrastructure/auth/i_auth_repository.dart';
-import 'package:terer_merchant/infrastructure/dtos/merchant_dto/merchant_dto.dart';
-import 'package:terer_merchant/infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
+import '../../domain/auth/auth_repository.dart';
+import '../../domain/services/storage_service/auth_service.dart';
+import '../../domain/shop_merchant/shop_merchant_repository.dart';
+import '../../infrastructure/auth/i_auth_repository.dart';
+import '../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 
 part 'login_event.dart';
 part 'login_state.dart';
