@@ -100,6 +100,10 @@ class ReportsBloc extends Bloc<ReportsEvent, ReportsState> {
     });
 
     on<_OnTabChange>((event, emit) {
+      if (event.tabIndex == state.currentTab) {
+        return;
+      }
+
       emit(
         state.copyWith(
           isLoading: true,
