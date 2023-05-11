@@ -173,18 +173,19 @@ class ReportsConsumer extends StatelessWidget {
                             color: Theme.of(context).primaryColor,
                           ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        context
-                            .read<ReportsBloc>()
-                            .add(const ReportsEvent.onDateChange(isNext: true));
-                      },
-                      child: Icon(
-                        Icons.arrow_right_outlined,
-                        size: 12.w,
-                        color: Theme.of(context).primaryColor,
+                    if (DateFormat('yyyy-dd-MM').format(state.currentDate) !=
+                        DateFormat('yyyy-dd-MM').format(DateTime.now()))
+                      GestureDetector(
+                        onTap: () {
+                          context.read<ReportsBloc>().add(
+                              const ReportsEvent.onDateChange(isNext: true));
+                        },
+                        child: Icon(
+                          Icons.arrow_right_outlined,
+                          size: 12.w,
+                          color: Theme.of(context).primaryColor,
+                        ),
                       ),
-                    ),
                   ],
                 ),
               Expanded(

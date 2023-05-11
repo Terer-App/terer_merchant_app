@@ -21,12 +21,20 @@ class ReportsBloc extends Bloc<ReportsEvent, ReportsState> {
       add(const ReportsEvent.onLoad());
     });
     on<_OnLoad>((event, emit) async {
+      final x = state.currentTab;
+
       final res = await state.shopMerchantRepository.merchantDeals(
         dealType: state.currentTabName.toLowerCase(),
         currentDate: state.currentTab == 1
             ? DateFormat('yyyy-MM-dd').format(state.currentDate)
             : null,
       );
+
+      final y = state.currentTab;
+
+      if (x != y) {
+        return;
+      }
 
       if (res.isNotEmpty) {
         List<MerchantDealDto> lsOfDeals = res['lsOfDeals'];

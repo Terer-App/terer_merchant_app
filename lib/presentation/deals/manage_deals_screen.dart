@@ -101,75 +101,73 @@ class ManageDealsConsumer extends StatelessWidget {
                     SizedBox(
                       height: 10.h,
                     ),
-                    Expanded(
-                      child: Container(
-                        width: double.maxFinite,
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10.w, vertical: 2.h),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.background,
-                          borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(7.w),
-                              bottomRight: Radius.circular(0.w),
-                              topLeft: Radius.circular(7.w),
-                              bottomLeft: Radius.circular(0.w)),
-                        ),
-                        child: Column(
-                          children: [
-                            SizedBox(
-                              height: 5.h,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                CustomCard(
-                                  image: AssetConstants.balance,
-                                  title: DealsConstants.balance,
-                                  onClick: () {
-                                    navigator<NavigationService>().navigateTo(
-                                        CoreRoutes.reportsRoute,
-                                        queryParams: {
-                                          'tabIndex': '0',
-                                          'tabName': DealType.BALANCE.name,
-                                        });
-                                  },
-                                ),
-                                CustomCard(
-                                  isPrimaryColor: false,
-                                  image: AssetConstants.redeemed,
-                                  title: DealsConstants.redeemed,
-                                  onClick: () {
-                                    navigator<NavigationService>().navigateTo(
-                                        CoreRoutes.reportsRoute,
-                                        queryParams: {
-                                          'tabIndex': '1',
-                                          'tabName': DealType.REDEEMED.name,
-                                        });
-                                  },
-                                ),
-                                CustomCard(
-                                  image: AssetConstants.verified,
-                                  title: DealsConstants.verified,
-                                  onClick: () {
-                                    navigator<NavigationService>().navigateTo(
-                                        CoreRoutes.reportsRoute,
-                                        queryParams: {
-                                          'tabIndex': '2',
-                                          'tabName': DealType.VERIFIED.name,
-                                        });
-                                  },
-                                )
-                              ],
-                            )
-                          ],
-                        ),
+                    Container(
+                      width: double.maxFinite,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10.w, vertical: 2.h),
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).colorScheme.background,
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(7.w),
+                            bottomRight: Radius.circular(0.w),
+                            topLeft: Radius.circular(7.w),
+                            bottomLeft: Radius.circular(0.w)),
+                      ),
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              CustomCard(
+                                image: AssetConstants.balance,
+                                title: DealsConstants.balance,
+                                onClick: () {
+                                  navigator<NavigationService>().navigateTo(
+                                      CoreRoutes.reportsRoute,
+                                      queryParams: {
+                                        'tabIndex': '0',
+                                        'tabName': DealType.BALANCE.name,
+                                      });
+                                },
+                              ),
+                              CustomCard(
+                                isPrimaryColor: false,
+                                image: AssetConstants.redeemed,
+                                title: DealsConstants.redeemed,
+                                onClick: () {
+                                  navigator<NavigationService>().navigateTo(
+                                      CoreRoutes.reportsRoute,
+                                      queryParams: {
+                                        'tabIndex': '1',
+                                        'tabName': DealType.REDEEMED.name,
+                                      });
+                                },
+                              ),
+                              CustomCard(
+                                image: AssetConstants.verified,
+                                title: DealsConstants.verified,
+                                onClick: () {
+                                  navigator<NavigationService>().navigateTo(
+                                      CoreRoutes.reportsRoute,
+                                      queryParams: {
+                                        'tabIndex': '2',
+                                        'tabName': DealType.VERIFIED.name,
+                                      });
+                                },
+                              )
+                            ],
+                          )
+                        ],
                       ),
                     ),
                     Container(
                       alignment: Alignment.center,
                       width: 100.w,
                       color: Theme.of(context).colorScheme.background,
-                      padding: EdgeInsets.only(bottom: 4.h),
+                      padding: EdgeInsets.only(bottom: 2.h),
                       child: Text(
                         DateFormat('d MMM y').format(DateTime.now()),
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
@@ -181,8 +179,11 @@ class ManageDealsConsumer extends StatelessWidget {
                     ),
                     Expanded(
                       child: state.isLoading
-                          ? const Center(
-                              child: CircularProgressIndicator(),
+                          ? Container(
+                              color: Theme.of(context).colorScheme.background,
+                              child: const Center(
+                                child: CircularProgressIndicator(),
+                              ),
                             )
                           : state.todaysDeals.isEmpty
                               ? Container(
