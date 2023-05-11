@@ -60,7 +60,7 @@ class ManageDealsConsumer extends StatelessWidget {
           child: Stack(children: [
             Container(
               decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).colorScheme.secondaryContainer,
               ),
               child: Stack(children: [
                 Column(
@@ -165,16 +165,19 @@ class ManageDealsConsumer extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text(
-                      DateFormat('d MMM y').format(DateTime.now()),
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w700,
-                            color: Theme.of(context).primaryColor,
-                          ),
-                    ),
-                    SizedBox(
-                      height: 2.h,
+                    Container(
+                      alignment: Alignment.center,
+                      width: 100.w,
+                      color: Theme.of(context).colorScheme.background,
+                      padding: EdgeInsets.only(bottom: 4.h),
+                      child: Text(
+                        DateFormat('d MMM y').format(DateTime.now()),
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                              color: Theme.of(context).primaryColor,
+                            ),
+                      ),
                     ),
                     Expanded(
                       child: state.isLoading
@@ -182,10 +185,16 @@ class ManageDealsConsumer extends StatelessWidget {
                               child: CircularProgressIndicator(),
                             )
                           : state.todaysDeals.isEmpty
-                              ? const SizedBox()
-                              : Container(
+                              ? Container(
                                   color:
                                       Theme.of(context).colorScheme.background,
+                                )
+                              : Container(
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .background,
+                                  ),
                                   child: ListView.separated(
                                     controller: state.scrollController,
                                     physics: const BouncingScrollPhysics(),
@@ -269,9 +278,6 @@ class ManageDealsConsumer extends StatelessWidget {
                       ),
                       child: Text(
                         'Hipster Coffee Shop',
-                        // state.appStateNotifier.customer!.firstName
-                        //     .capitalizeCamel
-                        //     ,
                         style: TextStyle(
                             color: Theme.of(context)
                                 .colorScheme

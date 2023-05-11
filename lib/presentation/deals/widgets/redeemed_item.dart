@@ -106,7 +106,7 @@ class RedeemedOrVerifyItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  if (dealDto.isVerified)
+                  if (!dealDto.isVerified)
                     Positioned(
                       right: 1.w,
                       child: Text(

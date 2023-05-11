@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../../../presentation/about_us/about_us_screen.dart';
 import '../../../../presentation/about_us/terms_screen.dart';
 import '../../../../presentation/auth/getting_started_screen.dart';
-import '../../../../presentation/auth/login_screen.dart';
 import '../../../../presentation/contact_us/contact_us_screen.dart';
 import '../../../../infrastructure/platform/platform_enum.dart';
 import '../../../../presentation/deals/reports/reports_screen.dart';

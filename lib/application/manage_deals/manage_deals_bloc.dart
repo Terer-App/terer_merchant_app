@@ -80,7 +80,6 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
           totalDeals: totalDeals,
           todaysDeals: updatedDeals,
           hasMoreDocs: updatedDeals.length < totalDeals,
-          isLoading: false,
           currentPage: res['currentPage'],
         ));
       }

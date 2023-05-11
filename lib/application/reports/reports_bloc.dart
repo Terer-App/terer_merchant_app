@@ -84,7 +84,6 @@ class ReportsBloc extends Bloc<ReportsEvent, ReportsState> {
           totalDeals: totalDeals,
           lsOfDeals: updatedDeals,
           hasMoreDocs: updatedDeals.length < totalDeals,
-          isLoading: false,
           currentPage: res['currentPage'],
         ));
       }
@@ -120,6 +119,7 @@ class ReportsBloc extends Bloc<ReportsEvent, ReportsState> {
           currentDate: newDate,
           isLoading: true,
           currentTab: 1,
+          lsOfDeals: [],
           currentTabName: DealType.REDEEMED.name,
           currentPage: 1,
         ),
