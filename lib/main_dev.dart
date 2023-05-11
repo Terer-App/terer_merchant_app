@@ -14,7 +14,7 @@ void main() async {
       : await getLibraryDirectory();
   Hive.init(directory!.path);
   final appConfig = AppConfig(
-    appTitle: 'Terer',
+    appTitle: 'Terer Merchant - Dev',
     serverUrl: 'https://server.terer.co/merchant/dev/api/',
     buildFlavor: 'Dev',
     child: Container(),

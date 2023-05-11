@@ -15,7 +15,7 @@ void main() async {
   Hive.init(directory!.path);
   final appConfig = AppConfig(
     appTitle: 'Terer',
-    serverUrl: '',
+    serverUrl: 'https://server.terer.co/merchant/dev/api/',
     buildFlavor: 'Production',
     child: Container(),
   );

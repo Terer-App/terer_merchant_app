@@ -3,6 +3,8 @@ class AppConstants {
   static const String myCartTitle = 'My Cart';
   static const String hello = 'Hello!';
   static const String welcome = 'Welcome';
+  static const String createAccountURL =
+      'https://forms.zohopublic.com/digitalzero/form/MerchantBusinessDetails/formperma/gye3n9OO9rnew80Ge0_LomBYY925LFPjk1pLZzvUZ08';
   static const String ok = 'Ok';
   static const String redeem = 'Redeem';
   static const String back = 'Back';
@@ -149,8 +151,8 @@ to you via email.
 
 class DealsConstants {
   //label text
-  
-    static const String totalTerer = 'Total Terer';
+
+  static const String totalTerer = 'Total Terer';
 
   static const String productName = 'Product Name';
   static const String originalPrice = 'Original Price';
