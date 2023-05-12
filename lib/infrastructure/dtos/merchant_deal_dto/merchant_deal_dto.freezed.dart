@@ -25,6 +25,10 @@ mixin _$MerchantDealDto {
   @JsonKey(defaultValue: '')
   String get imageUrl => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: 0)
+  int get totalDeals => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: 0)
+  int get balanceDeals => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: 0)
   int get noOfredeemDeals => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: 0)
   int get noOfDeals => throw _privateConstructorUsedError;
@@ -59,6 +63,8 @@ abstract class $MerchantDealDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(defaultValue: '') String dealTitle,
       @JsonKey(defaultValue: '') String imageUrl,
+      @JsonKey(defaultValue: 0) int totalDeals,
+      @JsonKey(defaultValue: 0) int balanceDeals,
       @JsonKey(defaultValue: 0) int noOfredeemDeals,
       @JsonKey(defaultValue: 0) int noOfDeals,
       @JsonKey(defaultValue: false) bool isVerified,
@@ -84,6 +90,8 @@ class _$MerchantDealDtoCopyWithImpl<$Res>
   $Res call({
     Object? dealTitle = freezed,
     Object? imageUrl = freezed,
+    Object? totalDeals = freezed,
+    Object? balanceDeals = freezed,
     Object? noOfredeemDeals = freezed,
     Object? noOfDeals = freezed,
     Object? isVerified = freezed,
@@ -104,6 +112,14 @@ class _$MerchantDealDtoCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      totalDeals: totalDeals == freezed
+          ? _value.totalDeals
+          : totalDeals // ignore: cast_nullable_to_non_nullable
+              as int,
+      balanceDeals: balanceDeals == freezed
+          ? _value.balanceDeals
+          : balanceDeals // ignore: cast_nullable_to_non_nullable
+              as int,
       noOfredeemDeals: noOfredeemDeals == freezed
           ? _value.noOfredeemDeals
           : noOfredeemDeals // ignore: cast_nullable_to_non_nullable
@@ -158,6 +174,8 @@ abstract class _$$_MerchantDealDtoCopyWith<$Res>
   $Res call(
       {@JsonKey(defaultValue: '') String dealTitle,
       @JsonKey(defaultValue: '') String imageUrl,
+      @JsonKey(defaultValue: 0) int totalDeals,
+      @JsonKey(defaultValue: 0) int balanceDeals,
       @JsonKey(defaultValue: 0) int noOfredeemDeals,
       @JsonKey(defaultValue: 0) int noOfDeals,
       @JsonKey(defaultValue: false) bool isVerified,
@@ -185,6 +203,8 @@ class __$$_MerchantDealDtoCopyWithImpl<$Res>
   $Res call({
     Object? dealTitle = freezed,
     Object? imageUrl = freezed,
+    Object? totalDeals = freezed,
+    Object? balanceDeals = freezed,
     Object? noOfredeemDeals = freezed,
     Object? noOfDeals = freezed,
     Object? isVerified = freezed,
@@ -205,6 +225,14 @@ class __$$_MerchantDealDtoCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      totalDeals: totalDeals == freezed
+          ? _value.totalDeals
+          : totalDeals // ignore: cast_nullable_to_non_nullable
+              as int,
+      balanceDeals: balanceDeals == freezed
+          ? _value.balanceDeals
+          : balanceDeals // ignore: cast_nullable_to_non_nullable
+              as int,
       noOfredeemDeals: noOfredeemDeals == freezed
           ? _value.noOfredeemDeals
           : noOfredeemDeals // ignore: cast_nullable_to_non_nullable
@@ -255,6 +283,8 @@ class _$_MerchantDealDto implements _MerchantDealDto {
   _$_MerchantDealDto(
       {@JsonKey(defaultValue: '') required this.dealTitle,
       @JsonKey(defaultValue: '') required this.imageUrl,
+      @JsonKey(defaultValue: 0) required this.totalDeals,
+      @JsonKey(defaultValue: 0) required this.balanceDeals,
       @JsonKey(defaultValue: 0) required this.noOfredeemDeals,
       @JsonKey(defaultValue: 0) required this.noOfDeals,
       @JsonKey(defaultValue: false) required this.isVerified,
@@ -275,6 +305,12 @@ class _$_MerchantDealDto implements _MerchantDealDto {
   @override
   @JsonKey(defaultValue: '')
   final String imageUrl;
+  @override
+  @JsonKey(defaultValue: 0)
+  final int totalDeals;
+  @override
+  @JsonKey(defaultValue: 0)
+  final int balanceDeals;
   @override
   @JsonKey(defaultValue: 0)
   final int noOfredeemDeals;
@@ -308,7 +344,7 @@ class _$_MerchantDealDto implements _MerchantDealDto {
 
   @override
   String toString() {
-    return 'MerchantDealDto(dealTitle: $dealTitle, imageUrl: $imageUrl, noOfredeemDeals: $noOfredeemDeals, noOfDeals: $noOfDeals, isVerified: $isVerified, orderId: $orderId, dealerId: $dealerId, customerName: $customerName, customerEmail: $customerEmail, createdAt: $createdAt, buyingDate: $buyingDate, buyingTime: $buyingTime)';
+    return 'MerchantDealDto(dealTitle: $dealTitle, imageUrl: $imageUrl, totalDeals: $totalDeals, balanceDeals: $balanceDeals, noOfredeemDeals: $noOfredeemDeals, noOfDeals: $noOfDeals, isVerified: $isVerified, orderId: $orderId, dealerId: $dealerId, customerName: $customerName, customerEmail: $customerEmail, createdAt: $createdAt, buyingDate: $buyingDate, buyingTime: $buyingTime)';
   }
 
   @override
@@ -318,6 +354,10 @@ class _$_MerchantDealDto implements _MerchantDealDto {
             other is _$_MerchantDealDto &&
             const DeepCollectionEquality().equals(other.dealTitle, dealTitle) &&
             const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.totalDeals, totalDeals) &&
+            const DeepCollectionEquality()
+                .equals(other.balanceDeals, balanceDeals) &&
             const DeepCollectionEquality()
                 .equals(other.noOfredeemDeals, noOfredeemDeals) &&
             const DeepCollectionEquality().equals(other.noOfDeals, noOfDeals) &&
@@ -342,6 +382,8 @@ class _$_MerchantDealDto implements _MerchantDealDto {
       runtimeType,
       const DeepCollectionEquality().hash(dealTitle),
       const DeepCollectionEquality().hash(imageUrl),
+      const DeepCollectionEquality().hash(totalDeals),
+      const DeepCollectionEquality().hash(balanceDeals),
       const DeepCollectionEquality().hash(noOfredeemDeals),
       const DeepCollectionEquality().hash(noOfDeals),
       const DeepCollectionEquality().hash(isVerified),
@@ -370,6 +412,8 @@ abstract class _MerchantDealDto implements MerchantDealDto {
   factory _MerchantDealDto(
           {@JsonKey(defaultValue: '') required final String dealTitle,
           @JsonKey(defaultValue: '') required final String imageUrl,
+          @JsonKey(defaultValue: 0) required final int totalDeals,
+          @JsonKey(defaultValue: 0) required final int balanceDeals,
           @JsonKey(defaultValue: 0) required final int noOfredeemDeals,
           @JsonKey(defaultValue: 0) required final int noOfDeals,
           @JsonKey(defaultValue: false) required final bool isVerified,
@@ -391,6 +435,12 @@ abstract class _MerchantDealDto implements MerchantDealDto {
   @override
   @JsonKey(defaultValue: '')
   String get imageUrl;
+  @override
+  @JsonKey(defaultValue: 0)
+  int get totalDeals;
+  @override
+  @JsonKey(defaultValue: 0)
+  int get balanceDeals;
   @override
   @JsonKey(defaultValue: 0)
   int get noOfredeemDeals;

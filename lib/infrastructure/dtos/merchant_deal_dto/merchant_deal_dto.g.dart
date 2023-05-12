@@ -10,6 +10,8 @@ _$_MerchantDealDto _$$_MerchantDealDtoFromJson(Map<String, dynamic> json) =>
     _$_MerchantDealDto(
       dealTitle: json['dealTitle'] as String? ?? '',
       imageUrl: json['imageUrl'] as String? ?? '',
+      totalDeals: json['totalDeals'] as int? ?? 0,
+      balanceDeals: json['balanceDeals'] as int? ?? 0,
       noOfredeemDeals: json['noOfredeemDeals'] as int? ?? 0,
       noOfDeals: json['noOfDeals'] as int? ?? 0,
       isVerified: json['isVerified'] as bool? ?? false,
@@ -26,6 +28,8 @@ Map<String, dynamic> _$$_MerchantDealDtoToJson(_$_MerchantDealDto instance) =>
     <String, dynamic>{
       'dealTitle': instance.dealTitle,
       'imageUrl': instance.imageUrl,
+      'totalDeals': instance.totalDeals,
+      'balanceDeals': instance.balanceDeals,
       'noOfredeemDeals': instance.noOfredeemDeals,
       'noOfDeals': instance.noOfDeals,
       'isVerified': instance.isVerified,

@@ -8,6 +8,8 @@ class MerchantDealDto with _$MerchantDealDto {
   factory MerchantDealDto({
     @JsonKey(defaultValue: '') required String dealTitle,
     @JsonKey(defaultValue: '') required String imageUrl,
+    @JsonKey(defaultValue: 0) required int totalDeals,
+    @JsonKey(defaultValue: 0) required int balanceDeals,
     @JsonKey(defaultValue: 0) required int noOfredeemDeals,
     @JsonKey(defaultValue: 0) required int noOfDeals,
     @JsonKey(defaultValue: false) required bool isVerified,

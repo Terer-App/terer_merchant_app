@@ -19,7 +19,7 @@ class BalanceItem extends StatelessWidget {
           color: Theme.of(context).colorScheme.secondary,
           borderRadius: BorderRadius.circular(40),
         ),
-        height: 16.h,
+        height: 18.h,
         padding: EdgeInsets.only(right: 2.w),
         child: Row(
           children: [
@@ -71,7 +71,7 @@ class BalanceItem extends StatelessWidget {
                     ),
                     RichText(
                         text: TextSpan(
-                      text: '${DealsConstants.balance}: 4/5 coupon left',
+                      text: '${DealsConstants.balance}: ${dealDto.balanceDeals}/${dealDto.totalDeals} coupon left',
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.w500,

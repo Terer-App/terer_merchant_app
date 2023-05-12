@@ -26,7 +26,7 @@ class RedeemedOrVerifyItem extends StatelessWidget {
         color: Theme.of(context).colorScheme.secondary,
         borderRadius: BorderRadius.circular(40),
       ),
-      height: 16.h,
+      height: 18.h,
       padding: EdgeInsets.only(
         right: 2.w,
       ),
