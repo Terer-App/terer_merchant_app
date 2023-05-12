@@ -41,10 +41,10 @@ class TermsAndConditionScreen extends StatelessWidget {
         title: Padding(
           padding: EdgeInsets.only(left: 5.w),
           child: Text(AppConstants.termsTitle,
-              style: Theme.of(context)
-                  .textTheme
-                  .titleMedium!
-                  .copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
+              style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: Colors.white,
+                  fontSize: 15.sp,
+                  fontWeight: FontWeight.bold)),
         ),
         elevation: 0,
       ),

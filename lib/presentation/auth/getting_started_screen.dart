@@ -73,7 +73,7 @@ class GettingStartedScreen extends StatelessWidget {
                                 onPressedBtn: () {
                                   launchUrl(
                                       Uri.parse(
-                                       AppConstants.createAccountURL,
+                                        AppConstants.createAccountURL,
                                       ),
                                       mode: LaunchMode.inAppWebView);
                                 }),

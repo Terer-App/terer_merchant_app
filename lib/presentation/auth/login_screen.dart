@@ -61,7 +61,7 @@ class LoginConsumer extends StatelessWidget {
           if (state.showMessage.isNotEmpty) {
             CustomToast.showToast(
               msg: state.showMessage,
-              toastGravity: ToastGravity.BOTTOM,
+              toastGravity: ToastGravity.TOP,
             );
           }
 

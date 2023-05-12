@@ -120,10 +120,13 @@ class ReportsBloc extends Bloc<ReportsEvent, ReportsState> {
 
     on<_OnDateChange>((event, emit) {
       DateTime newDate = state.currentDate;
-      if (event.isNext) {
-        newDate = newDate.add(const Duration(days: 1));
-      } else {
-        newDate = newDate.subtract(const Duration(days: 1));
+
+      if (!event.isSelectedParticular) {
+        if (event.isNext) {
+          newDate = newDate.add(const Duration(days: 1));
+        } else {
+          newDate = newDate.subtract(const Duration(days: 1));
+        }
       }
 
       emit(

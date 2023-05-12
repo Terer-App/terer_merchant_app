@@ -66,7 +66,7 @@ class ManageDealsConsumer extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      height: 20.h,
+                      height: 16.h,
                       width: double.maxFinite,
                       decoration: BoxDecoration(
                         color: Theme.of(context).colorScheme.primary,
@@ -116,7 +116,7 @@ class ManageDealsConsumer extends StatelessWidget {
                       child: Column(
                         children: [
                           SizedBox(
-                            height: 5.h,
+                            height: 2.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -245,7 +245,7 @@ class ManageDealsConsumer extends StatelessWidget {
             ),
             Positioned(
               left: 10.w,
-              top: 17.h,
+              top: 13.h,
               child: Container(
                 height: 13.h,
                 width: 80.w,
@@ -278,7 +278,7 @@ class ManageDealsConsumer extends StatelessWidget {
                         left: 5.w,
                       ),
                       child: Text(
-                        'Hipster Coffee Shop',
+                        state.profile!.shopName ?? '',
                         style: TextStyle(
                             color: Theme.of(context)
                                 .colorScheme

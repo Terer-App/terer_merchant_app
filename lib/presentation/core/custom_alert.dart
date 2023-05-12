@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../domain/extensions/sizer_extension.dart';
 import 'custom_button.dart';
 
 class CustomAlert extends StatelessWidget {
@@ -14,8 +13,9 @@ class CustomAlert extends StatelessWidget {
   final String? button2Text;
   final Function() onPressed;
   final Function()? onPressed2;
-
+  final int? maxTitleIndex;
   final double? height;
+  final double? bothBtnHeight;
   final Widget? customWidget;
   final bool isExtraBtn;
   final bool isReport;
@@ -31,6 +31,8 @@ class CustomAlert extends StatelessWidget {
       required this.onPressed,
       required this.buttonText,
       required this.svgUrl,
+      this.maxTitleIndex,
+      this.bothBtnHeight,
       this.height,
       this.customWidget,
       this.onPressed2,
@@ -67,7 +69,7 @@ class CustomAlert extends StatelessWidget {
           ],
           borderRadius: BorderRadius.circular(40),
         ),
-        child: Column(children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
           if (svgUrl.endsWith('.svg'))
             SvgPicture.asset(
               svgUrl,
@@ -96,17 +98,20 @@ class CustomAlert extends StatelessWidget {
                                     fontWeight: FontWeight.bold),
                           )
                         : TextSpan(
-                            text: content.substring(0, 10),
+                            text: content.substring(0, maxTitleIndex ?? 10),
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyMedium!
                                 .copyWith(
-                                    color: Theme.of(context).primaryColor,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.bold),
+                                  color: Theme.of(context).primaryColor,
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
                           ),
                     TextSpan(
-                      text: isPurchase ? content : content.substring(10),
+                      text: isPurchase
+                          ? content
+                          : content.substring(maxTitleIndex ?? 10),
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: Theme.of(context).colorScheme.secondary,
                             fontWeight: FontWeight.bold,
@@ -137,8 +142,8 @@ class CustomAlert extends StatelessWidget {
             child: SecondaryButton(
               btnText: buttonText,
               textFontWeight: FontWeight.w900,
-              textFontSize:
-                  (SizerUtilExtension.checkSizerIsSupported) ? 10.sp : 14,
+              textFontSize: 12.sp,
+              height: bothBtnHeight,
               onPressedBtn: onPressed,
             ),
           ),
@@ -150,14 +155,14 @@ class CustomAlert extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: SecondaryButton(
+                height: bothBtnHeight,
                 btnText: button2Text ?? '',
                 bgColor: reverseColor ? Theme.of(context).primaryColor : null,
                 btnTextColor: reverseColor
                     ? Theme.of(context).colorScheme.secondary
                     : null,
                 textFontWeight: FontWeight.w900,
-                textFontSize:
-                    (SizerUtilExtension.checkSizerIsSupported) ? 10.sp : 14,
+                textFontSize: 12.sp,
                 onPressedBtn: onPressed2,
               ),
             ),

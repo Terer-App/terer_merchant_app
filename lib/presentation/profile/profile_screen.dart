@@ -244,7 +244,7 @@ class ProfileConsumer extends StatelessWidget {
                                         height: 15.sp,
                                         width: 20.sp,
                                         child: Image.asset(
-                                          'assets/flags/in.png',
+                                          'assets/flags/my.png',
 
                                           // "assets/flags/${state.selectedCountry['locale'].toString().toLowerCase()}.png",
                                           fit: BoxFit.fill,
@@ -253,7 +253,7 @@ class ProfileConsumer extends StatelessWidget {
                                     ),
                                     SizedBox(width: 1.w),
                                     Text(
-                                      '+91',
+                                      '+60',
                                       // state.selectedCountry['dial_code'].toString(),
                                       textScaleFactor: 1.0,
                                       softWrap: true,
@@ -292,6 +292,7 @@ class ProfileConsumer extends StatelessWidget {
                                           context: context,
                                           builder: (context) {
                                             return CustomAlert(
+                                              bothBtnHeight: 6.5.h,
                                               // on press no
                                               onPressed2: () {
                                                 navigator<NavigationService>()

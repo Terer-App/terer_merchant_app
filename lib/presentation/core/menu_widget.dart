@@ -104,6 +104,7 @@ class MenuWidget extends StatelessWidget {
                 width: double.infinity,
                 child: SecondaryButton(
                     btnBorderRadius: 10.w,
+                    height: 6.5.h,
                     newChild: Row(children: [
                       SizedBox(
                         width: 3.w,

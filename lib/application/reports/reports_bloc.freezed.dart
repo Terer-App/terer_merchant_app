@@ -21,7 +21,8 @@ mixin _$ReportsEvent {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
-    required TResult Function(bool isNext) onDateChange,
+    required TResult Function(bool isNext, bool isSelectedParticular)
+        onDateChange,
     required TResult Function(int tabIndex, String tabName) onTabChange,
     required TResult Function(ReportsState state) emitFromAnywhere,
   }) =>
@@ -31,7 +32,7 @@ mixin _$ReportsEvent {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
   }) =>
@@ -41,7 +42,7 @@ mixin _$ReportsEvent {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
     required TResult orElse(),
@@ -137,7 +138,8 @@ class _$_Init implements _Init {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
-    required TResult Function(bool isNext) onDateChange,
+    required TResult Function(bool isNext, bool isSelectedParticular)
+        onDateChange,
     required TResult Function(int tabIndex, String tabName) onTabChange,
     required TResult Function(ReportsState state) emitFromAnywhere,
   }) {
@@ -150,7 +152,7 @@ class _$_Init implements _Init {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
   }) {
@@ -163,7 +165,7 @@ class _$_Init implements _Init {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
     required TResult orElse(),
@@ -263,7 +265,8 @@ class _$_OnLoad implements _OnLoad {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
-    required TResult Function(bool isNext) onDateChange,
+    required TResult Function(bool isNext, bool isSelectedParticular)
+        onDateChange,
     required TResult Function(int tabIndex, String tabName) onTabChange,
     required TResult Function(ReportsState state) emitFromAnywhere,
   }) {
@@ -276,7 +279,7 @@ class _$_OnLoad implements _OnLoad {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
   }) {
@@ -289,7 +292,7 @@ class _$_OnLoad implements _OnLoad {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
     required TResult orElse(),
@@ -391,7 +394,8 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
-    required TResult Function(bool isNext) onDateChange,
+    required TResult Function(bool isNext, bool isSelectedParticular)
+        onDateChange,
     required TResult Function(int tabIndex, String tabName) onTabChange,
     required TResult Function(ReportsState state) emitFromAnywhere,
   }) {
@@ -404,7 +408,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
   }) {
@@ -417,7 +421,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
     required TResult orElse(),
@@ -481,7 +485,7 @@ abstract class _$$_OnDateChangeCopyWith<$Res> {
   factory _$$_OnDateChangeCopyWith(
           _$_OnDateChange value, $Res Function(_$_OnDateChange) then) =
       __$$_OnDateChangeCopyWithImpl<$Res>;
-  $Res call({bool isNext});
+  $Res call({bool isNext, bool isSelectedParticular});
 }
 
 /// @nodoc
@@ -498,11 +502,16 @@ class __$$_OnDateChangeCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isNext = freezed,
+    Object? isSelectedParticular = freezed,
   }) {
     return _then(_$_OnDateChange(
       isNext: isNext == freezed
           ? _value.isNext
           : isNext // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isSelectedParticular: isSelectedParticular == freezed
+          ? _value.isSelectedParticular
+          : isSelectedParticular // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -511,14 +520,17 @@ class __$$_OnDateChangeCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_OnDateChange implements _OnDateChange {
-  const _$_OnDateChange({required this.isNext});
+  const _$_OnDateChange(
+      {required this.isNext, required this.isSelectedParticular});
 
   @override
   final bool isNext;
+  @override
+  final bool isSelectedParticular;
 
   @override
   String toString() {
-    return 'ReportsEvent.onDateChange(isNext: $isNext)';
+    return 'ReportsEvent.onDateChange(isNext: $isNext, isSelectedParticular: $isSelectedParticular)';
   }
 
   @override
@@ -526,12 +538,16 @@ class _$_OnDateChange implements _OnDateChange {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_OnDateChange &&
-            const DeepCollectionEquality().equals(other.isNext, isNext));
+            const DeepCollectionEquality().equals(other.isNext, isNext) &&
+            const DeepCollectionEquality()
+                .equals(other.isSelectedParticular, isSelectedParticular));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(isNext));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isNext),
+      const DeepCollectionEquality().hash(isSelectedParticular));
 
   @JsonKey(ignore: true)
   @override
@@ -544,11 +560,12 @@ class _$_OnDateChange implements _OnDateChange {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
-    required TResult Function(bool isNext) onDateChange,
+    required TResult Function(bool isNext, bool isSelectedParticular)
+        onDateChange,
     required TResult Function(int tabIndex, String tabName) onTabChange,
     required TResult Function(ReportsState state) emitFromAnywhere,
   }) {
-    return onDateChange(isNext);
+    return onDateChange(isNext, isSelectedParticular);
   }
 
   @override
@@ -557,11 +574,11 @@ class _$_OnDateChange implements _OnDateChange {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
   }) {
-    return onDateChange?.call(isNext);
+    return onDateChange?.call(isNext, isSelectedParticular);
   }
 
   @override
@@ -570,13 +587,13 @@ class _$_OnDateChange implements _OnDateChange {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
     if (onDateChange != null) {
-      return onDateChange(isNext);
+      return onDateChange(isNext, isSelectedParticular);
     }
     return orElse();
   }
@@ -626,9 +643,12 @@ class _$_OnDateChange implements _OnDateChange {
 }
 
 abstract class _OnDateChange implements ReportsEvent {
-  const factory _OnDateChange({required final bool isNext}) = _$_OnDateChange;
+  const factory _OnDateChange(
+      {required final bool isNext,
+      required final bool isSelectedParticular}) = _$_OnDateChange;
 
   bool get isNext;
+  bool get isSelectedParticular;
   @JsonKey(ignore: true)
   _$$_OnDateChangeCopyWith<_$_OnDateChange> get copyWith =>
       throw _privateConstructorUsedError;
@@ -712,7 +732,8 @@ class _$_OnTabChange implements _OnTabChange {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
-    required TResult Function(bool isNext) onDateChange,
+    required TResult Function(bool isNext, bool isSelectedParticular)
+        onDateChange,
     required TResult Function(int tabIndex, String tabName) onTabChange,
     required TResult Function(ReportsState state) emitFromAnywhere,
   }) {
@@ -725,7 +746,7 @@ class _$_OnTabChange implements _OnTabChange {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
   }) {
@@ -738,7 +759,7 @@ class _$_OnTabChange implements _OnTabChange {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
     required TResult orElse(),
@@ -882,7 +903,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
-    required TResult Function(bool isNext) onDateChange,
+    required TResult Function(bool isNext, bool isSelectedParticular)
+        onDateChange,
     required TResult Function(int tabIndex, String tabName) onTabChange,
     required TResult Function(ReportsState state) emitFromAnywhere,
   }) {
@@ -895,7 +917,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
   }) {
@@ -908,7 +930,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
-    TResult Function(bool isNext)? onDateChange,
+    TResult Function(bool isNext, bool isSelectedParticular)? onDateChange,
     TResult Function(int tabIndex, String tabName)? onTabChange,
     TResult Function(ReportsState state)? emitFromAnywhere,
     required TResult orElse(),

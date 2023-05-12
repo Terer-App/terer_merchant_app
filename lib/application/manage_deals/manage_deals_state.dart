@@ -18,6 +18,7 @@ class ManageDealsState with _$ManageDealsState {
     required ShopMerchantRepository shopMerchantRepository,
     required ScrollController scrollController,
     required ZoomDrawerController zoomDrawerController,
+    MerchantDto? profile,
   }) = _ManageDealsState;
 
   factory ManageDealsState.initial({
@@ -27,6 +28,7 @@ class ManageDealsState with _$ManageDealsState {
   }) {
     return ManageDealsState(
       currentDate: DateTime.now(),
+      profile: appStateNotifier.profile,
       appStateNotifier: appStateNotifier,
       zoomDrawerController: zoomDrawerController,
       scrollController: ScrollController(),

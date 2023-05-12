@@ -56,7 +56,7 @@ class ErrorConstants {
 }
 
 class AuthConstants {
-  static const String startedTitle = 'Stop daydreaming and start redeeming';
+  static const String startedTitle = 'Building Loyal Relationships';
   static const String createAnAccount = 'Create An Account';
 
   static const String logout = 'Logout';
@@ -126,8 +126,9 @@ class ContactUsConstants {
   // dialog msg
   static const String thankyouForReport = 'Thank you for your report.';
   static const String getBackViaEmail = '''Thank you\n for your report.
-      
-      We will get back to you via email. Have a terer day!''';
+
+    We will get back to you via email. 
+          Have a terer day!    ''';
   static const String backToRedeem = 'Back to Redeem';
 }
 

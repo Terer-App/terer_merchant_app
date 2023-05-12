@@ -605,6 +605,7 @@ mixin _$ManageDealsState {
   ScrollController get scrollController => throw _privateConstructorUsedError;
   ZoomDrawerController get zoomDrawerController =>
       throw _privateConstructorUsedError;
+  MerchantDto? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ManageDealsStateCopyWith<ManageDealsState> get copyWith =>
@@ -631,7 +632,10 @@ abstract class $ManageDealsStateCopyWith<$Res> {
       List<MerchantDealDto> todaysDeals,
       ShopMerchantRepository shopMerchantRepository,
       ScrollController scrollController,
-      ZoomDrawerController zoomDrawerController});
+      ZoomDrawerController zoomDrawerController,
+      MerchantDto? profile});
+
+  $MerchantDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -660,6 +664,7 @@ class _$ManageDealsStateCopyWithImpl<$Res>
     Object? shopMerchantRepository = freezed,
     Object? scrollController = freezed,
     Object? zoomDrawerController = freezed,
+    Object? profile = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -722,7 +727,22 @@ class _$ManageDealsStateCopyWithImpl<$Res>
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
               as ZoomDrawerController,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
     ));
+  }
+
+  @override
+  $MerchantDtoCopyWith<$Res>? get profile {
+    if (_value.profile == null) {
+      return null;
+    }
+
+    return $MerchantDtoCopyWith<$Res>(_value.profile!, (value) {
+      return _then(_value.copyWith(profile: value));
+    });
   }
 }
 
@@ -748,7 +768,11 @@ abstract class _$$_ManageDealsStateCopyWith<$Res>
       List<MerchantDealDto> todaysDeals,
       ShopMerchantRepository shopMerchantRepository,
       ScrollController scrollController,
-      ZoomDrawerController zoomDrawerController});
+      ZoomDrawerController zoomDrawerController,
+      MerchantDto? profile});
+
+  @override
+  $MerchantDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -779,6 +803,7 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
     Object? shopMerchantRepository = freezed,
     Object? scrollController = freezed,
     Object? zoomDrawerController = freezed,
+    Object? profile = freezed,
   }) {
     return _then(_$_ManageDealsState(
       isLoading: isLoading == freezed
@@ -841,6 +866,10 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
               as ZoomDrawerController,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as MerchantDto?,
     ));
   }
 }
@@ -863,7 +892,8 @@ class _$_ManageDealsState implements _ManageDealsState {
       required final List<MerchantDealDto> todaysDeals,
       required this.shopMerchantRepository,
       required this.scrollController,
-      required this.zoomDrawerController})
+      required this.zoomDrawerController,
+      this.profile})
       : _todaysDeals = todaysDeals;
 
   @override
@@ -901,10 +931,12 @@ class _$_ManageDealsState implements _ManageDealsState {
   final ScrollController scrollController;
   @override
   final ZoomDrawerController zoomDrawerController;
+  @override
+  final MerchantDto? profile;
 
   @override
   String toString() {
-    return 'ManageDealsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, serverUrl: $serverUrl, showMessage: $showMessage, hasMoreDocs: $hasMoreDocs, currentPage: $currentPage, totalDeals: $totalDeals, currentDate: $currentDate, appStateNotifier: $appStateNotifier, todaysDeals: $todaysDeals, shopMerchantRepository: $shopMerchantRepository, scrollController: $scrollController, zoomDrawerController: $zoomDrawerController)';
+    return 'ManageDealsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, serverUrl: $serverUrl, showMessage: $showMessage, hasMoreDocs: $hasMoreDocs, currentPage: $currentPage, totalDeals: $totalDeals, currentDate: $currentDate, appStateNotifier: $appStateNotifier, todaysDeals: $todaysDeals, shopMerchantRepository: $shopMerchantRepository, scrollController: $scrollController, zoomDrawerController: $zoomDrawerController, profile: $profile)';
   }
 
   @override
@@ -937,7 +969,8 @@ class _$_ManageDealsState implements _ManageDealsState {
             const DeepCollectionEquality()
                 .equals(other.scrollController, scrollController) &&
             const DeepCollectionEquality()
-                .equals(other.zoomDrawerController, zoomDrawerController));
+                .equals(other.zoomDrawerController, zoomDrawerController) &&
+            const DeepCollectionEquality().equals(other.profile, profile));
   }
 
   @override
@@ -957,7 +990,8 @@ class _$_ManageDealsState implements _ManageDealsState {
       const DeepCollectionEquality().hash(_todaysDeals),
       const DeepCollectionEquality().hash(shopMerchantRepository),
       const DeepCollectionEquality().hash(scrollController),
-      const DeepCollectionEquality().hash(zoomDrawerController));
+      const DeepCollectionEquality().hash(zoomDrawerController),
+      const DeepCollectionEquality().hash(profile));
 
   @JsonKey(ignore: true)
   @override
@@ -967,22 +1001,22 @@ class _$_ManageDealsState implements _ManageDealsState {
 
 abstract class _ManageDealsState implements ManageDealsState {
   const factory _ManageDealsState(
-          {required final bool isLoading,
-          required final bool isFailed,
-          required final bool isSuccess,
-          required final bool isAccountDeleted,
-          required final String serverUrl,
-          required final String showMessage,
-          required final bool hasMoreDocs,
-          required final int currentPage,
-          required final int totalDeals,
-          required final DateTime currentDate,
-          required final AppStateNotifier appStateNotifier,
-          required final List<MerchantDealDto> todaysDeals,
-          required final ShopMerchantRepository shopMerchantRepository,
-          required final ScrollController scrollController,
-          required final ZoomDrawerController zoomDrawerController}) =
-      _$_ManageDealsState;
+      {required final bool isLoading,
+      required final bool isFailed,
+      required final bool isSuccess,
+      required final bool isAccountDeleted,
+      required final String serverUrl,
+      required final String showMessage,
+      required final bool hasMoreDocs,
+      required final int currentPage,
+      required final int totalDeals,
+      required final DateTime currentDate,
+      required final AppStateNotifier appStateNotifier,
+      required final List<MerchantDealDto> todaysDeals,
+      required final ShopMerchantRepository shopMerchantRepository,
+      required final ScrollController scrollController,
+      required final ZoomDrawerController zoomDrawerController,
+      final MerchantDto? profile}) = _$_ManageDealsState;
 
   @override
   bool get isLoading;
@@ -1014,6 +1048,8 @@ abstract class _ManageDealsState implements ManageDealsState {
   ScrollController get scrollController;
   @override
   ZoomDrawerController get zoomDrawerController;
+  @override
+  MerchantDto? get profile;
   @override
   @JsonKey(ignore: true)
   _$$_ManageDealsStateCopyWith<_$_ManageDealsState> get copyWith =>

@@ -24,12 +24,12 @@ class ReportFilterTab extends StatelessWidget {
           : Theme.of(context).colorScheme.primary,
       btnTextColor: Theme.of(context).colorScheme.secondary,
       textStyle: Theme.of(context).textTheme.bodySmall!.copyWith(
-            fontSize: 10.sp,
+            fontSize: 12.sp,
             fontWeight: FontWeight.bold,
             color: Theme.of(context).colorScheme.secondaryContainer,
           ),
-      width: 30.w,
-      height: 4.h,
+      width: 32.w,
+      height: 5.h,
       btnBorderRadius: 3.w,
       onPressedBtn: onClick,
     );

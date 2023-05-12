@@ -5,8 +5,10 @@ class ReportsEvent with _$ReportsEvent {
   const factory ReportsEvent.init() = _Init;
   const factory ReportsEvent.onLoad() = _OnLoad;
   const factory ReportsEvent.loadMore() = _LoadMore;
-  const factory ReportsEvent.onDateChange({required bool isNext}) =
-      _OnDateChange;
+  const factory ReportsEvent.onDateChange({
+    required bool isNext,
+    required bool isSelectedParticular,
+  }) = _OnDateChange;
 
   const factory ReportsEvent.onTabChange({
     required int tabIndex,

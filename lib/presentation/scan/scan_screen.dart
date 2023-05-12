@@ -93,6 +93,7 @@ class _ScanScreenState extends State<ScanScreen> {
           context: context,
           builder: (context) {
             return CustomAlert(
+              maxTitleIndex: r['type'] == 0 ? 19 : null,
               isReport: true,
               reverseColor: r['type'] == 1 || r['type'] == 2,
               onPressed2: () {
@@ -318,13 +319,15 @@ class _ScanScreenState extends State<ScanScreen> {
                   SizedBox(
                     height: 2.h,
                   ),
-                  Text(
-                    ScanConstants.scanQRInstruction,
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          color: Theme.of(context).colorScheme.secondary,
-                          fontSize: 12.sp,
-                        ),
-                  )
+                  RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: ScanConstants.scanQRInstruction,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              color: Theme.of(context).colorScheme.secondary,
+                              fontSize: 12.sp,
+                            ),
+                      ))
                 ],
               ),
             )),
