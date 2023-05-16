@@ -71,7 +71,7 @@ class LoginConsumer extends StatelessWidget {
       },
       builder: (context, state) {
         return Scaffold(
-          backgroundColor: Colors.white.withOpacity(0.85),
+          backgroundColor: Colors.white.withOpacity(0.1),
           body: ModalProgressHUD(
             inAsyncCall: state.isLoading,
             child: SingleChildScrollView(
@@ -151,11 +151,15 @@ class LoginConsumer extends StatelessWidget {
                               borderRadius: BorderRadius.circular(25),
                               boxShadow: const [
                                 BoxShadow(
-                                  offset: Offset(0, 4),
+                                  offset: Offset(0, 2),
                                   color: Colors.grey,
                                   blurRadius: 3,
                                 ),
                               ],
+                            ),
+                            borderSide: const BorderSide(
+                              width: 1,
+                              color: Colors.grey,
                             ),
                             titleText: AuthConstants.userName,
                             contentPadding: EdgeInsets.symmetric(
@@ -193,11 +197,15 @@ class LoginConsumer extends StatelessWidget {
                               borderRadius: BorderRadius.circular(25),
                               boxShadow: const [
                                 BoxShadow(
-                                  offset: Offset(0, 4),
+                                  offset: Offset(0, 2),
                                   color: Colors.grey,
                                   blurRadius: 3,
                                 ),
                               ],
+                            ),
+                            borderSide: const BorderSide(
+                              width: 1,
+                              color: Colors.grey,
                             ),
                             titleText: AuthConstants.password,
                             contentPadding: EdgeInsets.symmetric(

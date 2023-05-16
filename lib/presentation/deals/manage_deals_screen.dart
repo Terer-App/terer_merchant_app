@@ -66,8 +66,9 @@ class ManageDealsConsumer extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      height: 16.h,
+                      height: 14.5.h,
                       width: double.maxFinite,
+                      padding: EdgeInsets.only(top: 3.h),
                       decoration: BoxDecoration(
                         color: Theme.of(context).colorScheme.primary,
                         borderRadius: BorderRadius.only(
@@ -99,7 +100,7 @@ class ManageDealsConsumer extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: 8.h,
                     ),
                     Container(
                       width: double.maxFinite,
@@ -245,7 +246,7 @@ class ManageDealsConsumer extends StatelessWidget {
             ),
             Positioned(
               left: 10.w,
-              top: 13.h,
+              top: 11.h,
               child: Container(
                 height: 13.h,
                 width: 80.w,

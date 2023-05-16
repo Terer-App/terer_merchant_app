@@ -99,11 +99,11 @@ flutter_native_splash:
 
 flutter_icons:
   android: "ic_launcher"
-  ios: true
-  adaptive_icon_background: "assets/icons/app_icon/android/app_bg.png"
-  adaptive_icon_foreground: "assets/icons/app_icon/android/app_fg.png"
+  ios: false
+  # adaptive_icon_background: "assets/icons/app_icon/android/app_bg.png"
+  # adaptive_icon_foreground: "assets/icons/app_icon/android/app_fg.png"
   image_path: "assets/icons/app_icon/android/app_logo.png"
-  remove_alpha_ios: false
+  remove_alpha_ios: true
   web:
     generate: false
   windows:

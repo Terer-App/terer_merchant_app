@@ -139,6 +139,7 @@ class CustomAlert extends StatelessWidget {
           const Spacer(),
           SizedBox(
             width: double.infinity,
+            height: 55,
             child: SecondaryButton(
               btnText: buttonText,
               textFontWeight: FontWeight.w900,
@@ -154,6 +155,7 @@ class CustomAlert extends StatelessWidget {
           if (isExtraBtn)
             SizedBox(
               width: double.infinity,
+              height: 55,
               child: SecondaryButton(
                 height: bothBtnHeight,
                 btnText: button2Text ?? '',
