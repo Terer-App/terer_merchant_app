@@ -92,7 +92,10 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
             children: <Widget>[
               InkWell(
                   borderRadius: BorderRadius.circular(45),
-                  onTap: widget.leftButtonFn,
+                  onTap: () {
+                    Haptic.onSuccess();
+                    widget.leftButtonFn!();
+                  },
                   child: Container(
                       alignment: Alignment.center,
                       width: 27.w,
@@ -108,7 +111,10 @@ class _NumericKeyboardState extends State<NumericKeyboard> {
               if (!widget.hideLeftButton)
                 InkWell(
                     borderRadius: BorderRadius.circular(45),
-                    onTap: widget.rightButtonFn,
+                    onTap: () {
+                      Haptic.onSuccess();
+                      widget.rightButtonFn!();
+                    },
                     child: Container(
                         alignment: Alignment.center,
                         width: 27.w,
