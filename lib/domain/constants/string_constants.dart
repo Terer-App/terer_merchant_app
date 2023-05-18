@@ -108,13 +108,13 @@ class TermsConditionsConstants {
 
 
 <ol>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Contact us if there are any changes to your business details</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Abide by Terer&rsquo;s Code</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Ensure all Terer marketing collaterals are placed at storefront</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Co-operate with Terer in solving claims &amp; disputes in a timely manner</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Check your business email to ensure you receive accurate payment value</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Ensure products listed in your Terer deal is available for redemption</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Exercise verification practise on the Terer Merchant app by scanning all redemption made by customers</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Contact us if there are any changes to your business details</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Abide by Terer&rsquo;s Code</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Ensure all Terer marketing collaterals are placed at storefront</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Co-operate with Terer in solving claims &amp; disputes in a timely manner</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Check your business email to ensure you receive accurate payment value</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Ensure products listed in your Terer deal is available for redemption</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Exercise verification practise on the Terer Merchant app by scanning all redemption made by customers</span></span></li>
 </ol>
 
 
@@ -122,10 +122,10 @@ class TermsConditionsConstants {
 
 
 <ol>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Register a customer&rsquo;s account on your own device as it is considered unethical</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Allow unauthorised parties access to your business email to avoid unwanted termination of account and dispute</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Collect or store any sensitive information of users like bank card details while providing services</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Encourage early redemption from customers to avoid unwanted disputes</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Register a customer&rsquo;s account on your own device as it is considered unethical</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Allow unauthorised parties access to your business email to avoid unwanted termination of account and dispute</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Collect or store any sensitive information of users like bank card details while providing services</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Encourage early redemption from customers to avoid unwanted disputes</span></span></li>
 </ol>
 
 
@@ -199,9 +199,9 @@ class TermsConditionsConstants {
 
 
 <ol>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Reliability and Responsiveness: Be reliable and responsive to consumer needs, providing prompt and helpful service. Listen to consumer feedback and take necessary actions to improve their experience.</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Product Preparation: Prepare tasty and visually appealing products of the right portion size. Use fresh ingredients and aim to serve food &quot;just-in-time&quot; for collection.</span></span></li>
-        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Order Accuracy: Double-check orders to ensure there are no missing or incorrect items before packing. Properly seal and package orders.</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Reliability and Responsiveness: Be reliable and responsive to consumer needs, providing prompt and helpful service. Listen to consumer feedback and take necessary actions to improve their experience.</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Product Preparation: Prepare tasty and visually appealing products of the right portion size. Use fresh ingredients and aim to serve food &quot;just-in-time&quot; for collection.</span></span></li>
+        <li style="list-style-type:decimal; font-size:10pt;"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Order Accuracy: Double-check orders to ensure there are no missing or incorrect items before packing. Properly seal and package orders.</span></span></li>
 </ol>
 
 
