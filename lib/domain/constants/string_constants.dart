@@ -100,96 +100,125 @@ class TermsConditionsConstants {
   static const String refusalOrLimitPara =
       'Due to the nature of internet sales/e-commerce, we reserve the right to refuse service to customers who we deem underage. If you feel your refusal of service was unnecessary, please contact our Customer Service team at support@terer.co ';
 
-  static const String termsAndCondition='''
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">The Code of Conduct (&quot;Code&quot;) serves as a guideline for independent Merchants within the Terer community, outlining their responsibilities and ensuring the best possible experiences for our consumers. By abiding by this Code, we prioritize user protection and system integrity.</span></span></span></p>
+  static const String termsAndCondition = '''
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">The Code of Conduct (&quot;Code&quot;) serves as a guideline for independent Merchants within the Terer community, outlining their responsibilities and ensuring the best possible experiences for our consumers. By abiding by this Code, we prioritize user protection and system integrity.</span></span></p>
 
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">As a Terer Merchant, you must:</span></span></span></p>
 
-<ol>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Contact us if there are any changes to your business details</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Abide by Terer&rsquo;s Code</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Ensure all Terer marketing collaterals are placed at storefront</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Co-operate with Terer in solving claims &amp; disputes in a timely manner</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Check your business email to ensure you receive accurate payment value</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Ensure products listed in your Terer deal is available for redemption</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Exercise verification practise on the Terer Merchant app by scanning all redemption made by customers</span></span></span></li>
-</ol>
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>As a Terer Merchant, you must:</strong></span></span></p>
 
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">As a Terer Merchant, you must not:</span></span></span></p>
 
 <ol>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Register a customer&rsquo;s account on your own device as it is considered unethical</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Allow unauthorised parties access to your business email to avoid unwanted termination of account and dispute</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Collect or store any sensitive information of users like bank card details while providing services</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Encourage early redemption from customers to avoid unwanted disputes</span></span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Contact us if there are any changes to your business details</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Abide by Terer&rsquo;s Code</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Ensure all Terer marketing collaterals are placed at storefront</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Co-operate with Terer in solving claims &amp; disputes in a timely manner</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Check your business email to ensure you receive accurate payment value</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Ensure products listed in your Terer deal is available for redemption</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Exercise verification practise on the Terer Merchant app by scanning all redemption made by customers</span></span></li>
 </ol>
 
-<p style="list-style-type:decimal">&nbsp;</p>
 
-<p style="text-align:justify"><span style="font-size:10pt"><span style="font-family:Roboto,sans-serif"><span style="color:#000000"><strong>Termination Policy:</strong></span></span></span></p>
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>As a Terer Merchant, you must not:</strong></span></span></p>
 
-<p style="text-align:justify"><span style="font-size:10pt"><span style="font-family:Roboto,sans-serif"><span style="color:#000000">If Merchant wishes to terminate this agreement or terminate any active deals, Merchant has to give 2 weeks notice to Terer. In any case, Merchant has to carry out all duties to fulfil all existing redemption of valid coupons/vouchers from its existing customer/s.&nbsp;</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:10pt"><span style="font-family:Roboto,sans-serif"><span style="color:#000000"><strong>Logo and Collateral Use:</strong></span></span></span><br />
-<span style="font-size:10pt"><span style="font-family:Roboto,sans-serif"><span style="color:#000000">Merchant hereby grants Terer the right to use Merchant&rsquo;s name, trademark(s), logo(s), and other identifying information solely for the purpose of promoting Merchant and its products and services through Terer&rsquo;s social media channels, pitch deck, website, and other promotional materials.&nbsp;</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Compliance with Laws and Regulations:</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">As a Terer Merchant, it is essential to comply with all relevant laws, rules, and regulations set by your government and local regulatory authorities. This includes adhering to food, labor, health, safety, and environmental laws. Please ensure that you possess valid licenses and permits required for your operations. Keep us informed of any updates or changes to your registered documents, as Terer reserves the right to request updated information.</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Criminal Activities:</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Engaging in criminal activities, such as selling illegal, prohibited, or controlled goods, fraud, assault, harassment, or any form of abuse, is strictly prohibited. Terer will cooperate with law enforcement agencies to investigate such matters when necessary.</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Violations of the Code:</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">The safety and security of our consumers and partners are of utmost importance. Terer maintains high standards on its platform and has thresholds for quality issues. Failure to meet these thresholds may result in the suspension or termination of user access to the Terer platform. Terer reserves the right to take action without prior notification, although we may choose to inform you before terminating your use of the Terer application and services.</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Reporting Violations:</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">We encourage Merchants to promptly report any breach of applicable laws and regulations that may impact their ability to provide services. Your cooperation in maintaining a safe and compliant environment is greatly appreciated.</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">By adhering to the Code of Conduct, Terer Merchants contribute to a thriving and trustworthy community. We appreciate your commitment to delivering exceptional experiences to our users.</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Practise Integrity and Kindness</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">At Terer, we believe that trust is the cornerstone of a strong partnership. To foster trust among our fellow partners and consumers, we uphold the values of integrity and kindness. We treat each other with respect, avoiding any unfair exploitation of vulnerabilities. We urge our Merchant partners to extend the same respect and dignity to fellow partners, driver-partners, consumers, and Terer employees.</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">We expect Merchants to act in good faith and refrain from cheating or defrauding Terer or its consumers through any means. This includes refraining from engaging in collusive activities with consumers or delivery partners for unfair gains.</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">To ensure a smooth and secure experience for all, we request that Merchants only use official Terer applications downloaded from authorized app stores. The use of apps or devices that may modify the intended user experience, such as rooted or jailbroken devices and exposed frameworks, is strictly prohibited. We also encourage Merchants to provide accurate and truthful information when creating and accessing their Terer accounts.</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">It is important that Merchants refrain from harassing consumers to make changes to their orders or coercing them into cancellations. Contacting consumers outside of the Terer Merchant App for unwarranted purposes is strictly prohibited and considered a breach of personal privacy. Additionally, we ask Merchant partners not to solicit or poach consumers to order outside of the Terer Merchant App.</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">By upholding integrity, kindness, and respecting the boundaries set forth in this Code, we can foster a positive and trustworthy environment within the Terer community. Together, let&#39;s create exceptional experiences for our consumers and build lasting partnerships.</span></span></span></p>
-
-<p>&nbsp;</p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Maintain Safe and Hygienic Practices</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Ensuring the safety and well-being of our consumers is of utmost importance to us at Terer. As a Merchant on our platform, it is your responsibility to uphold safe and hygienic working practices. This includes following proper food and beverage handling procedures, maintaining a clean environment, and adhering to health and safety guidelines.</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Ensure Quality</span></span></span></p>
-
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Consistently delivering high-quality products and services is key to building a loyal consumer base. Here are some tips to enhance the quality of your offerings:</span></span></span></p>
 
 <ol>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Reliability and Responsiveness: Be reliable and responsive to consumer needs, providing prompt and helpful service. Listen to consumer feedback and take necessary actions to improve their experience.</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Product Preparation: Prepare tasty and visually appealing products of the right portion size. Use fresh ingredients and aim to serve food &quot;just-in-time&quot; for collection.</span></span></span></li>
-	<li style="list-style-type:decimal"><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">Order Accuracy: Double-check orders to ensure there are no missing or incorrect items before packing. Properly seal and package orders.</span></span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Register a customer&rsquo;s account on your own device as it is considered unethical</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Allow unauthorised parties access to your business email to avoid unwanted termination of account and dispute</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Collect or store any sensitive information of users like bank card details while providing services</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Encourage early redemption from customers to avoid unwanted disputes</span></span></li>
 </ol>
 
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">The Code may be updated periodically, so we encourage Merchants to refer to our website for the most up-to-date version.</span></span></span></p>
 
-<p><span style="font-size:12pt"><span style="font-family:Roboto,sans-serif"><span style="color:#374151">If you have any questions or feedback, please feel free to reach out to us. We value your partnership and commitment to providing safe and high-quality experiences to our consumers.</span></span></span></p>
+<p style="text-align:justify"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>Termination Policy:</strong></span></span></p>
+
+
+<p style="text-align:justify"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">If Merchant wishes to terminate this agreement or terminate any active deals, Merchant has to give 2 weeks notice to Terer. In any case, Merchant has to carry out all duties to fulfil all existing redemption of valid coupons/vouchers from its existing customer/s.&nbsp;</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>Logo and Collateral Use:</strong></span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Merchant hereby grants Terer the right to use Merchant&rsquo;s name, trademark(s), logo(s), and other identifying information solely for the purpose of promoting Merchant and its products and services through Terer&rsquo;s social media channels, pitch deck, website, and other promotional materials.&nbsp;</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>Compliance with Laws and Regulations:</strong></span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">As a Terer Merchant, it is essential to comply with all relevant laws, rules, and regulations set by your government and local regulatory authorities. This includes adhering to food, labor, health, safety, and environmental laws. Please ensure that you possess valid licenses and permits required for your operations. Keep us informed of any updates or changes to your registered documents, as Terer reserves the right to request updated information.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>Criminal Activities:</strong></span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Engaging in criminal activities, such as selling illegal, prohibited, or controlled goods, fraud, assault, harassment, or any form of abuse, is strictly prohibited. Terer will cooperate with law enforcement agencies to investigate such matters when necessary.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>Violations of the Code:</strong></span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">The safety and security of our consumers and partners are of utmost importance. Terer maintains high standards on its platform and has thresholds for quality issues. Failure to meet these thresholds may result in the suspension or termination of user access to the Terer platform. Terer reserves the right to take action without prior notification, although we may choose to inform you before terminating your use of the Terer application and services.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>Reporting Violations:</strong></span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">We encourage Merchants to promptly report any breach of applicable laws and regulations that may impact their ability to provide services. Your cooperation in maintaining a safe and compliant environment is greatly appreciated.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">By adhering to the Code of Conduct, Terer Merchants contribute to a thriving and trustworthy community. We appreciate your commitment to delivering exceptional experiences to our users.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>Practise Integrity and Kindness:</strong></span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">At Terer, we believe that trust is the cornerstone of a strong partnership. To foster trust among our fellow partners and consumers, we uphold the values of integrity and kindness. We treat each other with respect, avoiding any unfair exploitation of vulnerabilities. We urge our Merchant partners to extend the same respect and dignity to fellow partners, driver-partners, consumers, and Terer employees.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">We expect Merchants to act in good faith and refrain from cheating or defrauding Terer or its consumers through any means. This includes refraining from engaging in collusive activities with consumers or delivery partners for unfair gains.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">To ensure a smooth and secure experience for all, we request that Merchants only use official Terer applications downloaded from authorized app stores. The use of apps or devices that may modify the intended user experience, such as rooted or jailbroken devices and exposed frameworks, is strictly prohibited. We also encourage Merchants to provide accurate and truthful information when creating and accessing their Terer accounts.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">It is important that Merchants refrain from harassing consumers to make changes to their orders or coercing them into cancellations. Contacting consumers outside of the Terer Merchant App for unwarranted purposes is strictly prohibited and considered a breach of personal privacy. Additionally, we ask Merchant partners not to solicit or poach consumers to order outside of the Terer Merchant App.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">By upholding integrity, kindness, and respecting the boundaries set forth in this Code, we can foster a positive and trustworthy environment within the Terer community. Together, let&#39;s create exceptional experiences for our consumers and build lasting partnerships.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>Maintain Safe and Hygienic Practices:</strong></span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Ensuring the safety and well-being of our consumers is of utmost importance to us at Terer. As a Merchant on our platform, it is your responsibility to uphold safe and hygienic working practices. This includes following proper food and beverage handling procedures, maintaining a clean environment, and adhering to health and safety guidelines.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif"><strong>Ensure Quality:</strong></span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Consistently delivering high-quality products and services is key to building a loyal consumer base. Here are some tips to enhance the quality of your offerings:</span></span></p>
+
+
+<ol>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Reliability and Responsiveness: Be reliable and responsive to consumer needs, providing prompt and helpful service. Listen to consumer feedback and take necessary actions to improve their experience.</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Product Preparation: Prepare tasty and visually appealing products of the right portion size. Use fresh ingredients and aim to serve food &quot;just-in-time&quot; for collection.</span></span></li>
+        <li style="list-style-type:decimal"><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">Order Accuracy: Double-check orders to ensure there are no missing or incorrect items before packing. Properly seal and package orders.</span></span></li>
+</ol>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">The Code may be updated periodically, so we encourage Merchants to refer to our website for the most up-to-date version.</span></span></p>
+
+
+<p><span style="font-size:10pt"><span style="font-family:'Roboto Condensed',sans-serif">If you have any questions or feedback, please feel free to reach out to us. We value your partnership and commitment to providing safe and high-quality experiences to our consumers.</span></span></p>
+
 
 <p>&nbsp;</p>
+
+
+<p>&nbsp;</p>
+
+
+<p>&nbsp;</p>
+
 
 ''';
 }

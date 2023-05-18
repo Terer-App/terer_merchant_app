@@ -253,6 +253,10 @@ class _ScanScreenState extends State<ScanScreen> {
   Widget build(BuildContext context) {
     final String serverUrl = AppConfig.of(context)!.serverUrl;
 
+    bool isSmallerThan = (MediaQuery.of(context).size.width < 400 ||
+        MediaQuery.of(context).size.height < 400);
+    final scanArea = isSmallerThan ? 250.0 : 350.0;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
@@ -278,48 +282,45 @@ class _ScanScreenState extends State<ScanScreen> {
         elevation: 0,
       ),
       body: ModalProgressHUD(
-        inAsyncCall: isLoading,
-        child: Column(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary,
-                  borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(15),
-                    bottomLeft: Radius.circular(15),
-                  )),
-              height: 2.h,
-            ),
-            Expanded(
-                child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 2.h),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 5.h,
-                  ),
-                  Container(
-                    height: 40.h,
-                    width: 100.w,
-                    color: Theme.of(context).colorScheme.background,
-                    child: QRView(
-                      overlay: QrScannerOverlayShape(
-                        borderColor: Theme.of(context).colorScheme.secondary,
-                        borderWidth: 2.5.w,
-                        cutOutHeight: 40.h,
-                        cutOutWidth: 100.w,
-                        overlayColor: Colors.white,
-                      ),
-                      key: qrKey,
-                      onQRViewCreated: (QRViewController controller) {
-                        _onQRViewCreated(controller, serverUrl);
-                      },
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  RichText(
+          inAsyncCall: isLoading,
+          child: Stack(
+            children: [
+              QRView(
+                key: qrKey,
+                onQRViewCreated: (QRViewController controller) {
+                  _onQRViewCreated(controller, serverUrl);
+                },
+                overlay: QrScannerOverlayShape(
+                    borderColor: Theme.of(context).colorScheme.secondary,
+                    overlayColor: Colors.white,
+                    borderRadius: 10,
+                    borderLength: 30,
+                    borderWidth: 10,
+                    cutOutBottomOffset: 10.h,
+                    cutOutSize: scanArea),
+                // onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
+              ),
+              Positioned(
+                top: 0,
+                left: 0,
+                right: 0,
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.primary,
+                      borderRadius: const BorderRadius.only(
+                        bottomRight: Radius.circular(15),
+                        bottomLeft: Radius.circular(15),
+                      )),
+                  height: 10.w,
+                ),
+              ),
+              Positioned(
+                  top: 50.h,
+                  left: 0,
+                  right: 0,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 5.w),
+                    child: RichText(
                       textAlign: TextAlign.center,
                       text: TextSpan(
                         text: ScanConstants.scanQRInstruction,
@@ -327,13 +328,11 @@ class _ScanScreenState extends State<ScanScreen> {
                               color: Theme.of(context).colorScheme.secondary,
                               fontSize: 12.sp,
                             ),
-                      ))
-                ],
-              ),
-            )),
-          ],
-        ),
-      ),
+                      ),
+                    ),
+                  ))
+            ],
+          )),
     );
   }
 }

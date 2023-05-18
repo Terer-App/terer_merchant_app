@@ -239,58 +239,58 @@ class ManageDealsConsumer extends StatelessWidget {
                                         (state.hasMoreDocs ? 2 : 0),
                                   ),
                                 ),
-                    )
+                    ),
                   ],
-                )
+                ),
+                Positioned(
+                  left: 10.w,
+                  top: 9.5.h,
+                  child: Container(
+                    height: 13.h,
+                    width: 80.w,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondary,
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(10.w),
+                          bottomRight: Radius.circular(0.w),
+                          topLeft: Radius.circular(10.w),
+                          bottomLeft: Radius.circular(0.w)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: 5.w,
+                          ),
+                          child: Text(
+                            AppConstants.hello,
+                            style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.sp),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                            left: 5.w,
+                          ),
+                          child: Text(
+                            state.profile!.shopName ?? '',
+                            style: TextStyle(
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer,
+                                fontWeight: FontWeight.w100,
+                                fontSize: 20.sp),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ]),
-            ),
-            Positioned(
-              left: 10.w,
-              top: 11.h,
-              child: Container(
-                height: 13.h,
-                width: 80.w,
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.secondary,
-                  borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(10.w),
-                      bottomRight: Radius.circular(0.w),
-                      topLeft: Radius.circular(10.w),
-                      bottomLeft: Radius.circular(0.w)),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 5.w,
-                      ),
-                      child: Text(
-                        AppConstants.hello,
-                        style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20.sp),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 5.w,
-                      ),
-                      child: Text(
-                        state.profile!.shopName ?? '',
-                        style: TextStyle(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .secondaryContainer,
-                            fontWeight: FontWeight.w100,
-                            fontSize: 20.sp),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ),
           ]),
         );
