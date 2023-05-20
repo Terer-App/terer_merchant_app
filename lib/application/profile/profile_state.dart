@@ -16,6 +16,7 @@ class ProfileState with _$ProfileState {
     required TextEditingController shopAddressController,
     required TextEditingController shopEmailController,
     required TextEditingController shopPhoneController,
+    required TextEditingController shopCodeController,
     MerchantDto? profile,
   }) = _ProfileState;
 
@@ -41,6 +42,7 @@ class ProfileState with _$ProfileState {
       shopEmailController: TextEditingController(),
       shopNameController: TextEditingController(),
       shopPhoneController: TextEditingController(),
+      shopCodeController:TextEditingController(),
     );
   }
 }

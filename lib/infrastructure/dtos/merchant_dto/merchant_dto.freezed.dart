@@ -28,6 +28,10 @@ mixin _$MerchantDto {
   String? get shopPhone => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: '')
   String? get shopEmail => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
+  String? get phone => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
+  String? get code => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +48,9 @@ abstract class $MerchantDtoCopyWith<$Res> {
       {@JsonKey(defaultValue: '') String? shopName,
       @JsonKey(defaultValue: '') String? shopAddress,
       @JsonKey(defaultValue: '') String? shopPhone,
-      @JsonKey(defaultValue: '') String? shopEmail});
+      @JsonKey(defaultValue: '') String? shopEmail,
+      @JsonKey(defaultValue: '') String? phone,
+      @JsonKey(defaultValue: '') String? code});
 }
 
 /// @nodoc
@@ -61,6 +67,8 @@ class _$MerchantDtoCopyWithImpl<$Res> implements $MerchantDtoCopyWith<$Res> {
     Object? shopAddress = freezed,
     Object? shopPhone = freezed,
     Object? shopEmail = freezed,
+    Object? phone = freezed,
+    Object? code = freezed,
   }) {
     return _then(_value.copyWith(
       shopName: shopName == freezed
@@ -79,6 +87,14 @@ class _$MerchantDtoCopyWithImpl<$Res> implements $MerchantDtoCopyWith<$Res> {
           ? _value.shopEmail
           : shopEmail // ignore: cast_nullable_to_non_nullable
               as String?,
+      phone: phone == freezed
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -94,7 +110,9 @@ abstract class _$$_MerchantDtoCopyWith<$Res>
       {@JsonKey(defaultValue: '') String? shopName,
       @JsonKey(defaultValue: '') String? shopAddress,
       @JsonKey(defaultValue: '') String? shopPhone,
-      @JsonKey(defaultValue: '') String? shopEmail});
+      @JsonKey(defaultValue: '') String? shopEmail,
+      @JsonKey(defaultValue: '') String? phone,
+      @JsonKey(defaultValue: '') String? code});
 }
 
 /// @nodoc
@@ -113,6 +131,8 @@ class __$$_MerchantDtoCopyWithImpl<$Res> extends _$MerchantDtoCopyWithImpl<$Res>
     Object? shopAddress = freezed,
     Object? shopPhone = freezed,
     Object? shopEmail = freezed,
+    Object? phone = freezed,
+    Object? code = freezed,
   }) {
     return _then(_$_MerchantDto(
       shopName: shopName == freezed
@@ -131,6 +151,14 @@ class __$$_MerchantDtoCopyWithImpl<$Res> extends _$MerchantDtoCopyWithImpl<$Res>
           ? _value.shopEmail
           : shopEmail // ignore: cast_nullable_to_non_nullable
               as String?,
+      phone: phone == freezed
+          ? _value.phone
+          : phone // ignore: cast_nullable_to_non_nullable
+              as String?,
+      code: code == freezed
+          ? _value.code
+          : code // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -142,7 +170,9 @@ class _$_MerchantDto implements _MerchantDto {
       {@JsonKey(defaultValue: '') this.shopName,
       @JsonKey(defaultValue: '') this.shopAddress,
       @JsonKey(defaultValue: '') this.shopPhone,
-      @JsonKey(defaultValue: '') this.shopEmail});
+      @JsonKey(defaultValue: '') this.shopEmail,
+      @JsonKey(defaultValue: '') this.phone,
+      @JsonKey(defaultValue: '') this.code});
 
   factory _$_MerchantDto.fromJson(Map<String, dynamic> json) =>
       _$$_MerchantDtoFromJson(json);
@@ -159,10 +189,16 @@ class _$_MerchantDto implements _MerchantDto {
   @override
   @JsonKey(defaultValue: '')
   final String? shopEmail;
+  @override
+  @JsonKey(defaultValue: '')
+  final String? phone;
+  @override
+  @JsonKey(defaultValue: '')
+  final String? code;
 
   @override
   String toString() {
-    return 'MerchantDto(shopName: $shopName, shopAddress: $shopAddress, shopPhone: $shopPhone, shopEmail: $shopEmail)';
+    return 'MerchantDto(shopName: $shopName, shopAddress: $shopAddress, shopPhone: $shopPhone, shopEmail: $shopEmail, phone: $phone, code: $code)';
   }
 
   @override
@@ -174,7 +210,9 @@ class _$_MerchantDto implements _MerchantDto {
             const DeepCollectionEquality()
                 .equals(other.shopAddress, shopAddress) &&
             const DeepCollectionEquality().equals(other.shopPhone, shopPhone) &&
-            const DeepCollectionEquality().equals(other.shopEmail, shopEmail));
+            const DeepCollectionEquality().equals(other.shopEmail, shopEmail) &&
+            const DeepCollectionEquality().equals(other.phone, phone) &&
+            const DeepCollectionEquality().equals(other.code, code));
   }
 
   @JsonKey(ignore: true)
@@ -184,7 +222,9 @@ class _$_MerchantDto implements _MerchantDto {
       const DeepCollectionEquality().hash(shopName),
       const DeepCollectionEquality().hash(shopAddress),
       const DeepCollectionEquality().hash(shopPhone),
-      const DeepCollectionEquality().hash(shopEmail));
+      const DeepCollectionEquality().hash(shopEmail),
+      const DeepCollectionEquality().hash(phone),
+      const DeepCollectionEquality().hash(code));
 
   @JsonKey(ignore: true)
   @override
@@ -204,7 +244,9 @@ abstract class _MerchantDto implements MerchantDto {
       {@JsonKey(defaultValue: '') final String? shopName,
       @JsonKey(defaultValue: '') final String? shopAddress,
       @JsonKey(defaultValue: '') final String? shopPhone,
-      @JsonKey(defaultValue: '') final String? shopEmail}) = _$_MerchantDto;
+      @JsonKey(defaultValue: '') final String? shopEmail,
+      @JsonKey(defaultValue: '') final String? phone,
+      @JsonKey(defaultValue: '') final String? code}) = _$_MerchantDto;
 
   factory _MerchantDto.fromJson(Map<String, dynamic> json) =
       _$_MerchantDto.fromJson;
@@ -221,6 +263,12 @@ abstract class _MerchantDto implements MerchantDto {
   @override
   @JsonKey(defaultValue: '')
   String? get shopEmail;
+  @override
+  @JsonKey(defaultValue: '')
+  String? get phone;
+  @override
+  @JsonKey(defaultValue: '')
+  String? get code;
   @override
   @JsonKey(ignore: true)
   _$$_MerchantDtoCopyWith<_$_MerchantDto> get copyWith =>

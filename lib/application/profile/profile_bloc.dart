@@ -22,7 +22,8 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       state.shopNameController.text = state.profile!.shopName ?? '';
       state.shopEmailController.text = state.profile!.shopEmail ?? '';
       state.shopAddressController.text = state.profile!.shopAddress ?? '';
-      state.shopPhoneController.text = state.profile!.shopPhone ?? '';
+      state.shopPhoneController.text = state.profile!.phone ?? '';
+      state.shopCodeController.text = state.profile!.code ?? '';
 
       emit(
         state.copyWith(isLoading: false),

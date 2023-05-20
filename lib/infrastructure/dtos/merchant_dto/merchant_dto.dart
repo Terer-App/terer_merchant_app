@@ -10,6 +10,8 @@ class MerchantDto with _$MerchantDto {
     @JsonKey(defaultValue: '') String? shopAddress,
     @JsonKey(defaultValue: '') String? shopPhone,
     @JsonKey(defaultValue: '') String? shopEmail,
+    @JsonKey(defaultValue: '') String? phone,
+    @JsonKey(defaultValue: '') String? code,
   }) = _MerchantDto;
 
   factory MerchantDto.fromJson(Map<String, dynamic> json) =>

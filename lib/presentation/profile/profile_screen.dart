@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 
 import 'package:sizer/sizer.dart';
 import '../../application/profile/profile_bloc.dart';
+import '../../domain/constants/country_info.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
 import '../core/custom_toast.dart';
@@ -244,17 +245,20 @@ class ProfileConsumer extends StatelessWidget {
                                         height: 15.sp,
                                         width: 20.sp,
                                         child: Image.asset(
-                                          'assets/flags/my.png',
-
-                                          // "assets/flags/${state.selectedCountry['locale'].toString().toLowerCase()}.png",
+                                          "assets/flags/${country.firstWhere((element) {
+                                                return element['dial_code'] ==
+                                                    state.shopCodeController
+                                                        .text;
+                                              },orElse: () {
+                                                return country[0];
+                                              },)['locale'].toString().toLowerCase()}.png",
                                           fit: BoxFit.fill,
                                         ),
                                       ),
                                     ),
                                     SizedBox(width: 1.w),
                                     Text(
-                                      '+60',
-                                      // state.selectedCountry['dial_code'].toString(),
+                                      state.shopCodeController.text.toString(),
                                       textScaleFactor: 1.0,
                                       softWrap: true,
                                       style: Theme.of(context)

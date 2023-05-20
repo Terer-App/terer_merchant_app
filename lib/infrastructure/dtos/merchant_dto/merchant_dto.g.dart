@@ -12,6 +12,8 @@ _$_MerchantDto _$$_MerchantDtoFromJson(Map<String, dynamic> json) =>
       shopAddress: json['shopAddress'] as String? ?? '',
       shopPhone: json['shopPhone'] as String? ?? '',
       shopEmail: json['shopEmail'] as String? ?? '',
+      phone: json['phone'] as String? ?? '',
+      code: json['code'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$_MerchantDtoToJson(_$_MerchantDto instance) =>
@@ -20,4 +22,6 @@ Map<String, dynamic> _$$_MerchantDtoToJson(_$_MerchantDto instance) =>
       'shopAddress': instance.shopAddress,
       'shopPhone': instance.shopPhone,
       'shopEmail': instance.shopEmail,
+      'phone': instance.phone,
+      'code': instance.code,
     };

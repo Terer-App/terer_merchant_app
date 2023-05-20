@@ -606,6 +606,8 @@ mixin _$ProfileState {
       throw _privateConstructorUsedError;
   TextEditingController get shopPhoneController =>
       throw _privateConstructorUsedError;
+  TextEditingController get shopCodeController =>
+      throw _privateConstructorUsedError;
   MerchantDto? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -632,6 +634,7 @@ abstract class $ProfileStateCopyWith<$Res> {
       TextEditingController shopAddressController,
       TextEditingController shopEmailController,
       TextEditingController shopPhoneController,
+      TextEditingController shopCodeController,
       MerchantDto? profile});
 
   $MerchantDtoCopyWith<$Res>? get profile;
@@ -660,6 +663,7 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
     Object? shopAddressController = freezed,
     Object? shopEmailController = freezed,
     Object? shopPhoneController = freezed,
+    Object? shopCodeController = freezed,
     Object? profile = freezed,
   }) {
     return _then(_value.copyWith(
@@ -715,6 +719,10 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.shopPhoneController
           : shopPhoneController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      shopCodeController: shopCodeController == freezed
+          ? _value.shopCodeController
+          : shopCodeController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -755,6 +763,7 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       TextEditingController shopAddressController,
       TextEditingController shopEmailController,
       TextEditingController shopPhoneController,
+      TextEditingController shopCodeController,
       MerchantDto? profile});
 
   @override
@@ -787,6 +796,7 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? shopAddressController = freezed,
     Object? shopEmailController = freezed,
     Object? shopPhoneController = freezed,
+    Object? shopCodeController = freezed,
     Object? profile = freezed,
   }) {
     return _then(_$_ProfileState(
@@ -842,6 +852,10 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.shopPhoneController
           : shopPhoneController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      shopCodeController: shopCodeController == freezed
+          ? _value.shopCodeController
+          : shopCodeController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -867,6 +881,7 @@ class _$_ProfileState implements _ProfileState {
       required this.shopAddressController,
       required this.shopEmailController,
       required this.shopPhoneController,
+      required this.shopCodeController,
       this.profile});
 
   @override
@@ -896,11 +911,13 @@ class _$_ProfileState implements _ProfileState {
   @override
   final TextEditingController shopPhoneController;
   @override
+  final TextEditingController shopCodeController;
+  @override
   final MerchantDto? profile;
 
   @override
   String toString() {
-    return 'ProfileState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, shopNameController: $shopNameController, shopAddressController: $shopAddressController, shopEmailController: $shopEmailController, shopPhoneController: $shopPhoneController, profile: $profile)';
+    return 'ProfileState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, shopNameController: $shopNameController, shopAddressController: $shopAddressController, shopEmailController: $shopEmailController, shopPhoneController: $shopPhoneController, shopCodeController: $shopCodeController, profile: $profile)';
   }
 
   @override
@@ -930,6 +947,8 @@ class _$_ProfileState implements _ProfileState {
                 .equals(other.shopEmailController, shopEmailController) &&
             const DeepCollectionEquality()
                 .equals(other.shopPhoneController, shopPhoneController) &&
+            const DeepCollectionEquality()
+                .equals(other.shopCodeController, shopCodeController) &&
             const DeepCollectionEquality().equals(other.profile, profile));
   }
 
@@ -949,6 +968,7 @@ class _$_ProfileState implements _ProfileState {
       const DeepCollectionEquality().hash(shopAddressController),
       const DeepCollectionEquality().hash(shopEmailController),
       const DeepCollectionEquality().hash(shopPhoneController),
+      const DeepCollectionEquality().hash(shopCodeController),
       const DeepCollectionEquality().hash(profile));
 
   @JsonKey(ignore: true)
@@ -972,6 +992,7 @@ abstract class _ProfileState implements ProfileState {
       required final TextEditingController shopAddressController,
       required final TextEditingController shopEmailController,
       required final TextEditingController shopPhoneController,
+      required final TextEditingController shopCodeController,
       final MerchantDto? profile}) = _$_ProfileState;
 
   @override
@@ -1000,6 +1021,8 @@ abstract class _ProfileState implements ProfileState {
   TextEditingController get shopEmailController;
   @override
   TextEditingController get shopPhoneController;
+  @override
+  TextEditingController get shopCodeController;
   @override
   MerchantDto? get profile;
   @override
