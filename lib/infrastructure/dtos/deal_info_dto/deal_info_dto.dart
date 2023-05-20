@@ -10,6 +10,7 @@ class DealInfoDto with _$DealInfoDto {
     @JsonKey(defaultValue: '') required String redeemDate,
     @JsonKey(defaultValue: '') required String redeemTime,
     @JsonKey(defaultValue: '') required String customerName,
+    @JsonKey(defaultValue: 0) required int isItFreeDeal,
     @JsonKey(defaultValue: 1) required int redeemDeals,
   }) = _DealInfoDto;
 

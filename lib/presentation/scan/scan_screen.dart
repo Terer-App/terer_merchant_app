@@ -49,19 +49,20 @@ class _ScanScreenState extends State<ScanScreen> {
         if (!isResult && result != null) {
           isResult = true;
           isLoading = true;
-          _verifyQRCode(serverUrl, json.decode(result!.code!));
+          _verifyQRCode(serverUrl, json.decode(result!.code!),
+              isItFreeDeal: 0);
         }
       });
     });
   }
 
   Future<void> _verifyQRCode(String serverUrl, Map<String, dynamic> data,
-      {bool isAnywayDeal = false}) async {
+      {bool isAnywayDeal = false, required int isItFreeDeal}) async {
     isLoading = true;
 
     final res = await (isAnywayDeal
         ? IShopMerchantRepository(serverUrl: serverUrl)
-            .verifyDealAnyways(data: data)
+            .verifyDealAnyways(data: data, isItFreeDeal: isItFreeDeal)
         : IShopMerchantRepository(serverUrl: serverUrl)
             .verifyCustomerDeal(data: data));
 
@@ -144,6 +145,7 @@ class _ScanScreenState extends State<ScanScreen> {
               serverUrl,
               {'dealRefId': data['dealRefId']},
               isAnywayDeal: true,
+              isItFreeDeal: (r['dealInfo'] as DealInfoDto).isItFreeDeal,
             );
           } else if (res['secondaryButton'] == 2) {
             navigator<NavigationService>()

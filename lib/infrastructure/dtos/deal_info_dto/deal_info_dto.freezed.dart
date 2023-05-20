@@ -28,6 +28,8 @@ mixin _$DealInfoDto {
   String get redeemTime => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: '')
   String get customerName => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: 0)
+  int get isItFreeDeal => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: 1)
   int get redeemDeals => throw _privateConstructorUsedError;
 
@@ -47,6 +49,7 @@ abstract class $DealInfoDtoCopyWith<$Res> {
       @JsonKey(defaultValue: '') String redeemDate,
       @JsonKey(defaultValue: '') String redeemTime,
       @JsonKey(defaultValue: '') String customerName,
+      @JsonKey(defaultValue: 0) int isItFreeDeal,
       @JsonKey(defaultValue: 1) int redeemDeals});
 }
 
@@ -64,6 +67,7 @@ class _$DealInfoDtoCopyWithImpl<$Res> implements $DealInfoDtoCopyWith<$Res> {
     Object? redeemDate = freezed,
     Object? redeemTime = freezed,
     Object? customerName = freezed,
+    Object? isItFreeDeal = freezed,
     Object? redeemDeals = freezed,
   }) {
     return _then(_value.copyWith(
@@ -83,6 +87,10 @@ class _$DealInfoDtoCopyWithImpl<$Res> implements $DealInfoDtoCopyWith<$Res> {
           ? _value.customerName
           : customerName // ignore: cast_nullable_to_non_nullable
               as String,
+      isItFreeDeal: isItFreeDeal == freezed
+          ? _value.isItFreeDeal
+          : isItFreeDeal // ignore: cast_nullable_to_non_nullable
+              as int,
       redeemDeals: redeemDeals == freezed
           ? _value.redeemDeals
           : redeemDeals // ignore: cast_nullable_to_non_nullable
@@ -103,6 +111,7 @@ abstract class _$$_DealInfoDtoCopyWith<$Res>
       @JsonKey(defaultValue: '') String redeemDate,
       @JsonKey(defaultValue: '') String redeemTime,
       @JsonKey(defaultValue: '') String customerName,
+      @JsonKey(defaultValue: 0) int isItFreeDeal,
       @JsonKey(defaultValue: 1) int redeemDeals});
 }
 
@@ -122,6 +131,7 @@ class __$$_DealInfoDtoCopyWithImpl<$Res> extends _$DealInfoDtoCopyWithImpl<$Res>
     Object? redeemDate = freezed,
     Object? redeemTime = freezed,
     Object? customerName = freezed,
+    Object? isItFreeDeal = freezed,
     Object? redeemDeals = freezed,
   }) {
     return _then(_$_DealInfoDto(
@@ -141,6 +151,10 @@ class __$$_DealInfoDtoCopyWithImpl<$Res> extends _$DealInfoDtoCopyWithImpl<$Res>
           ? _value.customerName
           : customerName // ignore: cast_nullable_to_non_nullable
               as String,
+      isItFreeDeal: isItFreeDeal == freezed
+          ? _value.isItFreeDeal
+          : isItFreeDeal // ignore: cast_nullable_to_non_nullable
+              as int,
       redeemDeals: redeemDeals == freezed
           ? _value.redeemDeals
           : redeemDeals // ignore: cast_nullable_to_non_nullable
@@ -157,6 +171,7 @@ class _$_DealInfoDto implements _DealInfoDto {
       @JsonKey(defaultValue: '') required this.redeemDate,
       @JsonKey(defaultValue: '') required this.redeemTime,
       @JsonKey(defaultValue: '') required this.customerName,
+      @JsonKey(defaultValue: 0) required this.isItFreeDeal,
       @JsonKey(defaultValue: 1) required this.redeemDeals});
 
   factory _$_DealInfoDto.fromJson(Map<String, dynamic> json) =>
@@ -175,12 +190,15 @@ class _$_DealInfoDto implements _DealInfoDto {
   @JsonKey(defaultValue: '')
   final String customerName;
   @override
+  @JsonKey(defaultValue: 0)
+  final int isItFreeDeal;
+  @override
   @JsonKey(defaultValue: 1)
   final int redeemDeals;
 
   @override
   String toString() {
-    return 'DealInfoDto(dealName: $dealName, redeemDate: $redeemDate, redeemTime: $redeemTime, customerName: $customerName, redeemDeals: $redeemDeals)';
+    return 'DealInfoDto(dealName: $dealName, redeemDate: $redeemDate, redeemTime: $redeemTime, customerName: $customerName, isItFreeDeal: $isItFreeDeal, redeemDeals: $redeemDeals)';
   }
 
   @override
@@ -196,6 +214,8 @@ class _$_DealInfoDto implements _DealInfoDto {
             const DeepCollectionEquality()
                 .equals(other.customerName, customerName) &&
             const DeepCollectionEquality()
+                .equals(other.isItFreeDeal, isItFreeDeal) &&
+            const DeepCollectionEquality()
                 .equals(other.redeemDeals, redeemDeals));
   }
 
@@ -207,6 +227,7 @@ class _$_DealInfoDto implements _DealInfoDto {
       const DeepCollectionEquality().hash(redeemDate),
       const DeepCollectionEquality().hash(redeemTime),
       const DeepCollectionEquality().hash(customerName),
+      const DeepCollectionEquality().hash(isItFreeDeal),
       const DeepCollectionEquality().hash(redeemDeals));
 
   @JsonKey(ignore: true)
@@ -228,6 +249,7 @@ abstract class _DealInfoDto implements DealInfoDto {
           @JsonKey(defaultValue: '') required final String redeemDate,
           @JsonKey(defaultValue: '') required final String redeemTime,
           @JsonKey(defaultValue: '') required final String customerName,
+          @JsonKey(defaultValue: 0) required final int isItFreeDeal,
           @JsonKey(defaultValue: 1) required final int redeemDeals}) =
       _$_DealInfoDto;
 
@@ -246,6 +268,9 @@ abstract class _DealInfoDto implements DealInfoDto {
   @override
   @JsonKey(defaultValue: '')
   String get customerName;
+  @override
+  @JsonKey(defaultValue: 0)
+  int get isItFreeDeal;
   @override
   @JsonKey(defaultValue: 1)
   int get redeemDeals;

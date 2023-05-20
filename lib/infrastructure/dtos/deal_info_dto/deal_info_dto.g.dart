@@ -12,6 +12,7 @@ _$_DealInfoDto _$$_DealInfoDtoFromJson(Map<String, dynamic> json) =>
       redeemDate: json['redeemDate'] as String? ?? '',
       redeemTime: json['redeemTime'] as String? ?? '',
       customerName: json['customerName'] as String? ?? '',
+      isItFreeDeal: json['isItFreeDeal'] as int? ?? 0,
       redeemDeals: json['redeemDeals'] as int? ?? 1,
     );
 
@@ -21,5 +22,6 @@ Map<String, dynamic> _$$_DealInfoDtoToJson(_$_DealInfoDto instance) =>
       'redeemDate': instance.redeemDate,
       'redeemTime': instance.redeemTime,
       'customerName': instance.customerName,
+      'isItFreeDeal': instance.isItFreeDeal,
       'redeemDeals': instance.redeemDeals,
     };

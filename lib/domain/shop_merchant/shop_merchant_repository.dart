@@ -24,6 +24,7 @@ abstract class ShopMerchantRepository {
   });
   Future<Either<String, Map<String, dynamic>>> verifyDealAnyways({
     required Map<String, dynamic> data,
+    required int isItFreeDeal
   });
 
   Future<Map<String, dynamic>> merchantDeals({

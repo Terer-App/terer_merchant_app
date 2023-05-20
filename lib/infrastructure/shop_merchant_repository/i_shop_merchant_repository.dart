@@ -185,15 +185,15 @@ class IShopMerchantRepository extends ShopMerchantRepository {
   }
 
   @override
-  Future<Either<String, Map<String, dynamic>>> verifyDealAnyways({
-    required Map<String, dynamic> data,
-  }) async {
+  Future<Either<String, Map<String, dynamic>>> verifyDealAnyways(
+      {required Map<String, dynamic> data, required int isItFreeDeal}) async {
     final url = serverUrl + APIConstants.verifyDealAnyways;
     try {
       final token = await AuthTokenService.getMerchantToken();
+      final body = json.encode({...data, 'isItFreeDeal': isItFreeDeal});
       final res = await RESTService.performPOSTRequest(
         httpUrl: url,
-        body: json.encode(data),
+        body: body,
         token: token,
         isAuth: true,
       );
