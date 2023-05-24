@@ -21,8 +21,8 @@ class MenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // AppStateNotifier appStateNotifier =
-    //     Provider.of<AppStateNotifier>(context, listen: false);
+    AppStateNotifier appStateNotifier =
+        Provider.of<AppStateNotifier>(context, listen: false);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
@@ -48,8 +48,7 @@ class MenuWidget extends StatelessWidget {
                   color: Theme.of(context).colorScheme.secondary),
             ),
             Text(
-              'Hipster Coffee Shop',
-              // appStateNotifier.customer!.firstName.capitalizeCamel,
+              appStateNotifier.profile!.shopName ?? '',
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize:
