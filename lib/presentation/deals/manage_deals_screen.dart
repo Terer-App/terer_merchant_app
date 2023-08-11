@@ -11,6 +11,7 @@ import 'package:sizer/sizer.dart';
 import '../../application/manage_deals/manage_deals_bloc.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
+import '../../domain/extensions/string_extensions.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
 import '../../domain/constants/asset_constants.dart';
@@ -277,7 +278,7 @@ class ManageDealsConsumer extends StatelessWidget {
                             left: 5.w,
                           ),
                           child: Text(
-                            state.profile!.shopName ?? '',
+                            state.profile!.firstName.capitalizeCamel,
                             style: TextStyle(
                                 color: Theme.of(context)
                                     .colorScheme

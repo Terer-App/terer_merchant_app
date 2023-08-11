@@ -312,6 +312,12 @@ class ScanConstants {
 
 class MyProfileConstants {
   //label text
+
+  static const String firstName = 'First Name';
+  static const String lastName = 'Last Name';
+  static const String email = 'Email Address';
+  static const String brandName = 'Brand Name';
+
   static const String shopName = 'Shop Name';
   static const String shopAddress = 'Shop Address';
   static const String shopEmail = 'Email Address';

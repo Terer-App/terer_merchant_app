@@ -12,12 +12,11 @@ class ProfileState with _$ProfileState {
     required AppStateNotifier appStateNotifier,
     required ShopMerchantRepository shopMerchantRepository,
     required ZoomDrawerController zoomDrawerController,
-    required TextEditingController shopNameController,
-    required TextEditingController shopAddressController,
-    required TextEditingController shopEmailController,
-    required TextEditingController shopPhoneController,
-    required TextEditingController shopCodeController,
-    MerchantDto? profile,
+    required TextEditingController firstNameController,
+    required TextEditingController lastNameController,
+    required TextEditingController emailController,
+    required TextEditingController brandNameController,
+    BrandUserDto? profile,
   }) = _ProfileState;
 
   factory ProfileState.initial({
@@ -38,11 +37,10 @@ class ProfileState with _$ProfileState {
       shopMerchantRepository: IShopMerchantRepository(
         serverUrl: serverUrl,
       ),
-      shopAddressController: TextEditingController(),
-      shopEmailController: TextEditingController(),
-      shopNameController: TextEditingController(),
-      shopPhoneController: TextEditingController(),
-      shopCodeController:TextEditingController(),
+      firstNameController: TextEditingController(),
+      lastNameController: TextEditingController(),
+      emailController: TextEditingController(),
+      brandNameController: TextEditingController(),
     );
   }
 }

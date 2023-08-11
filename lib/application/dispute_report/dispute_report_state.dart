@@ -14,7 +14,7 @@ class DisputeReportState with _$DisputeReportState {
     required UploadFileRepository uploadFileRepository,
     required ShopMerchantRepository shopMerchantRepository,
     required TextEditingController messageController,
-    MerchantDto? profile,
+    BrandUserDto? profile,
     http.MultipartFile? attachImageFile,
     required String attachImagePath,
   }) = _DisputeReportState;

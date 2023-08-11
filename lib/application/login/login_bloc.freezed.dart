@@ -598,7 +598,7 @@ mixin _$LoginState {
       throw _privateConstructorUsedError;
   TextEditingController get passwordController =>
       throw _privateConstructorUsedError;
-  MerchantDto? get profile => throw _privateConstructorUsedError;
+  BrandUserDto? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -621,9 +621,9 @@ abstract class $LoginStateCopyWith<$Res> {
       ShopMerchantRepository shopMerchantRepository,
       TextEditingController userNameController,
       TextEditingController passwordController,
-      MerchantDto? profile});
+      BrandUserDto? profile});
 
-  $MerchantDtoCopyWith<$Res>? get profile;
+  $BrandUserDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -692,17 +692,17 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+              as BrandUserDto?,
     ));
   }
 
   @override
-  $MerchantDtoCopyWith<$Res>? get profile {
+  $BrandUserDtoCopyWith<$Res>? get profile {
     if (_value.profile == null) {
       return null;
     }
 
-    return $MerchantDtoCopyWith<$Res>(_value.profile!, (value) {
+    return $BrandUserDtoCopyWith<$Res>(_value.profile!, (value) {
       return _then(_value.copyWith(profile: value));
     });
   }
@@ -726,10 +726,10 @@ abstract class _$$_LoginStateCopyWith<$Res>
       ShopMerchantRepository shopMerchantRepository,
       TextEditingController userNameController,
       TextEditingController passwordController,
-      MerchantDto? profile});
+      BrandUserDto? profile});
 
   @override
-  $MerchantDtoCopyWith<$Res>? get profile;
+  $BrandUserDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -800,7 +800,7 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+              as BrandUserDto?,
     ));
   }
 }
@@ -842,7 +842,7 @@ class _$_LoginState implements _LoginState {
   @override
   final TextEditingController passwordController;
   @override
-  final MerchantDto? profile;
+  final BrandUserDto? profile;
 
   @override
   String toString() {
@@ -906,7 +906,7 @@ abstract class _LoginState implements LoginState {
       required final ShopMerchantRepository shopMerchantRepository,
       required final TextEditingController userNameController,
       required final TextEditingController passwordController,
-      final MerchantDto? profile}) = _$_LoginState;
+      final BrandUserDto? profile}) = _$_LoginState;
 
   @override
   bool get isLoading;
@@ -929,7 +929,7 @@ abstract class _LoginState implements LoginState {
   @override
   TextEditingController get passwordController;
   @override
-  MerchantDto? get profile;
+  BrandUserDto? get profile;
   @override
   @JsonKey(ignore: true)
   _$$_LoginStateCopyWith<_$_LoginState> get copyWith =>

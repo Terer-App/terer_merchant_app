@@ -23,7 +23,6 @@ import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../domain/services/storage_service/auth_service.dart';
 import '../core/custom_alert.dart';
 import '../core/custom_rounded_textfield.dart';
-import '../core/custom_text_field.dart';
 
 class ProfileScreen extends StatelessWidget {
   final ZoomDrawerController zoomDrawerController;
@@ -149,8 +148,8 @@ class ProfileConsumer extends StatelessWidget {
                             CustomRoundedInput(
                               isTitle: true,
                               enabled: false,
-                              controller: state.shopNameController,
-                              titleText: MyProfileConstants.shopName,
+                              controller: state.firstNameController,
+                              titleText: MyProfileConstants.firstName,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
                               validator: (newVal) {
@@ -164,13 +163,12 @@ class ProfileConsumer extends StatelessWidget {
                             SizedBox(
                               height: 5.w,
                             ),
-                            //last name
                             CustomRoundedInput(
                               isTitle: true,
                               enabled: false,
-                              controller: state.shopAddressController,
-                              maxLines: 2,
-                              titleText: MyProfileConstants.shopAddress,
+                              controller: state.lastNameController,
+                              maxLines: 1,
+                              titleText: MyProfileConstants.lastName,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
                               validator: (newVal) {
@@ -188,8 +186,20 @@ class ProfileConsumer extends StatelessWidget {
                             CustomRoundedInput(
                               isTitle: true,
                               enabled: false,
-                              controller: state.shopEmailController,
-                              titleText: MyProfileConstants.shopEmail,
+                              controller: state.emailController,
+                              titleText: MyProfileConstants.email,
+                              contentPadding: EdgeInsets.symmetric(
+                                  horizontal: 4.w, vertical: 4.w),
+                            ),
+                             SizedBox(
+                              height: 5.w,
+                            ),
+                            //email
+                            CustomRoundedInput(
+                              isTitle: true,
+                              enabled: false,
+                              controller: state.brandNameController,
+                              titleText: MyProfileConstants.brandName,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
                             ),
@@ -198,82 +208,6 @@ class ProfileConsumer extends StatelessWidget {
                             ),
 
                             // phone number
-
-                            PrimaryTextField(
-                              enabled: false,
-                              inputWithLabel: true,
-                              controller: state.shopPhoneController,
-                              labelColor:
-                                  Theme.of(context).colorScheme.secondary,
-                              labelText: MyProfileConstants.shopPhone,
-                              inputBorderRadius: 25,
-                              hintText: MyProfileConstants.hintPhoneNumber,
-                              keyboardType: TextInputType.phone,
-                              customContentPadding: EdgeInsets.symmetric(
-                                  vertical: 2.h, horizontal: 4.w),
-                              validator: (value) {
-                                final phoneNumber = value!;
-                                if (phoneNumber.isEmpty) {
-                                  return ErrorConstants.requiredError;
-                                }
-                                return null;
-                              },
-                              prefixWidget: GestureDetector(
-                                onTap: null,
-                                child: Container(
-                                  width: 20.w,
-                                  height: 6.9.h,
-                                  margin: const EdgeInsets.only(right: 10),
-                                  decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.5),
-                                    borderRadius: BorderRadius.circular(25),
-                                    border: Border.all(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .primaryContainer
-                                          .withAlpha(140),
-                                      width: 1,
-                                    ),
-                                  ),
-                                  child: Row(children: [
-                                    SizedBox(
-                                      width: 1.w,
-                                    ),
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(3.sp),
-                                      child: SizedBox(
-                                        height: 15.sp,
-                                        width: 20.sp,
-                                        child: Image.asset(
-                                          "assets/flags/${country.firstWhere((element) {
-                                                return element['dial_code'] ==
-                                                    state.shopCodeController
-                                                        .text;
-                                              },orElse: () {
-                                                return country[0];
-                                              },)['locale'].toString().toLowerCase()}.png",
-                                          fit: BoxFit.fill,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(width: 1.w),
-                                    Text(
-                                      state.shopCodeController.text.toString(),
-                                      textScaleFactor: 1.0,
-                                      softWrap: true,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .caption!
-                                          .copyWith(
-                                              fontWeight: FontWeight.w700,
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .secondary),
-                                    ),
-                                  ]),
-                                ),
-                              ),
-                            ),
 
                             SizedBox(height: 6.h),
                             RichText(

@@ -7,7 +7,7 @@ import 'package:intl/intl.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/shop_merchant/shop_merchant_repository.dart';
 import '../../infrastructure/dtos/merchant_deal_dto/merchant_deal_dto.dart';
-import '../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../infrastructure/dtos/brand/user/brand_user_dto.dart';
 import '../../infrastructure/enums/deal_type.dart';
 import '../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 

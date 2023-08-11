@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart' as http;
-import '../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../infrastructure/dtos/brand/user/brand_user_dto.dart';
 
 abstract class ShopMerchantRepository {
-  Future<MerchantDto?> merchantProfile({String? token});
+  Future<BrandUserDto?> merchantProfile({String? token});
 
   Future<Either<String, String>> disputeReport({
     required String merchantMessage,

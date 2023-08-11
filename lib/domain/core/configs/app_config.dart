@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../../infrastructure/dtos/brand/user/brand_user_dto.dart';
 
 class AppStateNotifier extends ChangeNotifier {
   bool isAuthorized;
-  MerchantDto? profile;
+  BrandUserDto? profile;
 
   AppStateNotifier({
     required this.isAuthorized,
@@ -11,7 +11,7 @@ class AppStateNotifier extends ChangeNotifier {
   });
   void updateAuthState({
     required bool isAuthorized,
-    required MerchantDto? profile,
+    required BrandUserDto? profile,
   }) {
     this.isAuthorized = isAuthorized;
     this.profile = profile;

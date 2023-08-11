@@ -18,7 +18,7 @@ class ManageDealsState with _$ManageDealsState {
     required ShopMerchantRepository shopMerchantRepository,
     required ScrollController scrollController,
     required ZoomDrawerController zoomDrawerController,
-    MerchantDto? profile,
+    BrandUserDto? profile,
   }) = _ManageDealsState;
 
   factory ManageDealsState.initial({

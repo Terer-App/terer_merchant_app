@@ -756,7 +756,7 @@ mixin _$DisputeReportState {
       throw _privateConstructorUsedError;
   TextEditingController get messageController =>
       throw _privateConstructorUsedError;
-  MerchantDto? get profile => throw _privateConstructorUsedError;
+  BrandUserDto? get profile => throw _privateConstructorUsedError;
   http.MultipartFile? get attachImageFile => throw _privateConstructorUsedError;
   String get attachImagePath => throw _privateConstructorUsedError;
 
@@ -782,11 +782,11 @@ abstract class $DisputeReportStateCopyWith<$Res> {
       UploadFileRepository uploadFileRepository,
       ShopMerchantRepository shopMerchantRepository,
       TextEditingController messageController,
-      MerchantDto? profile,
+      BrandUserDto? profile,
       http.MultipartFile? attachImageFile,
       String attachImagePath});
 
-  $MerchantDtoCopyWith<$Res>? get profile;
+  $BrandUserDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -863,7 +863,7 @@ class _$DisputeReportStateCopyWithImpl<$Res>
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+              as BrandUserDto?,
       attachImageFile: attachImageFile == freezed
           ? _value.attachImageFile
           : attachImageFile // ignore: cast_nullable_to_non_nullable
@@ -876,12 +876,12 @@ class _$DisputeReportStateCopyWithImpl<$Res>
   }
 
   @override
-  $MerchantDtoCopyWith<$Res>? get profile {
+  $BrandUserDtoCopyWith<$Res>? get profile {
     if (_value.profile == null) {
       return null;
     }
 
-    return $MerchantDtoCopyWith<$Res>(_value.profile!, (value) {
+    return $BrandUserDtoCopyWith<$Res>(_value.profile!, (value) {
       return _then(_value.copyWith(profile: value));
     });
   }
@@ -906,12 +906,12 @@ abstract class _$$_DisputeReportStateCopyWith<$Res>
       UploadFileRepository uploadFileRepository,
       ShopMerchantRepository shopMerchantRepository,
       TextEditingController messageController,
-      MerchantDto? profile,
+      BrandUserDto? profile,
       http.MultipartFile? attachImageFile,
       String attachImagePath});
 
   @override
-  $MerchantDtoCopyWith<$Res>? get profile;
+  $BrandUserDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -990,7 +990,7 @@ class __$$_DisputeReportStateCopyWithImpl<$Res>
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+              as BrandUserDto?,
       attachImageFile: attachImageFile == freezed
           ? _value.attachImageFile
           : attachImageFile // ignore: cast_nullable_to_non_nullable
@@ -1045,7 +1045,7 @@ class _$_DisputeReportState implements _DisputeReportState {
   @override
   final TextEditingController messageController;
   @override
-  final MerchantDto? profile;
+  final BrandUserDto? profile;
   @override
   final http.MultipartFile? attachImageFile;
   @override
@@ -1123,7 +1123,7 @@ abstract class _DisputeReportState implements DisputeReportState {
       required final UploadFileRepository uploadFileRepository,
       required final ShopMerchantRepository shopMerchantRepository,
       required final TextEditingController messageController,
-      final MerchantDto? profile,
+      final BrandUserDto? profile,
       final http.MultipartFile? attachImageFile,
       required final String attachImagePath}) = _$_DisputeReportState;
 
@@ -1150,7 +1150,7 @@ abstract class _DisputeReportState implements DisputeReportState {
   @override
   TextEditingController get messageController;
   @override
-  MerchantDto? get profile;
+  BrandUserDto? get profile;
   @override
   http.MultipartFile? get attachImageFile;
   @override

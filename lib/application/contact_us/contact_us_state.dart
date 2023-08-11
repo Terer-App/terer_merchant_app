@@ -16,7 +16,7 @@ class ContactUsState with _$ContactUsState {
     required ShopMerchantRepository shopMerchantRepository,
     required UploadFileRepository uploadFileRepository,
     required GlobalKey<FormState> formKey,
-    MerchantDto? profile,
+    BrandUserDto? profile,
     http.MultipartFile? attachImageFile,
     required String attachImagePath,
   }) = _ContactUsState;

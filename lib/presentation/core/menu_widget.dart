@@ -9,6 +9,7 @@ import '../../domain/constants/string_constants.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
 import '../../domain/extensions/sizer_extension.dart';
+import '../../domain/extensions/string_extensions.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
 import '../../domain/services/storage_service/auth_service.dart';
@@ -48,7 +49,7 @@ class MenuWidget extends StatelessWidget {
                   color: Theme.of(context).colorScheme.secondary),
             ),
             Text(
-              appStateNotifier.profile!.shopName ?? '',
+              '${appStateNotifier.profile!.firstName.capitalizeCamel} ${appStateNotifier.profile!.lastName.capitalizeCamel}',
               style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize:

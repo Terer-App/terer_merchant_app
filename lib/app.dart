@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import 'domain/services/storage_service/auth_service.dart';
-import 'infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import 'infrastructure/dtos/brand/user/brand_user_dto.dart';
 import 'infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 import 'domain/core/configs/app_config.dart';
 import 'domain/core/configs/injection.dart';
@@ -76,7 +76,7 @@ class MainApp extends StatelessWidget {
 }
 
 Future appInitializer(AppConfig appConfig) async {
-  MerchantDto? profile;
+  BrandUserDto? profile;
   bool isAuthorized = await AuthTokenService.isLogin();
 
   if (isAuthorized) {

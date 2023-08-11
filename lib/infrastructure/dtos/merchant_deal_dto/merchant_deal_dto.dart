@@ -14,7 +14,6 @@ class MerchantDealDto with _$MerchantDealDto {
     @JsonKey(defaultValue: 0) required int noOfDeals,
     @JsonKey(defaultValue: false) required bool isVerified,
     @JsonKey(defaultValue: '') required String orderId,
-    @JsonKey(defaultValue: '') required String dealerId,
     @JsonKey(defaultValue: '') required String customerName,
     @JsonKey(defaultValue: '') required String customerEmail,
     @JsonKey(defaultValue: '') required String createdAt,

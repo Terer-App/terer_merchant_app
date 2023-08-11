@@ -22,7 +22,7 @@ class IAuthRepository extends AuthRepository {
       final res = await RESTService.performPOSTRequest(
           httpUrl: url,
           body: json.encode(
-              {'merchant_email': userName, 'merchant_password': password}));
+              {'email': userName, 'password': password}));
 
       final response = json.decode(res.body);
 

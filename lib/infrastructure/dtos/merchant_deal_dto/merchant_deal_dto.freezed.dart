@@ -37,8 +37,6 @@ mixin _$MerchantDealDto {
   @JsonKey(defaultValue: '')
   String get orderId => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: '')
-  String get dealerId => throw _privateConstructorUsedError;
-  @JsonKey(defaultValue: '')
   String get customerName => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: '')
   String get customerEmail => throw _privateConstructorUsedError;
@@ -69,7 +67,6 @@ abstract class $MerchantDealDtoCopyWith<$Res> {
       @JsonKey(defaultValue: 0) int noOfDeals,
       @JsonKey(defaultValue: false) bool isVerified,
       @JsonKey(defaultValue: '') String orderId,
-      @JsonKey(defaultValue: '') String dealerId,
       @JsonKey(defaultValue: '') String customerName,
       @JsonKey(defaultValue: '') String customerEmail,
       @JsonKey(defaultValue: '') String createdAt,
@@ -96,7 +93,6 @@ class _$MerchantDealDtoCopyWithImpl<$Res>
     Object? noOfDeals = freezed,
     Object? isVerified = freezed,
     Object? orderId = freezed,
-    Object? dealerId = freezed,
     Object? customerName = freezed,
     Object? customerEmail = freezed,
     Object? createdAt = freezed,
@@ -135,10 +131,6 @@ class _$MerchantDealDtoCopyWithImpl<$Res>
       orderId: orderId == freezed
           ? _value.orderId
           : orderId // ignore: cast_nullable_to_non_nullable
-              as String,
-      dealerId: dealerId == freezed
-          ? _value.dealerId
-          : dealerId // ignore: cast_nullable_to_non_nullable
               as String,
       customerName: customerName == freezed
           ? _value.customerName
@@ -180,7 +172,6 @@ abstract class _$$_MerchantDealDtoCopyWith<$Res>
       @JsonKey(defaultValue: 0) int noOfDeals,
       @JsonKey(defaultValue: false) bool isVerified,
       @JsonKey(defaultValue: '') String orderId,
-      @JsonKey(defaultValue: '') String dealerId,
       @JsonKey(defaultValue: '') String customerName,
       @JsonKey(defaultValue: '') String customerEmail,
       @JsonKey(defaultValue: '') String createdAt,
@@ -209,7 +200,6 @@ class __$$_MerchantDealDtoCopyWithImpl<$Res>
     Object? noOfDeals = freezed,
     Object? isVerified = freezed,
     Object? orderId = freezed,
-    Object? dealerId = freezed,
     Object? customerName = freezed,
     Object? customerEmail = freezed,
     Object? createdAt = freezed,
@@ -249,10 +239,6 @@ class __$$_MerchantDealDtoCopyWithImpl<$Res>
           ? _value.orderId
           : orderId // ignore: cast_nullable_to_non_nullable
               as String,
-      dealerId: dealerId == freezed
-          ? _value.dealerId
-          : dealerId // ignore: cast_nullable_to_non_nullable
-              as String,
       customerName: customerName == freezed
           ? _value.customerName
           : customerName // ignore: cast_nullable_to_non_nullable
@@ -289,7 +275,6 @@ class _$_MerchantDealDto implements _MerchantDealDto {
       @JsonKey(defaultValue: 0) required this.noOfDeals,
       @JsonKey(defaultValue: false) required this.isVerified,
       @JsonKey(defaultValue: '') required this.orderId,
-      @JsonKey(defaultValue: '') required this.dealerId,
       @JsonKey(defaultValue: '') required this.customerName,
       @JsonKey(defaultValue: '') required this.customerEmail,
       @JsonKey(defaultValue: '') required this.createdAt,
@@ -325,9 +310,6 @@ class _$_MerchantDealDto implements _MerchantDealDto {
   final String orderId;
   @override
   @JsonKey(defaultValue: '')
-  final String dealerId;
-  @override
-  @JsonKey(defaultValue: '')
   final String customerName;
   @override
   @JsonKey(defaultValue: '')
@@ -344,7 +326,7 @@ class _$_MerchantDealDto implements _MerchantDealDto {
 
   @override
   String toString() {
-    return 'MerchantDealDto(dealTitle: $dealTitle, imageUrl: $imageUrl, totalDeals: $totalDeals, balanceDeals: $balanceDeals, noOfredeemDeals: $noOfredeemDeals, noOfDeals: $noOfDeals, isVerified: $isVerified, orderId: $orderId, dealerId: $dealerId, customerName: $customerName, customerEmail: $customerEmail, createdAt: $createdAt, buyingDate: $buyingDate, buyingTime: $buyingTime)';
+    return 'MerchantDealDto(dealTitle: $dealTitle, imageUrl: $imageUrl, totalDeals: $totalDeals, balanceDeals: $balanceDeals, noOfredeemDeals: $noOfredeemDeals, noOfDeals: $noOfDeals, isVerified: $isVerified, orderId: $orderId, customerName: $customerName, customerEmail: $customerEmail, createdAt: $createdAt, buyingDate: $buyingDate, buyingTime: $buyingTime)';
   }
 
   @override
@@ -364,7 +346,6 @@ class _$_MerchantDealDto implements _MerchantDealDto {
             const DeepCollectionEquality()
                 .equals(other.isVerified, isVerified) &&
             const DeepCollectionEquality().equals(other.orderId, orderId) &&
-            const DeepCollectionEquality().equals(other.dealerId, dealerId) &&
             const DeepCollectionEquality()
                 .equals(other.customerName, customerName) &&
             const DeepCollectionEquality()
@@ -388,7 +369,6 @@ class _$_MerchantDealDto implements _MerchantDealDto {
       const DeepCollectionEquality().hash(noOfDeals),
       const DeepCollectionEquality().hash(isVerified),
       const DeepCollectionEquality().hash(orderId),
-      const DeepCollectionEquality().hash(dealerId),
       const DeepCollectionEquality().hash(customerName),
       const DeepCollectionEquality().hash(customerEmail),
       const DeepCollectionEquality().hash(createdAt),
@@ -418,7 +398,6 @@ abstract class _MerchantDealDto implements MerchantDealDto {
           @JsonKey(defaultValue: 0) required final int noOfDeals,
           @JsonKey(defaultValue: false) required final bool isVerified,
           @JsonKey(defaultValue: '') required final String orderId,
-          @JsonKey(defaultValue: '') required final String dealerId,
           @JsonKey(defaultValue: '') required final String customerName,
           @JsonKey(defaultValue: '') required final String customerEmail,
           @JsonKey(defaultValue: '') required final String createdAt,
@@ -453,9 +432,6 @@ abstract class _MerchantDealDto implements MerchantDealDto {
   @override
   @JsonKey(defaultValue: '')
   String get orderId;
-  @override
-  @JsonKey(defaultValue: '')
-  String get dealerId;
   @override
   @JsonKey(defaultValue: '')
   String get customerName;

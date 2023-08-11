@@ -6,7 +6,7 @@ import '../../domain/auth/auth_repository.dart';
 import '../../domain/services/storage_service/auth_service.dart';
 import '../../domain/shop_merchant/shop_merchant_repository.dart';
 import '../../infrastructure/auth/i_auth_repository.dart';
-import '../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../infrastructure/dtos/brand/user/brand_user_dto.dart';
 import '../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 
 part 'login_event.dart';

@@ -8,7 +8,7 @@ import '../../domain/services/storage_service/auth_service.dart';
 import '../../domain/shop_merchant/shop_merchant_repository.dart';
 import '../dtos/deal_info_dto/deal_info_dto.dart';
 import '../dtos/merchant_deal_dto/merchant_deal_dto.dart';
-import '../dtos/merchant_dto/merchant_dto.dart';
+import '../dtos/brand/user/brand_user_dto.dart';
 
 import '../../domain/services/network_service/rest_service.dart';
 import '../enums/deal_type.dart';
@@ -19,8 +19,8 @@ class IShopMerchantRepository extends ShopMerchantRepository {
   IShopMerchantRepository({required this.serverUrl});
 
   @override
-  Future<MerchantDto?> merchantProfile({String? token}) async {
-    MerchantDto? merchantProfile;
+  Future<BrandUserDto?> merchantProfile({String? token}) async {
+    BrandUserDto? merchantProfile;
     final url = serverUrl + APIConstants.merchantProfile;
     try {
       final currentToken = token ?? await AuthTokenService.getMerchantToken();
@@ -33,9 +33,9 @@ class IShopMerchantRepository extends ShopMerchantRepository {
       final response = json.decode(res.body);
 
       if (response['status'] == 1) {
-        final profileData = response['shopInfo'];
+        final profileData = response['userInfo'];
 
-        merchantProfile = MerchantDto.fromJson(profileData);
+        merchantProfile = BrandUserDto.fromJson(profileData);
 
         return merchantProfile;
       } else {
@@ -60,7 +60,7 @@ class IShopMerchantRepository extends ShopMerchantRepository {
       var headers = {'Authorization': 'Bearer $token'};
       var request = http.MultipartRequest('POST', Uri.parse(url));
       request.fields.addAll({
-        'merchantMessage': merchantMessage,
+        'message': merchantMessage,
         'name': name,
         'email': email,
       });
@@ -98,7 +98,7 @@ class IShopMerchantRepository extends ShopMerchantRepository {
       var headers = {'Authorization': 'Bearer $token'};
       var request = http.MultipartRequest('POST', Uri.parse(url));
       request.fields.addAll({
-        'merchantMessage': merchantMessage,
+        'message': merchantMessage,
       });
 
       if (sendImage != null) {
@@ -153,6 +153,8 @@ class IShopMerchantRepository extends ShopMerchantRepository {
     final url = serverUrl + APIConstants.verifyCustomerDeal;
     try {
       final token = await AuthTokenService.getMerchantToken();
+
+      print(token);
 
       final res = await RESTService.performPOSTRequest(
         httpUrl: url,

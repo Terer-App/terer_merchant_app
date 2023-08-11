@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/shop_merchant/shop_merchant_repository.dart';
 import '../../domain/upload/upload_repository.dart';
-import '../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../infrastructure/dtos/brand/user/brand_user_dto.dart';
 import '../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 import '../../infrastructure/upload/i_upload_repository.dart';
 
@@ -22,8 +22,8 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
       add(const ContactUsEvent.onLoad());
     });
     on<_OnLoad>((event, emit) {
-      state.nameController.text = state.profile!.shopName ?? '';
-      state.emailController.text = state.profile!.shopEmail ?? '';
+      state.nameController.text = state.profile!.firstName;
+      state.emailController.text = state.profile!.email;
       emit(state.copyWith(isLoading: false));
     });
 
@@ -62,8 +62,8 @@ class ContactUsBloc extends Bloc<ContactUsEvent, ContactUsState> {
       emit(state.copyWith(isLoading: true));
       final res = await state.shopMerchantRepository.contactUs(
           merchantMessage: merchantMessage,
-          email: state.profile!.shopEmail ?? '',
-          name: state.profile!.shopName ?? '',
+          email: state.profile!.email,
+          name: state.profile!.firstName ,
           sendImage: state.attachImageFile);
 
       res.fold((l) {

@@ -605,7 +605,7 @@ mixin _$ManageDealsState {
   ScrollController get scrollController => throw _privateConstructorUsedError;
   ZoomDrawerController get zoomDrawerController =>
       throw _privateConstructorUsedError;
-  MerchantDto? get profile => throw _privateConstructorUsedError;
+  BrandUserDto? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ManageDealsStateCopyWith<ManageDealsState> get copyWith =>
@@ -633,9 +633,9 @@ abstract class $ManageDealsStateCopyWith<$Res> {
       ShopMerchantRepository shopMerchantRepository,
       ScrollController scrollController,
       ZoomDrawerController zoomDrawerController,
-      MerchantDto? profile});
+      BrandUserDto? profile});
 
-  $MerchantDtoCopyWith<$Res>? get profile;
+  $BrandUserDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -730,17 +730,17 @@ class _$ManageDealsStateCopyWithImpl<$Res>
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+              as BrandUserDto?,
     ));
   }
 
   @override
-  $MerchantDtoCopyWith<$Res>? get profile {
+  $BrandUserDtoCopyWith<$Res>? get profile {
     if (_value.profile == null) {
       return null;
     }
 
-    return $MerchantDtoCopyWith<$Res>(_value.profile!, (value) {
+    return $BrandUserDtoCopyWith<$Res>(_value.profile!, (value) {
       return _then(_value.copyWith(profile: value));
     });
   }
@@ -769,10 +769,10 @@ abstract class _$$_ManageDealsStateCopyWith<$Res>
       ShopMerchantRepository shopMerchantRepository,
       ScrollController scrollController,
       ZoomDrawerController zoomDrawerController,
-      MerchantDto? profile});
+      BrandUserDto? profile});
 
   @override
-  $MerchantDtoCopyWith<$Res>? get profile;
+  $BrandUserDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -869,7 +869,7 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+              as BrandUserDto?,
     ));
   }
 }
@@ -932,7 +932,7 @@ class _$_ManageDealsState implements _ManageDealsState {
   @override
   final ZoomDrawerController zoomDrawerController;
   @override
-  final MerchantDto? profile;
+  final BrandUserDto? profile;
 
   @override
   String toString() {
@@ -1016,7 +1016,7 @@ abstract class _ManageDealsState implements ManageDealsState {
       required final ShopMerchantRepository shopMerchantRepository,
       required final ScrollController scrollController,
       required final ZoomDrawerController zoomDrawerController,
-      final MerchantDto? profile}) = _$_ManageDealsState;
+      final BrandUserDto? profile}) = _$_ManageDealsState;
 
   @override
   bool get isLoading;
@@ -1049,7 +1049,7 @@ abstract class _ManageDealsState implements ManageDealsState {
   @override
   ZoomDrawerController get zoomDrawerController;
   @override
-  MerchantDto? get profile;
+  BrandUserDto? get profile;
   @override
   @JsonKey(ignore: true)
   _$$_ManageDealsStateCopyWith<_$_ManageDealsState> get copyWith =>

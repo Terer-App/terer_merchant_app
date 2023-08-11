@@ -13,7 +13,7 @@ class LoginState with _$LoginState {
     required ShopMerchantRepository shopMerchantRepository,
     required TextEditingController userNameController,
     required TextEditingController passwordController,
-    MerchantDto? profile,
+    BrandUserDto? profile,
   }) = _LoginState;
 
   factory LoginState.initial({required String serverUrl}) {

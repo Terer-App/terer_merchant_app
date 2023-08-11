@@ -11,7 +11,7 @@ import '../../infrastructure/shop_merchant_repository/i_shop_merchant_repository
 import '../../infrastructure/upload/i_upload_repository.dart';
 
 import '../../domain/core/configs/app_config.dart';
-import '../../infrastructure/dtos/merchant_dto/merchant_dto.dart';
+import '../../infrastructure/dtos/brand/user/brand_user_dto.dart';
 
 part 'dispute_report_event.dart';
 part 'dispute_report_state.dart';

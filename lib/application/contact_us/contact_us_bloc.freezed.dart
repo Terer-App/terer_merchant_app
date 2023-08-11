@@ -758,7 +758,7 @@ mixin _$ContactUsState {
   UploadFileRepository get uploadFileRepository =>
       throw _privateConstructorUsedError;
   GlobalKey<FormState> get formKey => throw _privateConstructorUsedError;
-  MerchantDto? get profile => throw _privateConstructorUsedError;
+  BrandUserDto? get profile => throw _privateConstructorUsedError;
   http.MultipartFile? get attachImageFile => throw _privateConstructorUsedError;
   String get attachImagePath => throw _privateConstructorUsedError;
 
@@ -786,11 +786,11 @@ abstract class $ContactUsStateCopyWith<$Res> {
       ShopMerchantRepository shopMerchantRepository,
       UploadFileRepository uploadFileRepository,
       GlobalKey<FormState> formKey,
-      MerchantDto? profile,
+      BrandUserDto? profile,
       http.MultipartFile? attachImageFile,
       String attachImagePath});
 
-  $MerchantDtoCopyWith<$Res>? get profile;
+  $BrandUserDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -877,7 +877,7 @@ class _$ContactUsStateCopyWithImpl<$Res>
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+              as BrandUserDto?,
       attachImageFile: attachImageFile == freezed
           ? _value.attachImageFile
           : attachImageFile // ignore: cast_nullable_to_non_nullable
@@ -890,12 +890,12 @@ class _$ContactUsStateCopyWithImpl<$Res>
   }
 
   @override
-  $MerchantDtoCopyWith<$Res>? get profile {
+  $BrandUserDtoCopyWith<$Res>? get profile {
     if (_value.profile == null) {
       return null;
     }
 
-    return $MerchantDtoCopyWith<$Res>(_value.profile!, (value) {
+    return $BrandUserDtoCopyWith<$Res>(_value.profile!, (value) {
       return _then(_value.copyWith(profile: value));
     });
   }
@@ -922,12 +922,12 @@ abstract class _$$_ContactUsStateCopyWith<$Res>
       ShopMerchantRepository shopMerchantRepository,
       UploadFileRepository uploadFileRepository,
       GlobalKey<FormState> formKey,
-      MerchantDto? profile,
+      BrandUserDto? profile,
       http.MultipartFile? attachImageFile,
       String attachImagePath});
 
   @override
-  $MerchantDtoCopyWith<$Res>? get profile;
+  $BrandUserDtoCopyWith<$Res>? get profile;
 }
 
 /// @nodoc
@@ -1016,7 +1016,7 @@ class __$$_ContactUsStateCopyWithImpl<$Res>
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
-              as MerchantDto?,
+              as BrandUserDto?,
       attachImageFile: attachImageFile == freezed
           ? _value.attachImageFile
           : attachImageFile // ignore: cast_nullable_to_non_nullable
@@ -1077,7 +1077,7 @@ class _$_ContactUsState implements _ContactUsState {
   @override
   final GlobalKey<FormState> formKey;
   @override
-  final MerchantDto? profile;
+  final BrandUserDto? profile;
   @override
   final http.MultipartFile? attachImageFile;
   @override
@@ -1162,7 +1162,7 @@ abstract class _ContactUsState implements ContactUsState {
       required final ShopMerchantRepository shopMerchantRepository,
       required final UploadFileRepository uploadFileRepository,
       required final GlobalKey<FormState> formKey,
-      final MerchantDto? profile,
+      final BrandUserDto? profile,
       final http.MultipartFile? attachImageFile,
       required final String attachImagePath}) = _$_ContactUsState;
 
@@ -1193,7 +1193,7 @@ abstract class _ContactUsState implements ContactUsState {
   @override
   GlobalKey<FormState> get formKey;
   @override
-  MerchantDto? get profile;
+  BrandUserDto? get profile;
   @override
   http.MultipartFile? get attachImageFile;
   @override
