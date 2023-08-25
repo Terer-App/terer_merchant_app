@@ -598,6 +598,7 @@ mixin _$LoginState {
       throw _privateConstructorUsedError;
   TextEditingController get passwordController =>
       throw _privateConstructorUsedError;
+  bool get isPasswordVisible => throw _privateConstructorUsedError;
   BrandUserDto? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -621,6 +622,7 @@ abstract class $LoginStateCopyWith<$Res> {
       ShopMerchantRepository shopMerchantRepository,
       TextEditingController userNameController,
       TextEditingController passwordController,
+      bool isPasswordVisible,
       BrandUserDto? profile});
 
   $BrandUserDtoCopyWith<$Res>? get profile;
@@ -646,6 +648,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
     Object? shopMerchantRepository = freezed,
     Object? userNameController = freezed,
     Object? passwordController = freezed,
+    Object? isPasswordVisible = freezed,
     Object? profile = freezed,
   }) {
     return _then(_value.copyWith(
@@ -689,6 +692,10 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
           ? _value.passwordController
           : passwordController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      isPasswordVisible: isPasswordVisible == freezed
+          ? _value.isPasswordVisible
+          : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -726,6 +733,7 @@ abstract class _$$_LoginStateCopyWith<$Res>
       ShopMerchantRepository shopMerchantRepository,
       TextEditingController userNameController,
       TextEditingController passwordController,
+      bool isPasswordVisible,
       BrandUserDto? profile});
 
   @override
@@ -754,6 +762,7 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
     Object? shopMerchantRepository = freezed,
     Object? userNameController = freezed,
     Object? passwordController = freezed,
+    Object? isPasswordVisible = freezed,
     Object? profile = freezed,
   }) {
     return _then(_$_LoginState(
@@ -797,6 +806,10 @@ class __$$_LoginStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
           ? _value.passwordController
           : passwordController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      isPasswordVisible: isPasswordVisible == freezed
+          ? _value.isPasswordVisible
+          : isPasswordVisible // ignore: cast_nullable_to_non_nullable
+              as bool,
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -819,6 +832,7 @@ class _$_LoginState implements _LoginState {
       required this.shopMerchantRepository,
       required this.userNameController,
       required this.passwordController,
+      required this.isPasswordVisible,
       this.profile});
 
   @override
@@ -842,11 +856,13 @@ class _$_LoginState implements _LoginState {
   @override
   final TextEditingController passwordController;
   @override
+  final bool isPasswordVisible;
+  @override
   final BrandUserDto? profile;
 
   @override
   String toString() {
-    return 'LoginState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, validateForm: $validateForm, showMessage: $showMessage, formKey: $formKey, authRepository: $authRepository, shopMerchantRepository: $shopMerchantRepository, userNameController: $userNameController, passwordController: $passwordController, profile: $profile)';
+    return 'LoginState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, validateForm: $validateForm, showMessage: $showMessage, formKey: $formKey, authRepository: $authRepository, shopMerchantRepository: $shopMerchantRepository, userNameController: $userNameController, passwordController: $passwordController, isPasswordVisible: $isPasswordVisible, profile: $profile)';
   }
 
   @override
@@ -870,6 +886,8 @@ class _$_LoginState implements _LoginState {
                 .equals(other.userNameController, userNameController) &&
             const DeepCollectionEquality()
                 .equals(other.passwordController, passwordController) &&
+            const DeepCollectionEquality()
+                .equals(other.isPasswordVisible, isPasswordVisible) &&
             const DeepCollectionEquality().equals(other.profile, profile));
   }
 
@@ -886,6 +904,7 @@ class _$_LoginState implements _LoginState {
       const DeepCollectionEquality().hash(shopMerchantRepository),
       const DeepCollectionEquality().hash(userNameController),
       const DeepCollectionEquality().hash(passwordController),
+      const DeepCollectionEquality().hash(isPasswordVisible),
       const DeepCollectionEquality().hash(profile));
 
   @JsonKey(ignore: true)
@@ -906,6 +925,7 @@ abstract class _LoginState implements LoginState {
       required final ShopMerchantRepository shopMerchantRepository,
       required final TextEditingController userNameController,
       required final TextEditingController passwordController,
+      required final bool isPasswordVisible,
       final BrandUserDto? profile}) = _$_LoginState;
 
   @override
@@ -928,6 +948,8 @@ abstract class _LoginState implements LoginState {
   TextEditingController get userNameController;
   @override
   TextEditingController get passwordController;
+  @override
+  bool get isPasswordVisible;
   @override
   BrandUserDto? get profile;
   @override

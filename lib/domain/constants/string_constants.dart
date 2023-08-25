@@ -287,6 +287,7 @@ class DealsConstants {
 
   static const String manageDeals = 'Manage Deals';
   static const String balance = 'Balance';
+    static const String expireAT = 'Valid till';
   static const String balanceReport = 'Balance Report';
 
   static const String redeemed = 'Redeemed';

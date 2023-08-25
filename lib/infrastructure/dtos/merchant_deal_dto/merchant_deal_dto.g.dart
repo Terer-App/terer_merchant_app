@@ -19,6 +19,7 @@ _$_MerchantDealDto _$$_MerchantDealDtoFromJson(Map<String, dynamic> json) =>
       customerName: json['customerName'] as String? ?? '',
       customerEmail: json['customerEmail'] as String? ?? '',
       createdAt: json['createdAt'] as String? ?? '',
+      dealExprireAt: json['dealExprireAt'] as String? ?? '',
       buyingDate: json['buyingDate'] as String? ?? '',
       buyingTime: json['buyingTime'] as String? ?? '',
     );
@@ -36,6 +37,7 @@ Map<String, dynamic> _$$_MerchantDealDtoToJson(_$_MerchantDealDto instance) =>
       'customerName': instance.customerName,
       'customerEmail': instance.customerEmail,
       'createdAt': instance.createdAt,
+      'dealExprireAt': instance.dealExprireAt,
       'buyingDate': instance.buyingDate,
       'buyingTime': instance.buyingTime,
     };

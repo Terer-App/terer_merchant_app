@@ -43,6 +43,8 @@ mixin _$MerchantDealDto {
   @JsonKey(defaultValue: '')
   String get createdAt => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: '')
+  String get dealExprireAt => throw _privateConstructorUsedError;
+  @JsonKey(defaultValue: '')
   String get buyingDate => throw _privateConstructorUsedError;
   @JsonKey(defaultValue: '')
   String get buyingTime => throw _privateConstructorUsedError;
@@ -70,6 +72,7 @@ abstract class $MerchantDealDtoCopyWith<$Res> {
       @JsonKey(defaultValue: '') String customerName,
       @JsonKey(defaultValue: '') String customerEmail,
       @JsonKey(defaultValue: '') String createdAt,
+      @JsonKey(defaultValue: '') String dealExprireAt,
       @JsonKey(defaultValue: '') String buyingDate,
       @JsonKey(defaultValue: '') String buyingTime});
 }
@@ -96,6 +99,7 @@ class _$MerchantDealDtoCopyWithImpl<$Res>
     Object? customerName = freezed,
     Object? customerEmail = freezed,
     Object? createdAt = freezed,
+    Object? dealExprireAt = freezed,
     Object? buyingDate = freezed,
     Object? buyingTime = freezed,
   }) {
@@ -144,6 +148,10 @@ class _$MerchantDealDtoCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
+      dealExprireAt: dealExprireAt == freezed
+          ? _value.dealExprireAt
+          : dealExprireAt // ignore: cast_nullable_to_non_nullable
+              as String,
       buyingDate: buyingDate == freezed
           ? _value.buyingDate
           : buyingDate // ignore: cast_nullable_to_non_nullable
@@ -175,6 +183,7 @@ abstract class _$$_MerchantDealDtoCopyWith<$Res>
       @JsonKey(defaultValue: '') String customerName,
       @JsonKey(defaultValue: '') String customerEmail,
       @JsonKey(defaultValue: '') String createdAt,
+      @JsonKey(defaultValue: '') String dealExprireAt,
       @JsonKey(defaultValue: '') String buyingDate,
       @JsonKey(defaultValue: '') String buyingTime});
 }
@@ -203,6 +212,7 @@ class __$$_MerchantDealDtoCopyWithImpl<$Res>
     Object? customerName = freezed,
     Object? customerEmail = freezed,
     Object? createdAt = freezed,
+    Object? dealExprireAt = freezed,
     Object? buyingDate = freezed,
     Object? buyingTime = freezed,
   }) {
@@ -251,6 +261,10 @@ class __$$_MerchantDealDtoCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as String,
+      dealExprireAt: dealExprireAt == freezed
+          ? _value.dealExprireAt
+          : dealExprireAt // ignore: cast_nullable_to_non_nullable
+              as String,
       buyingDate: buyingDate == freezed
           ? _value.buyingDate
           : buyingDate // ignore: cast_nullable_to_non_nullable
@@ -278,6 +292,7 @@ class _$_MerchantDealDto implements _MerchantDealDto {
       @JsonKey(defaultValue: '') required this.customerName,
       @JsonKey(defaultValue: '') required this.customerEmail,
       @JsonKey(defaultValue: '') required this.createdAt,
+      @JsonKey(defaultValue: '') required this.dealExprireAt,
       @JsonKey(defaultValue: '') required this.buyingDate,
       @JsonKey(defaultValue: '') required this.buyingTime});
 
@@ -319,6 +334,9 @@ class _$_MerchantDealDto implements _MerchantDealDto {
   final String createdAt;
   @override
   @JsonKey(defaultValue: '')
+  final String dealExprireAt;
+  @override
+  @JsonKey(defaultValue: '')
   final String buyingDate;
   @override
   @JsonKey(defaultValue: '')
@@ -326,7 +344,7 @@ class _$_MerchantDealDto implements _MerchantDealDto {
 
   @override
   String toString() {
-    return 'MerchantDealDto(dealTitle: $dealTitle, imageUrl: $imageUrl, totalDeals: $totalDeals, balanceDeals: $balanceDeals, noOfredeemDeals: $noOfredeemDeals, noOfDeals: $noOfDeals, isVerified: $isVerified, orderId: $orderId, customerName: $customerName, customerEmail: $customerEmail, createdAt: $createdAt, buyingDate: $buyingDate, buyingTime: $buyingTime)';
+    return 'MerchantDealDto(dealTitle: $dealTitle, imageUrl: $imageUrl, totalDeals: $totalDeals, balanceDeals: $balanceDeals, noOfredeemDeals: $noOfredeemDeals, noOfDeals: $noOfDeals, isVerified: $isVerified, orderId: $orderId, customerName: $customerName, customerEmail: $customerEmail, createdAt: $createdAt, dealExprireAt: $dealExprireAt, buyingDate: $buyingDate, buyingTime: $buyingTime)';
   }
 
   @override
@@ -352,6 +370,8 @@ class _$_MerchantDealDto implements _MerchantDealDto {
                 .equals(other.customerEmail, customerEmail) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality()
+                .equals(other.dealExprireAt, dealExprireAt) &&
+            const DeepCollectionEquality()
                 .equals(other.buyingDate, buyingDate) &&
             const DeepCollectionEquality()
                 .equals(other.buyingTime, buyingTime));
@@ -372,6 +392,7 @@ class _$_MerchantDealDto implements _MerchantDealDto {
       const DeepCollectionEquality().hash(customerName),
       const DeepCollectionEquality().hash(customerEmail),
       const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(dealExprireAt),
       const DeepCollectionEquality().hash(buyingDate),
       const DeepCollectionEquality().hash(buyingTime));
 
@@ -401,6 +422,7 @@ abstract class _MerchantDealDto implements MerchantDealDto {
           @JsonKey(defaultValue: '') required final String customerName,
           @JsonKey(defaultValue: '') required final String customerEmail,
           @JsonKey(defaultValue: '') required final String createdAt,
+          @JsonKey(defaultValue: '') required final String dealExprireAt,
           @JsonKey(defaultValue: '') required final String buyingDate,
           @JsonKey(defaultValue: '') required final String buyingTime}) =
       _$_MerchantDealDto;
@@ -441,6 +463,9 @@ abstract class _MerchantDealDto implements MerchantDealDto {
   @override
   @JsonKey(defaultValue: '')
   String get createdAt;
+  @override
+  @JsonKey(defaultValue: '')
+  String get dealExprireAt;
   @override
   @JsonKey(defaultValue: '')
   String get buyingDate;

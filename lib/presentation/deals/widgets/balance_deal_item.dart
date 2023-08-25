@@ -76,6 +76,14 @@ class BalanceItem extends StatelessWidget {
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.w500,
                           ),
+                    )),
+                     RichText(
+                        text: TextSpan(
+                      text: '${DealsConstants.expireAT}: ${dealDto.dealExprireAt}',
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.w500,
+                          ),
                     ))
                   ],
                 ),

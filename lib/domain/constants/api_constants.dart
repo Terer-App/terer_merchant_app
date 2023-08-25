@@ -10,4 +10,6 @@ class APIConstants {
   static const String verifyCustomerDeal = 'verifyCustomerDeal.php';
   static const String verifyDealAnyways = 'verifyDealAnyways.php';
   static const String merchantDeals = 'merchantDeals.php';
+    static const String getAllotedOutlets = 'get_alloted_outlets.php';
+
 }

@@ -17,6 +17,7 @@ class MerchantDealDto with _$MerchantDealDto {
     @JsonKey(defaultValue: '') required String customerName,
     @JsonKey(defaultValue: '') required String customerEmail,
     @JsonKey(defaultValue: '') required String createdAt,
+    @JsonKey(defaultValue: '') required String dealExprireAt,
     @JsonKey(defaultValue: '') required String buyingDate,
     @JsonKey(defaultValue: '') required String buyingTime,
   }) = _MerchantDealDto;

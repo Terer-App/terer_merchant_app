@@ -13,6 +13,7 @@ class LoginState with _$LoginState {
     required ShopMerchantRepository shopMerchantRepository,
     required TextEditingController userNameController,
     required TextEditingController passwordController,
+    required bool isPasswordVisible,
     BrandUserDto? profile,
   }) = _LoginState;
 
@@ -22,6 +23,7 @@ class LoginState with _$LoginState {
       isFailed: false,
       isSuccess: false,
       validateForm: false,
+      isPasswordVisible:false,
       showMessage: '',
       shopMerchantRepository: IShopMerchantRepository(
         serverUrl: serverUrl,

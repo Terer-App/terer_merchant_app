@@ -11,6 +11,7 @@ import '../dtos/merchant_deal_dto/merchant_deal_dto.dart';
 import '../dtos/brand/user/brand_user_dto.dart';
 
 import '../../domain/services/network_service/rest_service.dart';
+import '../dtos/outlet/outlet_dto.dart';
 import '../enums/deal_type.dart';
 
 class IShopMerchantRepository extends ShopMerchantRepository {
@@ -148,13 +149,13 @@ class IShopMerchantRepository extends ShopMerchantRepository {
 
   @override
   Future<Either<String, Map<String, dynamic>>> verifyCustomerDeal({
-    required Map<String, dynamic> data,
+    required Map<String, dynamic> data
   }) async {
     final url = serverUrl + APIConstants.verifyCustomerDeal;
     try {
       final token = await AuthTokenService.getMerchantToken();
 
-      print(token);
+      print(json.encode(data));
 
       final res = await RESTService.performPOSTRequest(
         httpUrl: url,
@@ -252,6 +253,8 @@ class IShopMerchantRepository extends ShopMerchantRepository {
         data['date'] = currentDate;
       }
 
+      print(data);
+
       final res = await RESTService.performPOSTRequest(
         httpUrl: url,
         param: data,
@@ -289,6 +292,30 @@ class IShopMerchantRepository extends ShopMerchantRepository {
       return result;
     } catch (e) {
       return result;
+    }
+  }
+
+  @override
+  Future<List<OutletDto>> getAllotedBrandOutlets() async {
+    Map<String, dynamic> result = {};
+    final url = serverUrl + APIConstants.getAllotedOutlets;
+    try {
+      final token = await AuthTokenService.getMerchantToken();
+      final res = await RESTService.performPOSTRequest(
+        httpUrl: url,
+        token: token,
+        isAuth: true,
+      );
+
+      final response = json.decode(res.body);
+      List<OutletDto> outlets = [];
+      if (response['status'] == 1) {
+        outlets =
+            (response['outlets'] as List).map((e) => OutletDto.fromJson(e)).toList();
+      }
+      return outlets;
+    } catch (e) {
+      return [];
     }
   }
 }

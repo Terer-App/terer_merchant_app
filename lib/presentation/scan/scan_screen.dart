@@ -5,19 +5,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:sizer/sizer.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
+import '../../domain/shop_merchant/shop_merchant_repository.dart';
+import '../../infrastructure/dtos/brand/brand_dto.dart';
 import '../../infrastructure/dtos/deal_info_dto/deal_info_dto.dart';
+import '../../infrastructure/dtos/outlet/outlet_dto.dart';
 import '../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
+import '../core/custom_button.dart';
 import '../core/custom_toast.dart';
 
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
 import '../core/custom_alert.dart';
+import 'widgets/select_outlet.dart';
 
 class ScanScreen extends StatefulWidget {
   final ZoomDrawerController zoomDrawerController;
@@ -34,6 +40,7 @@ class _ScanScreenState extends State<ScanScreen> {
   Barcode? result;
   bool isLoading = false;
   bool isResult = false;
+  List<OutletDto> outlets = [];
 
   QRViewController? controller;
 
@@ -49,8 +56,7 @@ class _ScanScreenState extends State<ScanScreen> {
         if (!isResult && result != null) {
           isResult = true;
           isLoading = true;
-          _verifyQRCode(serverUrl, json.decode(result!.code!),
-              isItFreeDeal: 0);
+          _verifyQRCode(serverUrl, json.decode(result!.code!), isItFreeDeal: 0);
         }
       });
     });
@@ -58,8 +64,8 @@ class _ScanScreenState extends State<ScanScreen> {
 
   Future<void> _verifyQRCode(String serverUrl, Map<String, dynamic> data,
       {bool isAnywayDeal = false, required int isItFreeDeal}) async {
+    data['outlet_update_id'] = selectedOutlet!.id!;
     isLoading = true;
-
     final res = await (isAnywayDeal
         ? IShopMerchantRepository(serverUrl: serverUrl)
             .verifyDealAnyways(data: data, isItFreeDeal: isItFreeDeal)
@@ -231,9 +237,41 @@ class _ScanScreenState extends State<ScanScreen> {
     });
   }
 
+  late ShopMerchantRepository shopMerchantRepository;
+
+  OutletDto? selectedOutlet;
   @override
   void initState() {
     super.initState();
+    Future.delayed(Duration.zero).then((value) async {
+      AppConfig appConfig = AppConfig.of(context)!;
+      shopMerchantRepository =
+          IShopMerchantRepository(serverUrl: appConfig.serverUrl);
+      outlets = await shopMerchantRepository.getAllotedBrandOutlets();
+      changeOutlet(outlets, context);
+    });
+  }
+
+  Future changeOutlet(
+      List<OutletDto>? passedOutlets, BuildContext context) async {
+    final List<OutletDto> outlets = passedOutlets ?? this.outlets;
+    AppStateNotifier appStateNotifier = Provider.of<AppStateNotifier>(context, listen: false);
+    BrandDto brand = appStateNotifier.profile!.brand;
+    await showModalBottomSheet<OutletDto?>(
+      context: context,
+      isDismissible: false,
+      backgroundColor: Colors.transparent,
+      builder: (BuildContext context) {
+        return SelectOutlet(outlets: outlets, brand: brand);
+      },
+    ).then((value){
+      if(value!=null){
+        selectedOutlet=value;
+        setState(() {
+          
+        });
+      }
+    });
   }
 
   @override
@@ -283,58 +321,111 @@ class _ScanScreenState extends State<ScanScreen> {
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
         elevation: 0,
       ),
-      body: ModalProgressHUD(
-          inAsyncCall: isLoading,
-          child: Stack(
-            children: [
-              QRView(
-                key: qrKey,
-                onQRViewCreated: (QRViewController controller) {
-                  _onQRViewCreated(controller, serverUrl);
-                },
-                overlay: QrScannerOverlayShape(
-                    borderColor: Theme.of(context).colorScheme.secondary,
-                    overlayColor: Colors.white,
-                    borderRadius: 10,
-                    borderLength: 30,
-                    borderWidth: 10,
-                    cutOutBottomOffset: 10.h,
-                    cutOutSize: scanArea),
-                // onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
-              ),
-              Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(15),
-                        bottomLeft: Radius.circular(15),
-                      )),
-                  height: 10.w,
-                ),
-              ),
-              Positioned(
-                  top: 50.h,
-                  left: 0,
-                  right: 0,
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w),
-                    child: RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        text: ScanConstants.scanQRInstruction,
-                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              color: Theme.of(context).colorScheme.secondary,
-                              fontSize: 12.sp,
-                            ),
-                      ),
+      body: outlets.isEmpty && selectedOutlet==null
+          ? const Center(child: CircularProgressIndicator())
+          : ModalProgressHUD(
+              inAsyncCall: isLoading,
+              child: Stack(
+                children: [
+                  QRView(
+                    key: qrKey,
+                    onQRViewCreated: (QRViewController controller) {
+                      _onQRViewCreated(controller, serverUrl);
+                    },
+                    overlay: QrScannerOverlayShape(
+                        borderColor: Theme.of(context).colorScheme.secondary,
+                        overlayColor: Colors.white,
+                        borderRadius: 10,
+                        borderLength: 30,
+                        borderWidth: 10,
+                        cutOutBottomOffset: 10.h,
+                        cutOutSize: scanArea),
+                    // onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
+                  ),
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.primary,
+                          borderRadius: const BorderRadius.only(
+                            bottomRight: Radius.circular(15),
+                            bottomLeft: Radius.circular(15),
+                          )),
+                      height: 10.w,
                     ),
-                  ))
-            ],
-          )),
+                  ),
+                  Positioned(
+                    top: 50.h,
+                    left: 0,
+                    right: 0,
+                    child: Column(children: [
+                      Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 5.w),
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              text: ScanConstants.scanQRInstruction,
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    fontWeight: FontWeight.w500,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
+                                    fontSize: 12.sp,
+                                  ),
+                            ),
+                          )),
+                      if (selectedOutlet != null)
+                        Column(
+                          children: [
+                            RichText(
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                  text: 'Currently selected:\n',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 12.sp,
+                                      ),
+                                  children: [
+                                    TextSpan(
+                                      text: selectedOutlet!.name,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
+                                            fontSize: 12.sp,
+                                          ),
+                                    ),
+                                  ]),
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            PrimaryButton(
+                                width: 40.w,
+                                btnText: 'Switch Outlet',
+                                textFontSize: 12.sp,
+                                onPressedBtn: () {
+                                  changeOutlet(null, context);
+                                })
+                          ],
+                        )
+                    ]),
+                  )
+                ],
+              )),
     );
   }
 }

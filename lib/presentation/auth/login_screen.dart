@@ -181,7 +181,22 @@ class LoginConsumer extends StatelessWidget {
                           ),
                           CustomRoundedInput(
                             isTitle: true,
-                            obscureText: true,
+                            obscureText: !state.isPasswordVisible,
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                // Choose appropriate icon based on password visibility state
+                                state.isPasswordVisible
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                context.read<LoginBloc>().add(
+                                    LoginEvent.emitFromAnywhere(
+                                        state: state.copyWith(
+                                            isPasswordVisible: !state
+                                                .isPasswordVisible))); // Toggle the state using bloc
+                              },
+                            ),
                             controller: state.passwordController,
                             labelTextStyle: Theme.of(context)
                                 .textTheme

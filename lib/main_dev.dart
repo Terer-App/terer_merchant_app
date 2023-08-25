@@ -15,7 +15,8 @@ void main() async {
   Hive.init(directory!.path);
   final appConfig = AppConfig(
     appTitle: 'Terer Merchant - Dev',
-    serverUrl: 'https://4495-103-50-77-211.ngrok-free.app/merchant/dev/api/',
+    serverUrl: 'https://terer-server.dev.dreamkasper.com/merchant/dev/api/',
+    // serverUrl: 'https://fe66-110-173-186-211.ngrok-free.app/merchant/dev/api/',
     buildFlavor: 'Dev',
     child: Container(),
   );
