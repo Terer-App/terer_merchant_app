@@ -362,7 +362,7 @@ class _ScanScreenState extends State<ScanScreen> {
                     right: 0,
                     child: Column(children: [
                       Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5.w),
+                          padding: EdgeInsets.symmetric(horizontal: 7.w),
                           child: RichText(
                             textAlign: TextAlign.center,
                             text: TextSpan(
@@ -374,7 +374,7 @@ class _ScanScreenState extends State<ScanScreen> {
                                     fontWeight: FontWeight.w500,
                                     color:
                                         Theme.of(context).colorScheme.secondary,
-                                    fontSize: 12.sp,
+                                    fontSize: 11.sp,
                                   ),
                             ),
                           )),
@@ -393,7 +393,7 @@ class _ScanScreenState extends State<ScanScreen> {
                                             .colorScheme
                                             .secondary,
                                         fontWeight: FontWeight.w500,
-                                        fontSize: 12.sp,
+                                        fontSize: 11.sp,
                                       ),
                                   children: [
                                     TextSpan(
@@ -405,7 +405,7 @@ class _ScanScreenState extends State<ScanScreen> {
                                             color: Theme.of(context)
                                                 .colorScheme
                                                 .primary,
-                                            fontSize: 12.sp,
+                                            fontSize: 11.sp,
                                           ),
                                     ),
                                   ]),

@@ -41,7 +41,8 @@ class _SelectOutletState extends State<SelectOutlet> {
                         Text(widget.brand.name,
                             style: TextStyle(
                                 fontWeight: FontWeight.w500,
-                                color: Theme.of(context).colorScheme.secondary)),
+                                color:
+                                    Theme.of(context).colorScheme.secondary)),
                         const Spacer(),
                         Text(
                           'Select location',
@@ -64,19 +65,17 @@ class _SelectOutletState extends State<SelectOutlet> {
               ),
               Expanded(
                 child: ListView.separated(
-                  padding: EdgeInsets.only(
-                    bottom: 10.h
-                  ),
+                  padding: EdgeInsets.only(bottom: 10.h),
                   itemCount: widget.outlets.length,
                   itemBuilder: (BuildContext context, int index) {
                     final outlet = widget.outlets[index];
                     return Container(
                       decoration: BoxDecoration(
                         border: Border.all(
-                          color:
-                              (selectedOutlet != null && outlet == selectedOutlet!)
-                                  ? Theme.of(context).primaryColor
-                                  :Colors.grey.shade300, // Border color
+                          color: (selectedOutlet != null &&
+                                  outlet == selectedOutlet!)
+                              ? Theme.of(context).primaryColor
+                              : Colors.grey.shade300, // Border color
                           width: 2.0, // Border width
                         ),
                         borderRadius:
@@ -107,18 +106,22 @@ class _SelectOutletState extends State<SelectOutlet> {
               )
             ],
           ),
-           Align(
+          Align(
             alignment: Alignment.bottomCenter,
-             child: SecondaryButton(
-                btnText: 'Confirm',
-                textFontWeight: FontWeight.w900,
-                textFontSize: 12.sp,
-                height: 50,
-                onPressedBtn: (){
+            child: SecondaryButton(
+              btnText: 'Confirm',
+              textFontWeight: FontWeight.w900,
+              textFontSize: 12.sp,
+              btnBorderRadius: 12.w,
+              height: 50,
+              width: 60.w,
+              onPressedBtn: () {
+                if (selectedOutlet != null) {
                   Navigator.of(context).pop(selectedOutlet);
-                },
-              ),
-           )
+                }
+              },
+            ),
+          )
         ],
       ),
     );

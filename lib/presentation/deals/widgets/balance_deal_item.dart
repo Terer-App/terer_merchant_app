@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../domain/constants/string_constants.dart';
+import '../../../domain/extensions/string_extensions.dart';
 import '../../../infrastructure/dtos/merchant_deal_dto/merchant_deal_dto.dart';
 
 class BalanceItem extends StatelessWidget {
@@ -79,7 +80,7 @@ class BalanceItem extends StatelessWidget {
                     )),
                      RichText(
                         text: TextSpan(
-                      text: '${DealsConstants.expireAT}: ${dealDto.dealExprireAt}',
+                      text: '${DealsConstants.expireAT}: ${StringExtension.formatDate(DateTime.parse(dealDto.dealExprireAt))}',
                       style: Theme.of(context).textTheme.bodySmall!.copyWith(
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.w500,

@@ -1,4 +1,5 @@
 import '../services/navigation_service/routers/routing_dto.dart';
+import 'package:intl/intl.dart';
 
 extension StringExtension on String {
   RoutingDto get getRoutingData {
@@ -15,6 +16,11 @@ extension StringExtension on String {
     } else {
       return this;
     }
+  }
+
+  static String formatDate(DateTime date) {
+    DateFormat outputFormat = DateFormat('d MMM yyyy');
+    return outputFormat.format(date);
   }
 
   static String printDuration(Duration duration) {

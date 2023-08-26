@@ -308,7 +308,7 @@ class DealsConstants {
 class ScanConstants {
   //label text
   static const String scanQRInstruction =
-      'Please scan QR code from your customer\'s phone to validate redemption';
+      'Please scan QR code from your\ncustomer\'s phone to validate redemption';
 }
 
 class MyProfileConstants {
