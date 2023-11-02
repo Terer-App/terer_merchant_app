@@ -255,23 +255,27 @@ class _ScanScreenState extends State<ScanScreen> {
   Future changeOutlet(
       List<OutletDto>? passedOutlets, BuildContext context) async {
     final List<OutletDto> outlets = passedOutlets ?? this.outlets;
-    AppStateNotifier appStateNotifier = Provider.of<AppStateNotifier>(context, listen: false);
+    AppStateNotifier appStateNotifier =
+        Provider.of<AppStateNotifier>(context, listen: false);
     BrandDto brand = appStateNotifier.profile!.brand;
-    await showModalBottomSheet<OutletDto?>(
-      context: context,
-      isDismissible: false,
-      backgroundColor: Colors.transparent,
-      builder: (BuildContext context) {
-        return SelectOutlet(outlets: outlets, brand: brand);
-      },
-    ).then((value){
-      if(value!=null){
-        selectedOutlet=value;
-        setState(() {
-          
-        });
-      }
-    });
+    if (outlets.length == 1) {
+      selectedOutlet = outlets[0];
+      setState(() {});
+    } else {
+      await showModalBottomSheet<OutletDto?>(
+        context: context,
+        isDismissible: false,
+        backgroundColor: Colors.transparent,
+        builder: (BuildContext context) {
+          return SelectOutlet(outlets: outlets, brand: brand);
+        },
+      ).then((value) {
+        if (value != null) {
+          selectedOutlet = value;
+          setState(() {});
+        }
+      });
+    }
   }
 
   @override
@@ -321,7 +325,7 @@ class _ScanScreenState extends State<ScanScreen> {
                 .copyWith(color: Colors.white, fontWeight: FontWeight.bold)),
         elevation: 0,
       ),
-      body: outlets.isEmpty && selectedOutlet==null
+      body: outlets.isEmpty && selectedOutlet == null
           ? const Center(child: CircularProgressIndicator())
           : ModalProgressHUD(
               inAsyncCall: isLoading,
@@ -413,13 +417,16 @@ class _ScanScreenState extends State<ScanScreen> {
                             SizedBox(
                               height: 1.h,
                             ),
-                            PrimaryButton(
-                                width: 40.w,
-                                btnText: 'Switch Outlet',
-                                textFontSize: 12.sp,
-                                onPressedBtn: () {
-                                  changeOutlet(null, context);
-                                })
+                            Visibility(
+                              visible: outlets.length != 1,
+                              child: PrimaryButton(
+                                  width: 40.w,
+                                  btnText: 'Switch Outlet',
+                                  textFontSize: 12.sp,
+                                  onPressedBtn: () {
+                                    changeOutlet(null, context);
+                                  }),
+                            )
                           ],
                         )
                     ]),

@@ -1,5 +1,5 @@
 {
     "java.configuration.updateBuildConfiguration": "disabled",
-    "dart.flutterSdkPath": "/Applications/software/flutter_latest"
+    "dart.flutterSdkPath": ".fvm/flutter_sdk",
   }
   

@@ -57,4 +57,6 @@ class AssetConstants {
   static const String uploadDashSvg = '${vectorPath}upload-dash.svg';
 
   static const String cupAnimation = '${animationPath}cup_animation.gif';
+  static const updateRocket = '${animationPath}update-rocket.gif';
+
 }

@@ -1,4 +1,10 @@
 class AppConstants {
+  static String channelGroupKey = 'local_channel_group';
+  static String channelKey = 'local_fcm_channel';
+  static String channelName = 'Local FCM Channel for android';
+  static String channelDescription =
+      'This help us to trigger notification on android';
+
   static const String appName = 'terer';
   static const String myCartTitle = 'My Cart';
   static const String hello = 'Hello!';
@@ -38,6 +44,18 @@ class AppConstants {
   static const String updateText = 'Update';
   static const String webLink = 'www.terer.co';
   static const String tryZeroWebLink = 'www.tryzero.co';
+
+  static String updateAvailable = 'Update Available';
+  static String ignore = 'Ignore';
+  static String installNow = 'Install Now';
+  static String updateNow = 'Update Now';
+  static String pleaseTryAgain = 'Please try again!';
+
+  static String updateMessage =
+      'New update of Terer is available, it comes with lots improvement and features.';
+
+  static String newReleaseUpdate =
+      'New update of Terer available now. Want to update ?';
 }
 
 class MenuConstants {
@@ -287,7 +305,7 @@ class DealsConstants {
 
   static const String manageDeals = 'Manage Deals';
   static const String balance = 'Balance';
-    static const String expireAT = 'Valid till';
+  static const String expireAT = 'Valid till';
   static const String balanceReport = 'Balance Report';
 
   static const String redeemed = 'Redeemed';

@@ -1,5 +1,6 @@
 // ignore: depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../domain/auth/auth_repository.dart';
@@ -69,6 +70,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             showMessage: 'Profile not found!',
           )));
         } else {
+            FirebaseMessaging.instance.getToken().then((fcmToken) async {
+            if (fcmToken != null) {
+              print('////////fcm//////////');
+              print(fcmToken);
+            }
+          });
           add(LoginEvent.emitFromAnywhere(
               state: state.copyWith(
             isSuccess: true,
