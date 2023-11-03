@@ -37,6 +37,8 @@ class AppConstants {
 
   static const String scanTitle = 'Scan';
 
+  static const String placeOrderTitle = 'Place Order';
+
   static const String disputeReportTitle = 'Dispute Report';
   static const String showMore = 'Show more';
   static const String showLess = 'Show less';
@@ -89,6 +91,7 @@ class AuthConstants {
   static const String pinDoesNotMatch = 'Pin doesn\'t match';
 
   static const String loginInfo = 'Enter user name and\npassword to log in';
+  static const String customerPhoneNumber = 'Customer Phone Number';
 }
 
 class NavbarConstants {

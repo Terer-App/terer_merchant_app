@@ -4,46 +4,47 @@ import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 class PrimaryTextField extends StatelessWidget {
-  const PrimaryTextField({
-    Key? key,
-    this.autoFocus = false,
-    this.autoCorrect = false,
-    this.errorText,
-    this.controller,
-    this.counterText,
-    this.initialVal,
-    this.enabled = true,
-    this.textStyle,
-    this.hintText,
-    this.initialValue,
-    this.keyboardType,
-    this.labelText,
-    this.maxLength,
-    this.maxLines,
-    this.obscureText = false,
-    this.onChanged,
-    this.suffixIconTap,
-    this.onFieldSubmitted,
-    this.onTap,
-    this.isImp = false,
-    this.prefixIcon,
-    this.readOnly = false,
-    this.inputWithLabel = false,
-    this.suffixIcon,
-    this.suffixIconConstraints,
-    this.textInputAction,
-    this.validator,
-    this.height,
-    this.width,
-    this.customContentPadding,
-    this.isUpload = false,
-    this.inputFormatters,
-    this.textCapitalization,
-    this.prefixWidget,
-    this.textAlign,
-    this.labelColor,
-    this.inputBorderRadius,
-  }) : super(key: key);
+  const PrimaryTextField(
+      {Key? key,
+      this.autoFocus = false,
+      this.autoCorrect = false,
+      this.errorText,
+      this.controller,
+      this.counterText,
+      this.initialVal,
+      this.enabled = true,
+      this.textStyle,
+      this.hintText,
+      this.initialValue,
+      this.keyboardType,
+      this.labelText,
+      this.maxLength,
+      this.maxLines,
+      this.obscureText = false,
+      this.onChanged,
+      this.suffixIconTap,
+      this.onFieldSubmitted,
+      this.onTap,
+      this.isImp = false,
+      this.prefixIcon,
+      this.readOnly = false,
+      this.inputWithLabel = false,
+      this.suffixIcon,
+      this.suffixIconConstraints,
+      this.textInputAction,
+      this.validator,
+      this.height,
+      this.width,
+      this.customContentPadding,
+      this.isUpload = false,
+      this.inputFormatters,
+      this.textCapitalization,
+      this.prefixWidget,
+      this.textAlign,
+      this.labelColor,
+      this.inputBorderRadius,
+      this.focusNode})
+      : super(key: key);
 
   final TextCapitalization? textCapitalization;
   final Function()? onTap;
@@ -81,6 +82,7 @@ class PrimaryTextField extends StatelessWidget {
   final Color? labelColor;
   final bool isUpload;
   final double? inputBorderRadius;
+  final FocusNode? focusNode;
 
   final EdgeInsets? customContentPadding;
 
@@ -101,6 +103,7 @@ class PrimaryTextField extends StatelessWidget {
           Theme.of(context).textTheme.bodyMedium!.copyWith(
                 color: Theme.of(context).colorScheme.primaryContainer,
               ),
+      focusNode: focusNode,        
       controller: controller,
       initialValue: initialVal,
       cursorColor: Theme.of(context).colorScheme.primaryContainer,

@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/config.dart';
+import '../../../../application/place_order/place_order_bloc.dart';
 import '../../../../presentation/about_us/about_us_screen.dart';
 import '../../../../presentation/about_us/terms_screen.dart';
 import '../../../../presentation/auth/getting_started_screen.dart';
@@ -8,6 +10,7 @@ import '../../../../infrastructure/platform/platform_enum.dart';
 import '../../../../presentation/deals/reports/reports_screen.dart';
 import '../../../../presentation/dispute_report/dispute_report_screen.dart';
 import '../../../../presentation/home/home_screen.dart';
+import '../../../../presentation/place_order/cart_screen.dart';
 import '../../../core/configs/determine_platform.dart';
 import 'route_names.dart';
 import '../../../extensions/string_extensions.dart';
@@ -56,7 +59,12 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
         const TermsAndConditionScreen(),
         settings,
       );
-
+    case CoreRoutes.cartRoute:
+    final args = settings.arguments;
+      return _getPageRoute(
+         CartScreen(zoomDrawerController: ZoomDrawerController(),selectedDeals:args as List<Deal>,),
+        settings,
+      );
     default:
       return commonNavigation(settings);
   }

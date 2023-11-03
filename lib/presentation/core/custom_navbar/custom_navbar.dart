@@ -45,12 +45,21 @@ class CustomBottomActionBar extends StatelessWidget {
               }
             },
           ),
+           NavbarItem(
+            icon: AssetConstants.scanIcon,
+            title: 'Order',
+            onPressed: () {
+              if (navCallBack != null) {
+                navCallBack!(2);
+              }
+            },
+          ),
           NavbarItem(
             icon: AssetConstants.profileIcon,
             title: 'Profile',
             onPressed: () {
               if (navCallBack != null) {
-                navCallBack!(2);
+                navCallBack!(3);
               }
             },
           )
