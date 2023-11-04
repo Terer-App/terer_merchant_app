@@ -5,4 +5,10 @@ abstract class AuthRepository {
     required String userName,
     required String password,
   });
+
+  Future<void> addOrRemoveFcmToken(
+      {required String userEmail,
+      required String brandId,
+      required String fcmToken,
+      bool isRemove = false});
 }

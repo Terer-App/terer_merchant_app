@@ -359,3 +359,17 @@ class MyProfileConstants {
   static const String hintPhoneNumber = '123 456 789';
   static const String hintPin6Digit = '* * * * * *';
 }
+
+class PlaceOrderConstants {
+  static const String currentlySelected = 'Currently selected:';
+    static const String switchOutlet = 'Switch Outlet';
+    static const String searchDeals = 'Search deals';
+
+}
+class CartConstants {
+  static const String currentlySelected = 'Currently selected:';
+    static const String cartIsEmpty = 'Cart Is Empty';
+    static const String placeOrder = 'Place Order';
+    static const String checkout = 'Checkout';
+
+}

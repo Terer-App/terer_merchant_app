@@ -15,7 +15,9 @@ class PlaceOrderState with _$PlaceOrderState {
       required ZoomDrawerController zoomDrawerController,
       required List<OutletDto> outlets,
       required List<Deal> deals,
-       required List<Deal> selectedDeals,
+      required List<Deal> selectedDeals,
+      required List<Deal> searchedDeals,
+      required TextEditingController searchController,
       OutletDto? selectedOutlet}) = _PlaceOrderState;
 
   factory PlaceOrderState.initial({
@@ -31,6 +33,7 @@ class PlaceOrderState with _$PlaceOrderState {
       isSuccess: false,
       showOutletBottomSheet: false,
       noUse: false,
+      searchController: TextEditingController(),
       showMessage: '',
       serverUrl: serverUrl,
       shopMerchantRepository: IShopMerchantRepository(
@@ -38,6 +41,7 @@ class PlaceOrderState with _$PlaceOrderState {
       ),
       outlets: [],
       selectedDeals: [],
+      searchedDeals: [],
       deals: [
         Deal(
           productId: 1,

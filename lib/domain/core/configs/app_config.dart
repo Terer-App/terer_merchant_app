@@ -24,6 +24,7 @@ class AppConfig extends InheritedWidget {
   final String appTitle;
   final String serverUrl;
   final String buildFlavor;
+  final String apiUrl;
   @override
   // ignore: overridden_fields
   final Widget child;
@@ -33,7 +34,8 @@ class AppConfig extends InheritedWidget {
       {required this.appTitle,
       required this.buildFlavor,
       required this.child,
-      required this.serverUrl})
+      required this.serverUrl,
+      required this.apiUrl})
       : super(child: child);
 
   static AppConfig? of(BuildContext context) {

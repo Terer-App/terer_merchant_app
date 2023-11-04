@@ -7,6 +7,7 @@ void main() async {
   final appConfig = AppConfig(
     appTitle: 'Terer',
     serverUrl: '',
+    apiUrl: '',
     buildFlavor: 'Dev',
     child: Container(),
   );

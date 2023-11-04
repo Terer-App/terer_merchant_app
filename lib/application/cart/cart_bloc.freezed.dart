@@ -803,6 +803,7 @@ mixin _$CartState {
       throw _privateConstructorUsedError;
   bool get showKeyboard => throw _privateConstructorUsedError;
   List<Deal> get selectedDeals => throw _privateConstructorUsedError;
+  FocusNode get focusNode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CartStateCopyWith<CartState> get copyWith =>
@@ -826,7 +827,8 @@ abstract class $CartStateCopyWith<$Res> {
       TextEditingController phoneNumberController,
       Map<String, dynamic> selectedCountry,
       bool showKeyboard,
-      List<Deal> selectedDeals});
+      List<Deal> selectedDeals,
+      FocusNode focusNode});
 }
 
 /// @nodoc
@@ -852,6 +854,7 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
     Object? selectedCountry = freezed,
     Object? showKeyboard = freezed,
     Object? selectedDeals = freezed,
+    Object? focusNode = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -906,6 +909,10 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
           ? _value.selectedDeals
           : selectedDeals // ignore: cast_nullable_to_non_nullable
               as List<Deal>,
+      focusNode: focusNode == freezed
+          ? _value.focusNode
+          : focusNode // ignore: cast_nullable_to_non_nullable
+              as FocusNode,
     ));
   }
 }
@@ -929,7 +936,8 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
       TextEditingController phoneNumberController,
       Map<String, dynamic> selectedCountry,
       bool showKeyboard,
-      List<Deal> selectedDeals});
+      List<Deal> selectedDeals,
+      FocusNode focusNode});
 }
 
 /// @nodoc
@@ -957,6 +965,7 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
     Object? selectedCountry = freezed,
     Object? showKeyboard = freezed,
     Object? selectedDeals = freezed,
+    Object? focusNode = freezed,
   }) {
     return _then(_$_CartState(
       isLoading: isLoading == freezed
@@ -1011,6 +1020,10 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
           ? _value._selectedDeals
           : selectedDeals // ignore: cast_nullable_to_non_nullable
               as List<Deal>,
+      focusNode: focusNode == freezed
+          ? _value.focusNode
+          : focusNode // ignore: cast_nullable_to_non_nullable
+              as FocusNode,
     ));
   }
 }
@@ -1031,7 +1044,8 @@ class _$_CartState implements _CartState {
       required this.phoneNumberController,
       required final Map<String, dynamic> selectedCountry,
       required this.showKeyboard,
-      required final List<Deal> selectedDeals})
+      required final List<Deal> selectedDeals,
+      required this.focusNode})
       : _selectedCountry = selectedCountry,
         _selectedDeals = selectedDeals;
 
@@ -1072,8 +1086,11 @@ class _$_CartState implements _CartState {
   }
 
   @override
+  final FocusNode focusNode;
+
+  @override
   String toString() {
-    return 'CartState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, phoneNumberController: $phoneNumberController, selectedCountry: $selectedCountry, showKeyboard: $showKeyboard, selectedDeals: $selectedDeals)';
+    return 'CartState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, phoneNumberController: $phoneNumberController, selectedCountry: $selectedCountry, showKeyboard: $showKeyboard, selectedDeals: $selectedDeals, focusNode: $focusNode)';
   }
 
   @override
@@ -1101,7 +1118,8 @@ class _$_CartState implements _CartState {
             const DeepCollectionEquality()
                 .equals(other.showKeyboard, showKeyboard) &&
             const DeepCollectionEquality()
-                .equals(other._selectedDeals, _selectedDeals));
+                .equals(other._selectedDeals, _selectedDeals) &&
+            const DeepCollectionEquality().equals(other.focusNode, focusNode));
   }
 
   @override
@@ -1119,7 +1137,8 @@ class _$_CartState implements _CartState {
       const DeepCollectionEquality().hash(phoneNumberController),
       const DeepCollectionEquality().hash(_selectedCountry),
       const DeepCollectionEquality().hash(showKeyboard),
-      const DeepCollectionEquality().hash(_selectedDeals));
+      const DeepCollectionEquality().hash(_selectedDeals),
+      const DeepCollectionEquality().hash(focusNode));
 
   @JsonKey(ignore: true)
   @override
@@ -1141,7 +1160,8 @@ abstract class _CartState implements CartState {
       required final TextEditingController phoneNumberController,
       required final Map<String, dynamic> selectedCountry,
       required final bool showKeyboard,
-      required final List<Deal> selectedDeals}) = _$_CartState;
+      required final List<Deal> selectedDeals,
+      required final FocusNode focusNode}) = _$_CartState;
 
   @override
   bool get isLoading;
@@ -1169,6 +1189,8 @@ abstract class _CartState implements CartState {
   bool get showKeyboard;
   @override
   List<Deal> get selectedDeals;
+  @override
+  FocusNode get focusNode;
   @override
   @JsonKey(ignore: true)
   _$$_CartStateCopyWith<_$_CartState> get copyWith =>

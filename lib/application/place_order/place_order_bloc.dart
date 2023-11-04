@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -21,12 +22,12 @@ class PlaceOrderBloc extends Bloc<PlaceOrderEvent, PlaceOrderState> {
       if (res.length == 1) {
         emit(
           state.copyWith(
-              isLoading: false, outlets: res, selectedOutlet: res[0]),
+              isLoading: false, outlets: res, selectedOutlet: res[0],searchedDeals: state.deals),
         );
       } else {
         emit(
           state.copyWith(
-              isLoading: false, outlets: res, showOutletBottomSheet: true),
+              isLoading: false, outlets: res, showOutletBottomSheet: true,searchedDeals: state.deals),
         );
       }
     });
@@ -68,6 +69,22 @@ class PlaceOrderBloc extends Bloc<PlaceOrderEvent, PlaceOrderState> {
           noUse: !state.noUse),
         
       );
+    });
+    //on search
+       on<_OnSearchDeals>((event, emit) {
+      if (state.deals.isNotEmpty) {
+        final currentDeals = state.deals;
+        final query = event.query.toLowerCase();
+
+        final searchedDeals = currentDeals.where((deal) {
+          final dealName = deal.dealName.toLowerCase();
+          return dealName.contains(query);
+        }).toList();
+
+        emit(state.copyWith(
+          searchedDeals: searchedDeals,
+        ));
+      }
     });
     // emit from anywhere
     on<_EmitFromAnywhere>((event, emit) {

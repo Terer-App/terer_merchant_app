@@ -16,6 +16,7 @@ void main() async {
   final appConfig = AppConfig(
     appTitle: 'Terer',
     serverUrl: '',
+    apiUrl: 'https://terer-server.dev.dreamkasper.com/',
     buildFlavor: 'Staging',
     child: Container(),
   );

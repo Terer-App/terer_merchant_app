@@ -70,10 +70,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             showMessage: 'Profile not found!',
           )));
         } else {
-            FirebaseMessaging.instance.getToken().then((fcmToken) async {
+          await FirebaseMessaging.instance.getToken().then((fcmToken) async {
             if (fcmToken != null) {
-              print('////////fcm//////////');
-              print(fcmToken);
+              await state.authRepository.addOrRemoveFcmToken(
+                  userEmail: merchantProfile.email, brandId: merchantProfile.brand.id, fcmToken: fcmToken);
             }
           });
           add(LoginEvent.emitFromAnywhere(

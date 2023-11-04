@@ -1,9 +1,11 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../domain/auth/auth_repository.dart';
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
 import '../../domain/core/configs/app_config.dart';
@@ -13,6 +15,7 @@ import '../../domain/extensions/string_extensions.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
 import '../../domain/services/storage_service/auth_service.dart';
+import '../../infrastructure/auth/i_auth_repository.dart';
 import 'custom_button.dart';
 
 class MenuWidget extends StatelessWidget {
@@ -24,6 +27,10 @@ class MenuWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     AppStateNotifier appStateNotifier =
         Provider.of<AppStateNotifier>(context, listen: false);
+    String serverUrl = AppConfig.of(context)!.serverUrl;
+        String apiUrl = AppConfig.of(context)!.apiUrl;
+
+    AuthRepository authRepository = IAuthRepository(serverUrl: serverUrl,apiUrl: apiUrl);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.transparent,
@@ -125,7 +132,17 @@ class MenuWidget extends StatelessWidget {
                     btnText: '',
                     onPressedBtn: () async {
                       await AuthTokenService.clearBox();
-
+                     await  FirebaseMessaging.instance
+                          .getToken()
+                          .then((fcmToken) async {
+                        if (fcmToken != null) {
+                          await authRepository.addOrRemoveFcmToken(
+                              userEmail: appStateNotifier.profile!.email,
+                              brandId: appStateNotifier.profile!.brand.id,
+                              fcmToken: fcmToken,
+                              isRemove: true);
+                        }
+                      });
                       Provider.of<AppStateNotifier>(context, listen: false)
                           .updateAuthState(
                         isAuthorized: false,

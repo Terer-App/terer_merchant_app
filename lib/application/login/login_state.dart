@@ -17,7 +17,7 @@ class LoginState with _$LoginState {
     BrandUserDto? profile,
   }) = _LoginState;
 
-  factory LoginState.initial({required String serverUrl}) {
+  factory LoginState.initial({required String serverUrl,required String apiUrl}) {
     return LoginState(
       isLoading: false,
       isFailed: false,
@@ -30,6 +30,7 @@ class LoginState with _$LoginState {
       ),
       authRepository: IAuthRepository(
         serverUrl: serverUrl,
+        apiUrl: apiUrl
       ),
       formKey: GlobalKey<FormState>(),
       userNameController: TextEditingController(),

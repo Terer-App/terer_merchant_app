@@ -15,7 +15,9 @@ class CartState with _$CartState {
       required TextEditingController phoneNumberController,
       required Map<String, dynamic> selectedCountry,
       required bool showKeyboard,
-      required List<Deal> selectedDeals}) = _CartState;
+      required List<Deal> selectedDeals,
+      required FocusNode focusNode
+      }) = _CartState;
 
   factory CartState.initial(
       {required AppStateNotifier appStateNotifier,
@@ -38,6 +40,7 @@ class CartState with _$CartState {
       selectedDeals: selectedDeals,
       phoneNumberController: TextEditingController(),
       selectedCountry: country[0],
+      focusNode: FocusNode()
     );
   }
 }

@@ -95,8 +95,8 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
             actions: [
               IconButton(
                 onPressed: () async {
-                  navigator<NavigationService>()
-                      .navigateTo(CoreRoutes.cartRoute,
+                  navigator<NavigationService>().navigateTo(
+                      CoreRoutes.cartRoute,
                       arguments: state.selectedDeals);
                 },
                 icon: SvgPicture.asset(
@@ -106,136 +106,146 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
               ),
             ],
           ),
-          body: ModalProgressHUD(
-            inAsyncCall: state.isLoading,
-            child: Column(children: [
-              SizedBox(
-                height: 1.h,
-              ),
-              if (state.selectedOutlet != null)
-                Expanded(
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Expanded(
-                            child: RichText(
-                              textAlign: TextAlign.center,
-                              text: TextSpan(
-                                  text: 'Currently selected: \n ',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 11.sp,
+          body: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).unfocus();
+            },
+            child: ModalProgressHUD(
+              inAsyncCall: state.isLoading,
+              child: Column(children: [
+                SizedBox(
+                  height: 1.h,
+                ),
+                if (state.selectedOutlet != null)
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Expanded(
+                              child: RichText(
+                                textAlign: TextAlign.center,
+                                text: TextSpan(
+                                    text: '${PlaceOrderConstants.currentlySelected} \n ',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall!
+                                        .copyWith(
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .secondary,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 11.sp,
+                                        ),
+                                    children: [
+                                      TextSpan(
+                                        text: state.selectedOutlet!.name,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .copyWith(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .primary,
+                                              fontSize: 11.sp,
+                                            ),
                                       ),
-                                  children: [
-                                    TextSpan(
-                                      text: state.selectedOutlet!.name,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary,
-                                            fontSize: 11.sp,
-                                          ),
-                                    ),
-                                  ]),
+                                    ]),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 1.h,
-                          ),
-                          Visibility(
-                            visible: state.outlets.length != 1,
-                            child: Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 1.h),
-                              child: PrimaryButton(
-                                  width: 40.w,
-                                  btnText: 'Switch Outlet',
-                                  textFontSize: 12.sp,
-                                  onPressedBtn: () {
-                                    context.read<PlaceOrderBloc>().add(
-                                          PlaceOrderEvent.emitFromAnywhere(
-                                            state: state.copyWith(
-                                                showOutletBottomSheet: true),
-                                          ),
-                                        );
-                                  }),
+                            SizedBox(
+                              height: 1.h,
                             ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 1.h),
-                        child: CustomRoundedInput(
-                          isTitle: false,
-                          enabled: false,
-                          controller: TextEditingController(),
-                          maxLines: 1,
-                          hintText: 'Search deals',
-                          contentPadding: EdgeInsets.symmetric(
-                              horizontal: 4.w, vertical: 4.w),
-                          validator: (newVal) {
-                            if (newVal == null || newVal.isEmpty) {
-                              return ErrorConstants.requiredError;
-                            }
-
-                            return null;
-                          },
+                            Visibility(
+                              visible: state.outlets.length != 1,
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 1.h),
+                                child: PrimaryButton(
+                                    width: 40.w,
+                                    btnText: PlaceOrderConstants.switchOutlet,
+                                    textFontSize: 12.sp,
+                                    onPressedBtn: () {
+                                      context.read<PlaceOrderBloc>().add(
+                                            PlaceOrderEvent.emitFromAnywhere(
+                                              state: state.copyWith(
+                                                  showOutletBottomSheet: true),
+                                            ),
+                                          );
+                                    }),
+                              ),
+                            )
+                          ],
                         ),
-                      ),
-                      SizedBox(
-                        height: 1.h,
-                      ),
-                      Expanded(
-                        child: ListView.separated(
-                            padding: EdgeInsets.symmetric(
-                                    vertical: 0, horizontal: 5.w)
-                                .copyWith(bottom: 120),
-                            itemBuilder: (context, index) {
-                              return PlaceOrderDealWidget(
-                                  dealName: state.deals[index].dealName,
-                                  currencyCode: state.deals[index].currencyCode,
-                                  actualPrice: state.deals[index].actualPrice,
-                                  assetImage: state.deals[index].assetImage,
-                                  discountedPrice:
-                                      state.deals[index].discountedPrice,
-                                  quantity: state.deals[index].quantity,
-                                  increment: () {
-                                    context.read<PlaceOrderBloc>().add(
-                                        PlaceOrderEvent.onIncrementDealQuantity(
-                                            productId:
-                                                state.deals[index].productId));
-                                  },
-                                  decrement: () {
-                                    context.read<PlaceOrderBloc>().add(
-                                        PlaceOrderEvent.onDecrementDealQuantity(
-                                            productId:
-                                                state.deals[index].productId));
-                                  });
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 1.h),
+                          child: CustomRoundedInput(
+                            isTitle: false,
+                            controller: state.searchController,
+                            maxLines: 1,
+                            hintText: PlaceOrderConstants.searchDeals,
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 4.w, vertical: 4.w),
+                            onChanged: (value) {
+                              BlocProvider.of<PlaceOrderBloc>(context)
+                                  .add(PlaceOrderEvent.onSearchDeals(value));
                             },
-                            separatorBuilder: (context, index) {
-                              return SizedBox(
-                                height: 3.w,
-                              );
-                            },
-                            itemCount: state.deals.length),
-                      )
-                    ],
-                  ),
-                )
-            ]),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 1.h,
+                        ),
+                        Expanded(
+                          child: ListView.separated(
+                              padding: EdgeInsets.symmetric(
+                                      vertical: 0, horizontal: 5.w)
+                                  .copyWith(bottom: 120),
+                              itemBuilder: (context, index) {
+                                return PlaceOrderDealWidget(
+                                    dealName:
+                                        state.searchedDeals[index].dealName,
+                                    currencyCode:
+                                        state.searchedDeals[index].currencyCode,
+                                    actualPrice:
+                                        state.searchedDeals[index].actualPrice,
+                                    assetImage:
+                                        state.searchedDeals[index].assetImage,
+                                    discountedPrice: state
+                                        .searchedDeals[index].discountedPrice,
+                                    quantity:
+                                        state.searchedDeals[index].quantity,
+                                    increment: () {
+                                      context.read<PlaceOrderBloc>().add(
+                                          PlaceOrderEvent
+                                              .onIncrementDealQuantity(
+                                                  productId: state
+                                                      .searchedDeals[index]
+                                                      .productId));
+                                    },
+                                    decrement: () {
+                                      context.read<PlaceOrderBloc>().add(
+                                          PlaceOrderEvent
+                                              .onDecrementDealQuantity(
+                                                  productId: state
+                                                      .searchedDeals[index]
+                                                      .productId));
+                                    });
+                              },
+                              separatorBuilder: (context, index) {
+                                return SizedBox(
+                                  height: 3.w,
+                                );
+                              },
+                              itemCount: state.searchedDeals.length),
+                        )
+                      ],
+                    ),
+                  )
+              ]),
+            ),
           ),
         );
       },

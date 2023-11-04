@@ -121,7 +121,6 @@ Future appInitializer(AppConfig appConfig) async {
             message: RemoteMessage(
                 data: receivedAction.payload!
                     .map((key, value) => MapEntry(key, value))),
-            // graphQLService: graphQLService,
           );
         }
       },
@@ -136,6 +135,7 @@ Future appInitializer(AppConfig appConfig) async {
   final AppConfig configuredApp = AppConfig(
     appTitle: appConfig.appTitle,
     serverUrl: appConfig.serverUrl,
+    apiUrl: appConfig.apiUrl,
     buildFlavor: appConfig.buildFlavor,
     child: ChangeNotifierProvider<AppStateNotifier>(
         create: (context) {
@@ -257,7 +257,6 @@ Future checkForAppUpdate(GlobalKey<NavigatorState> navKey) async {
 
 Future initMessagingService({
   required GlobalKey<NavigatorState> navigationKey,
-  // required GraphQLService graphQLService,
 }) async {
   bool isPermissionGranted = true;
   if (Platform.isIOS) {
@@ -310,8 +309,7 @@ Future initMessagingService({
     });
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       FCMDynamicLinkService.navigateUserToPage(
-        message: message,
-       // graphQLService: graphQLService,
+        message: message
       );
     });
   }

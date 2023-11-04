@@ -8,5 +8,6 @@ class PlaceOrderEvent with _$PlaceOrderEvent {
         const factory PlaceOrderEvent.onSwitchOutlet() = _OnSwitchOutlet;
   const factory PlaceOrderEvent.onIncrementDealQuantity({required int productId}) = _OnIncrementDealQuantity;
   const factory PlaceOrderEvent.onDecrementDealQuantity({required int productId}) = _OnDecrementDealQuantity;
+const factory PlaceOrderEvent.onSearchDeals(String query) = _OnSearchDeals;
 
 }

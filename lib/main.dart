@@ -36,6 +36,7 @@ void main() async {
     serverUrl: mode == 'DEV'
         ? 'https://terer-server.dev.dreamkasper.com/merchant/dev/api/'
         : 'https://server.terer.co/merchant/dev/api/',
+        apiUrl: 'https://terer-server.dev.dreamkasper.com/',
     buildFlavor: 'Production',
     child: Container(),
   );

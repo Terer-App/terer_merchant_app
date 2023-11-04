@@ -23,6 +23,7 @@ mixin _$PlaceOrderEvent {
     required TResult Function() onSwitchOutlet,
     required TResult Function(int productId) onIncrementDealQuantity,
     required TResult Function(int productId) onDecrementDealQuantity,
+    required TResult Function(String query) onSearchDeals,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$PlaceOrderEvent {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$PlaceOrderEvent {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,6 +56,7 @@ mixin _$PlaceOrderEvent {
         onIncrementDealQuantity,
     required TResult Function(_OnDecrementDealQuantity value)
         onDecrementDealQuantity,
+    required TResult Function(_OnSearchDeals value) onSearchDeals,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -62,6 +66,7 @@ mixin _$PlaceOrderEvent {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +76,7 @@ mixin _$PlaceOrderEvent {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,6 +142,7 @@ class _$_Init implements _Init {
     required TResult Function() onSwitchOutlet,
     required TResult Function(int productId) onIncrementDealQuantity,
     required TResult Function(int productId) onDecrementDealQuantity,
+    required TResult Function(String query) onSearchDeals,
   }) {
     return init();
   }
@@ -148,6 +155,7 @@ class _$_Init implements _Init {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
   }) {
     return init?.call();
   }
@@ -160,6 +168,7 @@ class _$_Init implements _Init {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -178,6 +187,7 @@ class _$_Init implements _Init {
         onIncrementDealQuantity,
     required TResult Function(_OnDecrementDealQuantity value)
         onDecrementDealQuantity,
+    required TResult Function(_OnSearchDeals value) onSearchDeals,
   }) {
     return init(this);
   }
@@ -190,6 +200,7 @@ class _$_Init implements _Init {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
   }) {
     return init?.call(this);
   }
@@ -202,6 +213,7 @@ class _$_Init implements _Init {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -294,6 +306,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     required TResult Function() onSwitchOutlet,
     required TResult Function(int productId) onIncrementDealQuantity,
     required TResult Function(int productId) onDecrementDealQuantity,
+    required TResult Function(String query) onSearchDeals,
   }) {
     return emitFromAnywhere(state);
   }
@@ -306,6 +319,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
   }) {
     return emitFromAnywhere?.call(state);
   }
@@ -318,6 +332,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (emitFromAnywhere != null) {
@@ -336,6 +351,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
         onIncrementDealQuantity,
     required TResult Function(_OnDecrementDealQuantity value)
         onDecrementDealQuantity,
+    required TResult Function(_OnSearchDeals value) onSearchDeals,
   }) {
     return emitFromAnywhere(this);
   }
@@ -348,6 +364,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
   }) {
     return emitFromAnywhere?.call(this);
   }
@@ -360,6 +377,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (emitFromAnywhere != null) {
@@ -425,6 +443,7 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     required TResult Function() onSwitchOutlet,
     required TResult Function(int productId) onIncrementDealQuantity,
     required TResult Function(int productId) onDecrementDealQuantity,
+    required TResult Function(String query) onSearchDeals,
   }) {
     return onSwitchOutlet();
   }
@@ -437,6 +456,7 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
   }) {
     return onSwitchOutlet?.call();
   }
@@ -449,6 +469,7 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (onSwitchOutlet != null) {
@@ -467,6 +488,7 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
         onIncrementDealQuantity,
     required TResult Function(_OnDecrementDealQuantity value)
         onDecrementDealQuantity,
+    required TResult Function(_OnSearchDeals value) onSearchDeals,
   }) {
     return onSwitchOutlet(this);
   }
@@ -479,6 +501,7 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
   }) {
     return onSwitchOutlet?.call(this);
   }
@@ -491,6 +514,7 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (onSwitchOutlet != null) {
@@ -577,6 +601,7 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     required TResult Function() onSwitchOutlet,
     required TResult Function(int productId) onIncrementDealQuantity,
     required TResult Function(int productId) onDecrementDealQuantity,
+    required TResult Function(String query) onSearchDeals,
   }) {
     return onIncrementDealQuantity(productId);
   }
@@ -589,6 +614,7 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
   }) {
     return onIncrementDealQuantity?.call(productId);
   }
@@ -601,6 +627,7 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (onIncrementDealQuantity != null) {
@@ -619,6 +646,7 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
         onIncrementDealQuantity,
     required TResult Function(_OnDecrementDealQuantity value)
         onDecrementDealQuantity,
+    required TResult Function(_OnSearchDeals value) onSearchDeals,
   }) {
     return onIncrementDealQuantity(this);
   }
@@ -631,6 +659,7 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
   }) {
     return onIncrementDealQuantity?.call(this);
   }
@@ -643,6 +672,7 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (onIncrementDealQuantity != null) {
@@ -735,6 +765,7 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     required TResult Function() onSwitchOutlet,
     required TResult Function(int productId) onIncrementDealQuantity,
     required TResult Function(int productId) onDecrementDealQuantity,
+    required TResult Function(String query) onSearchDeals,
   }) {
     return onDecrementDealQuantity(productId);
   }
@@ -747,6 +778,7 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
   }) {
     return onDecrementDealQuantity?.call(productId);
   }
@@ -759,6 +791,7 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     TResult Function()? onSwitchOutlet,
     TResult Function(int productId)? onIncrementDealQuantity,
     TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (onDecrementDealQuantity != null) {
@@ -777,6 +810,7 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
         onIncrementDealQuantity,
     required TResult Function(_OnDecrementDealQuantity value)
         onDecrementDealQuantity,
+    required TResult Function(_OnSearchDeals value) onSearchDeals,
   }) {
     return onDecrementDealQuantity(this);
   }
@@ -789,6 +823,7 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
   }) {
     return onDecrementDealQuantity?.call(this);
   }
@@ -801,6 +836,7 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
     TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
     required TResult orElse(),
   }) {
     if (onDecrementDealQuantity != null) {
@@ -821,6 +857,166 @@ abstract class _OnDecrementDealQuantity implements PlaceOrderEvent {
 }
 
 /// @nodoc
+abstract class _$$_OnSearchDealsCopyWith<$Res> {
+  factory _$$_OnSearchDealsCopyWith(
+          _$_OnSearchDeals value, $Res Function(_$_OnSearchDeals) then) =
+      __$$_OnSearchDealsCopyWithImpl<$Res>;
+  $Res call({String query});
+}
+
+/// @nodoc
+class __$$_OnSearchDealsCopyWithImpl<$Res>
+    extends _$PlaceOrderEventCopyWithImpl<$Res>
+    implements _$$_OnSearchDealsCopyWith<$Res> {
+  __$$_OnSearchDealsCopyWithImpl(
+      _$_OnSearchDeals _value, $Res Function(_$_OnSearchDeals) _then)
+      : super(_value, (v) => _then(v as _$_OnSearchDeals));
+
+  @override
+  _$_OnSearchDeals get _value => super._value as _$_OnSearchDeals;
+
+  @override
+  $Res call({
+    Object? query = freezed,
+  }) {
+    return _then(_$_OnSearchDeals(
+      query == freezed
+          ? _value.query
+          : query // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OnSearchDeals implements _OnSearchDeals {
+  const _$_OnSearchDeals(this.query);
+
+  @override
+  final String query;
+
+  @override
+  String toString() {
+    return 'PlaceOrderEvent.onSearchDeals(query: $query)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OnSearchDeals &&
+            const DeepCollectionEquality().equals(other.query, query));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(query));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OnSearchDealsCopyWith<_$_OnSearchDeals> get copyWith =>
+      __$$_OnSearchDealsCopyWithImpl<_$_OnSearchDeals>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(PlaceOrderState state) emitFromAnywhere,
+    required TResult Function() onSwitchOutlet,
+    required TResult Function(int productId) onIncrementDealQuantity,
+    required TResult Function(int productId) onDecrementDealQuantity,
+    required TResult Function(String query) onSearchDeals,
+  }) {
+    return onSearchDeals(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(PlaceOrderState state)? emitFromAnywhere,
+    TResult Function()? onSwitchOutlet,
+    TResult Function(int productId)? onIncrementDealQuantity,
+    TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
+  }) {
+    return onSearchDeals?.call(query);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(PlaceOrderState state)? emitFromAnywhere,
+    TResult Function()? onSwitchOutlet,
+    TResult Function(int productId)? onIncrementDealQuantity,
+    TResult Function(int productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
+    required TResult orElse(),
+  }) {
+    if (onSearchDeals != null) {
+      return onSearchDeals(query);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_OnSwitchOutlet value) onSwitchOutlet,
+    required TResult Function(_OnIncrementDealQuantity value)
+        onIncrementDealQuantity,
+    required TResult Function(_OnDecrementDealQuantity value)
+        onDecrementDealQuantity,
+    required TResult Function(_OnSearchDeals value) onSearchDeals,
+  }) {
+    return onSearchDeals(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
+    TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
+    TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
+  }) {
+    return onSearchDeals?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
+    TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
+    TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
+    required TResult orElse(),
+  }) {
+    if (onSearchDeals != null) {
+      return onSearchDeals(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnSearchDeals implements PlaceOrderEvent {
+  const factory _OnSearchDeals(final String query) = _$_OnSearchDeals;
+
+  String get query;
+  @JsonKey(ignore: true)
+  _$$_OnSearchDealsCopyWith<_$_OnSearchDeals> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$PlaceOrderState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isFailed => throw _privateConstructorUsedError;
@@ -837,6 +1033,9 @@ mixin _$PlaceOrderState {
   List<OutletDto> get outlets => throw _privateConstructorUsedError;
   List<Deal> get deals => throw _privateConstructorUsedError;
   List<Deal> get selectedDeals => throw _privateConstructorUsedError;
+  List<Deal> get searchedDeals => throw _privateConstructorUsedError;
+  TextEditingController get searchController =>
+      throw _privateConstructorUsedError;
   OutletDto? get selectedOutlet => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -863,6 +1062,8 @@ abstract class $PlaceOrderStateCopyWith<$Res> {
       List<OutletDto> outlets,
       List<Deal> deals,
       List<Deal> selectedDeals,
+      List<Deal> searchedDeals,
+      TextEditingController searchController,
       OutletDto? selectedOutlet});
 
   $OutletDtoCopyWith<$Res>? get selectedOutlet;
@@ -892,6 +1093,8 @@ class _$PlaceOrderStateCopyWithImpl<$Res>
     Object? outlets = freezed,
     Object? deals = freezed,
     Object? selectedDeals = freezed,
+    Object? searchedDeals = freezed,
+    Object? searchController = freezed,
     Object? selectedOutlet = freezed,
   }) {
     return _then(_value.copyWith(
@@ -947,6 +1150,14 @@ class _$PlaceOrderStateCopyWithImpl<$Res>
           ? _value.selectedDeals
           : selectedDeals // ignore: cast_nullable_to_non_nullable
               as List<Deal>,
+      searchedDeals: searchedDeals == freezed
+          ? _value.searchedDeals
+          : searchedDeals // ignore: cast_nullable_to_non_nullable
+              as List<Deal>,
+      searchController: searchController == freezed
+          ? _value.searchController
+          : searchController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       selectedOutlet: selectedOutlet == freezed
           ? _value.selectedOutlet
           : selectedOutlet // ignore: cast_nullable_to_non_nullable
@@ -987,6 +1198,8 @@ abstract class _$$_PlaceOrderStateCopyWith<$Res>
       List<OutletDto> outlets,
       List<Deal> deals,
       List<Deal> selectedDeals,
+      List<Deal> searchedDeals,
+      TextEditingController searchController,
       OutletDto? selectedOutlet});
 
   @override
@@ -1019,6 +1232,8 @@ class __$$_PlaceOrderStateCopyWithImpl<$Res>
     Object? outlets = freezed,
     Object? deals = freezed,
     Object? selectedDeals = freezed,
+    Object? searchedDeals = freezed,
+    Object? searchController = freezed,
     Object? selectedOutlet = freezed,
   }) {
     return _then(_$_PlaceOrderState(
@@ -1074,6 +1289,14 @@ class __$$_PlaceOrderStateCopyWithImpl<$Res>
           ? _value.selectedDeals
           : selectedDeals // ignore: cast_nullable_to_non_nullable
               as List<Deal>,
+      searchedDeals: searchedDeals == freezed
+          ? _value.searchedDeals
+          : searchedDeals // ignore: cast_nullable_to_non_nullable
+              as List<Deal>,
+      searchController: searchController == freezed
+          ? _value.searchController
+          : searchController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       selectedOutlet: selectedOutlet == freezed
           ? _value.selectedOutlet
           : selectedOutlet // ignore: cast_nullable_to_non_nullable
@@ -1099,6 +1322,8 @@ class _$_PlaceOrderState implements _PlaceOrderState {
       required this.outlets,
       required this.deals,
       required this.selectedDeals,
+      required this.searchedDeals,
+      required this.searchController,
       this.selectedOutlet});
 
   @override
@@ -1128,11 +1353,15 @@ class _$_PlaceOrderState implements _PlaceOrderState {
   @override
   final List<Deal> selectedDeals;
   @override
+  final List<Deal> searchedDeals;
+  @override
+  final TextEditingController searchController;
+  @override
   final OutletDto? selectedOutlet;
 
   @override
   String toString() {
-    return 'PlaceOrderState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, showOutletBottomSheet: $showOutletBottomSheet, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, outlets: $outlets, deals: $deals, selectedDeals: $selectedDeals, selectedOutlet: $selectedOutlet)';
+    return 'PlaceOrderState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, showOutletBottomSheet: $showOutletBottomSheet, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, outlets: $outlets, deals: $deals, selectedDeals: $selectedDeals, searchedDeals: $searchedDeals, searchController: $searchController, selectedOutlet: $selectedOutlet)';
   }
 
   @override
@@ -1160,6 +1389,10 @@ class _$_PlaceOrderState implements _PlaceOrderState {
             const DeepCollectionEquality()
                 .equals(other.selectedDeals, selectedDeals) &&
             const DeepCollectionEquality()
+                .equals(other.searchedDeals, searchedDeals) &&
+            const DeepCollectionEquality()
+                .equals(other.searchController, searchController) &&
+            const DeepCollectionEquality()
                 .equals(other.selectedOutlet, selectedOutlet));
   }
 
@@ -1179,6 +1412,8 @@ class _$_PlaceOrderState implements _PlaceOrderState {
       const DeepCollectionEquality().hash(outlets),
       const DeepCollectionEquality().hash(deals),
       const DeepCollectionEquality().hash(selectedDeals),
+      const DeepCollectionEquality().hash(searchedDeals),
+      const DeepCollectionEquality().hash(searchController),
       const DeepCollectionEquality().hash(selectedOutlet));
 
   @JsonKey(ignore: true)
@@ -1202,6 +1437,8 @@ abstract class _PlaceOrderState implements PlaceOrderState {
       required final List<OutletDto> outlets,
       required final List<Deal> deals,
       required final List<Deal> selectedDeals,
+      required final List<Deal> searchedDeals,
+      required final TextEditingController searchController,
       final OutletDto? selectedOutlet}) = _$_PlaceOrderState;
 
   @override
@@ -1230,6 +1467,10 @@ abstract class _PlaceOrderState implements PlaceOrderState {
   List<Deal> get deals;
   @override
   List<Deal> get selectedDeals;
+  @override
+  List<Deal> get searchedDeals;
+  @override
+  TextEditingController get searchController;
   @override
   OutletDto? get selectedOutlet;
   @override

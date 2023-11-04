@@ -9,8 +9,8 @@ import '../../domain/auth/auth_repository.dart';
 
 class IAuthRepository extends AuthRepository {
   final String serverUrl;
-
-  IAuthRepository({required this.serverUrl});
+  final String apiUrl;
+  IAuthRepository({required this.serverUrl,required this.apiUrl});
 
   @override
   Future<Either<String, String>> loginAsMerchant({
@@ -21,8 +21,7 @@ class IAuthRepository extends AuthRepository {
     try {
       final res = await RESTService.performPOSTRequest(
           httpUrl: url,
-          body: json.encode(
-              {'email': userName, 'password': password}));
+          body: json.encode({'email': userName, 'password': password}));
 
       final response = json.decode(res.body);
 
@@ -34,5 +33,32 @@ class IAuthRepository extends AuthRepository {
     } catch (e) {
       return left(ErrorConstants.genericNetworkIssue);
     }
+  }
+
+  //add or remove fcm token
+  @override
+  Future<void> addOrRemoveFcmToken(
+      {required String userEmail,
+      required String brandId,
+      required String fcmToken,
+      bool isRemove = false}) async {
+    
+    final url =  apiUrl+
+        (isRemove ? APIConstants.removeFcmToken : APIConstants.addFcmToken);
+    try {
+      final res = await RESTService.performPOSTRequest(
+        isAuth: true,
+          httpUrl: url,
+          body: json.encode({
+            'userEmail': userEmail,
+            'fcmToken': fcmToken,
+            'isCustomer': false,
+            'brandId': brandId
+          }));
+      print(res.body);
+    } catch (e) {
+      //
+    }
+  
   }
 }
