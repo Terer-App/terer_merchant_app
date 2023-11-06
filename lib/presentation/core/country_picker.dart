@@ -137,7 +137,7 @@ class CountryPickerConsumer extends StatelessWidget {
                                     .first,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .caption!
+                                    .bodySmall!
                                     .copyWith(
                                       fontWeight: FontWeight.w500,
                                       color: Theme.of(context).primaryColorDark,
@@ -181,7 +181,7 @@ class CountryPickerConsumer extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                     style: Theme.of(context)
                                         .textTheme
-                                        .caption!
+                                        .bodySmall!
                                         .copyWith(
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -195,7 +195,7 @@ class CountryPickerConsumer extends StatelessWidget {
                                   softWrap: true,
                                   style: Theme.of(context)
                                       .textTheme
-                                      .caption!
+                                      .bodySmall!
                                       .copyWith(
                                         fontWeight: FontWeight.w500,
                                       ),

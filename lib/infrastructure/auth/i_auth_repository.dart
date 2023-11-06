@@ -10,7 +10,7 @@ import '../../domain/auth/auth_repository.dart';
 class IAuthRepository extends AuthRepository {
   final String serverUrl;
   final String apiUrl;
-  IAuthRepository({required this.serverUrl,required this.apiUrl});
+  IAuthRepository({required this.serverUrl, required this.apiUrl});
 
   @override
   Future<Either<String, String>> loginAsMerchant({
@@ -42,12 +42,12 @@ class IAuthRepository extends AuthRepository {
       required String brandId,
       required String fcmToken,
       bool isRemove = false}) async {
-    
-    final url =  apiUrl+
+    final url = apiUrl +
         (isRemove ? APIConstants.removeFcmToken : APIConstants.addFcmToken);
     try {
+      print('fcm : $fcmToken');
       final res = await RESTService.performPOSTRequest(
-        isAuth: true,
+          isAuth: true,
           httpUrl: url,
           body: json.encode({
             'userEmail': userEmail,
@@ -59,6 +59,5 @@ class IAuthRepository extends AuthRepository {
     } catch (e) {
       //
     }
-  
   }
 }

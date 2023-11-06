@@ -9,20 +9,23 @@ class PlaceOrderState with _$PlaceOrderState {
       required bool noUse,
       required bool showOutletBottomSheet,
       required String serverUrl,
+      required String apiUrl,
       required String showMessage,
       required AppStateNotifier appStateNotifier,
+      required PlaceOrderRepository placeOrderRepository,
       required ShopMerchantRepository shopMerchantRepository,
       required ZoomDrawerController zoomDrawerController,
       required List<OutletDto> outlets,
-      required List<Deal> deals,
-      required List<Deal> selectedDeals,
-      required List<Deal> searchedDeals,
+      required List<OutletProductDto> outletProducts,
+      required List<OutletProductDto> selectedOutletProducts,
+      required List<OutletProductDto> searchedOutletProducts,
       required TextEditingController searchController,
       OutletDto? selectedOutlet}) = _PlaceOrderState;
 
   factory PlaceOrderState.initial({
     required AppStateNotifier appStateNotifier,
     required String serverUrl,
+    required String apiUrl,
     required ZoomDrawerController zoomDrawerController,
   }) {
     return PlaceOrderState(
@@ -36,39 +39,14 @@ class PlaceOrderState with _$PlaceOrderState {
       searchController: TextEditingController(),
       showMessage: '',
       serverUrl: serverUrl,
-      shopMerchantRepository: IShopMerchantRepository(
-        serverUrl: serverUrl,
-      ),
+      apiUrl: apiUrl,
+      shopMerchantRepository: IShopMerchantRepository(serverUrl: serverUrl),
+      placeOrderRepository: IPlaceOrderRepository(apiUrl: apiUrl),
       outlets: [],
-      selectedDeals: [],
-      searchedDeals: [],
-      deals: [
-        Deal(
-          productId: 1,
-          dealName: 'Coffee 5',
-          currencyCode: 'USD',
-          assetImage:  AssetConstants.coffeeImage,
-          actualPrice: 20.0,
-          discountedPrice: 15.0,
-        ),
-        Deal(
-          productId: 2,
-          dealName: 'Cake 6',
-          currencyCode: 'USD',
-          assetImage:  AssetConstants.coffeeImage,
-          actualPrice: 30.0,
-          discountedPrice: 25.0,
-        ),
-        Deal(
-          productId: 3,
-          dealName: 'Coffee 12',
-          currencyCode: 'USD',
-          assetImage:  AssetConstants.coffeeImage,
-          actualPrice: 25.0,
-          discountedPrice: 20.0,
-        ),
-      ],
-    );
+      outletProducts: [],
+      selectedOutletProducts: [],
+      searchedOutletProducts: [],
+         );
   }
 }
 

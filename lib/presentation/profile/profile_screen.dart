@@ -10,7 +10,6 @@ import 'package:provider/provider.dart';
 
 import 'package:sizer/sizer.dart';
 import '../../application/profile/profile_bloc.dart';
-import '../../domain/constants/country_info.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
 import '../core/custom_toast.dart';

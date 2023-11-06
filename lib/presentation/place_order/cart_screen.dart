@@ -5,16 +5,16 @@ import 'package:flutter_zoom_drawer/config.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import '../../infrastructure/dtos/place_order/outlet_product/outlet_product_dto.dart';
 
 import '../../application/cart/cart_bloc.dart';
-import '../../application/place_order/place_order_bloc.dart';
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/constants/string_constants.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
+import '../../domain/services/navigation_service/routers/route_names.dart';
 import '../core/country_picker.dart';
-import '../core/custom_app_bar.dart';
 import '../core/custom_button.dart';
 import '../core/custom_text_field.dart';
 import '../core/numeric_keyboard.dart';
@@ -22,36 +22,62 @@ import 'widgets/place_order_deal_widget.dart';
 
 class CartScreen extends StatelessWidget {
   final ZoomDrawerController zoomDrawerController;
-  List<Deal> selectedDeals;
-  CartScreen(
+  final List<OutletProductDto> addedProducts;
+  const CartScreen(
       {super.key,
       required this.zoomDrawerController,
-      required this.selectedDeals});
+      required this.addedProducts});
 
   @override
   Widget build(BuildContext context) {
-    String serverUrl = AppConfig.of(context)!.serverUrl;
+    String apiUrl = AppConfig.of(context)!.apiUrl;
 
     final AppStateNotifier appStateNotifier =
         Provider.of<AppStateNotifier>(context);
     return BlocProvider(
       create: (context) => CartBloc(CartState.initial(
-          selectedDeals: selectedDeals,
+          addedProducts: addedProducts,
           appStateNotifier: appStateNotifier,
-          serverUrl: serverUrl,
+          apiUrl: apiUrl,
           zoomDrawerController: zoomDrawerController)),
-      child: CartScreenConsumer(),
+      child: const CartScreenConsumer(),
     );
   }
 }
 
 class CartScreenConsumer extends StatelessWidget {
-  CartScreenConsumer({super.key});
+  const CartScreenConsumer({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<CartBloc, CartState>(listener: (context, state) {
-      // TODO: implement listener
+      if (state.isSuccess) {
+        ScaffoldMessenger.of(context).clearSnackBars();
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(state.showMessage,style: const TextStyle(color: Colors.white),),
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          duration: const Duration(seconds: 2),
+        ));
+
+        context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
+                state: state.copyWith(
+              isSuccess: false,
+            )));
+
+        navigator<NavigationService>().navigateTo(CoreRoutes.homeRoute,isClearStack: true);
+      } else if (state.isFailed) {
+        if (state.showMessage.isNotEmpty) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(state.showMessage),
+            backgroundColor: Theme.of(context).colorScheme.error,
+            duration: const Duration(seconds: 2),
+          ));
+
+          context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
+              state: state.copyWith(isFailed: false, showMessage: '')));
+        }
+      }
     }, builder: (context, state) {
       return Scaffold(
         resizeToAvoidBottomInset: false,
@@ -91,9 +117,9 @@ class CartScreenConsumer extends StatelessWidget {
           elevation: 0,
         ),
         body: ModalProgressHUD(
-          inAsyncCall: false,
-          child: state.selectedDeals.isEmpty
-              ? Center(
+          inAsyncCall: state.isLoading,
+          child: state.addedProducts.isEmpty
+              ? const Center(
                   child: Text(CartConstants.cartIsEmpty),
                 )
               : Column(
@@ -104,16 +130,26 @@ class CartScreenConsumer extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: 5.w),
                           itemBuilder: (context, index) {
                             return PlaceOrderDealWidget(
-                                dealName: state.selectedDeals[index].dealName,
-                                currencyCode:
-                                    state.selectedDeals[index].currencyCode,
-                                actualPrice:
-                                    state.selectedDeals[index].actualPrice,
-                                assetImage:
-                                    state.selectedDeals[index].assetImage,
-                                discountedPrice:
-                                    state.selectedDeals[index].discountedPrice,
-                                quantity: state.selectedDeals[index].quantity,
+                                dealName: state.addedProducts[index].title,
+                                currencyCode: state
+                                    .addedProducts[index]
+                                    .compareAtPriceRange
+                                    .maxVariantPrice
+                                    .currencyCode,
+                                actualPrice: calculatePrice(
+                                    state
+                                        .addedProducts[index]
+                                        .compareAtPriceRange
+                                        .maxVariantPrice
+                                        .amount,
+                                    state.addedProducts[index].quantity),
+                                assetImage: state
+                                    .addedProducts[index].featuredImage.url,
+                                discountedPrice: calculatePrice(
+                                    state.addedProducts[index].priceRange
+                                        .maxVariantPrice.amount,
+                                    state.addedProducts[index].quantity),
+                                quantity: state.addedProducts[index].quantity,
                                 showAdd: false,
                                 increment: () {},
                                 decrement: () {});
@@ -123,7 +159,7 @@ class CartScreenConsumer extends StatelessWidget {
                               height: 3.w,
                             );
                           },
-                          itemCount: state.selectedDeals.length),
+                          itemCount: state.addedProducts.length),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -141,14 +177,27 @@ class CartScreenConsumer extends StatelessWidget {
                         controller: state.phoneNumberController,
                         hintText: MyProfileConstants.hintPhoneNumber,
                         keyboardType: TextInputType.phone,
+                        errorText: state.errorPhoneNumber.isNotEmpty
+                            ? state.errorPhoneNumber
+                            : null,
                         // inputFormatters: [],
                         validator: (value) {
                           final phoneNumber = value!;
                           if (phoneNumber.isEmpty) {
-                            return ErrorConstants.requiredError;
+                            context.read<CartBloc>().add(
+                                CartEvent.emitFromAnywhere(
+                                    state: state.copyWith(
+                                        errorPhoneNumber:
+                                            ErrorConstants.requiredError)));
+                          } else {
+                            context.read<CartBloc>().add(
+                                CartEvent.emitFromAnywhere(
+                                    state:
+                                        state.copyWith(errorPhoneNumber: '')));
                           }
                           return null;
                         },
+
                         prefixWidget: GestureDetector(
                           onTap: () {
                             showModalBottomSheet(
@@ -206,7 +255,7 @@ class CartScreenConsumer extends StatelessWidget {
                                 softWrap: true,
                                 style: Theme.of(context)
                                     .textTheme
-                                    .caption!
+                                    .bodySmall!
                                     .copyWith(
                                         fontWeight: FontWeight.w700,
                                         color: Theme.of(context)
@@ -274,11 +323,9 @@ class CartScreenConsumer extends StatelessWidget {
                             btnText: CartConstants.placeOrder,
                             textFontSize: 12.sp,
                             onPressedBtn: () {
-                              context.read<CartBloc>().add(
-                                    CartEvent.emitFromAnywhere(
-                                      state: state.copyWith(),
-                                    ),
-                                  );
+                              context
+                                  .read<CartBloc>()
+                                  .add(const CartEvent.onPlaceOrder());
                             }),
                       ),
                   ],
@@ -286,5 +333,16 @@ class CartScreenConsumer extends StatelessWidget {
         ),
       );
     });
+  }
+
+  String calculatePrice(String priceString, int quantity) {
+    double price = double.tryParse(priceString) ?? 0.0;
+
+    if (quantity == 0) {
+      return (price * 1).toString();
+    } else {
+      double totalPrice = quantity * price;
+      return totalPrice.toStringAsFixed(1);
+    }
   }
 }

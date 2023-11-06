@@ -373,3 +373,7 @@ class CartConstants {
     static const String checkout = 'Checkout';
 
 }
+class NotificationNavigateToConstants {
+    static const placeOrder = 'ORDER';
+
+}

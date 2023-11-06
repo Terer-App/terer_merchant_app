@@ -101,9 +101,9 @@ Future appInitializer(AppConfig appConfig) async {
       isAuthorized = false;
     }
   }
-     if (Platform.isAndroid) {
+  if (Platform.isAndroid) {
     await AwesomeNotifications().initialize(
-      'resource://drawable/notification_icon',
+      null,
       [
         NotificationChannel(
             channelGroupKey: AppConstants.channelGroupKey,
@@ -116,6 +116,7 @@ Future appInitializer(AppConfig appConfig) async {
     );
     AwesomeNotifications().setListeners(
       onActionReceivedMethod: (ReceivedAction receivedAction) async {
+        //when app is in foreground
         if (receivedAction.payload != null) {
           FCMDynamicLinkService.navigateUserToPage(
             message: RemoteMessage(
@@ -126,7 +127,7 @@ Future appInitializer(AppConfig appConfig) async {
       },
     );
   }
- initMessagingService(navigationKey: navKey);
+  initMessagingService(navigationKey: navKey);
 
   AppStateNotifier appStateNotifier = AppStateNotifier(
     isAuthorized: isAuthorized,
@@ -254,7 +255,6 @@ Future checkForAppUpdate(GlobalKey<NavigatorState> navKey) async {
   }
 }
 
-
 Future initMessagingService({
   required GlobalKey<NavigatorState> navigationKey,
 }) async {
@@ -264,14 +264,14 @@ Future initMessagingService({
     await fcm.requestPermission();
     isPermissionGranted = true;
   }
+  //when app is in terminated state
   FirebaseMessaging.instance.getInitialMessage().then((message) {
     if (message != null) {
       Future.delayed(const Duration(seconds: 2)).then(
         (value) {
-        //   return FCMDynamicLinkService.navigateUserToPage(
-        //   message: message,
-        //   graphQLService: graphQLService,
-        // );
+          return FCMDynamicLinkService.navigateUserToPage(
+            message: message,
+          );
         },
       );
     }
@@ -285,7 +285,6 @@ Future initMessagingService({
   if (isPermissionGranted) {
     FirebaseMessaging.onBackgroundMessage(firebaseMessagingBackgroundHandler);
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-    
       if (Platform.isAndroid) {
         AwesomeNotifications().createNotification(
           content: NotificationContent(
@@ -307,13 +306,11 @@ Future initMessagingService({
         return;
       }
     });
+    //when app is in background state
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      FCMDynamicLinkService.navigateUserToPage(
-        message: message
-      );
+      FCMDynamicLinkService.navigateUserToPage(message: message);
     });
   }
 }
-
 
 Future<void> firebaseMessagingBackgroundHandler(RemoteMessage message) async {}

@@ -7,40 +7,40 @@ class CartState with _$CartState {
       required bool isFailed,
       required bool isSuccess,
       required bool noUse,
-      required String serverUrl,
+      required String apiUrl,
       required String showMessage,
       required AppStateNotifier appStateNotifier,
-      required ShopMerchantRepository shopMerchantRepository,
+      required PlaceOrderRepository placeOrderRepository,
       required ZoomDrawerController zoomDrawerController,
       required TextEditingController phoneNumberController,
+      required String errorPhoneNumber,
       required Map<String, dynamic> selectedCountry,
       required bool showKeyboard,
-      required List<Deal> selectedDeals,
-      required FocusNode focusNode
-      }) = _CartState;
+      required List<OutletProductDto> addedProducts,
+      required FocusNode focusNode}) = _CartState;
 
   factory CartState.initial(
       {required AppStateNotifier appStateNotifier,
-      required String serverUrl,
+      required String apiUrl,
       required ZoomDrawerController zoomDrawerController,
-      required List<Deal> selectedDeals}) {
+      required List<OutletProductDto> addedProducts}) {
     return CartState(
-      appStateNotifier: appStateNotifier,
-      zoomDrawerController: zoomDrawerController,
-      isLoading: true,
-      isFailed: false,
-      isSuccess: false,
-      noUse: false,
-      showKeyboard: false,
-      showMessage: '',
-      serverUrl: serverUrl,
-      shopMerchantRepository: IShopMerchantRepository(
-        serverUrl: serverUrl,
-      ),
-      selectedDeals: selectedDeals,
-      phoneNumberController: TextEditingController(),
-      selectedCountry: country[0],
-      focusNode: FocusNode()
-    );
+        appStateNotifier: appStateNotifier,
+        zoomDrawerController: zoomDrawerController,
+        isLoading: false,
+        isFailed: false,
+        isSuccess: false,
+        noUse: false,
+        showKeyboard: false,
+        showMessage: '',
+        errorPhoneNumber: '',
+        apiUrl: apiUrl,
+        placeOrderRepository: IPlaceOrderRepository(
+          apiUrl: apiUrl,
+        ),
+        addedProducts: addedProducts,
+        phoneNumberController: TextEditingController(),
+        selectedCountry: country[0],
+        focusNode: FocusNode());
   }
 }

@@ -790,19 +790,21 @@ mixin _$CartState {
   bool get isFailed => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
   bool get noUse => throw _privateConstructorUsedError;
-  String get serverUrl => throw _privateConstructorUsedError;
+  String get apiUrl => throw _privateConstructorUsedError;
   String get showMessage => throw _privateConstructorUsedError;
   AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
-  ShopMerchantRepository get shopMerchantRepository =>
+  PlaceOrderRepository get placeOrderRepository =>
       throw _privateConstructorUsedError;
   ZoomDrawerController get zoomDrawerController =>
       throw _privateConstructorUsedError;
   TextEditingController get phoneNumberController =>
       throw _privateConstructorUsedError;
+  String get errorPhoneNumber => throw _privateConstructorUsedError;
   Map<String, dynamic> get selectedCountry =>
       throw _privateConstructorUsedError;
   bool get showKeyboard => throw _privateConstructorUsedError;
-  List<Deal> get selectedDeals => throw _privateConstructorUsedError;
+  List<OutletProductDto> get addedProducts =>
+      throw _privateConstructorUsedError;
   FocusNode get focusNode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -819,15 +821,16 @@ abstract class $CartStateCopyWith<$Res> {
       bool isFailed,
       bool isSuccess,
       bool noUse,
-      String serverUrl,
+      String apiUrl,
       String showMessage,
       AppStateNotifier appStateNotifier,
-      ShopMerchantRepository shopMerchantRepository,
+      PlaceOrderRepository placeOrderRepository,
       ZoomDrawerController zoomDrawerController,
       TextEditingController phoneNumberController,
+      String errorPhoneNumber,
       Map<String, dynamic> selectedCountry,
       bool showKeyboard,
-      List<Deal> selectedDeals,
+      List<OutletProductDto> addedProducts,
       FocusNode focusNode});
 }
 
@@ -845,15 +848,16 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
-    Object? serverUrl = freezed,
+    Object? apiUrl = freezed,
     Object? showMessage = freezed,
     Object? appStateNotifier = freezed,
-    Object? shopMerchantRepository = freezed,
+    Object? placeOrderRepository = freezed,
     Object? zoomDrawerController = freezed,
     Object? phoneNumberController = freezed,
+    Object? errorPhoneNumber = freezed,
     Object? selectedCountry = freezed,
     Object? showKeyboard = freezed,
-    Object? selectedDeals = freezed,
+    Object? addedProducts = freezed,
     Object? focusNode = freezed,
   }) {
     return _then(_value.copyWith(
@@ -873,9 +877,9 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
-      serverUrl: serverUrl == freezed
-          ? _value.serverUrl
-          : serverUrl // ignore: cast_nullable_to_non_nullable
+      apiUrl: apiUrl == freezed
+          ? _value.apiUrl
+          : apiUrl // ignore: cast_nullable_to_non_nullable
               as String,
       showMessage: showMessage == freezed
           ? _value.showMessage
@@ -885,10 +889,10 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
           ? _value.appStateNotifier
           : appStateNotifier // ignore: cast_nullable_to_non_nullable
               as AppStateNotifier,
-      shopMerchantRepository: shopMerchantRepository == freezed
-          ? _value.shopMerchantRepository
-          : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
-              as ShopMerchantRepository,
+      placeOrderRepository: placeOrderRepository == freezed
+          ? _value.placeOrderRepository
+          : placeOrderRepository // ignore: cast_nullable_to_non_nullable
+              as PlaceOrderRepository,
       zoomDrawerController: zoomDrawerController == freezed
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
@@ -897,6 +901,10 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
           ? _value.phoneNumberController
           : phoneNumberController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      errorPhoneNumber: errorPhoneNumber == freezed
+          ? _value.errorPhoneNumber
+          : errorPhoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
       selectedCountry: selectedCountry == freezed
           ? _value.selectedCountry
           : selectedCountry // ignore: cast_nullable_to_non_nullable
@@ -905,10 +913,10 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
           ? _value.showKeyboard
           : showKeyboard // ignore: cast_nullable_to_non_nullable
               as bool,
-      selectedDeals: selectedDeals == freezed
-          ? _value.selectedDeals
-          : selectedDeals // ignore: cast_nullable_to_non_nullable
-              as List<Deal>,
+      addedProducts: addedProducts == freezed
+          ? _value.addedProducts
+          : addedProducts // ignore: cast_nullable_to_non_nullable
+              as List<OutletProductDto>,
       focusNode: focusNode == freezed
           ? _value.focusNode
           : focusNode // ignore: cast_nullable_to_non_nullable
@@ -928,15 +936,16 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
       bool isFailed,
       bool isSuccess,
       bool noUse,
-      String serverUrl,
+      String apiUrl,
       String showMessage,
       AppStateNotifier appStateNotifier,
-      ShopMerchantRepository shopMerchantRepository,
+      PlaceOrderRepository placeOrderRepository,
       ZoomDrawerController zoomDrawerController,
       TextEditingController phoneNumberController,
+      String errorPhoneNumber,
       Map<String, dynamic> selectedCountry,
       bool showKeyboard,
-      List<Deal> selectedDeals,
+      List<OutletProductDto> addedProducts,
       FocusNode focusNode});
 }
 
@@ -956,15 +965,16 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
-    Object? serverUrl = freezed,
+    Object? apiUrl = freezed,
     Object? showMessage = freezed,
     Object? appStateNotifier = freezed,
-    Object? shopMerchantRepository = freezed,
+    Object? placeOrderRepository = freezed,
     Object? zoomDrawerController = freezed,
     Object? phoneNumberController = freezed,
+    Object? errorPhoneNumber = freezed,
     Object? selectedCountry = freezed,
     Object? showKeyboard = freezed,
-    Object? selectedDeals = freezed,
+    Object? addedProducts = freezed,
     Object? focusNode = freezed,
   }) {
     return _then(_$_CartState(
@@ -984,9 +994,9 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
-      serverUrl: serverUrl == freezed
-          ? _value.serverUrl
-          : serverUrl // ignore: cast_nullable_to_non_nullable
+      apiUrl: apiUrl == freezed
+          ? _value.apiUrl
+          : apiUrl // ignore: cast_nullable_to_non_nullable
               as String,
       showMessage: showMessage == freezed
           ? _value.showMessage
@@ -996,10 +1006,10 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
           ? _value.appStateNotifier
           : appStateNotifier // ignore: cast_nullable_to_non_nullable
               as AppStateNotifier,
-      shopMerchantRepository: shopMerchantRepository == freezed
-          ? _value.shopMerchantRepository
-          : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
-              as ShopMerchantRepository,
+      placeOrderRepository: placeOrderRepository == freezed
+          ? _value.placeOrderRepository
+          : placeOrderRepository // ignore: cast_nullable_to_non_nullable
+              as PlaceOrderRepository,
       zoomDrawerController: zoomDrawerController == freezed
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
@@ -1008,6 +1018,10 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
           ? _value.phoneNumberController
           : phoneNumberController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      errorPhoneNumber: errorPhoneNumber == freezed
+          ? _value.errorPhoneNumber
+          : errorPhoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
       selectedCountry: selectedCountry == freezed
           ? _value._selectedCountry
           : selectedCountry // ignore: cast_nullable_to_non_nullable
@@ -1016,10 +1030,10 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
           ? _value.showKeyboard
           : showKeyboard // ignore: cast_nullable_to_non_nullable
               as bool,
-      selectedDeals: selectedDeals == freezed
-          ? _value._selectedDeals
-          : selectedDeals // ignore: cast_nullable_to_non_nullable
-              as List<Deal>,
+      addedProducts: addedProducts == freezed
+          ? _value._addedProducts
+          : addedProducts // ignore: cast_nullable_to_non_nullable
+              as List<OutletProductDto>,
       focusNode: focusNode == freezed
           ? _value.focusNode
           : focusNode // ignore: cast_nullable_to_non_nullable
@@ -1036,18 +1050,19 @@ class _$_CartState implements _CartState {
       required this.isFailed,
       required this.isSuccess,
       required this.noUse,
-      required this.serverUrl,
+      required this.apiUrl,
       required this.showMessage,
       required this.appStateNotifier,
-      required this.shopMerchantRepository,
+      required this.placeOrderRepository,
       required this.zoomDrawerController,
       required this.phoneNumberController,
+      required this.errorPhoneNumber,
       required final Map<String, dynamic> selectedCountry,
       required this.showKeyboard,
-      required final List<Deal> selectedDeals,
+      required final List<OutletProductDto> addedProducts,
       required this.focusNode})
       : _selectedCountry = selectedCountry,
-        _selectedDeals = selectedDeals;
+        _addedProducts = addedProducts;
 
   @override
   final bool isLoading;
@@ -1058,17 +1073,19 @@ class _$_CartState implements _CartState {
   @override
   final bool noUse;
   @override
-  final String serverUrl;
+  final String apiUrl;
   @override
   final String showMessage;
   @override
   final AppStateNotifier appStateNotifier;
   @override
-  final ShopMerchantRepository shopMerchantRepository;
+  final PlaceOrderRepository placeOrderRepository;
   @override
   final ZoomDrawerController zoomDrawerController;
   @override
   final TextEditingController phoneNumberController;
+  @override
+  final String errorPhoneNumber;
   final Map<String, dynamic> _selectedCountry;
   @override
   Map<String, dynamic> get selectedCountry {
@@ -1078,11 +1095,11 @@ class _$_CartState implements _CartState {
 
   @override
   final bool showKeyboard;
-  final List<Deal> _selectedDeals;
+  final List<OutletProductDto> _addedProducts;
   @override
-  List<Deal> get selectedDeals {
+  List<OutletProductDto> get addedProducts {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_selectedDeals);
+    return EqualUnmodifiableListView(_addedProducts);
   }
 
   @override
@@ -1090,7 +1107,7 @@ class _$_CartState implements _CartState {
 
   @override
   String toString() {
-    return 'CartState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, phoneNumberController: $phoneNumberController, selectedCountry: $selectedCountry, showKeyboard: $showKeyboard, selectedDeals: $selectedDeals, focusNode: $focusNode)';
+    return 'CartState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, apiUrl: $apiUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, placeOrderRepository: $placeOrderRepository, zoomDrawerController: $zoomDrawerController, phoneNumberController: $phoneNumberController, errorPhoneNumber: $errorPhoneNumber, selectedCountry: $selectedCountry, showKeyboard: $showKeyboard, addedProducts: $addedProducts, focusNode: $focusNode)';
   }
 
   @override
@@ -1102,23 +1119,25 @@ class _$_CartState implements _CartState {
             const DeepCollectionEquality().equals(other.isFailed, isFailed) &&
             const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
             const DeepCollectionEquality().equals(other.noUse, noUse) &&
-            const DeepCollectionEquality().equals(other.serverUrl, serverUrl) &&
+            const DeepCollectionEquality().equals(other.apiUrl, apiUrl) &&
             const DeepCollectionEquality()
                 .equals(other.showMessage, showMessage) &&
             const DeepCollectionEquality()
                 .equals(other.appStateNotifier, appStateNotifier) &&
             const DeepCollectionEquality()
-                .equals(other.shopMerchantRepository, shopMerchantRepository) &&
+                .equals(other.placeOrderRepository, placeOrderRepository) &&
             const DeepCollectionEquality()
                 .equals(other.zoomDrawerController, zoomDrawerController) &&
             const DeepCollectionEquality()
                 .equals(other.phoneNumberController, phoneNumberController) &&
             const DeepCollectionEquality()
+                .equals(other.errorPhoneNumber, errorPhoneNumber) &&
+            const DeepCollectionEquality()
                 .equals(other._selectedCountry, _selectedCountry) &&
             const DeepCollectionEquality()
                 .equals(other.showKeyboard, showKeyboard) &&
             const DeepCollectionEquality()
-                .equals(other._selectedDeals, _selectedDeals) &&
+                .equals(other._addedProducts, _addedProducts) &&
             const DeepCollectionEquality().equals(other.focusNode, focusNode));
   }
 
@@ -1129,15 +1148,16 @@ class _$_CartState implements _CartState {
       const DeepCollectionEquality().hash(isFailed),
       const DeepCollectionEquality().hash(isSuccess),
       const DeepCollectionEquality().hash(noUse),
-      const DeepCollectionEquality().hash(serverUrl),
+      const DeepCollectionEquality().hash(apiUrl),
       const DeepCollectionEquality().hash(showMessage),
       const DeepCollectionEquality().hash(appStateNotifier),
-      const DeepCollectionEquality().hash(shopMerchantRepository),
+      const DeepCollectionEquality().hash(placeOrderRepository),
       const DeepCollectionEquality().hash(zoomDrawerController),
       const DeepCollectionEquality().hash(phoneNumberController),
+      const DeepCollectionEquality().hash(errorPhoneNumber),
       const DeepCollectionEquality().hash(_selectedCountry),
       const DeepCollectionEquality().hash(showKeyboard),
-      const DeepCollectionEquality().hash(_selectedDeals),
+      const DeepCollectionEquality().hash(_addedProducts),
       const DeepCollectionEquality().hash(focusNode));
 
   @JsonKey(ignore: true)
@@ -1152,15 +1172,16 @@ abstract class _CartState implements CartState {
       required final bool isFailed,
       required final bool isSuccess,
       required final bool noUse,
-      required final String serverUrl,
+      required final String apiUrl,
       required final String showMessage,
       required final AppStateNotifier appStateNotifier,
-      required final ShopMerchantRepository shopMerchantRepository,
+      required final PlaceOrderRepository placeOrderRepository,
       required final ZoomDrawerController zoomDrawerController,
       required final TextEditingController phoneNumberController,
+      required final String errorPhoneNumber,
       required final Map<String, dynamic> selectedCountry,
       required final bool showKeyboard,
-      required final List<Deal> selectedDeals,
+      required final List<OutletProductDto> addedProducts,
       required final FocusNode focusNode}) = _$_CartState;
 
   @override
@@ -1172,23 +1193,25 @@ abstract class _CartState implements CartState {
   @override
   bool get noUse;
   @override
-  String get serverUrl;
+  String get apiUrl;
   @override
   String get showMessage;
   @override
   AppStateNotifier get appStateNotifier;
   @override
-  ShopMerchantRepository get shopMerchantRepository;
+  PlaceOrderRepository get placeOrderRepository;
   @override
   ZoomDrawerController get zoomDrawerController;
   @override
   TextEditingController get phoneNumberController;
   @override
+  String get errorPhoneNumber;
+  @override
   Map<String, dynamic> get selectedCountry;
   @override
   bool get showKeyboard;
   @override
-  List<Deal> get selectedDeals;
+  List<OutletProductDto> get addedProducts;
   @override
   FocusNode get focusNode;
   @override

@@ -1,5 +1,7 @@
 class APIConstants {
   // Auth
+  static const String products = 'products/';
+
   static const String loginAsMerchant = 'login.php';
   static const String merchantProfile = 'profile.php';
   static const String deleteAccount = 'deleteProfileRequest.php';
@@ -14,4 +16,8 @@ class APIConstants {
 
   static const String addFcmToken = 'shopify_graphql/add_fcm_token.php';
   static const String removeFcmToken = 'shopify_graphql/delete_fcm_token.php';
+
+  static const String getOutletProducts = '${products}outlet-products';
+    static const String placeOrder = 'place_order_as_merchant.php';
+
 }

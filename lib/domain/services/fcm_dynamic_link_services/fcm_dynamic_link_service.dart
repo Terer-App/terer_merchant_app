@@ -1,5 +1,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 
+import '../../constants/string_constants.dart';
 import '../../core/configs/injection.dart';
 import '../navigation_service/navigation_service.dart';
 import '../navigation_service/routers/route_names.dart';
@@ -18,11 +19,12 @@ class FCMDynamicLinkService {
     //       .makeNotificationsSeen(data['notificationHistoryId']);
     // }
     switch (data['type']) {
-      // case NotificationNavigateToConstants.cart:
-      //   navigator<NavigationService>().navigateTo(
-      //     UserRoutes.cartRoute,
-      //   );
-      //   break;
+      case NotificationNavigateToConstants.placeOrder:
+        navigator<NavigationService>().navigateTo(
+          CoreRoutes.homeRoute,
+          queryParams: {'tabIndex':'2'}
+        );
+        break;
 
       default:
            navigator<NavigationService>()

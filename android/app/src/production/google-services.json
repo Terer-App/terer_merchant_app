@@ -1,57 +1,57 @@
 {
   "project_info": {
-    "project_number": "636670550777",
-    "project_id": "terer-development",
-    "storage_bucket": "terer-development.appspot.com"
+    "project_number": "691460979105",
+    "project_id": "terer-46a1f",
+    "storage_bucket": "terer-46a1f.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:636670550777:android:422f850319dd60e207f828",
+        "mobilesdk_app_id": "1:691460979105:android:4189d973095ce86dd073e0",
         "android_client_info": {
-          "package_name": "com.terer.app.dev"
+          "package_name": "com.terer.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "636670550777-9j8aiugksd1o549v8np03o9puvotatgu.apps.googleusercontent.com",
+          "client_id": "691460979105-37q8i5j8ikdpddjftpq8ksb0vdsfhm4g.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.terer.app.dev",
-            "certificate_hash": "95266e24071e55e3d313f689c2f72b0fa45dee09"
-          }
-        },
-        {
-          "client_id": "636670550777-dkds4nqhv608fsjbvn3843arg8ggidbk.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.terer.app.dev",
+            "package_name": "com.terer.app",
             "certificate_hash": "df652a57dfb3d1a5ee8ebf41fcd5cfb6962df4da"
           }
         },
         {
-          "client_id": "636670550777-mc2a51ocng2j0bbraaobddqfpmciqhm6.apps.googleusercontent.com",
+          "client_id": "691460979105-il6v2f113fsocfj3moa0n8k48t753klr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.terer.app",
+            "certificate_hash": "95266e24071e55e3d313f689c2f72b0fa45dee09"
+          }
+        },
+        {
+          "client_id": "691460979105-0vq17gs0m6fl6e4jbntbdj8g2l5e0mfj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDNR8kJus6HMgZ_99Eq1zG7dJGxTTsXxuw"
+          "current_key": "AIzaSyD38Mt0aumfj6WSr5y7SspoRoan0CMvlVw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "636670550777-mc2a51ocng2j0bbraaobddqfpmciqhm6.apps.googleusercontent.com",
+              "client_id": "691460979105-0vq17gs0m6fl6e4jbntbdj8g2l5e0mfj.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "636670550777-s919gbk57oot15u1e1gt0t69vh18vrif.apps.googleusercontent.com",
+              "client_id": "691460979105-t43abenkiivgps2ddmsr3v423pgllbht.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.terer.app.dev",
-                "app_store_id": "1663660699"
+                "bundle_id": "com.terer.app",
+                "app_store_id": "1640054019"
               }
             }
           ]
@@ -60,35 +60,35 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:636670550777:android:7f094f8b29821d3f07f828",
+        "mobilesdk_app_id": "1:691460979105:android:1c8ebfbc28cca0a3d073e0",
         "android_client_info": {
           "package_name": "com.terer.merchant.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "636670550777-mc2a51ocng2j0bbraaobddqfpmciqhm6.apps.googleusercontent.com",
+          "client_id": "691460979105-0vq17gs0m6fl6e4jbntbdj8g2l5e0mfj.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDNR8kJus6HMgZ_99Eq1zG7dJGxTTsXxuw"
+          "current_key": "AIzaSyD38Mt0aumfj6WSr5y7SspoRoan0CMvlVw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "636670550777-mc2a51ocng2j0bbraaobddqfpmciqhm6.apps.googleusercontent.com",
+              "client_id": "691460979105-0vq17gs0m6fl6e4jbntbdj8g2l5e0mfj.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "636670550777-s919gbk57oot15u1e1gt0t69vh18vrif.apps.googleusercontent.com",
+              "client_id": "691460979105-t43abenkiivgps2ddmsr3v423pgllbht.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.terer.app.dev",
-                "app_store_id": "1663660699"
+                "bundle_id": "com.terer.app",
+                "app_store_id": "1640054019"
               }
             }
           ]

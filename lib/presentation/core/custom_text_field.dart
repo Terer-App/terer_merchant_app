@@ -487,7 +487,7 @@ class TernaryTextFieldState extends State<TernaryTextField> {
             border: Border.all(
               width: 1,
               color: widget.errorText != null && widget.errorText!.isNotEmpty
-                  ? Theme.of(context).errorColor
+                  ? Theme.of(context).colorScheme.error
                   : !widget.enabled
                       ? Theme.of(context).disabledColor
                       : Theme.of(context).dividerColor,
@@ -547,7 +547,7 @@ class TernaryTextFieldState extends State<TernaryTextField> {
           Text(
             widget.errorText!,
             style: TextStyle(
-              color: Theme.of(context).errorColor,
+              color: Theme.of(context).colorScheme.error,
             ),
           ),
       ],

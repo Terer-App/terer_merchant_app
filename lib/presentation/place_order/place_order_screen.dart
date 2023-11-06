@@ -27,6 +27,7 @@ class PlaceOrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String serverUrl = AppConfig.of(context)!.serverUrl;
+    String apiUrl = AppConfig.of(context)!.apiUrl;
 
     final AppStateNotifier appStateNotifier =
         Provider.of<AppStateNotifier>(context);
@@ -34,6 +35,7 @@ class PlaceOrderScreen extends StatelessWidget {
       create: (context) => PlaceOrderBloc(PlaceOrderState.initial(
           appStateNotifier: appStateNotifier,
           serverUrl: serverUrl,
+          apiUrl: apiUrl,
           zoomDrawerController: zoomDrawerController))
         ..add(const PlaceOrderEvent.init()),
       child: const PlaceOrderScreenConsumer(),
@@ -58,7 +60,7 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                   outlets: state.outlets,
                   brand: state.appStateNotifier.profile!.brand);
             },
-          ).then((value) {
+          ).then((value) async {
             if (value != null) {
               context.read<PlaceOrderBloc>().add(
                     PlaceOrderEvent.emitFromAnywhere(
@@ -66,6 +68,10 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                           selectedOutlet: value, showOutletBottomSheet: false),
                     ),
                   );
+              // ignore: prefer_const_constructors
+              await Future.delayed(Duration(milliseconds: 150));
+              context.read<PlaceOrderBloc>().add(
+                  PlaceOrderEvent.onLoadOutletProducts(outletId: value.code!));
             }
           });
         }
@@ -97,7 +103,7 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                 onPressed: () async {
                   navigator<NavigationService>().navigateTo(
                       CoreRoutes.cartRoute,
-                      arguments: state.selectedDeals);
+                      arguments: state.selectedOutletProducts);
                 },
                 icon: SvgPicture.asset(
                   AssetConstants.cartSvg,
@@ -127,7 +133,8 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                               child: RichText(
                                 textAlign: TextAlign.center,
                                 text: TextSpan(
-                                    text: '${PlaceOrderConstants.currentlySelected} \n ',
+                                    text:
+                                        '${PlaceOrderConstants.currentlySelected} \n ',
                                     style: Theme.of(context)
                                         .textTheme
                                         .bodySmall!
@@ -169,7 +176,10 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                                       context.read<PlaceOrderBloc>().add(
                                             PlaceOrderEvent.emitFromAnywhere(
                                               state: state.copyWith(
-                                                  showOutletBottomSheet: true),
+                                                  showOutletBottomSheet: true,
+                                                  outletProducts: [],
+                                                  searchedOutletProducts: [],
+                                                  selectedOutletProducts: []),
                                             ),
                                           );
                                     }),
@@ -183,6 +193,7 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 1.h),
                           child: CustomRoundedInput(
+                      
                             isTitle: false,
                             controller: state.searchController,
                             maxLines: 1,
@@ -205,33 +216,49 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                                   .copyWith(bottom: 120),
                               itemBuilder: (context, index) {
                                 return PlaceOrderDealWidget(
-                                    dealName:
-                                        state.searchedDeals[index].dealName,
-                                    currencyCode:
-                                        state.searchedDeals[index].currencyCode,
-                                    actualPrice:
-                                        state.searchedDeals[index].actualPrice,
-                                    assetImage:
-                                        state.searchedDeals[index].assetImage,
-                                    discountedPrice: state
-                                        .searchedDeals[index].discountedPrice,
-                                    quantity:
-                                        state.searchedDeals[index].quantity,
+                                    dealName: state
+                                        .searchedOutletProducts[index].title,
+                                    currencyCode: state
+                                        .searchedOutletProducts[index]
+                                        .compareAtPriceRange
+                                        .maxVariantPrice
+                                        .currencyCode,
+                                    actualPrice: calculatePrice(
+                                        state
+                                            .searchedOutletProducts[index]
+                                            .compareAtPriceRange
+                                            .maxVariantPrice
+                                            .amount,
+                                        state.searchedOutletProducts[index]
+                                            .quantity),
+                                    assetImage: state
+                                        .searchedOutletProducts[index]
+                                        .featuredImage
+                                        .url,
+                                    discountedPrice: calculatePrice(
+                                        state.searchedOutletProducts[index]
+                                            .priceRange.maxVariantPrice.amount,
+                                        state.searchedOutletProducts[index]
+                                            .quantity),
+                                    quantity: state
+                                        .searchedOutletProducts[index].quantity,
                                     increment: () {
                                       context.read<PlaceOrderBloc>().add(
                                           PlaceOrderEvent
                                               .onIncrementDealQuantity(
                                                   productId: state
-                                                      .searchedDeals[index]
-                                                      .productId));
+                                                      .searchedOutletProducts[
+                                                          index]
+                                                      .id));
                                     },
                                     decrement: () {
                                       context.read<PlaceOrderBloc>().add(
                                           PlaceOrderEvent
                                               .onDecrementDealQuantity(
                                                   productId: state
-                                                      .searchedDeals[index]
-                                                      .productId));
+                                                      .searchedOutletProducts[
+                                                          index]
+                                                      .id));
                                     });
                               },
                               separatorBuilder: (context, index) {
@@ -239,7 +266,7 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                                   height: 3.w,
                                 );
                               },
-                              itemCount: state.searchedDeals.length),
+                              itemCount: state.searchedOutletProducts.length),
                         )
                       ],
                     ),
@@ -250,5 +277,16 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
         );
       },
     );
+  }
+
+  String calculatePrice(String priceString, int quantity) {
+    double price = double.tryParse(priceString) ?? 0.0;
+
+    if (quantity == 0) {
+      return (price * 1).toString();
+    } else {
+      double totalPrice = quantity * price;
+      return totalPrice.toStringAsFixed(1);
+    }
   }
 }

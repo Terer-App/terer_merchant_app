@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../../domain/constants/asset_constants.dart';
 
 class PlaceOrderDealWidget extends StatelessWidget {
   final String dealName;
   final String currencyCode;
   final String assetImage;
-  final double actualPrice;
-  final double discountedPrice;
+  final String actualPrice;
+  final String discountedPrice;
   final int quantity;
   final bool showAdd;
   final Function() increment;
@@ -44,7 +43,7 @@ class PlaceOrderDealWidget extends StatelessWidget {
             borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(15.sp),
                 bottomLeft: Radius.circular(15.sp)),
-            child: Image.asset(
+            child: Image.network(
               assetImage,
               fit: BoxFit.cover,
               height: 20.h,
@@ -122,7 +121,7 @@ class PlaceOrderDealWidget extends StatelessWidget {
               if (!showAdd)
                 Center(
                   child: Text(
-                    'Qunatity : $quantity',
+                    'Quantity : $quantity',
                     maxLines: 2,
                     softWrap: false,
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(

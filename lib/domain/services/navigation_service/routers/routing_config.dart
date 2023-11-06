@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
-import '../../../../application/place_order/place_order_bloc.dart';
+import '../../../../infrastructure/dtos/place_order/outlet_product/outlet_product_dto.dart';
 import '../../../../presentation/about_us/about_us_screen.dart';
 import '../../../../presentation/about_us/terms_screen.dart';
 import '../../../../presentation/auth/getting_started_screen.dart';
@@ -20,9 +20,10 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
   final routingData = settings.name!.getRoutingData;
   switch (routingData.route) {
     case CoreRoutes.homeRoute:
+    final routeData = routingData.queryParameters;
       return _getPageRoute(
-        const HomeScreen(
-          startPage: 0,
+         HomeScreen(
+          startPage: int.parse(routeData['tabIndex'] ?? '0'),
         ),
         settings,
       );
@@ -62,7 +63,7 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
     case CoreRoutes.cartRoute:
     final args = settings.arguments;
       return _getPageRoute(
-         CartScreen(zoomDrawerController: ZoomDrawerController(),selectedDeals:args as List<Deal>,),
+         CartScreen(zoomDrawerController: ZoomDrawerController(),addedProducts:args as List<OutletProductDto>,),
         settings,
       );
     default:
