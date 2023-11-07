@@ -37,6 +37,7 @@ class AssetConstants {
   static const String scanIcon = '${imagePath}scan.png';
   static const String redeemIcon = '${imagePath}coupon.png';
   static const String searchIcon = '${imagePath}search-icon.png';
+  static const String orderIcon = '${imagePath}order.png';
 
   static const String profileSvg = '${vectorPath}profile.svg';
   static const String shopSvg = '${vectorPath}shop.svg';

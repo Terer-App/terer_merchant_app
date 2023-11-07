@@ -46,7 +46,7 @@ class CustomBottomActionBar extends StatelessWidget {
             },
           ),
            NavbarItem(
-            icon: AssetConstants.scanIcon,
+            icon: AssetConstants.orderIcon,
             title: 'Order',
             onPressed: () {
               if (navCallBack != null) {

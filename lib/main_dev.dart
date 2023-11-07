@@ -19,9 +19,9 @@ void main() async {
   Hive.init(directory!.path);
   final appConfig = AppConfig(
     appTitle: 'Terer Merchant - Dev',
-    serverUrl: 'https://terer-server.dev.dreamkasper.com/merchant/dev/api/',
+    serverUrl: 'https://terer-server.dev.dreamkasper.com/',
     buildFlavor: 'Dev',
-    // apiUrl: 'https://terer-server.dev.dreamkasper.com/',
+   //apiUrl: 'https://terer-server.dev.dreamkasper.com/',
     apiUrl: 'https://terer-api.dev.dreamkasper.com/api/v1/',
     child: Container(),
   );

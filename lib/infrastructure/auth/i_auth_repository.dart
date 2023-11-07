@@ -42,7 +42,7 @@ class IAuthRepository extends AuthRepository {
       required String brandId,
       required String fcmToken,
       bool isRemove = false}) async {
-    final url = apiUrl +
+    final url =  serverUrl +
         (isRemove ? APIConstants.removeFcmToken : APIConstants.addFcmToken);
     try {
       print('fcm : $fcmToken');

@@ -16,6 +16,7 @@ import '../../domain/services/navigation_service/routers/route_names.dart';
 import '../../infrastructure/dtos/outlet/outlet_dto.dart';
 import '../core/custom_button.dart';
 import '../core/custom_rounded_textfield.dart';
+import '../core/custom_text_field.dart';
 import '../scan/widgets/select_outlet.dart';
 import 'widgets/place_order_deal_widget.dart';
 
@@ -192,14 +193,10 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 1.h),
-                          child: CustomRoundedInput(
-                      
-                            isTitle: false,
+                          child: PrimaryTextField(
                             controller: state.searchController,
                             maxLines: 1,
                             hintText: PlaceOrderConstants.searchDeals,
-                            contentPadding: EdgeInsets.symmetric(
-                                horizontal: 4.w, vertical: 4.w),
                             onChanged: (value) {
                               BlocProvider.of<PlaceOrderBloc>(context)
                                   .add(PlaceOrderEvent.onSearchDeals(value));
