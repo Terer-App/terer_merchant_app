@@ -60,9 +60,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:636670550777:android:7f094f8b29821d3f07f828",
+        "mobilesdk_app_id": "1:636670550777:android:06e6f4c079b0ed1a07f828",
         "android_client_info": {
-          "package_name": "com.terer.merchant.app"
+          "package_name": "com.terer.merchant.app.dev"
         }
       },
       "oauth_client": [
