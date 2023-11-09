@@ -8,13 +8,10 @@ import 'package:path_provider/path_provider.dart';
 import './domain/core/configs/app_config.dart';
 import 'package:http/http.dart' as http;
 
-import 'firebase_options.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-        options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp();
+
   Directory? directory = Platform.isAndroid
       ? await getExternalStorageDirectory()
       : await getLibraryDirectory();
@@ -36,7 +33,7 @@ void main() async {
     serverUrl: mode == 'DEV'
         ? 'https://terer-server.dev.dreamkasper.com/merchant/dev/api/'
         : 'https://server.terer.co/merchant/dev/api/',
-        apiUrl: 'https://terer-server.dev.dreamkasper.com/',
+    apiUrl: 'https://terer-server.dev.dreamkasper.com/',
     buildFlavor: 'Production',
     child: Container(),
   );
