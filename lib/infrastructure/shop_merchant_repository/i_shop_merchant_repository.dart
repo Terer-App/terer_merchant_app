@@ -297,7 +297,6 @@ class IShopMerchantRepository extends ShopMerchantRepository {
 
   @override
   Future<List<OutletDto>> getAllotedBrandOutlets() async {
-    Map<String, dynamic> result = {};
     final url = serverUrl + APIConstants.getAllotedOutlets;
     try {
       final token = await AuthTokenService.getMerchantToken();

@@ -19,6 +19,10 @@ class APIConstants {
   static const String getAllotedOutlets =
       '${merchantApis}get_alloted_outlets.php';
   static const String placeOrder = '${merchantApis}place_order_as_merchant.php';
+  static const String checkUserByEmail =
+      '${merchantApis}check_user_by_email.php';
+  static const String checkUserByNumber =
+      '${merchantApis}check_user_by_phone.php';
 
   static const String addFcmToken = 'shopify_graphql/add_fcm_token.php';
   static const String removeFcmToken = 'shopify_graphql/delete_fcm_token.php';

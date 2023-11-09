@@ -5,6 +5,7 @@ import 'package:flutter_zoom_drawer/config.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import 'widgets/user_details_bottomsheet.dart';
 import '../../infrastructure/dtos/place_order/outlet_product/outlet_product_dto.dart';
 
 import '../../application/cart/cart_bloc.dart';
@@ -31,6 +32,7 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String apiUrl = AppConfig.of(context)!.apiUrl;
+    String serverUrl = AppConfig.of(context)!.serverUrl;
 
     final AppStateNotifier appStateNotifier =
         Provider.of<AppStateNotifier>(context);
@@ -39,6 +41,7 @@ class CartScreen extends StatelessWidget {
           addedProducts: addedProducts,
           appStateNotifier: appStateNotifier,
           apiUrl: apiUrl,
+          serverUrl: serverUrl,
           zoomDrawerController: zoomDrawerController)),
       child: const CartScreenConsumer(),
     );
@@ -50,11 +53,38 @@ class CartScreenConsumer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<CartBloc, CartState>(listener: (context, state) {
+    return BlocConsumer<CartBloc, CartState>(listener: (context, state) async {
+      if (state.showBottomSheet) {
+        await showModalBottomSheet(
+          context: context,
+          isDismissible: false,
+          backgroundColor: Colors.transparent,
+          builder: (BuildContext context) {
+            return UserDetailsBottomSheet(
+              zoomDrawerController: state.zoomDrawerController,
+              selectedCountry: state.selectedCountry,
+              phoneNumber: state.phoneNumberController.text,
+              addedProducts: state.addedProducts,
+            );
+          },
+        ).then((value) {
+           context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
+                state: state.copyWith(
+              isSuccess: false,
+              isFailed: false,
+              isLoading: false,
+              showBottomSheet: false
+            )));
+
+        });
+      }
       if (state.isSuccess) {
         ScaffoldMessenger.of(context).clearSnackBars();
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(state.showMessage,style: const TextStyle(color: Colors.white),),
+          content: Text(
+            state.showMessage,
+            style: const TextStyle(color: Colors.white),
+          ),
           backgroundColor: Theme.of(context).colorScheme.secondary,
           duration: const Duration(seconds: 2),
         ));
@@ -64,7 +94,8 @@ class CartScreenConsumer extends StatelessWidget {
               isSuccess: false,
             )));
 
-        navigator<NavigationService>().navigateTo(CoreRoutes.homeRoute,isClearStack: true);
+        navigator<NavigationService>()
+            .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
       } else if (state.isFailed) {
         if (state.showMessage.isNotEmpty) {
           ScaffoldMessenger.of(context).clearSnackBars();
@@ -325,7 +356,7 @@ class CartScreenConsumer extends StatelessWidget {
                             onPressedBtn: () {
                               context
                                   .read<CartBloc>()
-                                  .add(const CartEvent.onPlaceOrder());
+                                  .add(const CartEvent.onUserExistsByNumber());
                             }),
                       ),
                   ],

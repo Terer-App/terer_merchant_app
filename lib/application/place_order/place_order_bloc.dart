@@ -44,8 +44,7 @@ class PlaceOrderBloc extends Bloc<PlaceOrderEvent, PlaceOrderState> {
 
     on<_OnLoadOutletProducts>((event, emit) async {
       emit(state.copyWith(isLoading: true));
-      final res = await state.placeOrderRepository
-          .getOutletProducts(outletId: event.outletId);
+     final res = await state.placeOrderRepository.getOutletProducts(outletId: event.outletId);
 
       if (res.length == 1) {
         emit(

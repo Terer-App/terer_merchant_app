@@ -21,9 +21,16 @@ mixin _$CartEvent {
     required TResult Function() init,
     required TResult Function(CartState state) emitFromAnywhere,
     required TResult Function() toggleKeyboard,
-    required TResult Function() onPlaceOrder,
+    required TResult Function(bool isNewUser) onPlaceOrder,
     required TResult Function(Map<String, dynamic> selectedCountry)
         updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,8 +38,14 @@ mixin _$CartEvent {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,8 +53,14 @@ mixin _$CartEvent {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -52,6 +71,11 @@ mixin _$CartEvent {
     required TResult Function(_ToggleKeyboard value) toggleKeyboard,
     required TResult Function(_OnPlaceOrder value) onPlaceOrder,
     required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -61,6 +85,11 @@ mixin _$CartEvent {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -70,6 +99,11 @@ mixin _$CartEvent {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,9 +165,16 @@ class _$_Init implements _Init {
     required TResult Function() init,
     required TResult Function(CartState state) emitFromAnywhere,
     required TResult Function() toggleKeyboard,
-    required TResult Function() onPlaceOrder,
+    required TResult Function(bool isNewUser) onPlaceOrder,
     required TResult Function(Map<String, dynamic> selectedCountry)
         updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
   }) {
     return init();
   }
@@ -144,8 +185,14 @@ class _$_Init implements _Init {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
   }) {
     return init?.call();
   }
@@ -156,8 +203,14 @@ class _$_Init implements _Init {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -174,6 +227,11 @@ class _$_Init implements _Init {
     required TResult Function(_ToggleKeyboard value) toggleKeyboard,
     required TResult Function(_OnPlaceOrder value) onPlaceOrder,
     required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
   }) {
     return init(this);
   }
@@ -186,6 +244,11 @@ class _$_Init implements _Init {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
   }) {
     return init?.call(this);
   }
@@ -198,6 +261,11 @@ class _$_Init implements _Init {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -288,9 +356,16 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     required TResult Function() init,
     required TResult Function(CartState state) emitFromAnywhere,
     required TResult Function() toggleKeyboard,
-    required TResult Function() onPlaceOrder,
+    required TResult Function(bool isNewUser) onPlaceOrder,
     required TResult Function(Map<String, dynamic> selectedCountry)
         updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
   }) {
     return emitFromAnywhere(state);
   }
@@ -301,8 +376,14 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
   }) {
     return emitFromAnywhere?.call(state);
   }
@@ -313,8 +394,14 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (emitFromAnywhere != null) {
@@ -331,6 +418,11 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     required TResult Function(_ToggleKeyboard value) toggleKeyboard,
     required TResult Function(_OnPlaceOrder value) onPlaceOrder,
     required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
   }) {
     return emitFromAnywhere(this);
   }
@@ -343,6 +435,11 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
   }) {
     return emitFromAnywhere?.call(this);
   }
@@ -355,6 +452,11 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (emitFromAnywhere != null) {
@@ -418,9 +520,16 @@ class _$_ToggleKeyboard implements _ToggleKeyboard {
     required TResult Function() init,
     required TResult Function(CartState state) emitFromAnywhere,
     required TResult Function() toggleKeyboard,
-    required TResult Function() onPlaceOrder,
+    required TResult Function(bool isNewUser) onPlaceOrder,
     required TResult Function(Map<String, dynamic> selectedCountry)
         updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
   }) {
     return toggleKeyboard();
   }
@@ -431,8 +540,14 @@ class _$_ToggleKeyboard implements _ToggleKeyboard {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
   }) {
     return toggleKeyboard?.call();
   }
@@ -443,8 +558,14 @@ class _$_ToggleKeyboard implements _ToggleKeyboard {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (toggleKeyboard != null) {
@@ -461,6 +582,11 @@ class _$_ToggleKeyboard implements _ToggleKeyboard {
     required TResult Function(_ToggleKeyboard value) toggleKeyboard,
     required TResult Function(_OnPlaceOrder value) onPlaceOrder,
     required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
   }) {
     return toggleKeyboard(this);
   }
@@ -473,6 +599,11 @@ class _$_ToggleKeyboard implements _ToggleKeyboard {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
   }) {
     return toggleKeyboard?.call(this);
   }
@@ -485,6 +616,11 @@ class _$_ToggleKeyboard implements _ToggleKeyboard {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (toggleKeyboard != null) {
@@ -503,6 +639,7 @@ abstract class _$$_OnPlaceOrderCopyWith<$Res> {
   factory _$$_OnPlaceOrderCopyWith(
           _$_OnPlaceOrder value, $Res Function(_$_OnPlaceOrder) then) =
       __$$_OnPlaceOrderCopyWithImpl<$Res>;
+  $Res call({bool isNewUser});
 }
 
 /// @nodoc
@@ -514,26 +651,49 @@ class __$$_OnPlaceOrderCopyWithImpl<$Res> extends _$CartEventCopyWithImpl<$Res>
 
   @override
   _$_OnPlaceOrder get _value => super._value as _$_OnPlaceOrder;
+
+  @override
+  $Res call({
+    Object? isNewUser = freezed,
+  }) {
+    return _then(_$_OnPlaceOrder(
+      isNewUser: isNewUser == freezed
+          ? _value.isNewUser
+          : isNewUser // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_OnPlaceOrder implements _OnPlaceOrder {
-  const _$_OnPlaceOrder();
+  const _$_OnPlaceOrder({required this.isNewUser});
+
+  @override
+  final bool isNewUser;
 
   @override
   String toString() {
-    return 'CartEvent.onPlaceOrder()';
+    return 'CartEvent.onPlaceOrder(isNewUser: $isNewUser)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_OnPlaceOrder);
+        (other.runtimeType == runtimeType &&
+            other is _$_OnPlaceOrder &&
+            const DeepCollectionEquality().equals(other.isNewUser, isNewUser));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(isNewUser));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OnPlaceOrderCopyWith<_$_OnPlaceOrder> get copyWith =>
+      __$$_OnPlaceOrderCopyWithImpl<_$_OnPlaceOrder>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -541,11 +701,18 @@ class _$_OnPlaceOrder implements _OnPlaceOrder {
     required TResult Function() init,
     required TResult Function(CartState state) emitFromAnywhere,
     required TResult Function() toggleKeyboard,
-    required TResult Function() onPlaceOrder,
+    required TResult Function(bool isNewUser) onPlaceOrder,
     required TResult Function(Map<String, dynamic> selectedCountry)
         updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
   }) {
-    return onPlaceOrder();
+    return onPlaceOrder(isNewUser);
   }
 
   @override
@@ -554,10 +721,16 @@ class _$_OnPlaceOrder implements _OnPlaceOrder {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
   }) {
-    return onPlaceOrder?.call();
+    return onPlaceOrder?.call(isNewUser);
   }
 
   @override
@@ -566,12 +739,18 @@ class _$_OnPlaceOrder implements _OnPlaceOrder {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (onPlaceOrder != null) {
-      return onPlaceOrder();
+      return onPlaceOrder(isNewUser);
     }
     return orElse();
   }
@@ -584,6 +763,11 @@ class _$_OnPlaceOrder implements _OnPlaceOrder {
     required TResult Function(_ToggleKeyboard value) toggleKeyboard,
     required TResult Function(_OnPlaceOrder value) onPlaceOrder,
     required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
   }) {
     return onPlaceOrder(this);
   }
@@ -596,6 +780,11 @@ class _$_OnPlaceOrder implements _OnPlaceOrder {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
   }) {
     return onPlaceOrder?.call(this);
   }
@@ -608,6 +797,11 @@ class _$_OnPlaceOrder implements _OnPlaceOrder {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (onPlaceOrder != null) {
@@ -618,7 +812,13 @@ class _$_OnPlaceOrder implements _OnPlaceOrder {
 }
 
 abstract class _OnPlaceOrder implements CartEvent {
-  const factory _OnPlaceOrder() = _$_OnPlaceOrder;
+  const factory _OnPlaceOrder({required final bool isNewUser}) =
+      _$_OnPlaceOrder;
+
+  bool get isNewUser;
+  @JsonKey(ignore: true)
+  _$$_OnPlaceOrderCopyWith<_$_OnPlaceOrder> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -697,9 +897,16 @@ class _$_UpdateCountryCode implements _UpdateCountryCode {
     required TResult Function() init,
     required TResult Function(CartState state) emitFromAnywhere,
     required TResult Function() toggleKeyboard,
-    required TResult Function() onPlaceOrder,
+    required TResult Function(bool isNewUser) onPlaceOrder,
     required TResult Function(Map<String, dynamic> selectedCountry)
         updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
   }) {
     return updateCountryCode(selectedCountry);
   }
@@ -710,8 +917,14 @@ class _$_UpdateCountryCode implements _UpdateCountryCode {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
   }) {
     return updateCountryCode?.call(selectedCountry);
   }
@@ -722,8 +935,14 @@ class _$_UpdateCountryCode implements _UpdateCountryCode {
     TResult Function()? init,
     TResult Function(CartState state)? emitFromAnywhere,
     TResult Function()? toggleKeyboard,
-    TResult Function()? onPlaceOrder,
+    TResult Function(bool isNewUser)? onPlaceOrder,
     TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (updateCountryCode != null) {
@@ -740,6 +959,11 @@ class _$_UpdateCountryCode implements _UpdateCountryCode {
     required TResult Function(_ToggleKeyboard value) toggleKeyboard,
     required TResult Function(_OnPlaceOrder value) onPlaceOrder,
     required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
   }) {
     return updateCountryCode(this);
   }
@@ -752,6 +976,11 @@ class _$_UpdateCountryCode implements _UpdateCountryCode {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
   }) {
     return updateCountryCode?.call(this);
   }
@@ -764,6 +993,11 @@ class _$_UpdateCountryCode implements _UpdateCountryCode {
     TResult Function(_ToggleKeyboard value)? toggleKeyboard,
     TResult Function(_OnPlaceOrder value)? onPlaceOrder,
     TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
     required TResult orElse(),
   }) {
     if (updateCountryCode != null) {
@@ -785,11 +1019,854 @@ abstract class _UpdateCountryCode implements CartEvent {
 }
 
 /// @nodoc
+abstract class _$$_OnUserExistsByNumberCopyWith<$Res> {
+  factory _$$_OnUserExistsByNumberCopyWith(_$_OnUserExistsByNumber value,
+          $Res Function(_$_OnUserExistsByNumber) then) =
+      __$$_OnUserExistsByNumberCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OnUserExistsByNumberCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res>
+    implements _$$_OnUserExistsByNumberCopyWith<$Res> {
+  __$$_OnUserExistsByNumberCopyWithImpl(_$_OnUserExistsByNumber _value,
+      $Res Function(_$_OnUserExistsByNumber) _then)
+      : super(_value, (v) => _then(v as _$_OnUserExistsByNumber));
+
+  @override
+  _$_OnUserExistsByNumber get _value => super._value as _$_OnUserExistsByNumber;
+}
+
+/// @nodoc
+
+class _$_OnUserExistsByNumber implements _OnUserExistsByNumber {
+  const _$_OnUserExistsByNumber();
+
+  @override
+  String toString() {
+    return 'CartEvent.onUserExistsByNumber()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OnUserExistsByNumber);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(CartState state) emitFromAnywhere,
+    required TResult Function() toggleKeyboard,
+    required TResult Function(bool isNewUser) onPlaceOrder,
+    required TResult Function(Map<String, dynamic> selectedCountry)
+        updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
+  }) {
+    return onUserExistsByNumber();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+  }) {
+    return onUserExistsByNumber?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (onUserExistsByNumber != null) {
+      return onUserExistsByNumber();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_ToggleKeyboard value) toggleKeyboard,
+    required TResult Function(_OnPlaceOrder value) onPlaceOrder,
+    required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
+  }) {
+    return onUserExistsByNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+  }) {
+    return onUserExistsByNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (onUserExistsByNumber != null) {
+      return onUserExistsByNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnUserExistsByNumber implements CartEvent {
+  const factory _OnUserExistsByNumber() = _$_OnUserExistsByNumber;
+}
+
+/// @nodoc
+abstract class _$$_OnUserExistsByEmailCopyWith<$Res> {
+  factory _$$_OnUserExistsByEmailCopyWith(_$_OnUserExistsByEmail value,
+          $Res Function(_$_OnUserExistsByEmail) then) =
+      __$$_OnUserExistsByEmailCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OnUserExistsByEmailCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res>
+    implements _$$_OnUserExistsByEmailCopyWith<$Res> {
+  __$$_OnUserExistsByEmailCopyWithImpl(_$_OnUserExistsByEmail _value,
+      $Res Function(_$_OnUserExistsByEmail) _then)
+      : super(_value, (v) => _then(v as _$_OnUserExistsByEmail));
+
+  @override
+  _$_OnUserExistsByEmail get _value => super._value as _$_OnUserExistsByEmail;
+}
+
+/// @nodoc
+
+class _$_OnUserExistsByEmail implements _OnUserExistsByEmail {
+  const _$_OnUserExistsByEmail();
+
+  @override
+  String toString() {
+    return 'CartEvent.onUserExistsByEmail()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OnUserExistsByEmail);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(CartState state) emitFromAnywhere,
+    required TResult Function() toggleKeyboard,
+    required TResult Function(bool isNewUser) onPlaceOrder,
+    required TResult Function(Map<String, dynamic> selectedCountry)
+        updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
+  }) {
+    return onUserExistsByEmail();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+  }) {
+    return onUserExistsByEmail?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (onUserExistsByEmail != null) {
+      return onUserExistsByEmail();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_ToggleKeyboard value) toggleKeyboard,
+    required TResult Function(_OnPlaceOrder value) onPlaceOrder,
+    required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
+  }) {
+    return onUserExistsByEmail(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+  }) {
+    return onUserExistsByEmail?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (onUserExistsByEmail != null) {
+      return onUserExistsByEmail(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnUserExistsByEmail implements CartEvent {
+  const factory _OnUserExistsByEmail() = _$_OnUserExistsByEmail;
+}
+
+/// @nodoc
+abstract class _$$_OnChangeEmailAddressCopyWith<$Res> {
+  factory _$$_OnChangeEmailAddressCopyWith(_$_OnChangeEmailAddress value,
+          $Res Function(_$_OnChangeEmailAddress) then) =
+      __$$_OnChangeEmailAddressCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OnChangeEmailAddressCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res>
+    implements _$$_OnChangeEmailAddressCopyWith<$Res> {
+  __$$_OnChangeEmailAddressCopyWithImpl(_$_OnChangeEmailAddress _value,
+      $Res Function(_$_OnChangeEmailAddress) _then)
+      : super(_value, (v) => _then(v as _$_OnChangeEmailAddress));
+
+  @override
+  _$_OnChangeEmailAddress get _value => super._value as _$_OnChangeEmailAddress;
+}
+
+/// @nodoc
+
+class _$_OnChangeEmailAddress implements _OnChangeEmailAddress {
+  const _$_OnChangeEmailAddress();
+
+  @override
+  String toString() {
+    return 'CartEvent.onChangeEmailAddress()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OnChangeEmailAddress);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(CartState state) emitFromAnywhere,
+    required TResult Function() toggleKeyboard,
+    required TResult Function(bool isNewUser) onPlaceOrder,
+    required TResult Function(Map<String, dynamic> selectedCountry)
+        updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
+  }) {
+    return onChangeEmailAddress();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+  }) {
+    return onChangeEmailAddress?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (onChangeEmailAddress != null) {
+      return onChangeEmailAddress();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_ToggleKeyboard value) toggleKeyboard,
+    required TResult Function(_OnPlaceOrder value) onPlaceOrder,
+    required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
+  }) {
+    return onChangeEmailAddress(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+  }) {
+    return onChangeEmailAddress?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (onChangeEmailAddress != null) {
+      return onChangeEmailAddress(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnChangeEmailAddress implements CartEvent {
+  const factory _OnChangeEmailAddress() = _$_OnChangeEmailAddress;
+}
+
+/// @nodoc
+abstract class _$$_OnChangeNameCopyWith<$Res> {
+  factory _$$_OnChangeNameCopyWith(
+          _$_OnChangeName value, $Res Function(_$_OnChangeName) then) =
+      __$$_OnChangeNameCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_OnChangeNameCopyWithImpl<$Res> extends _$CartEventCopyWithImpl<$Res>
+    implements _$$_OnChangeNameCopyWith<$Res> {
+  __$$_OnChangeNameCopyWithImpl(
+      _$_OnChangeName _value, $Res Function(_$_OnChangeName) _then)
+      : super(_value, (v) => _then(v as _$_OnChangeName));
+
+  @override
+  _$_OnChangeName get _value => super._value as _$_OnChangeName;
+}
+
+/// @nodoc
+
+class _$_OnChangeName implements _OnChangeName {
+  const _$_OnChangeName();
+
+  @override
+  String toString() {
+    return 'CartEvent.onChangeName()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_OnChangeName);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(CartState state) emitFromAnywhere,
+    required TResult Function() toggleKeyboard,
+    required TResult Function(bool isNewUser) onPlaceOrder,
+    required TResult Function(Map<String, dynamic> selectedCountry)
+        updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
+  }) {
+    return onChangeName();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+  }) {
+    return onChangeName?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (onChangeName != null) {
+      return onChangeName();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_ToggleKeyboard value) toggleKeyboard,
+    required TResult Function(_OnPlaceOrder value) onPlaceOrder,
+    required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
+  }) {
+    return onChangeName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+  }) {
+    return onChangeName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (onChangeName != null) {
+      return onChangeName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnChangeName implements CartEvent {
+  const factory _OnChangeName() = _$_OnChangeName;
+}
+
+/// @nodoc
+abstract class _$$_UpdatePhoneNumberCopyWith<$Res> {
+  factory _$$_UpdatePhoneNumberCopyWith(_$_UpdatePhoneNumber value,
+          $Res Function(_$_UpdatePhoneNumber) then) =
+      __$$_UpdatePhoneNumberCopyWithImpl<$Res>;
+  $Res call({Map<String, dynamic> selectedCountry, String phoneNumber});
+}
+
+/// @nodoc
+class __$$_UpdatePhoneNumberCopyWithImpl<$Res>
+    extends _$CartEventCopyWithImpl<$Res>
+    implements _$$_UpdatePhoneNumberCopyWith<$Res> {
+  __$$_UpdatePhoneNumberCopyWithImpl(
+      _$_UpdatePhoneNumber _value, $Res Function(_$_UpdatePhoneNumber) _then)
+      : super(_value, (v) => _then(v as _$_UpdatePhoneNumber));
+
+  @override
+  _$_UpdatePhoneNumber get _value => super._value as _$_UpdatePhoneNumber;
+
+  @override
+  $Res call({
+    Object? selectedCountry = freezed,
+    Object? phoneNumber = freezed,
+  }) {
+    return _then(_$_UpdatePhoneNumber(
+      selectedCountry: selectedCountry == freezed
+          ? _value._selectedCountry
+          : selectedCountry // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      phoneNumber: phoneNumber == freezed
+          ? _value.phoneNumber
+          : phoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_UpdatePhoneNumber implements _UpdatePhoneNumber {
+  const _$_UpdatePhoneNumber(
+      {required final Map<String, dynamic> selectedCountry,
+      required this.phoneNumber})
+      : _selectedCountry = selectedCountry;
+
+  final Map<String, dynamic> _selectedCountry;
+  @override
+  Map<String, dynamic> get selectedCountry {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_selectedCountry);
+  }
+
+  @override
+  final String phoneNumber;
+
+  @override
+  String toString() {
+    return 'CartEvent.updatePhoneNumber(selectedCountry: $selectedCountry, phoneNumber: $phoneNumber)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_UpdatePhoneNumber &&
+            const DeepCollectionEquality()
+                .equals(other._selectedCountry, _selectedCountry) &&
+            const DeepCollectionEquality()
+                .equals(other.phoneNumber, phoneNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_selectedCountry),
+      const DeepCollectionEquality().hash(phoneNumber));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_UpdatePhoneNumberCopyWith<_$_UpdatePhoneNumber> get copyWith =>
+      __$$_UpdatePhoneNumberCopyWithImpl<_$_UpdatePhoneNumber>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(CartState state) emitFromAnywhere,
+    required TResult Function() toggleKeyboard,
+    required TResult Function(bool isNewUser) onPlaceOrder,
+    required TResult Function(Map<String, dynamic> selectedCountry)
+        updateCountryCode,
+    required TResult Function() onUserExistsByNumber,
+    required TResult Function() onUserExistsByEmail,
+    required TResult Function() onChangeEmailAddress,
+    required TResult Function() onChangeName,
+    required TResult Function(
+            Map<String, dynamic> selectedCountry, String phoneNumber)
+        updatePhoneNumber,
+  }) {
+    return updatePhoneNumber(selectedCountry, phoneNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+  }) {
+    return updatePhoneNumber?.call(selectedCountry, phoneNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(CartState state)? emitFromAnywhere,
+    TResult Function()? toggleKeyboard,
+    TResult Function(bool isNewUser)? onPlaceOrder,
+    TResult Function(Map<String, dynamic> selectedCountry)? updateCountryCode,
+    TResult Function()? onUserExistsByNumber,
+    TResult Function()? onUserExistsByEmail,
+    TResult Function()? onChangeEmailAddress,
+    TResult Function()? onChangeName,
+    TResult Function(Map<String, dynamic> selectedCountry, String phoneNumber)?
+        updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (updatePhoneNumber != null) {
+      return updatePhoneNumber(selectedCountry, phoneNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_ToggleKeyboard value) toggleKeyboard,
+    required TResult Function(_OnPlaceOrder value) onPlaceOrder,
+    required TResult Function(_UpdateCountryCode value) updateCountryCode,
+    required TResult Function(_OnUserExistsByNumber value) onUserExistsByNumber,
+    required TResult Function(_OnUserExistsByEmail value) onUserExistsByEmail,
+    required TResult Function(_OnChangeEmailAddress value) onChangeEmailAddress,
+    required TResult Function(_OnChangeName value) onChangeName,
+    required TResult Function(_UpdatePhoneNumber value) updatePhoneNumber,
+  }) {
+    return updatePhoneNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+  }) {
+    return updatePhoneNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_ToggleKeyboard value)? toggleKeyboard,
+    TResult Function(_OnPlaceOrder value)? onPlaceOrder,
+    TResult Function(_UpdateCountryCode value)? updateCountryCode,
+    TResult Function(_OnUserExistsByNumber value)? onUserExistsByNumber,
+    TResult Function(_OnUserExistsByEmail value)? onUserExistsByEmail,
+    TResult Function(_OnChangeEmailAddress value)? onChangeEmailAddress,
+    TResult Function(_OnChangeName value)? onChangeName,
+    TResult Function(_UpdatePhoneNumber value)? updatePhoneNumber,
+    required TResult orElse(),
+  }) {
+    if (updatePhoneNumber != null) {
+      return updatePhoneNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdatePhoneNumber implements CartEvent {
+  const factory _UpdatePhoneNumber(
+      {required final Map<String, dynamic> selectedCountry,
+      required final String phoneNumber}) = _$_UpdatePhoneNumber;
+
+  Map<String, dynamic> get selectedCountry;
+  String get phoneNumber;
+  @JsonKey(ignore: true)
+  _$$_UpdatePhoneNumberCopyWith<_$_UpdatePhoneNumber> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$CartState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isFailed => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
   bool get noUse => throw _privateConstructorUsedError;
+  bool get showBottomSheet => throw _privateConstructorUsedError;
   String get apiUrl => throw _privateConstructorUsedError;
   String get showMessage => throw _privateConstructorUsedError;
   AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
@@ -799,7 +1876,13 @@ mixin _$CartState {
       throw _privateConstructorUsedError;
   TextEditingController get phoneNumberController =>
       throw _privateConstructorUsedError;
+  TextEditingController get emailController =>
+      throw _privateConstructorUsedError;
+  TextEditingController get nameController =>
+      throw _privateConstructorUsedError;
   String get errorPhoneNumber => throw _privateConstructorUsedError;
+  String get errorEmailId => throw _privateConstructorUsedError;
+  String get errorName => throw _privateConstructorUsedError;
   Map<String, dynamic> get selectedCountry =>
       throw _privateConstructorUsedError;
   bool get showKeyboard => throw _privateConstructorUsedError;
@@ -821,13 +1904,18 @@ abstract class $CartStateCopyWith<$Res> {
       bool isFailed,
       bool isSuccess,
       bool noUse,
+      bool showBottomSheet,
       String apiUrl,
       String showMessage,
       AppStateNotifier appStateNotifier,
       PlaceOrderRepository placeOrderRepository,
       ZoomDrawerController zoomDrawerController,
       TextEditingController phoneNumberController,
+      TextEditingController emailController,
+      TextEditingController nameController,
       String errorPhoneNumber,
+      String errorEmailId,
+      String errorName,
       Map<String, dynamic> selectedCountry,
       bool showKeyboard,
       List<OutletProductDto> addedProducts,
@@ -848,13 +1936,18 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
+    Object? showBottomSheet = freezed,
     Object? apiUrl = freezed,
     Object? showMessage = freezed,
     Object? appStateNotifier = freezed,
     Object? placeOrderRepository = freezed,
     Object? zoomDrawerController = freezed,
     Object? phoneNumberController = freezed,
+    Object? emailController = freezed,
+    Object? nameController = freezed,
     Object? errorPhoneNumber = freezed,
+    Object? errorEmailId = freezed,
+    Object? errorName = freezed,
     Object? selectedCountry = freezed,
     Object? showKeyboard = freezed,
     Object? addedProducts = freezed,
@@ -876,6 +1969,10 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
       noUse: noUse == freezed
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showBottomSheet: showBottomSheet == freezed
+          ? _value.showBottomSheet
+          : showBottomSheet // ignore: cast_nullable_to_non_nullable
               as bool,
       apiUrl: apiUrl == freezed
           ? _value.apiUrl
@@ -901,9 +1998,25 @@ class _$CartStateCopyWithImpl<$Res> implements $CartStateCopyWith<$Res> {
           ? _value.phoneNumberController
           : phoneNumberController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      emailController: emailController == freezed
+          ? _value.emailController
+          : emailController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      nameController: nameController == freezed
+          ? _value.nameController
+          : nameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       errorPhoneNumber: errorPhoneNumber == freezed
           ? _value.errorPhoneNumber
           : errorPhoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      errorEmailId: errorEmailId == freezed
+          ? _value.errorEmailId
+          : errorEmailId // ignore: cast_nullable_to_non_nullable
+              as String,
+      errorName: errorName == freezed
+          ? _value.errorName
+          : errorName // ignore: cast_nullable_to_non_nullable
               as String,
       selectedCountry: selectedCountry == freezed
           ? _value.selectedCountry
@@ -936,13 +2049,18 @@ abstract class _$$_CartStateCopyWith<$Res> implements $CartStateCopyWith<$Res> {
       bool isFailed,
       bool isSuccess,
       bool noUse,
+      bool showBottomSheet,
       String apiUrl,
       String showMessage,
       AppStateNotifier appStateNotifier,
       PlaceOrderRepository placeOrderRepository,
       ZoomDrawerController zoomDrawerController,
       TextEditingController phoneNumberController,
+      TextEditingController emailController,
+      TextEditingController nameController,
       String errorPhoneNumber,
+      String errorEmailId,
+      String errorName,
       Map<String, dynamic> selectedCountry,
       bool showKeyboard,
       List<OutletProductDto> addedProducts,
@@ -965,13 +2083,18 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
+    Object? showBottomSheet = freezed,
     Object? apiUrl = freezed,
     Object? showMessage = freezed,
     Object? appStateNotifier = freezed,
     Object? placeOrderRepository = freezed,
     Object? zoomDrawerController = freezed,
     Object? phoneNumberController = freezed,
+    Object? emailController = freezed,
+    Object? nameController = freezed,
     Object? errorPhoneNumber = freezed,
+    Object? errorEmailId = freezed,
+    Object? errorName = freezed,
     Object? selectedCountry = freezed,
     Object? showKeyboard = freezed,
     Object? addedProducts = freezed,
@@ -993,6 +2116,10 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
       noUse: noUse == freezed
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
+              as bool,
+      showBottomSheet: showBottomSheet == freezed
+          ? _value.showBottomSheet
+          : showBottomSheet // ignore: cast_nullable_to_non_nullable
               as bool,
       apiUrl: apiUrl == freezed
           ? _value.apiUrl
@@ -1018,9 +2145,25 @@ class __$$_CartStateCopyWithImpl<$Res> extends _$CartStateCopyWithImpl<$Res>
           ? _value.phoneNumberController
           : phoneNumberController // ignore: cast_nullable_to_non_nullable
               as TextEditingController,
+      emailController: emailController == freezed
+          ? _value.emailController
+          : emailController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      nameController: nameController == freezed
+          ? _value.nameController
+          : nameController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
       errorPhoneNumber: errorPhoneNumber == freezed
           ? _value.errorPhoneNumber
           : errorPhoneNumber // ignore: cast_nullable_to_non_nullable
+              as String,
+      errorEmailId: errorEmailId == freezed
+          ? _value.errorEmailId
+          : errorEmailId // ignore: cast_nullable_to_non_nullable
+              as String,
+      errorName: errorName == freezed
+          ? _value.errorName
+          : errorName // ignore: cast_nullable_to_non_nullable
               as String,
       selectedCountry: selectedCountry == freezed
           ? _value._selectedCountry
@@ -1050,13 +2193,18 @@ class _$_CartState implements _CartState {
       required this.isFailed,
       required this.isSuccess,
       required this.noUse,
+      required this.showBottomSheet,
       required this.apiUrl,
       required this.showMessage,
       required this.appStateNotifier,
       required this.placeOrderRepository,
       required this.zoomDrawerController,
       required this.phoneNumberController,
+      required this.emailController,
+      required this.nameController,
       required this.errorPhoneNumber,
+      required this.errorEmailId,
+      required this.errorName,
       required final Map<String, dynamic> selectedCountry,
       required this.showKeyboard,
       required final List<OutletProductDto> addedProducts,
@@ -1073,6 +2221,8 @@ class _$_CartState implements _CartState {
   @override
   final bool noUse;
   @override
+  final bool showBottomSheet;
+  @override
   final String apiUrl;
   @override
   final String showMessage;
@@ -1085,7 +2235,15 @@ class _$_CartState implements _CartState {
   @override
   final TextEditingController phoneNumberController;
   @override
+  final TextEditingController emailController;
+  @override
+  final TextEditingController nameController;
+  @override
   final String errorPhoneNumber;
+  @override
+  final String errorEmailId;
+  @override
+  final String errorName;
   final Map<String, dynamic> _selectedCountry;
   @override
   Map<String, dynamic> get selectedCountry {
@@ -1107,7 +2265,7 @@ class _$_CartState implements _CartState {
 
   @override
   String toString() {
-    return 'CartState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, apiUrl: $apiUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, placeOrderRepository: $placeOrderRepository, zoomDrawerController: $zoomDrawerController, phoneNumberController: $phoneNumberController, errorPhoneNumber: $errorPhoneNumber, selectedCountry: $selectedCountry, showKeyboard: $showKeyboard, addedProducts: $addedProducts, focusNode: $focusNode)';
+    return 'CartState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, showBottomSheet: $showBottomSheet, apiUrl: $apiUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, placeOrderRepository: $placeOrderRepository, zoomDrawerController: $zoomDrawerController, phoneNumberController: $phoneNumberController, emailController: $emailController, nameController: $nameController, errorPhoneNumber: $errorPhoneNumber, errorEmailId: $errorEmailId, errorName: $errorName, selectedCountry: $selectedCountry, showKeyboard: $showKeyboard, addedProducts: $addedProducts, focusNode: $focusNode)';
   }
 
   @override
@@ -1119,6 +2277,8 @@ class _$_CartState implements _CartState {
             const DeepCollectionEquality().equals(other.isFailed, isFailed) &&
             const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
             const DeepCollectionEquality().equals(other.noUse, noUse) &&
+            const DeepCollectionEquality()
+                .equals(other.showBottomSheet, showBottomSheet) &&
             const DeepCollectionEquality().equals(other.apiUrl, apiUrl) &&
             const DeepCollectionEquality()
                 .equals(other.showMessage, showMessage) &&
@@ -1131,7 +2291,14 @@ class _$_CartState implements _CartState {
             const DeepCollectionEquality()
                 .equals(other.phoneNumberController, phoneNumberController) &&
             const DeepCollectionEquality()
+                .equals(other.emailController, emailController) &&
+            const DeepCollectionEquality()
+                .equals(other.nameController, nameController) &&
+            const DeepCollectionEquality()
                 .equals(other.errorPhoneNumber, errorPhoneNumber) &&
+            const DeepCollectionEquality()
+                .equals(other.errorEmailId, errorEmailId) &&
+            const DeepCollectionEquality().equals(other.errorName, errorName) &&
             const DeepCollectionEquality()
                 .equals(other._selectedCountry, _selectedCountry) &&
             const DeepCollectionEquality()
@@ -1142,23 +2309,29 @@ class _$_CartState implements _CartState {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isFailed),
-      const DeepCollectionEquality().hash(isSuccess),
-      const DeepCollectionEquality().hash(noUse),
-      const DeepCollectionEquality().hash(apiUrl),
-      const DeepCollectionEquality().hash(showMessage),
-      const DeepCollectionEquality().hash(appStateNotifier),
-      const DeepCollectionEquality().hash(placeOrderRepository),
-      const DeepCollectionEquality().hash(zoomDrawerController),
-      const DeepCollectionEquality().hash(phoneNumberController),
-      const DeepCollectionEquality().hash(errorPhoneNumber),
-      const DeepCollectionEquality().hash(_selectedCountry),
-      const DeepCollectionEquality().hash(showKeyboard),
-      const DeepCollectionEquality().hash(_addedProducts),
-      const DeepCollectionEquality().hash(focusNode));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(isLoading),
+        const DeepCollectionEquality().hash(isFailed),
+        const DeepCollectionEquality().hash(isSuccess),
+        const DeepCollectionEquality().hash(noUse),
+        const DeepCollectionEquality().hash(showBottomSheet),
+        const DeepCollectionEquality().hash(apiUrl),
+        const DeepCollectionEquality().hash(showMessage),
+        const DeepCollectionEquality().hash(appStateNotifier),
+        const DeepCollectionEquality().hash(placeOrderRepository),
+        const DeepCollectionEquality().hash(zoomDrawerController),
+        const DeepCollectionEquality().hash(phoneNumberController),
+        const DeepCollectionEquality().hash(emailController),
+        const DeepCollectionEquality().hash(nameController),
+        const DeepCollectionEquality().hash(errorPhoneNumber),
+        const DeepCollectionEquality().hash(errorEmailId),
+        const DeepCollectionEquality().hash(errorName),
+        const DeepCollectionEquality().hash(_selectedCountry),
+        const DeepCollectionEquality().hash(showKeyboard),
+        const DeepCollectionEquality().hash(_addedProducts),
+        const DeepCollectionEquality().hash(focusNode)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1172,13 +2345,18 @@ abstract class _CartState implements CartState {
       required final bool isFailed,
       required final bool isSuccess,
       required final bool noUse,
+      required final bool showBottomSheet,
       required final String apiUrl,
       required final String showMessage,
       required final AppStateNotifier appStateNotifier,
       required final PlaceOrderRepository placeOrderRepository,
       required final ZoomDrawerController zoomDrawerController,
       required final TextEditingController phoneNumberController,
+      required final TextEditingController emailController,
+      required final TextEditingController nameController,
       required final String errorPhoneNumber,
+      required final String errorEmailId,
+      required final String errorName,
       required final Map<String, dynamic> selectedCountry,
       required final bool showKeyboard,
       required final List<OutletProductDto> addedProducts,
@@ -1193,6 +2371,8 @@ abstract class _CartState implements CartState {
   @override
   bool get noUse;
   @override
+  bool get showBottomSheet;
+  @override
   String get apiUrl;
   @override
   String get showMessage;
@@ -1205,7 +2385,15 @@ abstract class _CartState implements CartState {
   @override
   TextEditingController get phoneNumberController;
   @override
+  TextEditingController get emailController;
+  @override
+  TextEditingController get nameController;
+  @override
   String get errorPhoneNumber;
+  @override
+  String get errorEmailId;
+  @override
+  String get errorName;
   @override
   Map<String, dynamic> get selectedCountry;
   @override

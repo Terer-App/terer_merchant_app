@@ -41,7 +41,7 @@ class PlaceOrderState with _$PlaceOrderState {
       serverUrl: serverUrl,
       apiUrl: apiUrl,
       shopMerchantRepository: IShopMerchantRepository(serverUrl: serverUrl),
-      placeOrderRepository: IPlaceOrderRepository(apiUrl: apiUrl),
+      placeOrderRepository: IPlaceOrderRepository(apiUrl: apiUrl,serverUrl: serverUrl),
       outlets: [],
       outletProducts: [],
       selectedOutletProducts: [],

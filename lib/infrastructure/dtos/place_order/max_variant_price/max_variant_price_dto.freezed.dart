@@ -20,9 +20,9 @@ MaxVariantPriceDto _$MaxVariantPriceDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MaxVariantPriceDto {
-  @JsonKey(name: "amount")
+  @JsonKey(name: 'amount')
   String get amount => throw _privateConstructorUsedError;
-  @JsonKey(name: "currencyCode")
+  @JsonKey(name: 'currencyCode')
   String get currencyCode => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,8 +37,8 @@ abstract class $MaxVariantPriceDtoCopyWith<$Res> {
           MaxVariantPriceDto value, $Res Function(MaxVariantPriceDto) then) =
       _$MaxVariantPriceDtoCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "amount") String amount,
-      @JsonKey(name: "currencyCode") String currencyCode});
+      {@JsonKey(name: 'amount') String amount,
+      @JsonKey(name: 'currencyCode') String currencyCode});
 }
 
 /// @nodoc
@@ -76,8 +76,8 @@ abstract class _$$_MaxVariantPriceDtoCopyWith<$Res>
       __$$_MaxVariantPriceDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "amount") String amount,
-      @JsonKey(name: "currencyCode") String currencyCode});
+      {@JsonKey(name: 'amount') String amount,
+      @JsonKey(name: 'currencyCode') String currencyCode});
 }
 
 /// @nodoc
@@ -113,17 +113,17 @@ class __$$_MaxVariantPriceDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MaxVariantPriceDto implements _MaxVariantPriceDto {
   const _$_MaxVariantPriceDto(
-      {@JsonKey(name: "amount") required this.amount,
-      @JsonKey(name: "currencyCode") required this.currencyCode});
+      {@JsonKey(name: 'amount') required this.amount,
+      @JsonKey(name: 'currencyCode') required this.currencyCode});
 
   factory _$_MaxVariantPriceDto.fromJson(Map<String, dynamic> json) =>
       _$$_MaxVariantPriceDtoFromJson(json);
 
   @override
-  @JsonKey(name: "amount")
+  @JsonKey(name: 'amount')
   final String amount;
   @override
-  @JsonKey(name: "currencyCode")
+  @JsonKey(name: 'currencyCode')
   final String currencyCode;
 
   @override
@@ -164,18 +164,18 @@ class _$_MaxVariantPriceDto implements _MaxVariantPriceDto {
 
 abstract class _MaxVariantPriceDto implements MaxVariantPriceDto {
   const factory _MaxVariantPriceDto(
-          {@JsonKey(name: "amount") required final String amount,
-          @JsonKey(name: "currencyCode") required final String currencyCode}) =
+          {@JsonKey(name: 'amount') required final String amount,
+          @JsonKey(name: 'currencyCode') required final String currencyCode}) =
       _$_MaxVariantPriceDto;
 
   factory _MaxVariantPriceDto.fromJson(Map<String, dynamic> json) =
       _$_MaxVariantPriceDto.fromJson;
 
   @override
-  @JsonKey(name: "amount")
+  @JsonKey(name: 'amount')
   String get amount;
   @override
-  @JsonKey(name: "currencyCode")
+  @JsonKey(name: 'currencyCode')
   String get currencyCode;
   @override
   @JsonKey(ignore: true)

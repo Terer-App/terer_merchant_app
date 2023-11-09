@@ -371,6 +371,11 @@ class CartConstants {
     static const String cartIsEmpty = 'Cart Is Empty';
     static const String placeOrder = 'Place Order';
     static const String checkout = 'Checkout';
+    static const String email = 'Email';
+    static const String name = 'Name';
+        static const String hintEmail = 'Enter Email';
+    static const String hintName = 'Enter Name';
+
 
 }
 class NotificationNavigateToConstants {

@@ -20,7 +20,7 @@ PriceRangeDto _$PriceRangeDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PriceRangeDto {
-  @JsonKey(name: "maxVariantPrice")
+  @JsonKey(name: 'maxVariantPrice')
   MaxVariantPriceDto get maxVariantPrice => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $PriceRangeDtoCopyWith<$Res> {
           PriceRangeDto value, $Res Function(PriceRangeDto) then) =
       _$PriceRangeDtoCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: "maxVariantPrice") MaxVariantPriceDto maxVariantPrice});
+      {@JsonKey(name: 'maxVariantPrice') MaxVariantPriceDto maxVariantPrice});
 
   $MaxVariantPriceDtoCopyWith<$Res> get maxVariantPrice;
 }
@@ -77,7 +77,7 @@ abstract class _$$_PriceRangeDtoCopyWith<$Res>
       __$$_PriceRangeDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: "maxVariantPrice") MaxVariantPriceDto maxVariantPrice});
+      {@JsonKey(name: 'maxVariantPrice') MaxVariantPriceDto maxVariantPrice});
 
   @override
   $MaxVariantPriceDtoCopyWith<$Res> get maxVariantPrice;
@@ -111,13 +111,13 @@ class __$$_PriceRangeDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PriceRangeDto implements _PriceRangeDto {
   const _$_PriceRangeDto(
-      {@JsonKey(name: "maxVariantPrice") required this.maxVariantPrice});
+      {@JsonKey(name: 'maxVariantPrice') required this.maxVariantPrice});
 
   factory _$_PriceRangeDto.fromJson(Map<String, dynamic> json) =>
       _$$_PriceRangeDtoFromJson(json);
 
   @override
-  @JsonKey(name: "maxVariantPrice")
+  @JsonKey(name: 'maxVariantPrice')
   final MaxVariantPriceDto maxVariantPrice;
 
   @override
@@ -154,7 +154,7 @@ class _$_PriceRangeDto implements _PriceRangeDto {
 
 abstract class _PriceRangeDto implements PriceRangeDto {
   const factory _PriceRangeDto(
-          {@JsonKey(name: "maxVariantPrice")
+          {@JsonKey(name: 'maxVariantPrice')
               required final MaxVariantPriceDto maxVariantPrice}) =
       _$_PriceRangeDto;
 
@@ -162,7 +162,7 @@ abstract class _PriceRangeDto implements PriceRangeDto {
       _$_PriceRangeDto.fromJson;
 
   @override
-  @JsonKey(name: "maxVariantPrice")
+  @JsonKey(name: 'maxVariantPrice')
   MaxVariantPriceDto get maxVariantPrice;
   @override
   @JsonKey(ignore: true)
