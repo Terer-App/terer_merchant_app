@@ -1241,8 +1241,6 @@ mixin _$PlaceOrderState {
       throw _privateConstructorUsedError;
   ShopMerchantRepository get shopMerchantRepository =>
       throw _privateConstructorUsedError;
-  ZoomDrawerController get zoomDrawerController =>
-      throw _privateConstructorUsedError;
   List<OutletDto> get outlets => throw _privateConstructorUsedError;
   List<OutletProductDto> get outletProducts =>
       throw _privateConstructorUsedError;
@@ -1276,7 +1274,6 @@ abstract class $PlaceOrderStateCopyWith<$Res> {
       AppStateNotifier appStateNotifier,
       PlaceOrderRepository placeOrderRepository,
       ShopMerchantRepository shopMerchantRepository,
-      ZoomDrawerController zoomDrawerController,
       List<OutletDto> outlets,
       List<OutletProductDto> outletProducts,
       List<OutletProductDto> selectedOutletProducts,
@@ -1309,7 +1306,6 @@ class _$PlaceOrderStateCopyWithImpl<$Res>
     Object? appStateNotifier = freezed,
     Object? placeOrderRepository = freezed,
     Object? shopMerchantRepository = freezed,
-    Object? zoomDrawerController = freezed,
     Object? outlets = freezed,
     Object? outletProducts = freezed,
     Object? selectedOutletProducts = freezed,
@@ -1362,10 +1358,6 @@ class _$PlaceOrderStateCopyWithImpl<$Res>
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
               as ShopMerchantRepository,
-      zoomDrawerController: zoomDrawerController == freezed
-          ? _value.zoomDrawerController
-          : zoomDrawerController // ignore: cast_nullable_to_non_nullable
-              as ZoomDrawerController,
       outlets: outlets == freezed
           ? _value.outlets
           : outlets // ignore: cast_nullable_to_non_nullable
@@ -1424,7 +1416,6 @@ abstract class _$$_PlaceOrderStateCopyWith<$Res>
       AppStateNotifier appStateNotifier,
       PlaceOrderRepository placeOrderRepository,
       ShopMerchantRepository shopMerchantRepository,
-      ZoomDrawerController zoomDrawerController,
       List<OutletDto> outlets,
       List<OutletProductDto> outletProducts,
       List<OutletProductDto> selectedOutletProducts,
@@ -1460,7 +1451,6 @@ class __$$_PlaceOrderStateCopyWithImpl<$Res>
     Object? appStateNotifier = freezed,
     Object? placeOrderRepository = freezed,
     Object? shopMerchantRepository = freezed,
-    Object? zoomDrawerController = freezed,
     Object? outlets = freezed,
     Object? outletProducts = freezed,
     Object? selectedOutletProducts = freezed,
@@ -1513,10 +1503,6 @@ class __$$_PlaceOrderStateCopyWithImpl<$Res>
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
               as ShopMerchantRepository,
-      zoomDrawerController: zoomDrawerController == freezed
-          ? _value.zoomDrawerController
-          : zoomDrawerController // ignore: cast_nullable_to_non_nullable
-              as ZoomDrawerController,
       outlets: outlets == freezed
           ? _value.outlets
           : outlets // ignore: cast_nullable_to_non_nullable
@@ -1560,7 +1546,6 @@ class _$_PlaceOrderState implements _PlaceOrderState {
       required this.appStateNotifier,
       required this.placeOrderRepository,
       required this.shopMerchantRepository,
-      required this.zoomDrawerController,
       required this.outlets,
       required this.outletProducts,
       required this.selectedOutletProducts,
@@ -1591,8 +1576,6 @@ class _$_PlaceOrderState implements _PlaceOrderState {
   @override
   final ShopMerchantRepository shopMerchantRepository;
   @override
-  final ZoomDrawerController zoomDrawerController;
-  @override
   final List<OutletDto> outlets;
   @override
   final List<OutletProductDto> outletProducts;
@@ -1607,7 +1590,7 @@ class _$_PlaceOrderState implements _PlaceOrderState {
 
   @override
   String toString() {
-    return 'PlaceOrderState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, showOutletBottomSheet: $showOutletBottomSheet, serverUrl: $serverUrl, apiUrl: $apiUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, placeOrderRepository: $placeOrderRepository, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, outlets: $outlets, outletProducts: $outletProducts, selectedOutletProducts: $selectedOutletProducts, searchedOutletProducts: $searchedOutletProducts, searchController: $searchController, selectedOutlet: $selectedOutlet)';
+    return 'PlaceOrderState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, showOutletBottomSheet: $showOutletBottomSheet, serverUrl: $serverUrl, apiUrl: $apiUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, placeOrderRepository: $placeOrderRepository, shopMerchantRepository: $shopMerchantRepository, outlets: $outlets, outletProducts: $outletProducts, selectedOutletProducts: $selectedOutletProducts, searchedOutletProducts: $searchedOutletProducts, searchController: $searchController, selectedOutlet: $selectedOutlet)';
   }
 
   @override
@@ -1631,8 +1614,6 @@ class _$_PlaceOrderState implements _PlaceOrderState {
                 .equals(other.placeOrderRepository, placeOrderRepository) &&
             const DeepCollectionEquality()
                 .equals(other.shopMerchantRepository, shopMerchantRepository) &&
-            const DeepCollectionEquality()
-                .equals(other.zoomDrawerController, zoomDrawerController) &&
             const DeepCollectionEquality().equals(other.outlets, outlets) &&
             const DeepCollectionEquality()
                 .equals(other.outletProducts, outletProducts) &&
@@ -1660,7 +1641,6 @@ class _$_PlaceOrderState implements _PlaceOrderState {
       const DeepCollectionEquality().hash(appStateNotifier),
       const DeepCollectionEquality().hash(placeOrderRepository),
       const DeepCollectionEquality().hash(shopMerchantRepository),
-      const DeepCollectionEquality().hash(zoomDrawerController),
       const DeepCollectionEquality().hash(outlets),
       const DeepCollectionEquality().hash(outletProducts),
       const DeepCollectionEquality().hash(selectedOutletProducts),
@@ -1687,7 +1667,6 @@ abstract class _PlaceOrderState implements PlaceOrderState {
       required final AppStateNotifier appStateNotifier,
       required final PlaceOrderRepository placeOrderRepository,
       required final ShopMerchantRepository shopMerchantRepository,
-      required final ZoomDrawerController zoomDrawerController,
       required final List<OutletDto> outlets,
       required final List<OutletProductDto> outletProducts,
       required final List<OutletProductDto> selectedOutletProducts,
@@ -1717,8 +1696,6 @@ abstract class _PlaceOrderState implements PlaceOrderState {
   PlaceOrderRepository get placeOrderRepository;
   @override
   ShopMerchantRepository get shopMerchantRepository;
-  @override
-  ZoomDrawerController get zoomDrawerController;
   @override
   List<OutletDto> get outlets;
   @override

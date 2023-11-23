@@ -11,6 +11,7 @@ import '../../../../presentation/deals/reports/reports_screen.dart';
 import '../../../../presentation/dispute_report/dispute_report_screen.dart';
 import '../../../../presentation/home/home_screen.dart';
 import '../../../../presentation/place_order/cart_screen.dart';
+import '../../../../presentation/place_order/place_order_screen.dart';
 import '../../../core/configs/determine_platform.dart';
 import 'route_names.dart';
 import '../../../extensions/string_extensions.dart';
@@ -64,6 +65,11 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
     final args = settings.arguments;
       return _getPageRoute(
          CartScreen(zoomDrawerController: ZoomDrawerController(),addedProducts:args as List<OutletProductDto>,),
+        settings,
+      );
+       case CoreRoutes.createOrderRoute:
+      return _getPageRoute(
+        const PlaceOrderScreen(),
         settings,
       );
     default:

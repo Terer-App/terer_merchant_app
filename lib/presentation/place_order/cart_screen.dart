@@ -68,14 +68,12 @@ class CartScreenConsumer extends StatelessWidget {
             );
           },
         ).then((value) {
-           context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
-                state: state.copyWith(
-              isSuccess: false,
-              isFailed: false,
-              isLoading: false,
-              showBottomSheet: false
-            )));
-
+          context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
+              state: state.copyWith(
+                  isSuccess: false,
+                  isFailed: false,
+                  isLoading: false,
+                  showBottomSheet: false)));
         });
       }
       if (state.isSuccess) {
@@ -347,8 +345,8 @@ class CartScreenConsumer extends StatelessWidget {
                     ),
                     if (!state.showKeyboard)
                       Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 1.h, vertical: 1.5),
+                        padding: EdgeInsets.only(
+                            top: 1.h, left: 1.h, right: 1.h, bottom: 5.h),
                         child: PrimaryButton(
                             width: 60.w,
                             btnText: CartConstants.placeOrder,

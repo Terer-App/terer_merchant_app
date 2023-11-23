@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
-
 class PlaceOrderDealWidget extends StatelessWidget {
   final String dealName;
   final String currencyCode;
@@ -47,7 +46,7 @@ class PlaceOrderDealWidget extends StatelessWidget {
               assetImage,
               fit: BoxFit.cover,
               height: 20.h,
-              width: 120,
+              width: 20.h,
             ),
           ),
           Expanded(

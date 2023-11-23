@@ -161,6 +161,32 @@ class ManageDealsConsumer extends StatelessWidget {
                                 },
                               )
                             ],
+                          ),
+                          SizedBox(
+                            height: 2.h,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              CustomCard(
+                                isPrimaryColor: false,
+                                isDisabled: true,
+                                image: AssetConstants.payOut,
+                                title: DealsConstants.payOut,
+                                onClick: () {},
+                              ),
+                              SizedBox(
+                                width: 1.5.h,
+                              ),
+                              CustomCard(
+                                image: AssetConstants.createOrder,
+                                title: DealsConstants.createOrder,
+                                onClick: () {
+                                  navigator<NavigationService>()
+                                      .navigateTo(CoreRoutes.createOrderRoute);
+                                },
+                              ),
+                            ],
                           )
                         ],
                       ),
@@ -302,6 +328,7 @@ class ManageDealsConsumer extends StatelessWidget {
 
 class CustomCard extends StatelessWidget {
   final bool isPrimaryColor;
+  final bool isDisabled;
   final String title;
   final String image;
   final Function()? onClick;
@@ -312,6 +339,7 @@ class CustomCard extends StatelessWidget {
     this.onClick,
     required this.title,
     this.isPrimaryColor = true,
+    this.isDisabled = false,
   }) : super(key: key);
 
   @override
@@ -322,9 +350,11 @@ class CustomCard extends StatelessWidget {
         children: [
           Container(
             decoration: BoxDecoration(
-              color: isPrimaryColor
-                  ? Theme.of(context).colorScheme.primary
-                  : Theme.of(context).colorScheme.secondary,
+              color: isDisabled
+                  ? Colors.black
+                  : isPrimaryColor
+                      ? Theme.of(context).colorScheme.primary
+                      : Theme.of(context).colorScheme.secondary,
               boxShadow: const [
                 BoxShadow(
                     color: Colors.grey, blurRadius: 4.0, offset: Offset(0, 5)),
@@ -336,6 +366,7 @@ class CustomCard extends StatelessWidget {
             width: 24.w,
             child: Image.asset(
               image,
+              opacity: isDisabled ? const AlwaysStoppedAnimation(0.2) : null,
             ),
           ),
           SizedBox(

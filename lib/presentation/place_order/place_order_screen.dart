@@ -20,9 +20,9 @@ import '../scan/widgets/select_outlet.dart';
 import 'widgets/place_order_deal_widget.dart';
 
 class PlaceOrderScreen extends StatelessWidget {
-  final ZoomDrawerController zoomDrawerController;
-
-  const PlaceOrderScreen({super.key, required this.zoomDrawerController});
+  const PlaceOrderScreen({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +33,10 @@ class PlaceOrderScreen extends StatelessWidget {
         Provider.of<AppStateNotifier>(context);
     return BlocProvider(
       create: (context) => PlaceOrderBloc(PlaceOrderState.initial(
-          appStateNotifier: appStateNotifier,
-          serverUrl: serverUrl,
-          apiUrl: apiUrl,
-          zoomDrawerController: zoomDrawerController))
+        appStateNotifier: appStateNotifier,
+        serverUrl: serverUrl,
+        apiUrl: apiUrl,
+      ))
         ..add(const PlaceOrderEvent.init()),
       child: const PlaceOrderScreenConsumer(),
     );
@@ -81,36 +81,35 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
           appBar: AppBar(
             backgroundColor: Theme.of(context).primaryColor,
             centerTitle: true,
-            leading: IconButton(
-              onPressed: () async {
-                if (state.zoomDrawerController.isOpen!()) {
-                  state.zoomDrawerController.close!();
-                } else {
-                  state.zoomDrawerController.open!();
-                }
-              },
-              icon: SvgPicture.asset(
-                AssetConstants.burgerSvg,
-                width: 7.w,
+            leadingWidth: 20.w,
+            leading: Padding(
+              padding: EdgeInsets.only(
+                left: 5.w,
+              ),
+              child: Center(
+                child: ElevatedButton(
+                    onPressed: () {
+                      navigator<NavigationService>().goBack();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0,
+                      shape: const CircleBorder(),
+                      backgroundColor: Theme.of(context)
+                          .colorScheme
+                          .tertiary
+                          .withOpacity(0.7),
+                      foregroundColor: Theme.of(context).colorScheme.primary,
+                    ),
+                    child: SvgPicture.asset(
+                      AssetConstants.backSvg,
+                      width: 16.w,
+                    )),
               ),
             ),
-            title: Text(AppConstants.placeOrderTitle,
+            title: Text(AppConstants.createOrderTitle,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
                     color: Colors.white, fontWeight: FontWeight.bold)),
             elevation: 0,
-            actions: [
-              IconButton(
-                onPressed: () async {
-                  navigator<NavigationService>().navigateTo(
-                      CoreRoutes.cartRoute,
-                      arguments: state.selectedOutletProducts);
-                },
-                icon: SvgPicture.asset(
-                  AssetConstants.cartSvg,
-                  width: 7.w,
-                ),
-              ),
-            ],
           ),
           body: GestureDetector(
             onTap: () {
@@ -263,6 +262,22 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                                 );
                               },
                               itemCount: state.searchedOutletProducts.length),
+                        ),
+                        PrimaryButton(
+                            width: 90.w,
+                            height: 7.h,
+                            bgColor: Theme.of(context).colorScheme.secondary,
+                            btnTextColor: Theme.of(context).colorScheme.primary,
+                            btnBorder: BorderSide(
+                                color: Theme.of(context).colorScheme.secondary),
+                            btnText: AppConstants.checkout,
+                            onPressedBtn: () {
+                              navigator<NavigationService>().navigateTo(
+                                  CoreRoutes.cartRoute,
+                                  arguments: state.selectedOutletProducts);
+                            }),
+                        SizedBox(
+                          height: 5.h,
                         )
                       ],
                     ),
