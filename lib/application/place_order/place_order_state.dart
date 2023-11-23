@@ -14,7 +14,6 @@ class PlaceOrderState with _$PlaceOrderState {
       required AppStateNotifier appStateNotifier,
       required PlaceOrderRepository placeOrderRepository,
       required ShopMerchantRepository shopMerchantRepository,
-      required ZoomDrawerController zoomDrawerController,
       required List<OutletDto> outlets,
       required List<OutletProductDto> outletProducts,
       required List<OutletProductDto> selectedOutletProducts,
@@ -26,11 +25,9 @@ class PlaceOrderState with _$PlaceOrderState {
     required AppStateNotifier appStateNotifier,
     required String serverUrl,
     required String apiUrl,
-    required ZoomDrawerController zoomDrawerController,
   }) {
     return PlaceOrderState(
       appStateNotifier: appStateNotifier,
-      zoomDrawerController: zoomDrawerController,
       isLoading: true,
       isFailed: false,
       isSuccess: false,
@@ -50,22 +47,4 @@ class PlaceOrderState with _$PlaceOrderState {
   }
 }
 
-class Deal {
-  final int productId;
-  final String dealName;
-  final String currencyCode;
-  final String assetImage;
-  final double actualPrice;
-  final double discountedPrice;
-  int quantity;
 
-  Deal({
-    required this.productId,
-    required this.dealName,
-    required this.currencyCode,
-    required this.actualPrice,
-    required this.assetImage,
-    required this.discountedPrice,
-    this.quantity = 0,
-  });
-}

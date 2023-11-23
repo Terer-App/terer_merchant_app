@@ -71,12 +71,8 @@ class HomeScreenConsumer extends StatelessWidget {
                         : state.currentPage == 1
                             ? ScanScreen(
                                 zoomDrawerController: zoomDrawerController,
-                              )
-                            : state.currentPage == 2
-                                ? PlaceOrderScreen(
-                                    zoomDrawerController: zoomDrawerController,
-                                  )
-                                : state.currentPage == 3
+                              ) :
+                             state.currentPage == 2
                                 ? ProfileScreen(
                                     zoomDrawerController: zoomDrawerController,
                                   )

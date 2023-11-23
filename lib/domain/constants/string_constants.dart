@@ -37,7 +37,8 @@ class AppConstants {
 
   static const String scanTitle = 'Scan';
 
-  static const String placeOrderTitle = 'Place Order';
+  static const String createOrderTitle = 'Create Order';
+  static const String checkout = 'Checkout';
 
   static const String disputeReportTitle = 'Dispute Report';
   static const String showMore = 'Show more';
@@ -319,6 +320,9 @@ class DealsConstants {
   static const String verifyReport = 'Verify Report';
 
   static const String notVerified = 'Not verified';
+
+  static const String payOut = 'Pay Out';
+  static const String createOrder = 'Create Order';
 
   static const String open = 'Open';
   static const String deals = 'Deals';

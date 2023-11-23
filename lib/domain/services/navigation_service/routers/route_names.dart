@@ -12,6 +12,6 @@ class CoreRoutes {
   static const String termsRoute = 'termsConditions';
   static const String aboutUsRoute = 'aboutUs';
   static const String reportsRoute = 'reports';
-    static const String cartRoute = 'cart';
-
+  static const String createOrderRoute = 'createOrder';
+  static const String cartRoute = 'cart';
 }

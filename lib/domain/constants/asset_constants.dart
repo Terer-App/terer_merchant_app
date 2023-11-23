@@ -20,8 +20,10 @@ class AssetConstants {
   static const String rightImage = '${imagePath}right.png';
   static const String manageDeals = '${imagePath}manage-deals.png';
   static const String balance = '${imagePath}purchased.png';
-  static const String redeemed = '${imagePath}pay-out.png';
-  static const String verified = '${imagePath}redeemed.png';
+  static const String redeemed = '${imagePath}redeemed.png';
+  static const String verified = '${imagePath}verified.png';
+  static const String payOut = '${imagePath}pay-out.png';
+  static const String createOrder = '${imagePath}create_order.png';
 
   static const String appBarBackSvg = '${imagePath}app_bar_back.svg';
   static const String emptyCartSvg = '${imagePath}empty_cart.svg';
@@ -59,5 +61,4 @@ class AssetConstants {
 
   static const String cupAnimation = '${animationPath}cup_animation.gif';
   static const updateRocket = '${animationPath}update-rocket.gif';
-
 }
