@@ -8,7 +8,12 @@ import '../../core/custom_button.dart';
 class SelectOutlet extends StatefulWidget {
   final List<OutletDto> outlets;
   final BrandDto brand;
-  const SelectOutlet({super.key, required this.outlets, required this.brand});
+  final OutletDto? alreadySelectedOutlet;
+  const SelectOutlet(
+      {super.key,
+      required this.outlets,
+      required this.brand,
+      required this.alreadySelectedOutlet});
 
   @override
   State<SelectOutlet> createState() => _SelectOutletState();
@@ -108,18 +113,39 @@ class _SelectOutletState extends State<SelectOutlet> {
           ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: SecondaryButton(
-              btnText: 'Confirm',
-              textFontWeight: FontWeight.w900,
-              textFontSize: 12.sp,
-              btnBorderRadius: 12.w,
-              height: 50,
-              width: 60.w,
-              onPressedBtn: () {
-                if (selectedOutlet != null) {
-                  Navigator.of(context).pop(selectedOutlet);
-                }
-              },
+            child: Row(
+              mainAxisAlignment: widget.alreadySelectedOutlet == null
+                  ? MainAxisAlignment.center
+                  : MainAxisAlignment.spaceBetween,
+              children: [
+                if (widget.alreadySelectedOutlet != null)
+                  SecondaryButton(
+                    bgColor: Theme.of(context).colorScheme.primary,
+                    btnTextColor: Theme.of(context).colorScheme.secondary,
+                    btnText: 'Cancel',
+                    textFontWeight: FontWeight.w900,
+                    textFontSize: 12.sp,
+                    btnBorderRadius: 12.w,
+                    height: 50,
+                    width: 42.w,
+                    onPressedBtn: () {
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                SecondaryButton(
+                  btnText: 'Confirm',
+                  textFontWeight: FontWeight.w900,
+                  textFontSize: 12.sp,
+                  btnBorderRadius: 12.w,
+                  height: 50,
+                  width: widget.alreadySelectedOutlet == null ? 60.w : 42.w,
+                  onPressedBtn: () {
+                    if (selectedOutlet != null) {
+                      Navigator.of(context).pop(selectedOutlet);
+                    }
+                  },
+                ),
+              ],
             ),
           )
         ],

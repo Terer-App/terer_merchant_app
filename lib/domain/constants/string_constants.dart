@@ -55,10 +55,10 @@ class AppConstants {
   static String pleaseTryAgain = 'Please try again!';
 
   static String updateMessage =
-      'New update of Terer is available, it comes with lots improvement and features.';
+      'New version, new vibes! Upgrade now for a fresher Terer experience!';
 
   static String newReleaseUpdate =
-      'New update of Terer available now. Want to update ?';
+      'New version of Terer available. Want to update now ?';
 }
 
 class MenuConstants {
@@ -366,23 +366,21 @@ class MyProfileConstants {
 
 class PlaceOrderConstants {
   static const String currentlySelected = 'Currently selected:';
-    static const String switchOutlet = 'Switch Outlet';
-    static const String searchDeals = 'Search deals';
-
+  static const String switchOutlet = 'Switch Outlet';
+  static const String searchDeals = 'Search deals';
 }
+
 class CartConstants {
   static const String currentlySelected = 'Currently selected:';
-    static const String cartIsEmpty = 'Cart Is Empty';
-    static const String placeOrder = 'Place Order';
-    static const String checkout = 'Checkout';
-    static const String email = 'Email';
-    static const String name = 'Name';
-        static const String hintEmail = 'Enter Email';
-    static const String hintName = 'Enter Name';
-
-
+  static const String cartIsEmpty = 'Cart Is Empty';
+  static const String placeOrder = 'Place Order';
+  static const String checkout = 'Checkout';
+  static const String email = 'Email';
+  static const String name = 'Name';
+  static const String hintEmail = 'Enter Email';
+  static const String hintName = 'Enter Name';
 }
-class NotificationNavigateToConstants {
-    static const placeOrder = 'ORDER';
 
+class NotificationNavigateToConstants {
+  static const placeOrder = 'ORDER';
 }
