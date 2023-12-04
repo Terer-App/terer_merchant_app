@@ -31,7 +31,7 @@ class IAuthRepository extends AuthRepository {
         return left(response['message']);
       }
     } catch (e) {
-      return left(ErrorConstants.genericNetworkIssue);
+      return left(e.toString());
     }
   }
 

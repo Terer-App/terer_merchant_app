@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../domain/core/configs/injection.dart';
+import '../../../domain/services/navigation_service/navigation_service.dart';
+import '../../../domain/services/navigation_service/routers/route_names.dart';
 import '../../../infrastructure/dtos/brand/brand_dto.dart';
 import '../../../infrastructure/dtos/outlet/outlet_dto.dart';
 import '../../core/custom_button.dart';
@@ -8,9 +11,11 @@ import '../../core/custom_button.dart';
 class SelectOutlet extends StatefulWidget {
   final List<OutletDto> outlets;
   final BrandDto brand;
+  final bool isHome;
   final OutletDto? alreadySelectedOutlet;
   const SelectOutlet(
       {super.key,
+      required this.isHome,
       required this.outlets,
       required this.brand,
       required this.alreadySelectedOutlet});
@@ -114,31 +119,41 @@ class _SelectOutletState extends State<SelectOutlet> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Row(
-              mainAxisAlignment: widget.alreadySelectedOutlet == null
-                  ? MainAxisAlignment.center
-                  : MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                if (widget.alreadySelectedOutlet != null)
-                  SecondaryButton(
-                    bgColor: Theme.of(context).colorScheme.primary,
-                    btnTextColor: Theme.of(context).colorScheme.secondary,
-                    btnText: 'Cancel',
-                    textFontWeight: FontWeight.w900,
-                    textFontSize: 12.sp,
-                    btnBorderRadius: 12.w,
-                    height: 50,
-                    width: 42.w,
-                    onPressedBtn: () {
+                SecondaryButton(
+                  bgColor: Theme.of(context).colorScheme.primary,
+                  btnTextColor: Theme.of(context).colorScheme.secondary,
+                  btnText: 'Cancel',
+                  textFontWeight: FontWeight.w900,
+                  textFontSize: 12.sp,
+                  btnBorderRadius: 12.w,
+                  height: 50,
+                  width: 42.w,
+                  onPressedBtn: () {
+                    if (widget.alreadySelectedOutlet == null) {
+                      if (widget.isHome) {
+                        Navigator.of(context).pop();
+
+                        navigator<NavigationService>().navigateTo(
+                            CoreRoutes.homeRoute,
+                            isClearStack: true);
+                      } else {
+                        Navigator.of(context).pop();
+                        Navigator.of(context).pop();
+                      }
+                    } else {
                       Navigator.of(context).pop();
-                    },
-                  ),
+                    }
+                  },
+                ),
                 SecondaryButton(
                   btnText: 'Confirm',
                   textFontWeight: FontWeight.w900,
                   textFontSize: 12.sp,
                   btnBorderRadius: 12.w,
                   height: 50,
-                  width: widget.alreadySelectedOutlet == null ? 60.w : 42.w,
+                  width: 42.w,
                   onPressedBtn: () {
                     if (selectedOutlet != null) {
                       Navigator.of(context).pop(selectedOutlet);

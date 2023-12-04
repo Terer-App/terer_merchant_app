@@ -57,9 +57,11 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
             backgroundColor: Colors.transparent,
             builder: (BuildContext context) {
               return SelectOutlet(
-                  outlets: state.outlets,
-                  brand: state.appStateNotifier.profile!.brand,
-                  alreadySelectedOutlet: state.selectedOutlet,);
+                isHome: false,
+                outlets: state.outlets,
+                brand: state.appStateNotifier.profile!.brand,
+                alreadySelectedOutlet: state.selectedOutlet,
+              );
             },
           ).then((value) async {
             if (value != null) {

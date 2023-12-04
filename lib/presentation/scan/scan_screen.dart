@@ -267,7 +267,7 @@ class _ScanScreenState extends State<ScanScreen> {
         isDismissible: false,
         backgroundColor: Colors.transparent,
         builder: (BuildContext context) {
-          return SelectOutlet(outlets: outlets, brand: brand,alreadySelectedOutlet: selectedOutlet,);
+          return SelectOutlet(outlets: outlets,isHome:true, brand: brand,alreadySelectedOutlet: selectedOutlet,);
         },
       ).then((value) {
         if (value != null) {
