@@ -5,6 +5,7 @@ import 'package:flutter_zoom_drawer/config.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import '../core/custom_alert.dart';
 import 'widgets/user_details_bottomsheet.dart';
 import '../../infrastructure/dtos/place_order/outlet_product/outlet_product_dto.dart';
 
@@ -77,23 +78,29 @@ class CartScreenConsumer extends StatelessWidget {
         });
       }
       if (state.isSuccess) {
-        ScaffoldMessenger.of(context).clearSnackBars();
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text(
-            state.showMessage,
-            style: const TextStyle(color: Colors.white),
-          ),
-          backgroundColor: Theme.of(context).colorScheme.secondary,
-          duration: const Duration(seconds: 2),
-        ));
-
-        context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
-                state: state.copyWith(
-              isSuccess: false,
-            )));
-
-        navigator<NavigationService>()
-            .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
+        showDialog(
+            barrierColor: Colors.white.withOpacity(0.5),
+            barrierDismissible: false,
+            context: context,
+            builder: (context) {
+              return WillPopScope(
+                onWillPop: () async => false,
+                child: CustomAlert(
+                  onPressed: () async {
+                    navigator<NavigationService>().goBack();
+                    navigator<NavigationService>()
+                        .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
+                  },
+                  isExtraBtn: false,
+                  makeTextBold: true,
+                  reverseTextColor: true,
+                  buttonText: AppConstants.backToHome,
+                  bothBtnHeight: 40,
+                  content: CartConstants.collectPaymentText,
+                  svgUrl: AssetConstants.successSvg,
+                ),
+              );
+            }).then((value) {});
       } else if (state.isFailed) {
         if (state.showMessage.isNotEmpty) {
           ScaffoldMessenger.of(context).clearSnackBars();
@@ -111,7 +118,12 @@ class CartScreenConsumer extends StatelessWidget {
       return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
+          shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(15.0),
+                  bottomRight: Radius.circular(15.0))),
           backgroundColor: Theme.of(context).primaryColor,
+          toolbarHeight: 8.h,
           leadingWidth: 20.w,
           leading: Padding(
             padding: EdgeInsets.only(
@@ -131,7 +143,7 @@ class CartScreenConsumer extends StatelessWidget {
                   ),
                   child: SvgPicture.asset(
                     AssetConstants.backSvg,
-                    width: 16.w,
+                    width: 14.w,
                   )),
             ),
           ),
@@ -352,9 +364,54 @@ class CartScreenConsumer extends StatelessWidget {
                             btnText: CartConstants.placeOrder,
                             textFontSize: 12.sp,
                             onPressedBtn: () {
-                              context
-                                  .read<CartBloc>()
-                                  .add(const CartEvent.onUserExistsByNumber());
+                              final parentContext = context;
+                              showDialog(
+                                  barrierColor: Colors.white.withOpacity(0.5),
+                                  barrierDismissible: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return WillPopScope(
+                                      onWillPop: () async => false,
+                                      child: CustomAlert(
+                                        // on press no
+                                        onPressed2: () {
+                                          navigator<NavigationService>()
+                                              .goBack();
+                                        },
+                                        customWidget: Text(
+                                          CartConstants.confirmDetails,
+                                          textAlign: TextAlign.center,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium!
+                                              .copyWith(
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .primary,
+                                                  fontWeight: FontWeight.bold),
+                                        ),
+                                        button2Text: AppConstants.back,
+                                        reverseColor2Btn: true,
+                                        // on press yes
+                                        onPressed: () async {
+                                          navigator<NavigationService>()
+                                              .goBack();
+                                          parentContext.read<CartBloc>().add(
+                                              const CartEvent
+                                                  .onUserExistsByNumber());
+                                        },
+                                        isExtraBtn: true,
+                                        makeTextBold: true,
+                                        buttonText: AppConstants.confirm,
+                                        bothBtnHeight: 40,
+                                        content: state
+                                                .selectedCountry['dial_code']
+                                                .toString() +
+                                            state.phoneNumberController.text,
+                                        svgUrl: AssetConstants.warning,
+                                      ),
+                                    );
+                                  }).then((value) {});
                             }),
                       ),
                   ],

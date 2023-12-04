@@ -267,7 +267,12 @@ class _ScanScreenState extends State<ScanScreen> {
         isDismissible: false,
         backgroundColor: Colors.transparent,
         builder: (BuildContext context) {
-          return SelectOutlet(outlets: outlets,isHome:true, brand: brand,alreadySelectedOutlet: selectedOutlet,);
+          return SelectOutlet(
+            outlets: outlets,
+            isHome: true,
+            brand: brand,
+            alreadySelectedOutlet: selectedOutlet,
+          );
         },
       ).then((value) {
         if (value != null) {
@@ -303,6 +308,11 @@ class _ScanScreenState extends State<ScanScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(15.0),
+                bottomRight: Radius.circular(15.0))),
+        toolbarHeight: 8.h,
         backgroundColor: Theme.of(context).primaryColor,
         centerTitle: true,
         leading: IconButton(
@@ -345,20 +355,6 @@ class _ScanScreenState extends State<ScanScreen> {
                         cutOutBottomOffset: 10.h,
                         cutOutSize: scanArea),
                     // onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
-                  ),
-                  Positioned(
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary,
-                          borderRadius: const BorderRadius.only(
-                            bottomRight: Radius.circular(15),
-                            bottomLeft: Radius.circular(15),
-                          )),
-                      height: 10.w,
-                    ),
                   ),
                   Positioned(
                     top: 50.h,

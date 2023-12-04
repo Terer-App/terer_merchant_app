@@ -102,6 +102,11 @@ class ProfileConsumer extends StatelessWidget {
           child: Scaffold(
             resizeToAvoidBottomInset: false,
             appBar: AppBar(
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(15.0),
+                      bottomRight: Radius.circular(15.0))),
+              toolbarHeight: 8.h,
               backgroundColor: Theme.of(context).primaryColor,
               centerTitle: true,
               leading: IconButton(
@@ -124,15 +129,6 @@ class ProfileConsumer extends StatelessWidget {
             ),
             body: Column(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(15),
-                        bottomLeft: Radius.circular(15),
-                      )),
-                  height: 2.h,
-                ),
                 Expanded(
                   child: SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),
@@ -190,7 +186,7 @@ class ProfileConsumer extends StatelessWidget {
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
                             ),
-                             SizedBox(
+                            SizedBox(
                               height: 5.w,
                             ),
                             //email

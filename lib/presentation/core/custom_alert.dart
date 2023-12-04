@@ -9,6 +9,7 @@ class CustomAlert extends StatelessWidget {
   final String? title;
 
   final String content;
+  final String? subContent;
   final String buttonText;
   final String? button2Text;
   final Function() onPressed;
@@ -22,7 +23,8 @@ class CustomAlert extends StatelessWidget {
   final bool isPayment;
   final bool isPurchase;
   final bool reverseColor;
-
+  final bool reverseTextColor;
+  final bool reverseColor2Btn;
   final bool makeTextBold;
 
   const CustomAlert(
@@ -31,6 +33,7 @@ class CustomAlert extends StatelessWidget {
       required this.onPressed,
       required this.buttonText,
       required this.svgUrl,
+      this.subContent,
       this.maxTitleIndex,
       this.bothBtnHeight,
       this.height,
@@ -38,11 +41,13 @@ class CustomAlert extends StatelessWidget {
       this.onPressed2,
       this.button2Text,
       this.reverseColor = false,
+      this.reverseColor2Btn = false,
       this.isPurchase = false,
       this.isReport = false,
       this.makeTextBold = false,
       this.isPayment = false,
       this.isExtraBtn = false,
+      this.reverseTextColor = false,
       required this.content})
       : super(key: key);
 
@@ -131,7 +136,9 @@ class CustomAlert extends StatelessWidget {
                       content,
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Theme.of(context).colorScheme.secondary,
+                          color: reverseTextColor
+                              ? Theme.of(context).colorScheme.primary
+                              : Theme.of(context).colorScheme.secondary,
                           fontWeight: makeTextBold
                               ? FontWeight.bold
                               : FontWeight.normal),
@@ -139,7 +146,7 @@ class CustomAlert extends StatelessWidget {
           const Spacer(),
           SizedBox(
             width: double.infinity,
-            height: 55,
+            height: bothBtnHeight ?? 55,
             child: SecondaryButton(
               btnText: buttonText,
               textFontWeight: FontWeight.w900,
@@ -155,12 +162,13 @@ class CustomAlert extends StatelessWidget {
           if (isExtraBtn)
             SizedBox(
               width: double.infinity,
-              height: 55,
+              height: bothBtnHeight ?? 55,
               child: SecondaryButton(
                 height: bothBtnHeight,
                 btnText: button2Text ?? '',
-                bgColor: reverseColor ? Theme.of(context).primaryColor : null,
-                btnTextColor: reverseColor
+                bgColor:
+                    reverseColor2Btn ? Theme.of(context).primaryColor : null,
+                btnTextColor: reverseColor2Btn
                     ? Theme.of(context).colorScheme.secondary
                     : null,
                 textFontWeight: FontWeight.w900,

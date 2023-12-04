@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import '../../domain/constants/api_constants.dart';
-import '../../domain/constants/string_constants.dart';
 import '../../domain/services/network_service/rest_service.dart';
 
 import '../../domain/auth/auth_repository.dart';

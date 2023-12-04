@@ -4,7 +4,6 @@ import 'package:flutter_zoom_drawer/config.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:sizer/sizer.dart';
 import '../deals/manage_deals_screen.dart';
-import '../place_order/place_order_screen.dart';
 import '../scan/scan_screen.dart';
 
 import '../../application/home_screen/home_screen_bloc.dart';

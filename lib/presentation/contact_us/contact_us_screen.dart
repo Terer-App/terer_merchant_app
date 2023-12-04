@@ -92,6 +92,11 @@ class ContactUsConsumer extends StatelessWidget {
             inAsyncCall: state.isLoading,
             child: Scaffold(
               appBar: AppBar(
+                shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                        bottomLeft: Radius.circular(15.0),
+                        bottomRight: Radius.circular(15.0))),
+                toolbarHeight: 8.h,
                 backgroundColor: Theme.of(context).primaryColor,
                 leadingWidth: 20.w,
                 leading: Padding(
@@ -115,7 +120,7 @@ class ContactUsConsumer extends StatelessWidget {
                         ),
                         child: SvgPicture.asset(
                           AssetConstants.backSvg,
-                          width: 16.w,
+                          width: 14.w,
                         )),
                   ),
                 ),
@@ -129,15 +134,6 @@ class ContactUsConsumer extends StatelessWidget {
               ),
               body: Column(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.primary,
-                        borderRadius: const BorderRadius.only(
-                          bottomRight: Radius.circular(15),
-                          bottomLeft: Radius.circular(15),
-                        )),
-                    height: 2.h,
-                  ),
                   Expanded(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),

@@ -1,4 +1,3 @@
-
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -6,8 +5,10 @@ import 'package:flutter_zoom_drawer/config.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
+import '../../core/custom_alert.dart';
 
 import '../../../application/cart/cart_bloc.dart';
+import '../../../domain/constants/asset_constants.dart';
 import '../../../domain/constants/string_constants.dart';
 import '../../../domain/core/configs/app_config.dart';
 import '../../../domain/core/configs/injection.dart';
@@ -44,8 +45,9 @@ class UserDetailsBottomSheet extends StatelessWidget {
           serverUrl: serverUrl,
           zoomDrawerController: zoomDrawerController))
         ..add(CartEvent.updatePhoneNumber(
-            selectedCountry: selectedCountry, phoneNumber: phoneNumber,
-           )),
+          selectedCountry: selectedCountry,
+          phoneNumber: phoneNumber,
+        )),
       child: const UserDetailsBottomSheetConsumer(),
     );
   }
@@ -59,23 +61,30 @@ class UserDetailsBottomSheetConsumer extends StatelessWidget {
     return BlocConsumer<CartBloc, CartState>(
       listener: (context, state) {
         if (state.isSuccess) {
-          ScaffoldMessenger.of(context).clearSnackBars();
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-            content: Text(
-              state.showMessage,
-              style: const TextStyle(color: Colors.white),
-            ),
-            backgroundColor: Theme.of(context).colorScheme.secondary,
-            duration: const Duration(seconds: 2),
-          ));
-
-          context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
-                  state: state.copyWith(
-                isSuccess: false,
-              )));
-
-          navigator<NavigationService>()
-              .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
+          navigator<NavigationService>().goBack();
+          showDialog(
+              barrierColor: Colors.white.withOpacity(0.5),
+              barrierDismissible: false,
+              context: context,
+              builder: (context) {
+                return WillPopScope(
+                  onWillPop: () async => false,
+                  child: CustomAlert(
+                    onPressed: () async {
+                      navigator<NavigationService>().goBack();
+                      navigator<NavigationService>()
+                          .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
+                    },
+                    reverseTextColor: true,
+                    isExtraBtn: false,
+                    makeTextBold: true,
+                    buttonText: AppConstants.backToHome,
+                    bothBtnHeight: 40,
+                    content: CartConstants.collectPaymentText,
+                    svgUrl: AssetConstants.successSvg,
+                  ),
+                );
+              }).then((value) {});
         } else if (state.isFailed) {
           if (state.showMessage.isNotEmpty) {
             ScaffoldMessenger.of(context).clearSnackBars();
@@ -140,8 +149,8 @@ class UserDetailsBottomSheetConsumer extends StatelessWidget {
                             errorText: state.errorName.isEmpty
                                 ? null
                                 : state.errorName,
-                            labelText:CartConstants.name,
-                            hintText:CartConstants.hintEmail,
+                            labelText: CartConstants.name,
+                            hintText: CartConstants.hintName,
                           ),
                           SizedBox(
                             height: 5.h,

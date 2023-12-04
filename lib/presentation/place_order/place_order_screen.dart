@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_zoom_drawer/config.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -68,13 +67,21 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
               context.read<PlaceOrderBloc>().add(
                     PlaceOrderEvent.emitFromAnywhere(
                       state: state.copyWith(
-                          selectedOutlet: value, showOutletBottomSheet: false),
+                          selectedOutlet: value,
+                          showOutletBottomSheet: false,
+                          selectedOutletProducts: []),
                     ),
                   );
               // ignore: prefer_const_constructors
               await Future.delayed(Duration(milliseconds: 150));
               context.read<PlaceOrderBloc>().add(
                   PlaceOrderEvent.onLoadOutletProducts(outletId: value.code!));
+            } else {
+              context.read<PlaceOrderBloc>().add(
+                    PlaceOrderEvent.emitFromAnywhere(
+                      state: state.copyWith(showOutletBottomSheet: false),
+                    ),
+                  );
             }
           });
         }
@@ -82,9 +89,14 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(15.0),
+                    bottomRight: Radius.circular(15.0))),
             backgroundColor: Theme.of(context).primaryColor,
             centerTitle: true,
             leadingWidth: 20.w,
+            toolbarHeight: 8.h,
             leading: Padding(
               padding: EdgeInsets.only(
                 left: 5.w,
@@ -105,7 +117,7 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                     ),
                     child: SvgPicture.asset(
                       AssetConstants.backSvg,
-                      width: 16.w,
+                      width: 14.w,
                     )),
               ),
             ),
@@ -120,15 +132,6 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
             },
             child: Column(
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.primary,
-                      borderRadius: const BorderRadius.only(
-                        bottomRight: Radius.circular(15),
-                        bottomLeft: Radius.circular(15),
-                      )),
-                  height: 2.h,
-                ),
                 Expanded(
                   child: ModalProgressHUD(
                     inAsyncCall: state.isLoading,
@@ -195,10 +198,7 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                                                       .emitFromAnywhere(
                                                     state: state.copyWith(
                                                         showOutletBottomSheet:
-                                                            true,
-                                                        outletProducts: [],
-                                                        searchedOutletProducts: [],
-                                                        selectedOutletProducts: []),
+                                                            true),
                                                   ),
                                                 );
                                           }),

@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_zoom_drawer/config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../domain/core/configs/app_config.dart';
@@ -29,8 +28,9 @@ class PlaceOrderBloc extends Bloc<PlaceOrderEvent, PlaceOrderState> {
             selectedOutlet: res[0],
           ),
         );
+        await Future.delayed(const Duration(milliseconds: 150));
         add(PlaceOrderEvent.onLoadOutletProducts(
-            outletId: state.selectedOutlet!.id!));
+            outletId: state.selectedOutlet!.code!));
       } else {
         emit(
           state.copyWith(
@@ -44,7 +44,8 @@ class PlaceOrderBloc extends Bloc<PlaceOrderEvent, PlaceOrderState> {
 
     on<_OnLoadOutletProducts>((event, emit) async {
       emit(state.copyWith(isLoading: true));
-     final res = await state.placeOrderRepository.getOutletProducts(outletId: event.outletId);
+      final res = await state.placeOrderRepository
+          .getOutletProducts(outletId: event.outletId);
 
       if (res.length == 1) {
         emit(

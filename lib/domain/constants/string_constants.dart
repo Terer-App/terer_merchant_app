@@ -59,6 +59,7 @@ class AppConstants {
 
   static String newReleaseUpdate =
       'New version of Terer available. Want to update now ?';
+  static String confirm = 'Confirm';
 }
 
 class MenuConstants {
@@ -379,6 +380,9 @@ class CartConstants {
   static const String name = 'Name';
   static const String hintEmail = 'Enter Email';
   static const String hintName = 'Enter Name';
+  static const String confirmDetails = 'Please confirm details';
+  static const String collectPaymentText =
+      'Please make sure to collect payment from customer';
 }
 
 class NotificationNavigateToConstants {
