@@ -364,54 +364,63 @@ class CartScreenConsumer extends StatelessWidget {
                             btnText: CartConstants.placeOrder,
                             textFontSize: 12.sp,
                             onPressedBtn: () {
-                              final parentContext = context;
-                              showDialog(
-                                  barrierColor: Colors.white.withOpacity(0.5),
-                                  barrierDismissible: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return WillPopScope(
-                                      onWillPop: () async => false,
-                                      child: CustomAlert(
-                                        // on press no
-                                        onPressed2: () {
-                                          navigator<NavigationService>()
-                                              .goBack();
-                                        },
-                                        customWidget: Text(
-                                          CartConstants.confirmDetails,
-                                          textAlign: TextAlign.center,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyMedium!
-                                              .copyWith(
-                                                  color: Theme.of(context)
-                                                      .colorScheme
-                                                      .primary,
-                                                  fontWeight: FontWeight.bold),
+                              if (state.phoneNumberController.text.isEmpty) {
+                                context.read<CartBloc>().add(
+                                    CartEvent.emitFromAnywhere(
+                                        state: state.copyWith(
+                                            errorPhoneNumber:
+                                                ErrorConstants.requiredError)));
+                              } else {
+                                final parentContext = context;
+                                showDialog(
+                                    barrierColor: Colors.white.withOpacity(0.5),
+                                    barrierDismissible: false,
+                                    context: context,
+                                    builder: (context) {
+                                      return WillPopScope(
+                                        onWillPop: () async => false,
+                                        child: CustomAlert(
+                                          // on press no
+                                          onPressed2: () {
+                                            navigator<NavigationService>()
+                                                .goBack();
+                                          },
+                                          customWidget: Text(
+                                            CartConstants.confirmDetails,
+                                            textAlign: TextAlign.center,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodyMedium!
+                                                .copyWith(
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .primary,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                          ),
+                                          button2Text: AppConstants.back,
+                                          reverseColor2Btn: true,
+                                          // on press yes
+                                          onPressed: () async {
+                                            navigator<NavigationService>()
+                                                .goBack();
+                                            parentContext.read<CartBloc>().add(
+                                                const CartEvent
+                                                    .onUserExistsByNumber());
+                                          },
+                                          isExtraBtn: true,
+                                          makeTextBold: true,
+                                          buttonText: AppConstants.confirm,
+                                          bothBtnHeight: 40,
+                                          content: state
+                                                  .selectedCountry['dial_code']
+                                                  .toString() +
+                                              state.phoneNumberController.text,
+                                          svgUrl: AssetConstants.warning,
                                         ),
-                                        button2Text: AppConstants.back,
-                                        reverseColor2Btn: true,
-                                        // on press yes
-                                        onPressed: () async {
-                                          navigator<NavigationService>()
-                                              .goBack();
-                                          parentContext.read<CartBloc>().add(
-                                              const CartEvent
-                                                  .onUserExistsByNumber());
-                                        },
-                                        isExtraBtn: true,
-                                        makeTextBold: true,
-                                        buttonText: AppConstants.confirm,
-                                        bothBtnHeight: 40,
-                                        content: state
-                                                .selectedCountry['dial_code']
-                                                .toString() +
-                                            state.phoneNumberController.text,
-                                        svgUrl: AssetConstants.warning,
-                                      ),
-                                    );
-                                  }).then((value) {});
+                                      );
+                                    }).then((value) {});
+                              }
                             }),
                       ),
                   ],
