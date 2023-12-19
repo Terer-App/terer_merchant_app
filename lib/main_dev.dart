@@ -19,7 +19,6 @@ void main() async {
     appTitle: 'Terer Merchant - Dev',
     serverUrl: 'https://terer-server.dev.dreamkasper.com/',
     buildFlavor: 'Dev',
-   //apiUrl: 'https://terer-server.dev.dreamkasper.com/',
     apiUrl: 'https://terer-api.dev.dreamkasper.com/api/v1/',
     child: Container(),
   );
