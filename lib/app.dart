@@ -258,12 +258,14 @@ Future checkForAppUpdate(GlobalKey<NavigatorState> navKey) async {
 Future initMessagingService({
   required GlobalKey<NavigatorState> navigationKey,
 }) async {
-
-   bool isPermissionGranted = true;
-  if (Platform.isIOS) {
+  bool isPermissionGranted = true;
+  try {
     FirebaseMessaging fcm = FirebaseMessaging.instance;
     await fcm.requestPermission();
     isPermissionGranted = true;
+  } catch (error) {
+        debugPrint(error.toString());
+
   }
   //when app is in terminated state
   FirebaseMessaging.instance.getInitialMessage().then((message) {
