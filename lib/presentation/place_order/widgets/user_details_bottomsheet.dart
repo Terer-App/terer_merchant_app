@@ -19,7 +19,7 @@ import '../../core/custom_button.dart';
 import '../../core/custom_text_field.dart';
 
 class UserDetailsBottomSheet extends StatelessWidget {
-  UserDetailsBottomSheet(
+  const UserDetailsBottomSheet(
       {super.key,
       required this.phoneNumber,
       required this.selectedCountry,
