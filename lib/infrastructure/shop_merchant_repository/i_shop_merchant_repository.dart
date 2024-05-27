@@ -148,9 +148,8 @@ class IShopMerchantRepository extends ShopMerchantRepository {
   }
 
   @override
-  Future<Either<String, Map<String, dynamic>>> verifyCustomerDeal({
-    required Map<String, dynamic> data
-  }) async {
+  Future<Either<String, Map<String, dynamic>>> verifyCustomerDeal(
+      {required Map<String, dynamic> data}) async {
     final url = serverUrl + APIConstants.verifyCustomerDeal;
     try {
       final token = await AuthTokenService.getMerchantToken();
@@ -176,7 +175,7 @@ class IShopMerchantRepository extends ShopMerchantRepository {
         };
         if (response['dealInfo'] != null) {
           responseData['dealInfo'] = DealInfoDto.fromJson(
-              response['dealInfo'] as Map<String, dynamic>);
+              response['dealInfo'] as Map<String, dynamic>).copyWith(redeemDeals: (data['dealRefId'] as Map).length);
         }
         return right(responseData);
       } else {
@@ -309,8 +308,9 @@ class IShopMerchantRepository extends ShopMerchantRepository {
       final response = json.decode(res.body);
       List<OutletDto> outlets = [];
       if (response['status'] == 1) {
-        outlets =
-            (response['outlets'] as List).map((e) => OutletDto.fromJson(e)).toList();
+        outlets = (response['outlets'] as List)
+            .map((e) => OutletDto.fromJson(e))
+            .toList();
       }
       return outlets;
     } catch (e) {
