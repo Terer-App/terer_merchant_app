@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>636670550777-9j8aiugksd1o549v8np03o9puvotatgu.apps.googleusercontent.com</string>
+	<string>691460979105-37q8i5j8ikdpddjftpq8ksb0vdsfhm4g.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAte9lvKvGTz7zscEsTyOoOTnoNZ7AiWqg</string>
+	<string>AIzaSyAeNvckHayW5enXLBix6rKCPW29mG5dSq4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>636670550777</string>
+	<string>691460979105</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.terer.merchant.app.dev</string>
+	<string>com.terer.merchant.app</string>
 	<key>PROJECT_ID</key>
-	<string>terer-development</string>
+	<string>terer-46a1f</string>
 	<key>STORAGE_BUCKET</key>
-	<string>terer-development.appspot.com</string>
+	<string>terer-46a1f.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -27,6 +27,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:636670550777:ios:d765bb7af8cda6b707f828</string>
+	<string>1:691460979105:ios:9fe7d04aad42f60ad073e0</string>
 </dict>
 </plist>
