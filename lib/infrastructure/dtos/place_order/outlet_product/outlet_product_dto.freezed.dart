@@ -24,6 +24,8 @@ mixin _$OutletProductDto {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String get title => throw _privateConstructorUsedError;
+  @JsonKey(name: 'description')
+  String get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
   DateTime get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'availableForSale')
@@ -32,6 +34,8 @@ mixin _$OutletProductDto {
   FeaturedImageDto get featuredImage => throw _privateConstructorUsedError;
   @JsonKey(name: 'compareAtPriceRange')
   PriceRangeDto get compareAtPriceRange => throw _privateConstructorUsedError;
+  @JsonKey(name: 'redemDuration')
+  dynamic get redeemDuration => throw _privateConstructorUsedError;
   @JsonKey(name: 'priceRange')
   PriceRangeDto get priceRange => throw _privateConstructorUsedError;
   @JsonKey(name: 'sellerName')
@@ -54,10 +58,12 @@ abstract class $OutletProductDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'description') String description,
       @JsonKey(name: 'createdAt') DateTime createdAt,
       @JsonKey(name: 'availableForSale') bool availableForSale,
       @JsonKey(name: 'featuredImage') FeaturedImageDto featuredImage,
       @JsonKey(name: 'compareAtPriceRange') PriceRangeDto compareAtPriceRange,
+      @JsonKey(name: 'redemDuration') dynamic redeemDuration,
       @JsonKey(name: 'priceRange') PriceRangeDto priceRange,
       @JsonKey(name: 'sellerName') dynamic sellerName,
       @JsonKey(name: 'variantId') String variantId,
@@ -81,10 +87,12 @@ class _$OutletProductDtoCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? description = freezed,
     Object? createdAt = freezed,
     Object? availableForSale = freezed,
     Object? featuredImage = freezed,
     Object? compareAtPriceRange = freezed,
+    Object? redeemDuration = freezed,
     Object? priceRange = freezed,
     Object? sellerName = freezed,
     Object? variantId = freezed,
@@ -98,6 +106,10 @@ class _$OutletProductDtoCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: createdAt == freezed
           ? _value.createdAt
@@ -115,6 +127,10 @@ class _$OutletProductDtoCopyWithImpl<$Res>
           ? _value.compareAtPriceRange
           : compareAtPriceRange // ignore: cast_nullable_to_non_nullable
               as PriceRangeDto,
+      redeemDuration: redeemDuration == freezed
+          ? _value.redeemDuration
+          : redeemDuration // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       priceRange: priceRange == freezed
           ? _value.priceRange
           : priceRange // ignore: cast_nullable_to_non_nullable
@@ -166,10 +182,12 @@ abstract class _$$_OutletProductDtoCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'title') String title,
+      @JsonKey(name: 'description') String description,
       @JsonKey(name: 'createdAt') DateTime createdAt,
       @JsonKey(name: 'availableForSale') bool availableForSale,
       @JsonKey(name: 'featuredImage') FeaturedImageDto featuredImage,
       @JsonKey(name: 'compareAtPriceRange') PriceRangeDto compareAtPriceRange,
+      @JsonKey(name: 'redemDuration') dynamic redeemDuration,
       @JsonKey(name: 'priceRange') PriceRangeDto priceRange,
       @JsonKey(name: 'sellerName') dynamic sellerName,
       @JsonKey(name: 'variantId') String variantId,
@@ -198,10 +216,12 @@ class __$$_OutletProductDtoCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? title = freezed,
+    Object? description = freezed,
     Object? createdAt = freezed,
     Object? availableForSale = freezed,
     Object? featuredImage = freezed,
     Object? compareAtPriceRange = freezed,
+    Object? redeemDuration = freezed,
     Object? priceRange = freezed,
     Object? sellerName = freezed,
     Object? variantId = freezed,
@@ -215,6 +235,10 @@ class __$$_OutletProductDtoCopyWithImpl<$Res>
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       createdAt: createdAt == freezed
           ? _value.createdAt
@@ -232,6 +256,10 @@ class __$$_OutletProductDtoCopyWithImpl<$Res>
           ? _value.compareAtPriceRange
           : compareAtPriceRange // ignore: cast_nullable_to_non_nullable
               as PriceRangeDto,
+      redeemDuration: redeemDuration == freezed
+          ? _value.redeemDuration
+          : redeemDuration // ignore: cast_nullable_to_non_nullable
+              as dynamic,
       priceRange: priceRange == freezed
           ? _value.priceRange
           : priceRange // ignore: cast_nullable_to_non_nullable
@@ -258,10 +286,12 @@ class _$_OutletProductDto implements _OutletProductDto {
   const _$_OutletProductDto(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'title') required this.title,
+      @JsonKey(name: 'description') required this.description,
       @JsonKey(name: 'createdAt') required this.createdAt,
       @JsonKey(name: 'availableForSale') required this.availableForSale,
       @JsonKey(name: 'featuredImage') required this.featuredImage,
       @JsonKey(name: 'compareAtPriceRange') required this.compareAtPriceRange,
+      @JsonKey(name: 'redemDuration') required this.redeemDuration,
       @JsonKey(name: 'priceRange') required this.priceRange,
       @JsonKey(name: 'sellerName') required this.sellerName,
       @JsonKey(name: 'variantId') required this.variantId,
@@ -277,6 +307,9 @@ class _$_OutletProductDto implements _OutletProductDto {
   @JsonKey(name: 'title')
   final String title;
   @override
+  @JsonKey(name: 'description')
+  final String description;
+  @override
   @JsonKey(name: 'createdAt')
   final DateTime createdAt;
   @override
@@ -288,6 +321,9 @@ class _$_OutletProductDto implements _OutletProductDto {
   @override
   @JsonKey(name: 'compareAtPriceRange')
   final PriceRangeDto compareAtPriceRange;
+  @override
+  @JsonKey(name: 'redemDuration')
+  final dynamic redeemDuration;
   @override
   @JsonKey(name: 'priceRange')
   final PriceRangeDto priceRange;
@@ -303,7 +339,7 @@ class _$_OutletProductDto implements _OutletProductDto {
 
   @override
   String toString() {
-    return 'OutletProductDto(id: $id, title: $title, createdAt: $createdAt, availableForSale: $availableForSale, featuredImage: $featuredImage, compareAtPriceRange: $compareAtPriceRange, priceRange: $priceRange, sellerName: $sellerName, variantId: $variantId, quantity: $quantity)';
+    return 'OutletProductDto(id: $id, title: $title, description: $description, createdAt: $createdAt, availableForSale: $availableForSale, featuredImage: $featuredImage, compareAtPriceRange: $compareAtPriceRange, redeemDuration: $redeemDuration, priceRange: $priceRange, sellerName: $sellerName, variantId: $variantId, quantity: $quantity)';
   }
 
   @override
@@ -313,6 +349,8 @@ class _$_OutletProductDto implements _OutletProductDto {
             other is _$_OutletProductDto &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality()
                 .equals(other.availableForSale, availableForSale) &&
@@ -320,6 +358,8 @@ class _$_OutletProductDto implements _OutletProductDto {
                 .equals(other.featuredImage, featuredImage) &&
             const DeepCollectionEquality()
                 .equals(other.compareAtPriceRange, compareAtPriceRange) &&
+            const DeepCollectionEquality()
+                .equals(other.redeemDuration, redeemDuration) &&
             const DeepCollectionEquality()
                 .equals(other.priceRange, priceRange) &&
             const DeepCollectionEquality()
@@ -334,10 +374,12 @@ class _$_OutletProductDto implements _OutletProductDto {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(description),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(availableForSale),
       const DeepCollectionEquality().hash(featuredImage),
       const DeepCollectionEquality().hash(compareAtPriceRange),
+      const DeepCollectionEquality().hash(redeemDuration),
       const DeepCollectionEquality().hash(priceRange),
       const DeepCollectionEquality().hash(sellerName),
       const DeepCollectionEquality().hash(variantId),
@@ -362,6 +404,8 @@ abstract class _OutletProductDto implements OutletProductDto {
           required final String id,
       @JsonKey(name: 'title')
           required final String title,
+      @JsonKey(name: 'description')
+          required final String description,
       @JsonKey(name: 'createdAt')
           required final DateTime createdAt,
       @JsonKey(name: 'availableForSale')
@@ -370,6 +414,8 @@ abstract class _OutletProductDto implements OutletProductDto {
           required final FeaturedImageDto featuredImage,
       @JsonKey(name: 'compareAtPriceRange')
           required final PriceRangeDto compareAtPriceRange,
+      @JsonKey(name: 'redemDuration')
+          required final dynamic redeemDuration,
       @JsonKey(name: 'priceRange')
           required final PriceRangeDto priceRange,
       @JsonKey(name: 'sellerName')
@@ -388,6 +434,9 @@ abstract class _OutletProductDto implements OutletProductDto {
   @JsonKey(name: 'title')
   String get title;
   @override
+  @JsonKey(name: 'description')
+  String get description;
+  @override
   @JsonKey(name: 'createdAt')
   DateTime get createdAt;
   @override
@@ -399,6 +448,9 @@ abstract class _OutletProductDto implements OutletProductDto {
   @override
   @JsonKey(name: 'compareAtPriceRange')
   PriceRangeDto get compareAtPriceRange;
+  @override
+  @JsonKey(name: 'redemDuration')
+  dynamic get redeemDuration;
   @override
   @JsonKey(name: 'priceRange')
   PriceRangeDto get priceRange;

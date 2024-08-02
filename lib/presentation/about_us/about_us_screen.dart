@@ -101,49 +101,7 @@ class AboutUsScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(
-                      height: 8.h,
-                    ),
-
-                    // second
-
-                    Image.asset(
-                      AssetConstants.zeroImage,
-                      width: 50.w,
-                    ),
-                    SizedBox(
-                      height: 3.h,
-                    ),
-                    RichText(
-                      text: TextSpan(children: [
-                        TextSpan(
-                          text: AboutUsConstants.para2,
-                          style:
-                              Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer,
-                                  ),
-                        ),
-                        TextSpan(
-                          text: AppConstants.tryZeroWebLink,
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              Uri url = Uri.parse(
-                                  'https://${AppConstants.tryZeroWebLink}');
-                              launchUrl(url);
-                            },
-                          style:
-                              Theme.of(context).textTheme.bodyMedium!.copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    color: const Color(0xff0097a7),
-                                  ),
-                        ),
-                      ]),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 2.h,
+                      height: 5.h,
                     ),
                     RichText(
                         textAlign: TextAlign.center,

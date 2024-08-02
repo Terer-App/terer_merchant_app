@@ -78,6 +78,7 @@ class MainApp extends StatelessWidget {
       onGenerateRoute: Provider.of<AppStateNotifier>(context).isAuthorized
           ? authorizedNavigation
           : commonNavigation,
+      // initialRoute: CoreRoutes.customerPurchaseDealDetailsRoute,
       initialRoute: Provider.of<AppStateNotifier>(context).isAuthorized
           ? CoreRoutes.homeRoute
           : AuthRoutes.gettingStartedRoute,
@@ -90,7 +91,7 @@ Future appInitializer(AppConfig appConfig) async {
 
   BrandUserDto? profile;
   bool isAuthorized = await AuthTokenService.isLogin();
-
+  print(await AuthTokenService.getMerchantToken());
   if (isAuthorized) {
     profile = await IShopMerchantRepository(
       serverUrl: appConfig.serverUrl,
@@ -264,8 +265,7 @@ Future initMessagingService({
     await fcm.requestPermission();
     isPermissionGranted = true;
   } catch (error) {
-        debugPrint(error.toString());
-
+    debugPrint(error.toString());
   }
   //when app is in terminated state
   FirebaseMessaging.instance.getInitialMessage().then((message) {

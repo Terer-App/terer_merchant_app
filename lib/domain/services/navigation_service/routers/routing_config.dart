@@ -7,9 +7,14 @@ import '../../../../presentation/about_us/terms_screen.dart';
 import '../../../../presentation/auth/getting_started_screen.dart';
 import '../../../../presentation/contact_us/contact_us_screen.dart';
 import '../../../../infrastructure/platform/platform_enum.dart';
+import '../../../../presentation/customer_purchase_deals/customer_purchase_deals_details_screen.dart';
 import '../../../../presentation/deals/reports/reports_screen.dart';
 import '../../../../presentation/dispute_report/dispute_report_screen.dart';
 import '../../../../presentation/home/home_screen.dart';
+import '../../../../presentation/live_deals/live_deal_details_screen.dart';
+import '../../../../presentation/live_deals/live_deals_listing_screen.dart';
+import '../../../../presentation/payout/payout_details_screen.dart';
+import '../../../../presentation/payout/payout_listing_screen.dart';
 import '../../../../presentation/place_order/cart_screen.dart';
 import '../../../../presentation/place_order/place_order_screen.dart';
 import '../../../core/configs/determine_platform.dart';
@@ -21,9 +26,9 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
   final routingData = settings.name!.getRoutingData;
   switch (routingData.route) {
     case CoreRoutes.homeRoute:
-    final routeData = routingData.queryParameters;
+      final routeData = routingData.queryParameters;
       return _getPageRoute(
-         HomeScreen(
+        HomeScreen(
           startPage: int.parse(routeData['tabIndex'] ?? '0'),
         ),
         settings,
@@ -56,20 +61,56 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
         const AboutUsScreen(),
         settings,
       );
+
     case CoreRoutes.termsRoute:
       return _getPageRoute(
         const TermsAndConditionScreen(),
         settings,
       );
+
     case CoreRoutes.cartRoute:
-    final args = settings.arguments;
+      final args = settings.arguments;
       return _getPageRoute(
-         CartScreen(zoomDrawerController: ZoomDrawerController(),addedProducts:args as List<OutletProductDto>,),
+        CartScreen(
+          zoomDrawerController: ZoomDrawerController(),
+          addedProducts: args as List<OutletProductDto>,
+        ),
         settings,
       );
-       case CoreRoutes.createOrderRoute:
+    case CoreRoutes.createOrderRoute:
       return _getPageRoute(
         const PlaceOrderScreen(),
+        settings,
+      );
+
+    case CoreRoutes.customerPurchaseDealDetailsRoute:
+      return _getPageRoute(
+        const CustomerPurchaseDealDetailsScreen(),
+        settings,
+      );
+
+    case CoreRoutes.liveDealListingRoute:
+      return _getPageRoute(
+        const LiveDealsListingScreen(),
+        settings,
+      );
+
+    case CoreRoutes.liveDealDetailsRoute:
+    final dealDetails = settings.arguments as OutletProductDto;
+      return _getPageRoute(
+         LiveDealDetailsScreen(dealDetails: dealDetails),
+        settings,
+      );
+
+    case CoreRoutes.payoutListingRoute:
+      return _getPageRoute(
+        const PayoutListingScreen(),
+        settings,
+      );
+
+    case CoreRoutes.payoutDetailsRoute:
+      return _getPageRoute(
+        const PayoutDetailsScreen(),
         settings,
       );
     default:
