@@ -84,8 +84,12 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
       );
 
     case CoreRoutes.customerPurchaseDealDetailsRoute:
+      final routeData = routingData.queryParameters;
       return _getPageRoute(
-        const CustomerPurchaseDealDetailsScreen(),
+        CustomerPurchaseDealDetailsScreen(
+          customerId: routeData['customerId'] ?? '',
+          name: routeData['customerName'] ?? '',
+        ),
         settings,
       );
 
@@ -96,9 +100,9 @@ Route<dynamic> authorizedNavigation(RouteSettings settings) {
       );
 
     case CoreRoutes.liveDealDetailsRoute:
-    final dealDetails = settings.arguments as OutletProductDto;
+      final dealDetails = settings.arguments as OutletProductDto;
       return _getPageRoute(
-         LiveDealDetailsScreen(dealDetails: dealDetails),
+        LiveDealDetailsScreen(dealDetails: dealDetails),
         settings,
       );
 

@@ -8,6 +8,7 @@ import '../../domain/place_order/place_order_repository.dart';
 import '../../domain/services/network_service/rest_service.dart';
 import '../../domain/services/storage_service/auth_service.dart';
 import '../dtos/brought_deal_dto/brought_deal_dto.dart';
+import '../dtos/customer_order_with_history_dto/customer_order_with_history_dto.dart';
 import '../dtos/place_order/outlet_product/outlet_product_dto.dart';
 
 class IPlaceOrderRepository extends PlaceOrderRepository {
@@ -191,8 +192,7 @@ class IPlaceOrderRepository extends PlaceOrderRepository {
 
   @override
   Future<Map<String, dynamic>> getCustomersOrders(
-      {required String brandId,
-      required String startDate,
+      {required String startDate,
       required String endDate,
       String customerName = '',
       bool isTodaysCount = false,
@@ -200,7 +200,7 @@ class IPlaceOrderRepository extends PlaceOrderRepository {
       int limit = 10}) async {
     Map<String, dynamic> resData = {};
     final url =
-        '$apiUrl/brands/get-customer-orders?startDate=$startDate&endDate=$endDate&skip=$skip&limit=$limit&isTodaysCount=$isTodaysCount';
+        '$apiUrl/${APIConstants.getCustomerOrders}?startDate=$startDate&endDate=$endDate&skip=$skip&limit=$limit&isTodaysCount=$isTodaysCount&customerName=$customerName';
     try {
       final token = await AuthTokenService.getMerchantToken();
       final res = await RESTService.performGETRequest(
@@ -240,6 +240,70 @@ class IPlaceOrderRepository extends PlaceOrderRepository {
       return resData;
     } catch (e) {
       return resData;
+    }
+  }
+
+  @override
+  Future<List<BroughtDealDto>> getLatestDeals(
+      {required String startTime}) async {
+    List<BroughtDealDto> latestDeals = [];
+    final url = '$apiUrl${APIConstants.getLatestOrders}?startTime=$startTime';
+    try {
+      final token = await AuthTokenService.getMerchantToken();
+      final res = await RESTService.performGETRequest(
+        httpUrl: url,
+        token: token,
+        isAuth: true,
+      );
+
+      final response = json.decode(res.body);
+
+      if (res.statusCode == 200 && response['data'] != null) {
+        final dealList = response['data']['deals'] ?? [];
+        if ((dealList as List).isNotEmpty) {
+          latestDeals =
+              dealList.map((e) => BroughtDealDto.fromJson(e)).toList();
+        }
+      }
+
+      return latestDeals;
+    } catch (e) {
+      return latestDeals;
+    }
+  }
+
+  @override
+  Future<List<CustomerOrderWithHistoryDto>>
+      getCustomerOrdersWithRedemptionHistory({
+    required String customerId,
+    required int skip,
+    int limit = APIConstants.limit,
+  }) async {
+    List<CustomerOrderWithHistoryDto> orders = [];
+    final url =
+        '$apiUrl${APIConstants.getCustomerWithRedemption}?customerId=$customerId';
+
+    try {
+      final token = await AuthTokenService.getMerchantToken();
+      final res = await RESTService.performGETRequest(
+        httpUrl: url,
+        token: token,
+        isAuth: true,
+      );
+
+      final response = json.decode(res.body);
+
+      if (res.statusCode == 200 && response['data'] != null) {
+        final dealList = response['data']['deals'] ?? [];
+        if ((dealList as List).isNotEmpty) {
+          orders = dealList
+              .map((e) => CustomerOrderWithHistoryDto.fromJson(e))
+              .toList();
+        }
+      }
+      return orders;
+    } catch (e) {
+      return orders;
     }
   }
 }

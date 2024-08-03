@@ -1,9 +1,12 @@
+import 'dart:math';
+
+import 'package:confetti/confetti.dart';
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 
@@ -11,6 +14,7 @@ import 'package:sizer/sizer.dart';
 import '../../application/manage_deals/manage_deals_bloc.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
+import '../../domain/extensions/date_time_extension.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
 import '../../domain/constants/asset_constants.dart';
@@ -18,11 +22,13 @@ import '../../domain/constants/string_constants.dart';
 import '../core/custom_button.dart';
 
 class ManageDealsScreen extends StatelessWidget {
+  final Function(int moveTo)? navCallBack;
   final ZoomDrawerController zoomDrawerController;
 
   const ManageDealsScreen({
     super.key,
     required this.zoomDrawerController,
+    required this.navCallBack,
   });
 
   @override
@@ -35,6 +41,7 @@ class ManageDealsScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => ManageDealsBloc(ManageDealsState.initial(
         appStateNotifier: appStateNotifier,
+        navCallBack: navCallBack,
         serverUrl: serverUrl,
         apiUrl: apiUrl,
         zoomDrawerController: zoomDrawerController,
@@ -57,487 +64,545 @@ class ManageDealsConsumer extends StatelessWidget {
       builder: (context, state) {
         return Stack(
           children: [
-            Container(
-              color: Colors.transparent,
-              height: 100.h,
-              child: Column(
-                children: [
-                  Stack(
-                    clipBehavior: Clip.none,
+            Stack(
+              children: [
+                Container(
+                  color: Colors.transparent,
+                  height: 100.h,
+                  child: Column(
                     children: [
-                      Container(
-                        height: 15.h,
-                        width: double.maxFinite,
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).colorScheme.primary,
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Padding(
-                              padding: EdgeInsets.only(top: 6.h, left: 4.w),
-                              child: IconButton(
-                                onPressed: () async {
-                                  if (state.zoomDrawerController.isOpen!()) {
-                                    state.zoomDrawerController.close!();
-                                  } else {
-                                    state.zoomDrawerController.open!();
-                                  }
-                                },
-                                icon: SvgPicture.asset(
-                                  AssetConstants.burgerSvg,
-                                  width: 7.w,
+                      Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          Container(
+                            height: 15.h,
+                            width: double.maxFinite,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                Padding(
+                                  padding: EdgeInsets.only(top: 6.h, left: 4.w),
+                                  child: IconButton(
+                                    onPressed: () async {
+                                      if (state
+                                          .zoomDrawerController.isOpen!()) {
+                                        state.zoomDrawerController.close!();
+                                      } else {
+                                        state.zoomDrawerController.open!();
+                                      }
+                                    },
+                                    icon: SvgPicture.asset(
+                                      AssetConstants.burgerSvg,
+                                      width: 7.w,
+                                    ),
+                                  ),
                                 ),
-                              ),
+                                SizedBox(
+                                  width: 4.w,
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 4.h),
+                                  child: RichText(
+                                      text: TextSpan(
+                                          text: 'Hello ',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall!
+                                              .copyWith(
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w700,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .secondary,
+                                              ),
+                                          children: [
+                                        TextSpan(
+                                          text: state.profile!.firstName,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodySmall!
+                                              .copyWith(
+                                                fontSize: 16.sp,
+                                                fontWeight: FontWeight.w500,
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .secondary,
+                                              ),
+                                        )
+                                      ])),
+                                )
+                              ],
                             ),
-                            SizedBox(
-                              width: 4.w,
+                          ),
+                          Positioned(
+                            bottom: -3.h,
+                            left: 16.w,
+                            child: SearchCustomerBox(
+                                controller: state.searchCustomerController,
+                                onChange: (val) {
+                                  EasyDebounce.debounce(
+                                      'customer-name-debounce',
+                                      const Duration(milliseconds: 500), () {
+                                    context.read<ManageDealsBloc>().add(
+                                          ManageDealsEvent.fetchCustomerOrders(
+                                            startDate: state.startDate,
+                                            endDate: state.endDate == null
+                                                ? state.startDate
+                                                : state.endDate!,
+                                          ),
+                                        );
+                                  });
+                                }),
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 7.h,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 5.w),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            CustomCard(
+                              image: AssetConstants.balance,
+                              title: DealsConstants.liveDeals,
+                              onClick: () {
+                                navigator<NavigationService>().navigateTo(
+                                  CoreRoutes.liveDealListingRoute,
+                                );
+                              },
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(top: 4.h),
-                              child: RichText(
-                                  text: TextSpan(
-                                      text: 'Hello ',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w700,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .secondary,
-                                          ),
-                                      children: [
-                                    TextSpan(
-                                      text: state.profile!.firstName,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            fontSize: 16.sp,
-                                            fontWeight: FontWeight.w500,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .secondary,
-                                          ),
-                                    )
-                                  ])),
-                            )
+                            CustomCard(
+                              isPrimaryColor: false,
+                              image: AssetConstants.payOut,
+                              title: DealsConstants.payOut,
+                              onClick: () {
+                                navigator<NavigationService>()
+                                    .navigateTo(CoreRoutes.payoutListingRoute);
+                              },
+                            ),
+                            CustomCard(
+                              image: AssetConstants.createOrder,
+                              title: DealsConstants.createOrder,
+                              onClick: () {
+                                navigator<NavigationService>()
+                                    .navigateTo(CoreRoutes.createOrderRoute);
+                              },
+                            ),
                           ],
                         ),
                       ),
-                      Positioned(
-                        bottom: -3.h,
-                        left: 16.w,
-                        child: SearchCustomerBox(
-                            controller: state.searchCustomerController,
-                            onChange: (val) {
-                              context.read<ManageDealsBloc>().add(
-                                    ManageDealsEvent.fetchCustomerOrders(
-                                        startDate: state.startDate,
-                                        endDate: state.endDate),
-                                  );
-                            }),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 7.w),
+                        child: Container(
+                          padding: EdgeInsets.symmetric(vertical: 1.5.h),
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5.w),
+                              color: Theme.of(context).scaffoldBackgroundColor,
+                              boxShadow: const [
+                                BoxShadow(
+                                  offset: Offset(2, 2),
+                                  blurRadius: 12,
+                                  color: Color.fromRGBO(0, 0, 0, 0.16),
+                                )
+                              ]),
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Today\'s Sale',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            fontSize: 11.sp,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Text(
+                                      state.todaysDealsCount.toString(),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            fontSize: 15.sp,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  margin: EdgeInsets.symmetric(horizontal: 4.w),
+                                  width: 2,
+                                  color:
+                                      Theme.of(context).colorScheme.background,
+                                  height: 5.h,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Today\'s Revenue',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            fontSize: 11.sp,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Text(
+                                      'RM ${state.todaysRevenue.toStringAsFixed(2)}',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            fontSize: 15.sp,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ]),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        width: 100.w,
+                        padding: EdgeInsets.only(bottom: 2.h),
+                        child: GestureDetector(
+                          onTap: () {
+                            showDateRangePicker(
+                                    builder: (context, child) {
+                                      return Theme(
+                                        data: Theme.of(context).copyWith(
+                                          colorScheme: ColorScheme.light(
+                                            primary:
+                                                Theme.of(context).primaryColor,
+                                            onPrimary: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                            onSurface: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                          ),
+                                        ),
+                                        child: child!,
+                                      );
+                                    },
+                                    context: context,
+                                    firstDate: DateTime(2000),
+                                    lastDate: DateTime.now())
+                                .then((value) {
+                              if (value != null) {
+                                context.read<ManageDealsBloc>().add(
+                                      ManageDealsEvent.fetchCustomerOrders(
+                                          startDate: value.start,
+                                          endDate: value.end),
+                                    );
+                              }
+                            });
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                state.endDate == null
+                                    ? state.startDate.displayDateV2
+                                    : '${state.startDate.displayDateV2} - ${state.endDate!.displayDateV2}',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyMedium!
+                                    .copyWith(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Theme.of(context).primaryColor,
+                                    ),
+                              ),
+                              SizedBox(
+                                width: 2.w,
+                              ),
+                              SvgPicture.asset(
+                                AssetConstants.polygon2Svg,
+                                width: 3.5.w,
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: state.isLoading
+                            ? const Center(
+                                child: CircularProgressIndicator(),
+                              )
+                            : state.customerDeals.isNotEmpty
+                                ? Container(
+                                  alignment: Alignment.center,
+                                    color: Colors.transparent,
+                                    child: Text(
+                                      'No Deals Available!',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            fontSize: 12.sp,
+                                          ),
+                                    ),
+                                  )
+                                : ListView.separated(
+                                    controller: state.scrollController,
+                                    physics: const BouncingScrollPhysics(),
+                                    padding: EdgeInsets.only(
+                                      left: 5.w,
+                                      right: 5.w,
+                                      bottom: 8.h,
+                                    ),
+                                    separatorBuilder: ((context, index) {
+                                      return SizedBox(
+                                        height: 2.h,
+                                      );
+                                    }),
+                                    itemBuilder: (ctx, i) {
+                                      final mainIndex = i;
+
+                                      if (mainIndex <
+                                          state.customerDeals.length) {
+                                        final deal =
+                                            state.customerDeals[mainIndex];
+                                        return GestureDetector(
+                                          onTap: () {
+                                            navigator<NavigationService>()
+                                                .navigateTo(
+                                                    CoreRoutes
+                                                        .customerPurchaseDealDetailsRoute,
+                                                    queryParams: {
+                                                  'customerName':
+                                                      deal.customerName,
+                                                  'customerId': deal.userId,
+                                                });
+                                          },
+                                          child: Container(
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 8.w, vertical: 1.h),
+                                            decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(8.w),
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .secondary,
+                                            ),
+                                            child: Row(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.center,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      deal.customerName,
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall!
+                                                          .copyWith(
+                                                            color: Theme.of(
+                                                                    context)
+                                                                .scaffoldBackgroundColor,
+                                                            fontSize: 12.sp,
+                                                            fontWeight:
+                                                                FontWeight.w600,
+                                                          ),
+                                                    ),
+                                                    SizedBox(
+                                                      width: 60.w,
+                                                      child: Text(
+                                                        deal.dealName,
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow
+                                                            .ellipsis,
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall!
+                                                            .copyWith(
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .scaffoldBackgroundColor,
+                                                              fontSize: 11.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      'Balance: ${deal.noOfCouponsRedeemed}/${deal.noOfCoupons} coupon left',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall!
+                                                          .copyWith(
+                                                            color: Theme.of(
+                                                                    context)
+                                                                .primaryColor,
+                                                            fontSize: 12.sp,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                Column(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  children: [
+                                                    SvgPicture.asset(
+                                                      AssetConstants.polygonSvg,
+                                                    )
+                                                  ],
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        );
+                                      } else {
+                                        return SizedBox(
+                                          height: 11.h,
+                                          child: Shimmer.fromColors(
+                                            baseColor: Colors.grey[300]!,
+                                            highlightColor: Colors.grey[400]!,
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.w),
+                                                color: Colors.grey[300],
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      }
+                                    },
+                                    itemCount: state.customerDeals.length +
+                                        (state.hasMoreDocs ? 2 : 0),
+                                  ),
                       ),
                     ],
                   ),
-                  SizedBox(
-                    height: 7.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 5.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        CustomCard(
-                          image: AssetConstants.balance,
-                          title: DealsConstants.liveDeals,
-                          onClick: () {
-                            navigator<NavigationService>().navigateTo(
-                              CoreRoutes.liveDealListingRoute,
-                            );
-                          },
-                        ),
-                        CustomCard(
-                          isPrimaryColor: false,
-                          image: AssetConstants.payOut,
-                          title: DealsConstants.payOut,
-                          onClick: () {
-                            navigator<NavigationService>()
-                                .navigateTo(CoreRoutes.payoutListingRoute);
-                          },
-                        ),
-                        CustomCard(
-                          image: AssetConstants.createOrder,
-                          title: DealsConstants.createOrder,
-                          onClick: () {
-                            navigator<NavigationService>()
-                                .navigateTo(CoreRoutes.createOrderRoute);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 7.w),
-                    child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 1.5.h),
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5.w),
-                          color: Theme.of(context).scaffoldBackgroundColor,
-                          boxShadow: const [
-                            BoxShadow(
-                              offset: Offset(2, 2),
-                              blurRadius: 12,
-                              color: Color.fromRGBO(0, 0, 0, 0.16),
-                            )
-                          ]),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Today\'s Sale',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(
-                                        fontSize: 11.sp,
-                                        color: Theme.of(context).primaryColor,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                                Text(
-                                  state.todaysDealsCount.toString(),
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(
-                                        fontSize: 15.sp,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ],
-                            ),
-                            Container(
-                              margin: EdgeInsets.symmetric(horizontal: 4.w),
-                              width: 2,
-                              color: Theme.of(context).colorScheme.background,
-                              height: 5.h,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  'Today\'s Revenue',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(
-                                        fontSize: 11.sp,
-                                        color: Theme.of(context).primaryColor,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                                Text(
-                                  'RM ${state.todaysRevenue.toStringAsFixed(2)}',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .bodySmall!
-                                      .copyWith(
-                                        fontSize: 15.sp,
-                                        color: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ]),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
-                  Container(
-                    alignment: Alignment.center,
-                    width: 100.w,
-                    padding: EdgeInsets.only(bottom: 2.h),
-                    child: GestureDetector(
-                      onTap: () {
-                        showDateRangePicker(
-                                builder: (context, child) {
-                                  return Theme(
-                                    data: Theme.of(context).copyWith(
-                                      colorScheme: ColorScheme.light(
-                                        primary: Theme.of(context).primaryColor,
-                                        onPrimary: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        onSurface: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                      ),
-                                    ),
-                                    child: child!,
-                                  );
-                                },
-                                context: context,
-                                firstDate: DateTime(2024),
-                                lastDate: DateTime.now())
-                            .then((value) {
-                          if (value != null) {
-                            context.read<ManageDealsBloc>().add(
-                                  ManageDealsEvent.fetchCustomerOrders(
-                                      startDate: value.start,
-                                      endDate: value.end),
-                                );
-                          }
-                        });
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                ),
+                if (state.isShowLatestDealPopup)
+                  Positioned(
+                      left: 18.w,
+                      top: 45.h,
+                      child: Stack(
                         children: [
-                          Text(
-                            '${DateFormat('d MMM').format(state.startDate)} - ${DateFormat('d MMM yy').format(state.endDate)}',
-                            style: Theme.of(context)
-                                .textTheme
-                                .bodyMedium!
-                                .copyWith(
-                                  fontSize: 12.sp,
-                                  fontWeight: FontWeight.w700,
-                                  color: Theme.of(context).primaryColor,
-                                ),
-                          ),
-                          SizedBox(
-                            width: 2.w,
-                          ),
-                          SvgPicture.asset(
-                            AssetConstants.polygon2Svg,
-                            width: 3.5.w,
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: state.isLoading
-                        ? const Center(
-                            child: CircularProgressIndicator(),
-                          )
-                        : state.customerDeals.isEmpty
-                            ? Container(
-                                color: Theme.of(context).colorScheme.background,
-                              )
-                            : ListView.separated(
-                                controller: state.scrollController,
-                                physics: const BouncingScrollPhysics(),
-                                padding: EdgeInsets.only(
-                                  left: 5.w,
-                                  right: 5.w,
-                                  bottom: 8.h,
-                                ),
-                                separatorBuilder: ((context, index) {
-                                  return SizedBox(
-                                    height: 2.h,
-                                  );
-                                }),
-                                itemBuilder: (ctx, i) {
-                                  final mainIndex = i;
-
-                                  if (mainIndex < state.customerDeals.length) {
-                                    final deal = state.customerDeals[mainIndex];
-                                    return GestureDetector(
-                                      onTap: () {
-                                        navigator<NavigationService>()
-                                            .navigateTo(CoreRoutes
-                                                .customerPurchaseDealDetailsRoute);
-                                      },
-                                      child: Container(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 8.w, vertical: 1.h),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(8.w),
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                        ),
-                                        child: Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  deal.customerName,
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodySmall!
-                                                      .copyWith(
-                                                        color: Theme.of(context)
-                                                            .scaffoldBackgroundColor,
-                                                        fontSize: 12.sp,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                ),
-                                                SizedBox(
-                                                  width: 60.w,
-                                                  child: Text(
-                                                    deal.dealName,
-                                                    maxLines: 1,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodySmall!
-                                                        .copyWith(
-                                                          color: Theme.of(
-                                                                  context)
-                                                              .scaffoldBackgroundColor,
-                                                          fontSize: 11.sp,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                        ),
-                                                  ),
-                                                ),
-                                                Text(
-                                                  'Balance: ${deal.noOfCouponsRedeemed}/${deal.noOfCoupons} coupon left',
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodySmall!
-                                                      .copyWith(
-                                                        color: Theme.of(context)
-                                                            .primaryColor,
-                                                        fontSize: 12.sp,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                      ),
-                                                ),
-                                              ],
-                                            ),
-                                            Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                SvgPicture.asset(
-                                                  AssetConstants.polygonSvg,
-                                                )
-                                              ],
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    );
-                                  } else {
-                                    return SizedBox(
-                                      height: 11.h,
-                                      child: Shimmer.fromColors(
-                                        baseColor: Colors.grey[300]!,
-                                        highlightColor: Colors.grey[400]!,
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(8.w),
-                                            color: Colors.grey[300],
-                                          ),
-                                        ),
-                                      ),
-                                    );
-                                  }
-                                },
-                                itemCount: state.customerDeals.length +
-                                    (state.hasMoreDocs ? 2 : 0),
+                          Container(
+                            width: 65.w,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 4.w, vertical: 1.2.h),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                              borderRadius: BorderRadius.circular(5.w),
+                            ),
+                            child: Column(children: [
+                              Text(
+                                'It’s a SALE!',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                               ),
-                  ),
-                ],
-              ),
+                              Text(
+                                'get ready to verify.',
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                      color: Theme.of(context)
+                                          .scaffoldBackgroundColor,
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                              ),
+                              SizedBox(
+                                height: 0.5.h,
+                              ),
+                              PrimaryButton(
+                                  bgColor:
+                                      Theme.of(context).colorScheme.secondary,
+                                  btnTextColor: Theme.of(context).primaryColor,
+                                  textFontSize: 12.sp,
+                                  width: 40.w,
+                                  height: 4.h,
+                                  btnText: 'Verify Now',
+                                  onPressedBtn: () {
+                                    // go to scan tab
+                                    state.navCallBack!(1);
+                                  })
+                            ]),
+                          ),
+                          Positioned(
+                            right: 1.w,
+                            top: 2.h,
+                            child: GestureDetector(
+                              onTap: () {},
+                              child: SvgPicture.asset(
+                                AssetConstants.closeSvg,
+                                width: 8.w,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ))
+              ],
             ),
-            // Positioned(
-            //     right: 0,
-            //     top: 38.h,
-            //     child: Stack(
-            //       children: [
-            //         Container(
-            //           width: 65.w,
-            //           padding: EdgeInsets.symmetric(
-            //               horizontal: 4.w, vertical: 1.2.h),
-            //           decoration: BoxDecoration(
-            //             color: Theme.of(context).primaryColor,
-            //             borderRadius: BorderRadius.circular(5.w),
-            //           ),
-            //           child: Column(children: [
-            //             Text(
-            //               'It’s a SALE!',
-            //               style: Theme.of(context)
-            //                   .textTheme
-            //                   .bodySmall!
-            //                   .copyWith(
-            //                     color:
-            //                         Theme.of(context).scaffoldBackgroundColor,
-            //                     fontSize: 12.sp,
-            //                     fontWeight: FontWeight.w600,
-            //                   ),
-            //             ),
-            //             Text(
-            //               'get ready to verify.',
-            //               style: Theme.of(context)
-            //                   .textTheme
-            //                   .bodySmall!
-            //                   .copyWith(
-            //                     color:
-            //                         Theme.of(context).scaffoldBackgroundColor,
-            //                     fontSize: 12.sp,
-            //                     fontWeight: FontWeight.w600,
-            //                   ),
-            //             ),
-            //             SizedBox(
-            //               height: 0.5.h,
-            //             ),
-            //             PrimaryButton(
-            //                 bgColor: Theme.of(context).colorScheme.secondary,
-            //                 btnTextColor: Theme.of(context).primaryColor,
-            //                 textFontSize: 12.sp,
-            //                 width: 40.w,
-            //                 height: 4.h,
-            //                 btnText: 'Verify Now',
-            //                 onPressedBtn: () {})
-            //           ]),
-            //         ),
-            //         Positioned(
-            //           right: 1.w,
-            //           top: 2.h,
-            //           child: GestureDetector(
-            //             onTap: () {},
-            //             child: SvgPicture.asset(
-            //               AssetConstants.closeSvg,
-            //               width: 8.w,
-            //             ),
-            //           ),
-            //         ),
-            //       ],
-            //     ))
+            if (state.isShowLatestDealPopup)
+              Align(
+                alignment: Alignment.center,
+                child: ConfettiWidget(
+                  confettiController: state.confettiController,
+                  blastDirection: pi / 2,
+                  maxBlastForce: 5,
+                  minBlastForce: 1,
+                  emissionFrequency: 0.03,
+                  numberOfParticles: 10,
+                  gravity: 0,
+                ),
+              ),
           ],
         );
       },
@@ -597,7 +662,7 @@ class SearchCustomerBox extends StatelessWidget {
               size: 7.w,
             ),
           ),
-          contentPadding: EdgeInsets.all(16.0),
+          contentPadding: const EdgeInsets.all(16.0),
         ),
       ),
     );

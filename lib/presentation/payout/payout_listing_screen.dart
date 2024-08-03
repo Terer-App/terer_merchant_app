@@ -13,7 +13,6 @@ import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../infrastructure/dtos/brought_deal_dto/brought_deal_dto.dart';
-import '../../infrastructure/dtos/shop_product/shop_product_dto.dart';
 import '../../presentation/core/custom_button.dart';
 
 class PayoutListingScreen extends StatelessWidget {
@@ -208,8 +207,8 @@ class PayoutListingConsumer extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 1.h),
                 child: Text(
                   state.isSelectedMonth
-                      ? DateFormat('MMMM y').format(state.selectedDateTime!)
-                      : DateFormat('d MMM y').format(state.selectedDateTime!),
+                      ? DateFormat('MMMM y').format(state.selectedDateTime)
+                      : DateFormat('d MMM y').format(state.selectedDateTime),
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         fontSize: 12.sp,
                         fontWeight: FontWeight.w600,

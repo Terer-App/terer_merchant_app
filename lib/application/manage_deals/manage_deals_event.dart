@@ -4,6 +4,7 @@ part of 'manage_deals_bloc.dart';
 class ManageDealsEvent with _$ManageDealsEvent {
   const factory ManageDealsEvent.init() = _Init;
   const factory ManageDealsEvent.onLoad() = _OnLoad;
+  const factory ManageDealsEvent.checkForLatestDeal() = _CheckForLatestDeal;
   const factory ManageDealsEvent.loadMore() = _LoadMore;
   const factory ManageDealsEvent.fetchCustomerOrders({
     required DateTime startDate,

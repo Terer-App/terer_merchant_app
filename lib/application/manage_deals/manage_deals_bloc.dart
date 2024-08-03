@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
+import 'package:confetti/confetti.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 
+import '../../domain/constants/api_constants.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/place_order/place_order_repository.dart';
 import '../../domain/shop_merchant/shop_merchant_repository.dart';
@@ -17,9 +21,18 @@ part 'manage_deals_state.dart';
 part 'manage_deals_bloc.freezed.dart';
 
 class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
-  ManageDealsBloc(ManageDealsState initState) : super(initState) {
-    bool isFetching = false;
+  bool isFetching = false;
+  // ignore: no_leading_underscores_for_local_identifiers
+  Timer? _timer;
+  @override
+  Future<void> close() async {
+    if (_timer != null) {
+      _timer!.cancel();
+    }
+    super.close();
+  }
 
+  ManageDealsBloc(ManageDealsState initState) : super(initState) {
     on<_Init>((event, emit) {
       add(const ManageDealsEvent.onLoad());
 
@@ -27,7 +40,7 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
         final double maxScroll =
             state.scrollController.position.maxScrollExtent;
         final double currentScroll = state.scrollController.position.pixels;
-        const double delta = 100.0; // or something else..(-50.0)
+        const double delta = 50.0; // or something else..(-50.0)
         if (maxScroll - currentScroll <= delta) {
           if (state.hasMoreDocs) {
             if (!isFetching) {
@@ -37,14 +50,29 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
           }
         }
       });
+
+// check for latest deal after every 5 sec
+      _timer = Timer.periodic(const Duration(seconds: 5), (Timer t) {
+        if (state.isShowLatestDealPopup) {
+          add(ManageDealsEvent.emitFromAnywhere(
+              state: state.copyWith(isShowLatestDealPopup: false)));
+          state.confettiController.stop();
+        } else {
+          add(const ManageDealsEvent.checkForLatestDeal());
+        }
+      });
     });
 
     // on load
     on<_OnLoad>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
       final res = await state.placeOrderRepository.getCustomersOrders(
-        brandId: state.profile!.brand.id,
-        startDate: '01/07/2024',
-        endDate: '05/08/2024',
+        skip: 0,
+        startDate: DateFormat('dd/MM/y').format(state.startDate),
+        endDate: DateFormat('dd/MM/y').format(
+          state.endDate == null ? state.startDate : state.endDate!,
+        ),
+        limit: APIConstants.limit,
         isTodaysCount: true,
       );
 
@@ -52,23 +80,27 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
         emit(state.copyWith(
           isLoading: false,
           customerDeals: res['deals'],
+          hasMoreDocs: res['deals'].length == APIConstants.limit,
           todaysDealsCount: res['todaysDeals'],
           todaysRevenue: res['todaysRevenue'],
         ));
       } else {
         emit(state.copyWith(
           isLoading: false,
+          hasMoreDocs: false,
         ));
       }
+      isFetching = false;
     });
 
     on<_LoadMore>((event, emit) async {
+      emit(state.copyWith(skip: state.skip + 10));
       final res = await state.placeOrderRepository.getCustomersOrders(
-        brandId: state.profile!.brand.id,
         startDate: DateFormat('dd/MM/y').format(state.startDate),
-        endDate: DateFormat('dd/MM/y').format(state.endDate),
-        limit: 10,
-        skip: state.skip + 10,
+        endDate: DateFormat('dd/MM/y')
+            .format(state.endDate == null ? state.startDate : state.endDate!),
+        limit: APIConstants.limit,
+        skip: state.skip,
       );
 
       if (res.isNotEmpty) {
@@ -77,11 +109,10 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
           ...state.customerDeals,
           ...lsOfDeals
         ];
-        int totalDeals = res['totalDeals'];
 
         emit(state.copyWith(
-          hasMoreDocs: updatedDeals.length <= totalDeals,
-          customerDeals: res['deals'],
+          hasMoreDocs: lsOfDeals.length == APIConstants.limit,
+          customerDeals: updatedDeals,
         ));
       } else {
         emit(state.copyWith(
@@ -95,15 +126,17 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
     on<_FetchCustomerOrders>((event, emit) async {
       emit(state.copyWith(
         isLoading: true,
+        skip: 0,
         endDate: event.endDate,
         startDate: event.startDate,
       ));
 
       final res = await state.placeOrderRepository.getCustomersOrders(
-        brandId: state.profile!.brand.id,
         startDate: DateFormat('dd/MM/y').format(state.startDate),
-        endDate: DateFormat('dd/MM/y').format(state.endDate),
-        limit: 10,
+        endDate: DateFormat('dd/MM/y').format(
+          state.endDate == null ? state.startDate : state.endDate!,
+        ),
+        limit: APIConstants.limit,
         skip: state.skip,
         customerName: state.searchCustomerController.text.trim(),
       );
@@ -111,10 +144,28 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
       if (res.isNotEmpty) {
         emit(state.copyWith(
           isLoading: false,
-          hasMoreDocs: res['deals'].length <= res['totalDeals'],
+          hasMoreDocs: res['deals'].length == APIConstants.limit,
           customerDeals: res['deals'],
         ));
+      } else {
+        emit(state.copyWith(
+          isLoading: false,
+          hasMoreDocs: false,
+        ));
+      }
+    });
 
+    on<_CheckForLatestDeal>((event, emit) async {
+      final res = await state.placeOrderRepository
+          .getLatestDeals(startTime: DateTime.now().toString());
+
+      if (res.isNotEmpty) {
+        emit(state.copyWith(
+          latestDealCount: res.length,
+          isShowLatestDealPopup: state.latestDealCount != res.length,
+        ));
+
+        state.confettiController.play();
       }
     });
 

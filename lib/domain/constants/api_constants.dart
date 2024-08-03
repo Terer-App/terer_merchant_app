@@ -1,5 +1,6 @@
 class APIConstants {
   // Auth
+  static const int limit = 10;
   static const String merchantApis = 'merchant/dev/api/';
 
   static const String products = 'products/';
@@ -31,6 +32,8 @@ class APIConstants {
   static const String getOutletProducts = '${products}outlet-products';
   static const String getMerchantProducts = '${products}merchant-products';
   static const String invoiceDocLink = 'invoice/doc-link';
-  static const String getCustomerOrders = 'brands/get-customers-orders';
+  static const String getCustomerOrders = 'brands/get-customer-orders';
+  static const String getLatestOrders = 'brands/get-latest-orders';
+  static const String getCustomerWithRedemption = 'brands/get-customer-orders-with-redemption';
 
 }

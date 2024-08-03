@@ -20,6 +20,7 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() loadMore,
     required TResult Function(CustomerPurchaseDealsDetailsState state)
         emitFromAnywhere,
   }) =>
@@ -28,6 +29,7 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -35,6 +37,7 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -43,6 +46,7 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +54,7 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -57,6 +62,7 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -122,6 +128,7 @@ class _$_Init implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() loadMore,
     required TResult Function(CustomerPurchaseDealsDetailsState state)
         emitFromAnywhere,
   }) {
@@ -133,6 +140,7 @@ class _$_Init implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
   }) {
     return init?.call();
@@ -143,6 +151,7 @@ class _$_Init implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -157,6 +166,7 @@ class _$_Init implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return init(this);
@@ -167,6 +177,7 @@ class _$_Init implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return init?.call(this);
@@ -177,6 +188,7 @@ class _$_Init implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -232,6 +244,7 @@ class _$_OnLoad implements _OnLoad {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() loadMore,
     required TResult Function(CustomerPurchaseDealsDetailsState state)
         emitFromAnywhere,
   }) {
@@ -243,6 +256,7 @@ class _$_OnLoad implements _OnLoad {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
   }) {
     return onLoad?.call();
@@ -253,6 +267,7 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -267,6 +282,7 @@ class _$_OnLoad implements _OnLoad {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return onLoad(this);
@@ -277,6 +293,7 @@ class _$_OnLoad implements _OnLoad {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return onLoad?.call(this);
@@ -287,6 +304,7 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -299,6 +317,124 @@ class _$_OnLoad implements _OnLoad {
 
 abstract class _OnLoad implements CustomerPurchaseDealsDetailsEvent {
   const factory _OnLoad() = _$_OnLoad;
+}
+
+/// @nodoc
+abstract class _$$_LoadMoreCopyWith<$Res> {
+  factory _$$_LoadMoreCopyWith(
+          _$_LoadMore value, $Res Function(_$_LoadMore) then) =
+      __$$_LoadMoreCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadMoreCopyWithImpl<$Res>
+    extends _$CustomerPurchaseDealsDetailsEventCopyWithImpl<$Res>
+    implements _$$_LoadMoreCopyWith<$Res> {
+  __$$_LoadMoreCopyWithImpl(
+      _$_LoadMore _value, $Res Function(_$_LoadMore) _then)
+      : super(_value, (v) => _then(v as _$_LoadMore));
+
+  @override
+  _$_LoadMore get _value => super._value as _$_LoadMore;
+}
+
+/// @nodoc
+
+class _$_LoadMore implements _LoadMore {
+  const _$_LoadMore();
+
+  @override
+  String toString() {
+    return 'CustomerPurchaseDealsDetailsEvent.loadMore()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadMore);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function() loadMore,
+    required TResult Function(CustomerPurchaseDealsDetailsState state)
+        emitFromAnywhere,
+  }) {
+    return loadMore();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? loadMore,
+    TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
+  }) {
+    return loadMore?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? loadMore,
+    TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return loadMore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return loadMore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMore implements CustomerPurchaseDealsDetailsEvent {
+  const factory _LoadMore() = _$_LoadMore;
 }
 
 /// @nodoc
@@ -378,6 +514,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() loadMore,
     required TResult Function(CustomerPurchaseDealsDetailsState state)
         emitFromAnywhere,
   }) {
@@ -389,6 +526,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(state);
@@ -399,6 +537,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -413,6 +552,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return emitFromAnywhere(this);
@@ -423,6 +563,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(this);
@@ -433,6 +574,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -460,7 +602,18 @@ mixin _$CustomerPurchaseDealsDetailsState {
   bool get isFailed => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
   bool get noUse => throw _privateConstructorUsedError;
+  bool get hasMore => throw _privateConstructorUsedError;
   String get serverUrl => throw _privateConstructorUsedError;
+  String get customerId => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  int get skip => throw _privateConstructorUsedError;
+  ScrollController get scrollController => throw _privateConstructorUsedError;
+  List<CustomerOrderWithHistoryDto> get orderHistory =>
+      throw _privateConstructorUsedError;
+  PlaceOrderRepository get placeOrderRepository =>
+      throw _privateConstructorUsedError;
+  BrandUserDto get profile => throw _privateConstructorUsedError;
+  AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
   String get apiUrl => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -479,8 +632,19 @@ abstract class $CustomerPurchaseDealsDetailsStateCopyWith<$Res> {
       bool isFailed,
       bool isSuccess,
       bool noUse,
+      bool hasMore,
       String serverUrl,
+      String customerId,
+      String name,
+      int skip,
+      ScrollController scrollController,
+      List<CustomerOrderWithHistoryDto> orderHistory,
+      PlaceOrderRepository placeOrderRepository,
+      BrandUserDto profile,
+      AppStateNotifier appStateNotifier,
       String apiUrl});
+
+  $BrandUserDtoCopyWith<$Res> get profile;
 }
 
 /// @nodoc
@@ -498,7 +662,16 @@ class _$CustomerPurchaseDealsDetailsStateCopyWithImpl<$Res>
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
+    Object? hasMore = freezed,
     Object? serverUrl = freezed,
+    Object? customerId = freezed,
+    Object? name = freezed,
+    Object? skip = freezed,
+    Object? scrollController = freezed,
+    Object? orderHistory = freezed,
+    Object? placeOrderRepository = freezed,
+    Object? profile = freezed,
+    Object? appStateNotifier = freezed,
     Object? apiUrl = freezed,
   }) {
     return _then(_value.copyWith(
@@ -518,15 +691,58 @@ class _$CustomerPurchaseDealsDetailsStateCopyWithImpl<$Res>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
+      hasMore: hasMore == freezed
+          ? _value.hasMore
+          : hasMore // ignore: cast_nullable_to_non_nullable
+              as bool,
       serverUrl: serverUrl == freezed
           ? _value.serverUrl
           : serverUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      customerId: customerId == freezed
+          ? _value.customerId
+          : customerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      skip: skip == freezed
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      scrollController: scrollController == freezed
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController,
+      orderHistory: orderHistory == freezed
+          ? _value.orderHistory
+          : orderHistory // ignore: cast_nullable_to_non_nullable
+              as List<CustomerOrderWithHistoryDto>,
+      placeOrderRepository: placeOrderRepository == freezed
+          ? _value.placeOrderRepository
+          : placeOrderRepository // ignore: cast_nullable_to_non_nullable
+              as PlaceOrderRepository,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as BrandUserDto,
+      appStateNotifier: appStateNotifier == freezed
+          ? _value.appStateNotifier
+          : appStateNotifier // ignore: cast_nullable_to_non_nullable
+              as AppStateNotifier,
       apiUrl: apiUrl == freezed
           ? _value.apiUrl
           : apiUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ));
+  }
+
+  @override
+  $BrandUserDtoCopyWith<$Res> get profile {
+    return $BrandUserDtoCopyWith<$Res>(_value.profile, (value) {
+      return _then(_value.copyWith(profile: value));
+    });
   }
 }
 
@@ -543,8 +759,20 @@ abstract class _$$_CustomerPurchaseDealsDetailsStateCopyWith<$Res>
       bool isFailed,
       bool isSuccess,
       bool noUse,
+      bool hasMore,
       String serverUrl,
+      String customerId,
+      String name,
+      int skip,
+      ScrollController scrollController,
+      List<CustomerOrderWithHistoryDto> orderHistory,
+      PlaceOrderRepository placeOrderRepository,
+      BrandUserDto profile,
+      AppStateNotifier appStateNotifier,
       String apiUrl});
+
+  @override
+  $BrandUserDtoCopyWith<$Res> get profile;
 }
 
 /// @nodoc
@@ -566,7 +794,16 @@ class __$$_CustomerPurchaseDealsDetailsStateCopyWithImpl<$Res>
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
+    Object? hasMore = freezed,
     Object? serverUrl = freezed,
+    Object? customerId = freezed,
+    Object? name = freezed,
+    Object? skip = freezed,
+    Object? scrollController = freezed,
+    Object? orderHistory = freezed,
+    Object? placeOrderRepository = freezed,
+    Object? profile = freezed,
+    Object? appStateNotifier = freezed,
     Object? apiUrl = freezed,
   }) {
     return _then(_$_CustomerPurchaseDealsDetailsState(
@@ -586,10 +823,46 @@ class __$$_CustomerPurchaseDealsDetailsStateCopyWithImpl<$Res>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
+      hasMore: hasMore == freezed
+          ? _value.hasMore
+          : hasMore // ignore: cast_nullable_to_non_nullable
+              as bool,
       serverUrl: serverUrl == freezed
           ? _value.serverUrl
           : serverUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      customerId: customerId == freezed
+          ? _value.customerId
+          : customerId // ignore: cast_nullable_to_non_nullable
+              as String,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      skip: skip == freezed
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      scrollController: scrollController == freezed
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController,
+      orderHistory: orderHistory == freezed
+          ? _value._orderHistory
+          : orderHistory // ignore: cast_nullable_to_non_nullable
+              as List<CustomerOrderWithHistoryDto>,
+      placeOrderRepository: placeOrderRepository == freezed
+          ? _value.placeOrderRepository
+          : placeOrderRepository // ignore: cast_nullable_to_non_nullable
+              as PlaceOrderRepository,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as BrandUserDto,
+      appStateNotifier: appStateNotifier == freezed
+          ? _value.appStateNotifier
+          : appStateNotifier // ignore: cast_nullable_to_non_nullable
+              as AppStateNotifier,
       apiUrl: apiUrl == freezed
           ? _value.apiUrl
           : apiUrl // ignore: cast_nullable_to_non_nullable
@@ -607,8 +880,18 @@ class _$_CustomerPurchaseDealsDetailsState
       required this.isFailed,
       required this.isSuccess,
       required this.noUse,
+      required this.hasMore,
       required this.serverUrl,
-      required this.apiUrl});
+      required this.customerId,
+      required this.name,
+      required this.skip,
+      required this.scrollController,
+      required final List<CustomerOrderWithHistoryDto> orderHistory,
+      required this.placeOrderRepository,
+      required this.profile,
+      required this.appStateNotifier,
+      required this.apiUrl})
+      : _orderHistory = orderHistory;
 
   @override
   final bool isLoading;
@@ -619,13 +902,36 @@ class _$_CustomerPurchaseDealsDetailsState
   @override
   final bool noUse;
   @override
+  final bool hasMore;
+  @override
   final String serverUrl;
+  @override
+  final String customerId;
+  @override
+  final String name;
+  @override
+  final int skip;
+  @override
+  final ScrollController scrollController;
+  final List<CustomerOrderWithHistoryDto> _orderHistory;
+  @override
+  List<CustomerOrderWithHistoryDto> get orderHistory {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_orderHistory);
+  }
+
+  @override
+  final PlaceOrderRepository placeOrderRepository;
+  @override
+  final BrandUserDto profile;
+  @override
+  final AppStateNotifier appStateNotifier;
   @override
   final String apiUrl;
 
   @override
   String toString() {
-    return 'CustomerPurchaseDealsDetailsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, serverUrl: $serverUrl, apiUrl: $apiUrl)';
+    return 'CustomerPurchaseDealsDetailsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, hasMore: $hasMore, serverUrl: $serverUrl, customerId: $customerId, name: $name, skip: $skip, scrollController: $scrollController, orderHistory: $orderHistory, placeOrderRepository: $placeOrderRepository, profile: $profile, appStateNotifier: $appStateNotifier, apiUrl: $apiUrl)';
   }
 
   @override
@@ -637,7 +943,21 @@ class _$_CustomerPurchaseDealsDetailsState
             const DeepCollectionEquality().equals(other.isFailed, isFailed) &&
             const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
             const DeepCollectionEquality().equals(other.noUse, noUse) &&
+            const DeepCollectionEquality().equals(other.hasMore, hasMore) &&
             const DeepCollectionEquality().equals(other.serverUrl, serverUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.customerId, customerId) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.skip, skip) &&
+            const DeepCollectionEquality()
+                .equals(other.scrollController, scrollController) &&
+            const DeepCollectionEquality()
+                .equals(other._orderHistory, _orderHistory) &&
+            const DeepCollectionEquality()
+                .equals(other.placeOrderRepository, placeOrderRepository) &&
+            const DeepCollectionEquality().equals(other.profile, profile) &&
+            const DeepCollectionEquality()
+                .equals(other.appStateNotifier, appStateNotifier) &&
             const DeepCollectionEquality().equals(other.apiUrl, apiUrl));
   }
 
@@ -648,7 +968,16 @@ class _$_CustomerPurchaseDealsDetailsState
       const DeepCollectionEquality().hash(isFailed),
       const DeepCollectionEquality().hash(isSuccess),
       const DeepCollectionEquality().hash(noUse),
+      const DeepCollectionEquality().hash(hasMore),
       const DeepCollectionEquality().hash(serverUrl),
+      const DeepCollectionEquality().hash(customerId),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(skip),
+      const DeepCollectionEquality().hash(scrollController),
+      const DeepCollectionEquality().hash(_orderHistory),
+      const DeepCollectionEquality().hash(placeOrderRepository),
+      const DeepCollectionEquality().hash(profile),
+      const DeepCollectionEquality().hash(appStateNotifier),
       const DeepCollectionEquality().hash(apiUrl));
 
   @JsonKey(ignore: true)
@@ -666,7 +995,16 @@ abstract class _CustomerPurchaseDealsDetailsState
       required final bool isFailed,
       required final bool isSuccess,
       required final bool noUse,
+      required final bool hasMore,
       required final String serverUrl,
+      required final String customerId,
+      required final String name,
+      required final int skip,
+      required final ScrollController scrollController,
+      required final List<CustomerOrderWithHistoryDto> orderHistory,
+      required final PlaceOrderRepository placeOrderRepository,
+      required final BrandUserDto profile,
+      required final AppStateNotifier appStateNotifier,
       required final String apiUrl}) = _$_CustomerPurchaseDealsDetailsState;
 
   @override
@@ -678,7 +1016,25 @@ abstract class _CustomerPurchaseDealsDetailsState
   @override
   bool get noUse;
   @override
+  bool get hasMore;
+  @override
   String get serverUrl;
+  @override
+  String get customerId;
+  @override
+  String get name;
+  @override
+  int get skip;
+  @override
+  ScrollController get scrollController;
+  @override
+  List<CustomerOrderWithHistoryDto> get orderHistory;
+  @override
+  PlaceOrderRepository get placeOrderRepository;
+  @override
+  BrandUserDto get profile;
+  @override
+  AppStateNotifier get appStateNotifier;
   @override
   String get apiUrl;
   @override

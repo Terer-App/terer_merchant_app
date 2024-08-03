@@ -91,7 +91,7 @@ Future appInitializer(AppConfig appConfig) async {
 
   BrandUserDto? profile;
   bool isAuthorized = await AuthTokenService.isLogin();
-  print(await AuthTokenService.getMerchantToken());
+  // print(await AuthTokenService.getMerchantToken());
   if (isAuthorized) {
     profile = await IShopMerchantRepository(
       serverUrl: appConfig.serverUrl,

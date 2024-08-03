@@ -160,8 +160,6 @@ class IShopMerchantRepository extends ShopMerchantRepository {
     try {
       final token = await AuthTokenService.getMerchantToken();
 
-      print(json.encode(data));
-
       final res = await RESTService.performPOSTRequest(
         httpUrl: url,
         body: json.encode(data),
@@ -258,8 +256,6 @@ class IShopMerchantRepository extends ShopMerchantRepository {
           currentDate != null) {
         data['date'] = currentDate;
       }
-
-      print(data);
 
       final res = await RESTService.performPOSTRequest(
         httpUrl: url,

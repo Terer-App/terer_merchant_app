@@ -3,7 +3,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../place_order/max_variant_price/max_variant_price_dto.dart';
-import '../place_order/price_range/price_range_dto.dart';
 
 part 'shop_product_dto.freezed.dart';
 part 'shop_product_dto.g.dart';
@@ -74,7 +73,6 @@ extension ShopProductDtoExtension on ShopProductDto {
 
   static ShopProductDto parseRawDataToProductDTOFromService(
       Map<String, dynamic> rawData) {
-    List<String> images = [];
 
     Map<String, dynamic> parsedJson = {
       'id': rawData['id'],

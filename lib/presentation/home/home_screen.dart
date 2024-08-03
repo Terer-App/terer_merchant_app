@@ -65,6 +65,9 @@ class HomeScreenConsumer extends StatelessWidget {
                     },
                     child: state.currentPage == 0
                         ? ManageDealsScreen(
+                          navCallBack: (index){
+                            context.read<HomeScreenBloc>().add(HomeScreenEvent.changePage(currentPage: index));
+                          },
                             zoomDrawerController: zoomDrawerController,
                           )
                         : state.currentPage == 1
