@@ -360,7 +360,7 @@ class ManageDealsConsumer extends StatelessWidget {
                             ? const Center(
                                 child: CircularProgressIndicator(),
                               )
-                            : state.customerDeals.isNotEmpty
+                            : state.customerDeals.isEmpty
                                 ? Container(
                                   alignment: Alignment.center,
                                     color: Colors.transparent,

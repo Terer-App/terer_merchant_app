@@ -134,7 +134,7 @@ class IPlaceOrderRepository extends PlaceOrderRepository {
   }
 
   @override
-  Future<List<BroughtDealDto>> getBroughtDeals(
+  Future<List<BroughtDealDto>> getBroughtDealsByInvoiceDate(
       {required String brandId,
       required String startDate,
       required String endDate,

@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
 import 'package:month_picker_dialog/month_picker_dialog.dart';
 import 'package:provider/provider.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -226,60 +227,38 @@ class PayoutListingConsumer extends StatelessWidget {
                               child: Text('No Deals!'),
                             )
                           : ListView.separated(
+                              controller: state.scrollController,
                               padding: EdgeInsets.symmetric(
                                 vertical: 2.h,
                                 horizontal: 5.w,
                               ),
                               itemBuilder: (context, index) {
-                                BroughtDealDto deal = state.broughtDeals[index];
+                                int mainIndex = index;
+                                if (mainIndex < state.broughtDeals.length) {
+                                  BroughtDealDto deal =
+                                      state.broughtDeals[index];
 
-                                return Column(
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          deal.customerName,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                fontSize: 13.sp,
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .secondary,
-                                                fontWeight: FontWeight.w700,
-                                              ),
-                                        ),
-                                        Text(
-                                          'Date Paid: ${DateFormat('d MMM y').format(deal.datePurchase)}',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                fontSize: 11.sp,
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .secondary,
-                                                fontWeight: FontWeight.w400,
-                                              ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 0.8.h,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        SizedBox(
-                                          width: 70.w,
-                                          child: Text(
-                                            deal.dealName,
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
+                                  return Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            deal.customerName,
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .bodySmall!
+                                                .copyWith(
+                                                  fontSize: 13.sp,
+                                                  color: Theme.of(context)
+                                                      .colorScheme
+                                                      .secondary,
+                                                  fontWeight: FontWeight.w700,
+                                                ),
+                                          ),
+                                          Text(
+                                            'Date Paid: ${DateFormat('d MMM y').format(deal.datePurchase)}',
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodySmall!
@@ -291,7 +270,33 @@ class PayoutListingConsumer extends StatelessWidget {
                                                   fontWeight: FontWeight.w400,
                                                 ),
                                           ),
-                                        ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 0.8.h,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          SizedBox(
+                                            width: 70.w,
+                                            child: Text(
+                                              deal.dealName,
+                                              maxLines: 1,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall!
+                                                  .copyWith(
+                                                    fontSize: 11.sp,
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .secondary,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                            ),
+                                          ),
                                           Text(
                                             'RM${deal.dealPrice}',
                                             style: Theme.of(context)
@@ -305,42 +310,58 @@ class PayoutListingConsumer extends StatelessWidget {
                                                   fontWeight: FontWeight.w400,
                                                 ),
                                           ),
-                                      ],
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 0.8.h,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          const SizedBox(),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              color: Theme.of(context)
+                                                  .primaryColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(2.w),
+                                            ),
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 3.w,
+                                            ),
+                                            child: Text(
+                                              'Paid',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall!
+                                                  .copyWith(
+                                                    color: Theme.of(context)
+                                                        .scaffoldBackgroundColor,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  );
+                                } else {
+                                  return SizedBox(
+                                    height: 11.h,
+                                    child: Shimmer.fromColors(
+                                      baseColor: Colors.grey[300]!,
+                                      highlightColor: Colors.grey[400]!,
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8.w),
+                                          color: Colors.grey[300],
+                                        ),
+                                      ),
                                     ),
-                                    SizedBox(
-                                      height: 0.8.h,
-                                    ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        const SizedBox(),
-                                        Container(
-                                          decoration: BoxDecoration(
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            borderRadius:
-                                                BorderRadius.circular(2.w),
-                                          ),
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: 3.w,
-                                          ),
-                                          child: Text(
-                                            'Paid',
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall!
-                                                .copyWith(
-                                                  color: Theme.of(context)
-                                                      .scaffoldBackgroundColor,
-                                                  fontWeight: FontWeight.w500,
-                                                ),
-                                          ),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                );
+                                  );
+                                }
                               },
                               separatorBuilder: (context, index) {
                                 return Divider(
@@ -351,7 +372,9 @@ class PayoutListingConsumer extends StatelessWidget {
                                       .withOpacity(0.5),
                                 );
                               },
-                              itemCount: state.broughtDeals.length,
+                              itemCount: state.hasMoreDocs
+                                  ? state.broughtDeals.length + 2
+                                  : state.broughtDeals.length,
                             )),
               SizedBox(
                 height: 4.h,

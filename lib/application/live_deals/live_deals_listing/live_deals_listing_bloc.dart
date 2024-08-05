@@ -1,7 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../domain/core/configs/app_config.dart';
 import '../../../domain/shop_merchant/shop_merchant_repository.dart';
+import '../../../infrastructure/dtos/brand/user/brand_user_dto.dart';
 import '../../../infrastructure/dtos/place_order/outlet_product/outlet_product_dto.dart';
 import '../../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 
@@ -20,8 +23,7 @@ class LiveDealsListingBloc
         isLoading: true,
       ));
 
-      final res =
-          await state.shopMerchantRepository.getProductsByMerchant(brandId: 'BR_00002');
+      final res = await state.shopMerchantRepository.getProductsByMerchant();
 
       emit(state.copyWith(isLoading: false, products: res));
     });

@@ -20,6 +20,7 @@ mixin _$PayoutListingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() loadMore,
     required TResult Function(
             bool isMonth, DateTime startDate, DateTime endDate)
         fetchBroughtDealsByDayOrMonth,
@@ -30,6 +31,7 @@ mixin _$PayoutListingEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -39,6 +41,7 @@ mixin _$PayoutListingEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -49,6 +52,7 @@ mixin _$PayoutListingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_FetchBroughtDealsByDayOrMonth value)
         fetchBroughtDealsByDayOrMonth,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
@@ -58,6 +62,7 @@ mixin _$PayoutListingEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -67,6 +72,7 @@ mixin _$PayoutListingEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -132,6 +138,7 @@ class _$_Init implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() loadMore,
     required TResult Function(
             bool isMonth, DateTime startDate, DateTime endDate)
         fetchBroughtDealsByDayOrMonth,
@@ -145,6 +152,7 @@ class _$_Init implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -157,6 +165,7 @@ class _$_Init implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -173,6 +182,7 @@ class _$_Init implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_FetchBroughtDealsByDayOrMonth value)
         fetchBroughtDealsByDayOrMonth,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
@@ -185,6 +195,7 @@ class _$_Init implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -197,6 +208,7 @@ class _$_Init implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -254,6 +266,7 @@ class _$_OnLoad implements _OnLoad {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() loadMore,
     required TResult Function(
             bool isMonth, DateTime startDate, DateTime endDate)
         fetchBroughtDealsByDayOrMonth,
@@ -267,6 +280,7 @@ class _$_OnLoad implements _OnLoad {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -279,6 +293,7 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -295,6 +310,7 @@ class _$_OnLoad implements _OnLoad {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_FetchBroughtDealsByDayOrMonth value)
         fetchBroughtDealsByDayOrMonth,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
@@ -307,6 +323,7 @@ class _$_OnLoad implements _OnLoad {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -319,6 +336,7 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -333,6 +351,136 @@ class _$_OnLoad implements _OnLoad {
 
 abstract class _OnLoad implements PayoutListingEvent {
   const factory _OnLoad() = _$_OnLoad;
+}
+
+/// @nodoc
+abstract class _$$_LoadMoreCopyWith<$Res> {
+  factory _$$_LoadMoreCopyWith(
+          _$_LoadMore value, $Res Function(_$_LoadMore) then) =
+      __$$_LoadMoreCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_LoadMoreCopyWithImpl<$Res>
+    extends _$PayoutListingEventCopyWithImpl<$Res>
+    implements _$$_LoadMoreCopyWith<$Res> {
+  __$$_LoadMoreCopyWithImpl(
+      _$_LoadMore _value, $Res Function(_$_LoadMore) _then)
+      : super(_value, (v) => _then(v as _$_LoadMore));
+
+  @override
+  _$_LoadMore get _value => super._value as _$_LoadMore;
+}
+
+/// @nodoc
+
+class _$_LoadMore implements _LoadMore {
+  const _$_LoadMore();
+
+  @override
+  String toString() {
+    return 'PayoutListingEvent.loadMore()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_LoadMore);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function() loadMore,
+    required TResult Function(
+            bool isMonth, DateTime startDate, DateTime endDate)
+        fetchBroughtDealsByDayOrMonth,
+    required TResult Function(PayoutListingState state) emitFromAnywhere,
+  }) {
+    return loadMore();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? loadMore,
+    TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
+        fetchBroughtDealsByDayOrMonth,
+    TResult Function(PayoutListingState state)? emitFromAnywhere,
+  }) {
+    return loadMore?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? loadMore,
+    TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
+        fetchBroughtDealsByDayOrMonth,
+    TResult Function(PayoutListingState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_FetchBroughtDealsByDayOrMonth value)
+        fetchBroughtDealsByDayOrMonth,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return loadMore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchBroughtDealsByDayOrMonth value)?
+        fetchBroughtDealsByDayOrMonth,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return loadMore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchBroughtDealsByDayOrMonth value)?
+        fetchBroughtDealsByDayOrMonth,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (loadMore != null) {
+      return loadMore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadMore implements PayoutListingEvent {
+  const factory _LoadMore() = _$_LoadMore;
 }
 
 /// @nodoc
@@ -427,6 +575,7 @@ class _$_FetchBroughtDealsByDayOrMonth
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() loadMore,
     required TResult Function(
             bool isMonth, DateTime startDate, DateTime endDate)
         fetchBroughtDealsByDayOrMonth,
@@ -440,6 +589,7 @@ class _$_FetchBroughtDealsByDayOrMonth
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -452,6 +602,7 @@ class _$_FetchBroughtDealsByDayOrMonth
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -468,6 +619,7 @@ class _$_FetchBroughtDealsByDayOrMonth
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_FetchBroughtDealsByDayOrMonth value)
         fetchBroughtDealsByDayOrMonth,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
@@ -480,6 +632,7 @@ class _$_FetchBroughtDealsByDayOrMonth
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -492,6 +645,7 @@ class _$_FetchBroughtDealsByDayOrMonth
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -594,6 +748,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() loadMore,
     required TResult Function(
             bool isMonth, DateTime startDate, DateTime endDate)
         fetchBroughtDealsByDayOrMonth,
@@ -607,6 +762,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -619,6 +775,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? loadMore,
     TResult Function(bool isMonth, DateTime startDate, DateTime endDate)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(PayoutListingState state)? emitFromAnywhere,
@@ -635,6 +792,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
     required TResult Function(_FetchBroughtDealsByDayOrMonth value)
         fetchBroughtDealsByDayOrMonth,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
@@ -647,6 +805,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -659,6 +818,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
     TResult Function(_FetchBroughtDealsByDayOrMonth value)?
         fetchBroughtDealsByDayOrMonth,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
@@ -687,18 +847,24 @@ mixin _$PayoutListingState {
   bool get isFailed => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
   bool get noUse => throw _privateConstructorUsedError;
+  bool get hasMoreDocs => throw _privateConstructorUsedError;
   bool get isSelectedMonth => throw _privateConstructorUsedError;
   String get serverUrl => throw _privateConstructorUsedError;
   String get invoiceDocLink => throw _privateConstructorUsedError;
   String get apiUrl => throw _privateConstructorUsedError;
+  int get skip => throw _privateConstructorUsedError;
+  bool get isMonth => throw _privateConstructorUsedError;
   AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
   BrandUserDto get profile => throw _privateConstructorUsedError;
+  ScrollController get scrollController => throw _privateConstructorUsedError;
   ShopMerchantRepository get shopMerchantRepository =>
       throw _privateConstructorUsedError;
   PlaceOrderRepository get placeOrderRepository =>
       throw _privateConstructorUsedError;
   List<BroughtDealDto> get broughtDeals => throw _privateConstructorUsedError;
   DateTime get selectedDateTime => throw _privateConstructorUsedError;
+  DateTime get startDate => throw _privateConstructorUsedError;
+  DateTime get endDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PayoutListingStateCopyWith<PayoutListingState> get copyWith =>
@@ -715,16 +881,22 @@ abstract class $PayoutListingStateCopyWith<$Res> {
       bool isFailed,
       bool isSuccess,
       bool noUse,
+      bool hasMoreDocs,
       bool isSelectedMonth,
       String serverUrl,
       String invoiceDocLink,
       String apiUrl,
+      int skip,
+      bool isMonth,
       AppStateNotifier appStateNotifier,
       BrandUserDto profile,
+      ScrollController scrollController,
       ShopMerchantRepository shopMerchantRepository,
       PlaceOrderRepository placeOrderRepository,
       List<BroughtDealDto> broughtDeals,
-      DateTime selectedDateTime});
+      DateTime selectedDateTime,
+      DateTime startDate,
+      DateTime endDate});
 
   $BrandUserDtoCopyWith<$Res> get profile;
 }
@@ -744,16 +916,22 @@ class _$PayoutListingStateCopyWithImpl<$Res>
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
+    Object? hasMoreDocs = freezed,
     Object? isSelectedMonth = freezed,
     Object? serverUrl = freezed,
     Object? invoiceDocLink = freezed,
     Object? apiUrl = freezed,
+    Object? skip = freezed,
+    Object? isMonth = freezed,
     Object? appStateNotifier = freezed,
     Object? profile = freezed,
+    Object? scrollController = freezed,
     Object? shopMerchantRepository = freezed,
     Object? placeOrderRepository = freezed,
     Object? broughtDeals = freezed,
     Object? selectedDateTime = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -772,6 +950,10 @@ class _$PayoutListingStateCopyWithImpl<$Res>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
+      hasMoreDocs: hasMoreDocs == freezed
+          ? _value.hasMoreDocs
+          : hasMoreDocs // ignore: cast_nullable_to_non_nullable
+              as bool,
       isSelectedMonth: isSelectedMonth == freezed
           ? _value.isSelectedMonth
           : isSelectedMonth // ignore: cast_nullable_to_non_nullable
@@ -788,6 +970,14 @@ class _$PayoutListingStateCopyWithImpl<$Res>
           ? _value.apiUrl
           : apiUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      skip: skip == freezed
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      isMonth: isMonth == freezed
+          ? _value.isMonth
+          : isMonth // ignore: cast_nullable_to_non_nullable
+              as bool,
       appStateNotifier: appStateNotifier == freezed
           ? _value.appStateNotifier
           : appStateNotifier // ignore: cast_nullable_to_non_nullable
@@ -796,6 +986,10 @@ class _$PayoutListingStateCopyWithImpl<$Res>
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
               as BrandUserDto,
+      scrollController: scrollController == freezed
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController,
       shopMerchantRepository: shopMerchantRepository == freezed
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
@@ -811,6 +1005,14 @@ class _$PayoutListingStateCopyWithImpl<$Res>
       selectedDateTime: selectedDateTime == freezed
           ? _value.selectedDateTime
           : selectedDateTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      startDate: startDate == freezed
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endDate: endDate == freezed
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ));
   }
@@ -835,16 +1037,22 @@ abstract class _$$_PayoutListingStateCopyWith<$Res>
       bool isFailed,
       bool isSuccess,
       bool noUse,
+      bool hasMoreDocs,
       bool isSelectedMonth,
       String serverUrl,
       String invoiceDocLink,
       String apiUrl,
+      int skip,
+      bool isMonth,
       AppStateNotifier appStateNotifier,
       BrandUserDto profile,
+      ScrollController scrollController,
       ShopMerchantRepository shopMerchantRepository,
       PlaceOrderRepository placeOrderRepository,
       List<BroughtDealDto> broughtDeals,
-      DateTime selectedDateTime});
+      DateTime selectedDateTime,
+      DateTime startDate,
+      DateTime endDate});
 
   @override
   $BrandUserDtoCopyWith<$Res> get profile;
@@ -867,16 +1075,22 @@ class __$$_PayoutListingStateCopyWithImpl<$Res>
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? noUse = freezed,
+    Object? hasMoreDocs = freezed,
     Object? isSelectedMonth = freezed,
     Object? serverUrl = freezed,
     Object? invoiceDocLink = freezed,
     Object? apiUrl = freezed,
+    Object? skip = freezed,
+    Object? isMonth = freezed,
     Object? appStateNotifier = freezed,
     Object? profile = freezed,
+    Object? scrollController = freezed,
     Object? shopMerchantRepository = freezed,
     Object? placeOrderRepository = freezed,
     Object? broughtDeals = freezed,
     Object? selectedDateTime = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
   }) {
     return _then(_$_PayoutListingState(
       isLoading: isLoading == freezed
@@ -895,6 +1109,10 @@ class __$$_PayoutListingStateCopyWithImpl<$Res>
           ? _value.noUse
           : noUse // ignore: cast_nullable_to_non_nullable
               as bool,
+      hasMoreDocs: hasMoreDocs == freezed
+          ? _value.hasMoreDocs
+          : hasMoreDocs // ignore: cast_nullable_to_non_nullable
+              as bool,
       isSelectedMonth: isSelectedMonth == freezed
           ? _value.isSelectedMonth
           : isSelectedMonth // ignore: cast_nullable_to_non_nullable
@@ -911,6 +1129,14 @@ class __$$_PayoutListingStateCopyWithImpl<$Res>
           ? _value.apiUrl
           : apiUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      skip: skip == freezed
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      isMonth: isMonth == freezed
+          ? _value.isMonth
+          : isMonth // ignore: cast_nullable_to_non_nullable
+              as bool,
       appStateNotifier: appStateNotifier == freezed
           ? _value.appStateNotifier
           : appStateNotifier // ignore: cast_nullable_to_non_nullable
@@ -919,6 +1145,10 @@ class __$$_PayoutListingStateCopyWithImpl<$Res>
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
               as BrandUserDto,
+      scrollController: scrollController == freezed
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController,
       shopMerchantRepository: shopMerchantRepository == freezed
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
@@ -935,6 +1165,14 @@ class __$$_PayoutListingStateCopyWithImpl<$Res>
           ? _value.selectedDateTime
           : selectedDateTime // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      startDate: startDate == freezed
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endDate: endDate == freezed
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
     ));
   }
 }
@@ -947,16 +1185,22 @@ class _$_PayoutListingState implements _PayoutListingState {
       required this.isFailed,
       required this.isSuccess,
       required this.noUse,
+      required this.hasMoreDocs,
       required this.isSelectedMonth,
       required this.serverUrl,
       required this.invoiceDocLink,
       required this.apiUrl,
+      required this.skip,
+      required this.isMonth,
       required this.appStateNotifier,
       required this.profile,
+      required this.scrollController,
       required this.shopMerchantRepository,
       required this.placeOrderRepository,
       required this.broughtDeals,
-      required this.selectedDateTime});
+      required this.selectedDateTime,
+      required this.startDate,
+      required this.endDate});
 
   @override
   final bool isLoading;
@@ -967,6 +1211,8 @@ class _$_PayoutListingState implements _PayoutListingState {
   @override
   final bool noUse;
   @override
+  final bool hasMoreDocs;
+  @override
   final bool isSelectedMonth;
   @override
   final String serverUrl;
@@ -975,9 +1221,15 @@ class _$_PayoutListingState implements _PayoutListingState {
   @override
   final String apiUrl;
   @override
+  final int skip;
+  @override
+  final bool isMonth;
+  @override
   final AppStateNotifier appStateNotifier;
   @override
   final BrandUserDto profile;
+  @override
+  final ScrollController scrollController;
   @override
   final ShopMerchantRepository shopMerchantRepository;
   @override
@@ -986,10 +1238,14 @@ class _$_PayoutListingState implements _PayoutListingState {
   final List<BroughtDealDto> broughtDeals;
   @override
   final DateTime selectedDateTime;
+  @override
+  final DateTime startDate;
+  @override
+  final DateTime endDate;
 
   @override
   String toString() {
-    return 'PayoutListingState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, isSelectedMonth: $isSelectedMonth, serverUrl: $serverUrl, invoiceDocLink: $invoiceDocLink, apiUrl: $apiUrl, appStateNotifier: $appStateNotifier, profile: $profile, shopMerchantRepository: $shopMerchantRepository, placeOrderRepository: $placeOrderRepository, broughtDeals: $broughtDeals, selectedDateTime: $selectedDateTime)';
+    return 'PayoutListingState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, hasMoreDocs: $hasMoreDocs, isSelectedMonth: $isSelectedMonth, serverUrl: $serverUrl, invoiceDocLink: $invoiceDocLink, apiUrl: $apiUrl, skip: $skip, isMonth: $isMonth, appStateNotifier: $appStateNotifier, profile: $profile, scrollController: $scrollController, shopMerchantRepository: $shopMerchantRepository, placeOrderRepository: $placeOrderRepository, broughtDeals: $broughtDeals, selectedDateTime: $selectedDateTime, startDate: $startDate, endDate: $endDate)';
   }
 
   @override
@@ -1002,14 +1258,20 @@ class _$_PayoutListingState implements _PayoutListingState {
             const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
             const DeepCollectionEquality().equals(other.noUse, noUse) &&
             const DeepCollectionEquality()
+                .equals(other.hasMoreDocs, hasMoreDocs) &&
+            const DeepCollectionEquality()
                 .equals(other.isSelectedMonth, isSelectedMonth) &&
             const DeepCollectionEquality().equals(other.serverUrl, serverUrl) &&
             const DeepCollectionEquality()
                 .equals(other.invoiceDocLink, invoiceDocLink) &&
             const DeepCollectionEquality().equals(other.apiUrl, apiUrl) &&
+            const DeepCollectionEquality().equals(other.skip, skip) &&
+            const DeepCollectionEquality().equals(other.isMonth, isMonth) &&
             const DeepCollectionEquality()
                 .equals(other.appStateNotifier, appStateNotifier) &&
             const DeepCollectionEquality().equals(other.profile, profile) &&
+            const DeepCollectionEquality()
+                .equals(other.scrollController, scrollController) &&
             const DeepCollectionEquality()
                 .equals(other.shopMerchantRepository, shopMerchantRepository) &&
             const DeepCollectionEquality()
@@ -1017,26 +1279,35 @@ class _$_PayoutListingState implements _PayoutListingState {
             const DeepCollectionEquality()
                 .equals(other.broughtDeals, broughtDeals) &&
             const DeepCollectionEquality()
-                .equals(other.selectedDateTime, selectedDateTime));
+                .equals(other.selectedDateTime, selectedDateTime) &&
+            const DeepCollectionEquality().equals(other.startDate, startDate) &&
+            const DeepCollectionEquality().equals(other.endDate, endDate));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isFailed),
-      const DeepCollectionEquality().hash(isSuccess),
-      const DeepCollectionEquality().hash(noUse),
-      const DeepCollectionEquality().hash(isSelectedMonth),
-      const DeepCollectionEquality().hash(serverUrl),
-      const DeepCollectionEquality().hash(invoiceDocLink),
-      const DeepCollectionEquality().hash(apiUrl),
-      const DeepCollectionEquality().hash(appStateNotifier),
-      const DeepCollectionEquality().hash(profile),
-      const DeepCollectionEquality().hash(shopMerchantRepository),
-      const DeepCollectionEquality().hash(placeOrderRepository),
-      const DeepCollectionEquality().hash(broughtDeals),
-      const DeepCollectionEquality().hash(selectedDateTime));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(isLoading),
+        const DeepCollectionEquality().hash(isFailed),
+        const DeepCollectionEquality().hash(isSuccess),
+        const DeepCollectionEquality().hash(noUse),
+        const DeepCollectionEquality().hash(hasMoreDocs),
+        const DeepCollectionEquality().hash(isSelectedMonth),
+        const DeepCollectionEquality().hash(serverUrl),
+        const DeepCollectionEquality().hash(invoiceDocLink),
+        const DeepCollectionEquality().hash(apiUrl),
+        const DeepCollectionEquality().hash(skip),
+        const DeepCollectionEquality().hash(isMonth),
+        const DeepCollectionEquality().hash(appStateNotifier),
+        const DeepCollectionEquality().hash(profile),
+        const DeepCollectionEquality().hash(scrollController),
+        const DeepCollectionEquality().hash(shopMerchantRepository),
+        const DeepCollectionEquality().hash(placeOrderRepository),
+        const DeepCollectionEquality().hash(broughtDeals),
+        const DeepCollectionEquality().hash(selectedDateTime),
+        const DeepCollectionEquality().hash(startDate),
+        const DeepCollectionEquality().hash(endDate)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1051,16 +1322,22 @@ abstract class _PayoutListingState implements PayoutListingState {
       required final bool isFailed,
       required final bool isSuccess,
       required final bool noUse,
+      required final bool hasMoreDocs,
       required final bool isSelectedMonth,
       required final String serverUrl,
       required final String invoiceDocLink,
       required final String apiUrl,
+      required final int skip,
+      required final bool isMonth,
       required final AppStateNotifier appStateNotifier,
       required final BrandUserDto profile,
+      required final ScrollController scrollController,
       required final ShopMerchantRepository shopMerchantRepository,
       required final PlaceOrderRepository placeOrderRepository,
       required final List<BroughtDealDto> broughtDeals,
-      required final DateTime selectedDateTime}) = _$_PayoutListingState;
+      required final DateTime selectedDateTime,
+      required final DateTime startDate,
+      required final DateTime endDate}) = _$_PayoutListingState;
 
   @override
   bool get isLoading;
@@ -1071,6 +1348,8 @@ abstract class _PayoutListingState implements PayoutListingState {
   @override
   bool get noUse;
   @override
+  bool get hasMoreDocs;
+  @override
   bool get isSelectedMonth;
   @override
   String get serverUrl;
@@ -1079,9 +1358,15 @@ abstract class _PayoutListingState implements PayoutListingState {
   @override
   String get apiUrl;
   @override
+  int get skip;
+  @override
+  bool get isMonth;
+  @override
   AppStateNotifier get appStateNotifier;
   @override
   BrandUserDto get profile;
+  @override
+  ScrollController get scrollController;
   @override
   ShopMerchantRepository get shopMerchantRepository;
   @override
@@ -1090,6 +1375,10 @@ abstract class _PayoutListingState implements PayoutListingState {
   List<BroughtDealDto> get broughtDeals;
   @override
   DateTime get selectedDateTime;
+  @override
+  DateTime get startDate;
+  @override
+  DateTime get endDate;
   @override
   @JsonKey(ignore: true)
   _$$_PayoutListingStateCopyWith<_$_PayoutListingState> get copyWith =>

@@ -67,7 +67,7 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
     on<_OnLoad>((event, emit) async {
       emit(state.copyWith(isLoading: true));
       final res = await state.placeOrderRepository.getCustomersOrders(
-        skip: 0,
+        skip: 0,        
         startDate: DateFormat('dd/MM/y').format(state.startDate),
         endDate: DateFormat('dd/MM/y').format(
           state.endDate == null ? state.startDate : state.endDate!,
@@ -94,7 +94,7 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
     });
 
     on<_LoadMore>((event, emit) async {
-      emit(state.copyWith(skip: state.skip + 10));
+      emit(state.copyWith(skip: state.skip + APIConstants.limit));
       final res = await state.placeOrderRepository.getCustomersOrders(
         startDate: DateFormat('dd/MM/y').format(state.startDate),
         endDate: DateFormat('dd/MM/y')

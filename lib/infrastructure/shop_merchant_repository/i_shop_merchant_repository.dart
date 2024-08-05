@@ -323,8 +323,8 @@ class IShopMerchantRepository extends ShopMerchantRepository {
 
   @override
   Future<List<OutletProductDto>> getProductsByMerchant(
-      {required String brandId}) async {
-    final url = '$apiUrl${APIConstants.getMerchantProducts}?id=$brandId';
+    ) async {
+    final url = '$apiUrl${APIConstants.getMerchantProducts}';
     try {
       final token = await AuthTokenService.getMerchantToken();
       final res = await RESTService.performGETRequest(

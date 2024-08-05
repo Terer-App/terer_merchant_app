@@ -20,7 +20,6 @@ mixin _$LiveDealsListingEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
-    required TResult Function() onLogin,
     required TResult Function(LiveDealsListingState state) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +27,6 @@ mixin _$LiveDealsListingEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
-    TResult Function()? onLogin,
     TResult Function(LiveDealsListingState state)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +34,6 @@ mixin _$LiveDealsListingEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
-    TResult Function()? onLogin,
     TResult Function(LiveDealsListingState state)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -45,7 +42,6 @@ mixin _$LiveDealsListingEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
-    required TResult Function(_OnLogin value) onLogin,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +49,6 @@ mixin _$LiveDealsListingEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +56,6 @@ mixin _$LiveDealsListingEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -126,7 +120,6 @@ class _$_Init implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
-    required TResult Function() onLogin,
     required TResult Function(LiveDealsListingState state) emitFromAnywhere,
   }) {
     return init();
@@ -137,7 +130,6 @@ class _$_Init implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
-    TResult Function()? onLogin,
     TResult Function(LiveDealsListingState state)? emitFromAnywhere,
   }) {
     return init?.call();
@@ -148,7 +140,6 @@ class _$_Init implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
-    TResult Function()? onLogin,
     TResult Function(LiveDealsListingState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -163,7 +154,6 @@ class _$_Init implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
-    required TResult Function(_OnLogin value) onLogin,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return init(this);
@@ -174,7 +164,6 @@ class _$_Init implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return init?.call(this);
@@ -185,7 +174,6 @@ class _$_Init implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -241,7 +229,6 @@ class _$_OnLoad implements _OnLoad {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
-    required TResult Function() onLogin,
     required TResult Function(LiveDealsListingState state) emitFromAnywhere,
   }) {
     return onLoad();
@@ -252,7 +239,6 @@ class _$_OnLoad implements _OnLoad {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
-    TResult Function()? onLogin,
     TResult Function(LiveDealsListingState state)? emitFromAnywhere,
   }) {
     return onLoad?.call();
@@ -263,7 +249,6 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
-    TResult Function()? onLogin,
     TResult Function(LiveDealsListingState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -278,7 +263,6 @@ class _$_OnLoad implements _OnLoad {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
-    required TResult Function(_OnLogin value) onLogin,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return onLoad(this);
@@ -289,7 +273,6 @@ class _$_OnLoad implements _OnLoad {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return onLoad?.call(this);
@@ -300,7 +283,6 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -313,122 +295,6 @@ class _$_OnLoad implements _OnLoad {
 
 abstract class _OnLoad implements LiveDealsListingEvent {
   const factory _OnLoad() = _$_OnLoad;
-}
-
-/// @nodoc
-abstract class _$$_OnLoginCopyWith<$Res> {
-  factory _$$_OnLoginCopyWith(
-          _$_OnLogin value, $Res Function(_$_OnLogin) then) =
-      __$$_OnLoginCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_OnLoginCopyWithImpl<$Res>
-    extends _$LiveDealsListingEventCopyWithImpl<$Res>
-    implements _$$_OnLoginCopyWith<$Res> {
-  __$$_OnLoginCopyWithImpl(_$_OnLogin _value, $Res Function(_$_OnLogin) _then)
-      : super(_value, (v) => _then(v as _$_OnLogin));
-
-  @override
-  _$_OnLogin get _value => super._value as _$_OnLogin;
-}
-
-/// @nodoc
-
-class _$_OnLogin implements _OnLogin {
-  const _$_OnLogin();
-
-  @override
-  String toString() {
-    return 'LiveDealsListingEvent.onLogin()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_OnLogin);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() init,
-    required TResult Function() onLoad,
-    required TResult Function() onLogin,
-    required TResult Function(LiveDealsListingState state) emitFromAnywhere,
-  }) {
-    return onLogin();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? onLoad,
-    TResult Function()? onLogin,
-    TResult Function(LiveDealsListingState state)? emitFromAnywhere,
-  }) {
-    return onLogin?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? init,
-    TResult Function()? onLoad,
-    TResult Function()? onLogin,
-    TResult Function(LiveDealsListingState state)? emitFromAnywhere,
-    required TResult orElse(),
-  }) {
-    if (onLogin != null) {
-      return onLogin();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) init,
-    required TResult Function(_OnLoad value) onLoad,
-    required TResult Function(_OnLogin value) onLogin,
-    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
-  }) {
-    return onLogin(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Init value)? init,
-    TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
-    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
-  }) {
-    return onLogin?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? init,
-    TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
-    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
-    required TResult orElse(),
-  }) {
-    if (onLogin != null) {
-      return onLogin(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _OnLogin implements LiveDealsListingEvent {
-  const factory _OnLogin() = _$_OnLogin;
 }
 
 /// @nodoc
@@ -507,7 +373,6 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
-    required TResult Function() onLogin,
     required TResult Function(LiveDealsListingState state) emitFromAnywhere,
   }) {
     return emitFromAnywhere(state);
@@ -518,7 +383,6 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
-    TResult Function()? onLogin,
     TResult Function(LiveDealsListingState state)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(state);
@@ -529,7 +393,6 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
-    TResult Function()? onLogin,
     TResult Function(LiveDealsListingState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -544,7 +407,6 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
-    required TResult Function(_OnLogin value) onLogin,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return emitFromAnywhere(this);
@@ -555,7 +417,6 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(this);
@@ -566,7 +427,6 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
-    TResult Function(_OnLogin value)? onLogin,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -596,8 +456,11 @@ mixin _$LiveDealsListingState {
   List<OutletProductDto> get products => throw _privateConstructorUsedError;
   ShopMerchantRepository get shopMerchantRepository =>
       throw _privateConstructorUsedError;
+  ScrollController get scrollController => throw _privateConstructorUsedError;
   String get serverUrl => throw _privateConstructorUsedError;
   String get apiUrl => throw _privateConstructorUsedError;
+  BrandUserDto get profile => throw _privateConstructorUsedError;
+  AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LiveDealsListingStateCopyWith<LiveDealsListingState> get copyWith =>
@@ -616,8 +479,13 @@ abstract class $LiveDealsListingStateCopyWith<$Res> {
       bool noUse,
       List<OutletProductDto> products,
       ShopMerchantRepository shopMerchantRepository,
+      ScrollController scrollController,
       String serverUrl,
-      String apiUrl});
+      String apiUrl,
+      BrandUserDto profile,
+      AppStateNotifier appStateNotifier});
+
+  $BrandUserDtoCopyWith<$Res> get profile;
 }
 
 /// @nodoc
@@ -637,8 +505,11 @@ class _$LiveDealsListingStateCopyWithImpl<$Res>
     Object? noUse = freezed,
     Object? products = freezed,
     Object? shopMerchantRepository = freezed,
+    Object? scrollController = freezed,
     Object? serverUrl = freezed,
     Object? apiUrl = freezed,
+    Object? profile = freezed,
+    Object? appStateNotifier = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -665,6 +536,10 @@ class _$LiveDealsListingStateCopyWithImpl<$Res>
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
               as ShopMerchantRepository,
+      scrollController: scrollController == freezed
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController,
       serverUrl: serverUrl == freezed
           ? _value.serverUrl
           : serverUrl // ignore: cast_nullable_to_non_nullable
@@ -673,7 +548,22 @@ class _$LiveDealsListingStateCopyWithImpl<$Res>
           ? _value.apiUrl
           : apiUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as BrandUserDto,
+      appStateNotifier: appStateNotifier == freezed
+          ? _value.appStateNotifier
+          : appStateNotifier // ignore: cast_nullable_to_non_nullable
+              as AppStateNotifier,
     ));
+  }
+
+  @override
+  $BrandUserDtoCopyWith<$Res> get profile {
+    return $BrandUserDtoCopyWith<$Res>(_value.profile, (value) {
+      return _then(_value.copyWith(profile: value));
+    });
   }
 }
 
@@ -691,8 +581,14 @@ abstract class _$$_LiveDealsListingStateCopyWith<$Res>
       bool noUse,
       List<OutletProductDto> products,
       ShopMerchantRepository shopMerchantRepository,
+      ScrollController scrollController,
       String serverUrl,
-      String apiUrl});
+      String apiUrl,
+      BrandUserDto profile,
+      AppStateNotifier appStateNotifier});
+
+  @override
+  $BrandUserDtoCopyWith<$Res> get profile;
 }
 
 /// @nodoc
@@ -715,8 +611,11 @@ class __$$_LiveDealsListingStateCopyWithImpl<$Res>
     Object? noUse = freezed,
     Object? products = freezed,
     Object? shopMerchantRepository = freezed,
+    Object? scrollController = freezed,
     Object? serverUrl = freezed,
     Object? apiUrl = freezed,
+    Object? profile = freezed,
+    Object? appStateNotifier = freezed,
   }) {
     return _then(_$_LiveDealsListingState(
       isLoading: isLoading == freezed
@@ -743,6 +642,10 @@ class __$$_LiveDealsListingStateCopyWithImpl<$Res>
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
               as ShopMerchantRepository,
+      scrollController: scrollController == freezed
+          ? _value.scrollController
+          : scrollController // ignore: cast_nullable_to_non_nullable
+              as ScrollController,
       serverUrl: serverUrl == freezed
           ? _value.serverUrl
           : serverUrl // ignore: cast_nullable_to_non_nullable
@@ -751,6 +654,14 @@ class __$$_LiveDealsListingStateCopyWithImpl<$Res>
           ? _value.apiUrl
           : apiUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      profile: profile == freezed
+          ? _value.profile
+          : profile // ignore: cast_nullable_to_non_nullable
+              as BrandUserDto,
+      appStateNotifier: appStateNotifier == freezed
+          ? _value.appStateNotifier
+          : appStateNotifier // ignore: cast_nullable_to_non_nullable
+              as AppStateNotifier,
     ));
   }
 }
@@ -765,8 +676,11 @@ class _$_LiveDealsListingState implements _LiveDealsListingState {
       required this.noUse,
       required final List<OutletProductDto> products,
       required this.shopMerchantRepository,
+      required this.scrollController,
       required this.serverUrl,
-      required this.apiUrl})
+      required this.apiUrl,
+      required this.profile,
+      required this.appStateNotifier})
       : _products = products;
 
   @override
@@ -787,13 +701,19 @@ class _$_LiveDealsListingState implements _LiveDealsListingState {
   @override
   final ShopMerchantRepository shopMerchantRepository;
   @override
+  final ScrollController scrollController;
+  @override
   final String serverUrl;
   @override
   final String apiUrl;
+  @override
+  final BrandUserDto profile;
+  @override
+  final AppStateNotifier appStateNotifier;
 
   @override
   String toString() {
-    return 'LiveDealsListingState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, products: $products, shopMerchantRepository: $shopMerchantRepository, serverUrl: $serverUrl, apiUrl: $apiUrl)';
+    return 'LiveDealsListingState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, products: $products, shopMerchantRepository: $shopMerchantRepository, scrollController: $scrollController, serverUrl: $serverUrl, apiUrl: $apiUrl, profile: $profile, appStateNotifier: $appStateNotifier)';
   }
 
   @override
@@ -808,8 +728,13 @@ class _$_LiveDealsListingState implements _LiveDealsListingState {
             const DeepCollectionEquality().equals(other._products, _products) &&
             const DeepCollectionEquality()
                 .equals(other.shopMerchantRepository, shopMerchantRepository) &&
+            const DeepCollectionEquality()
+                .equals(other.scrollController, scrollController) &&
             const DeepCollectionEquality().equals(other.serverUrl, serverUrl) &&
-            const DeepCollectionEquality().equals(other.apiUrl, apiUrl));
+            const DeepCollectionEquality().equals(other.apiUrl, apiUrl) &&
+            const DeepCollectionEquality().equals(other.profile, profile) &&
+            const DeepCollectionEquality()
+                .equals(other.appStateNotifier, appStateNotifier));
   }
 
   @override
@@ -821,8 +746,11 @@ class _$_LiveDealsListingState implements _LiveDealsListingState {
       const DeepCollectionEquality().hash(noUse),
       const DeepCollectionEquality().hash(_products),
       const DeepCollectionEquality().hash(shopMerchantRepository),
+      const DeepCollectionEquality().hash(scrollController),
       const DeepCollectionEquality().hash(serverUrl),
-      const DeepCollectionEquality().hash(apiUrl));
+      const DeepCollectionEquality().hash(apiUrl),
+      const DeepCollectionEquality().hash(profile),
+      const DeepCollectionEquality().hash(appStateNotifier));
 
   @JsonKey(ignore: true)
   @override
@@ -833,14 +761,18 @@ class _$_LiveDealsListingState implements _LiveDealsListingState {
 
 abstract class _LiveDealsListingState implements LiveDealsListingState {
   const factory _LiveDealsListingState(
-      {required final bool isLoading,
-      required final bool isFailed,
-      required final bool isSuccess,
-      required final bool noUse,
-      required final List<OutletProductDto> products,
-      required final ShopMerchantRepository shopMerchantRepository,
-      required final String serverUrl,
-      required final String apiUrl}) = _$_LiveDealsListingState;
+          {required final bool isLoading,
+          required final bool isFailed,
+          required final bool isSuccess,
+          required final bool noUse,
+          required final List<OutletProductDto> products,
+          required final ShopMerchantRepository shopMerchantRepository,
+          required final ScrollController scrollController,
+          required final String serverUrl,
+          required final String apiUrl,
+          required final BrandUserDto profile,
+          required final AppStateNotifier appStateNotifier}) =
+      _$_LiveDealsListingState;
 
   @override
   bool get isLoading;
@@ -855,9 +787,15 @@ abstract class _LiveDealsListingState implements LiveDealsListingState {
   @override
   ShopMerchantRepository get shopMerchantRepository;
   @override
+  ScrollController get scrollController;
+  @override
   String get serverUrl;
   @override
   String get apiUrl;
+  @override
+  BrandUserDto get profile;
+  @override
+  AppStateNotifier get appStateNotifier;
   @override
   @JsonKey(ignore: true)
   _$$_LiveDealsListingStateCopyWith<_$_LiveDealsListingState> get copyWith =>

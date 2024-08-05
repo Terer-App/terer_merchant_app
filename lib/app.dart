@@ -78,7 +78,6 @@ class MainApp extends StatelessWidget {
       onGenerateRoute: Provider.of<AppStateNotifier>(context).isAuthorized
           ? authorizedNavigation
           : commonNavigation,
-      // initialRoute: CoreRoutes.customerPurchaseDealDetailsRoute,
       initialRoute: Provider.of<AppStateNotifier>(context).isAuthorized
           ? CoreRoutes.homeRoute
           : AuthRoutes.gettingStartedRoute,

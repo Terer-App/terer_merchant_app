@@ -25,10 +25,12 @@ abstract class PlaceOrderRepository {
   Future<Either<String, bool>> checkUserByNumber(
       {required String countryCode, required String phoneNumber});
 
-  Future<List<BroughtDealDto>> getBroughtDeals({
+  Future<List<BroughtDealDto>> getBroughtDealsByInvoiceDate({
     required String brandId,
     required String startDate,
     required String endDate,
+    int skip = 0,
+    int limit = APIConstants.limit,
   });
 
   Future<Map<String, dynamic>> getCustomersOrders({

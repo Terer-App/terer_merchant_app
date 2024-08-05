@@ -11,8 +11,7 @@ abstract class ShopMerchantRepository {
     required String productId,
   });
 
-  Future<List<OutletProductDto>> getProductsByMerchant(
-      {required String brandId});
+  Future<List<OutletProductDto>> getProductsByMerchant();
 
   Future<List<OutletDto>> getAllotedBrandOutlets();
 
