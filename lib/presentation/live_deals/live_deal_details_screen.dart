@@ -97,7 +97,7 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                     ),
                     Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
+                          EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(3.w),
                           border: Border.all(
@@ -107,7 +107,7 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                       child: Text(
                         '${state.dealDetails.redeemDuration['value']}'.toUpperCase(),
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              fontSize: 14.sp,
+                              fontSize: 13.sp,
                               fontWeight: FontWeight.w700,
                               color: Theme.of(context)
                                   .colorScheme
@@ -133,8 +133,10 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                 ),
                 Text(
                   state.dealDetails.description,
+                  textAlign: TextAlign.justify,
                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
                         fontSize: 13.sp,
+
                         fontWeight: FontWeight.w300,
                         height: 1.6,
                         color: Theme.of(context).colorScheme.secondary,

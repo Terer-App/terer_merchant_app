@@ -250,7 +250,7 @@ class AboutUsConstants {
   static const String para1 =
       'Terer is on a mission to increase customer efficiency and encourage long term savings through our multiple redemption platform. In return, Terer merchants are able to increase customer retention and cart value. For more info please visit our website\n';
 
-  static const String companyRegNo = 'Terer Sdn Bhd (formerly known as Digital Zero Sdn Bhd)';
+  static const String companyRegNo = 'Terer Sdn Bhd\n(formerly known as Digital Zero Sdn Bhd)';
 }
 
 class ContactUsConstants {

@@ -61,19 +61,8 @@ class MainApp extends StatelessWidget {
           ),
         ),
       ),
-      builder: (context, child) => Container(
-          alignment: Alignment.center,
-          decoration: SizerUtil.width == 430
-              ? const BoxDecoration(
-                  border: Border.symmetric(
-                    vertical: BorderSide(
-                      color: Colors.black,
-                      width: 2,
-                    ),
-                  ),
-                )
-              : null,
-          child: child!),
+      builder: (context, child) =>
+          Container(alignment: Alignment.center, child: child!),
       navigatorKey: navigator<NavigationService>().navigatorKey,
       onGenerateRoute: Provider.of<AppStateNotifier>(context).isAuthorized
           ? authorizedNavigation
@@ -145,9 +134,9 @@ Future appInitializer(AppConfig appConfig) async {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(
-              maxWidth: 430,
-              maxHeight: double.infinity,
-            ),
+                maxWidth: 430,
+                maxHeight: double.infinity,
+                ),
             child: Sizer(
               builder: (context, orientation, deviceType) {
                 // ignore: prefer_const_constructors

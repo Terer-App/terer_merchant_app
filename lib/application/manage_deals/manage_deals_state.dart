@@ -46,6 +46,7 @@ class ManageDealsState with _$ManageDealsState {
       customerDeals: [],
       todaysRevenue: 0,
       navCallBack: navCallBack,
+
       skip: 0,
       isShowLatestDealPopup: false,
       startDate: DateTime.now(),

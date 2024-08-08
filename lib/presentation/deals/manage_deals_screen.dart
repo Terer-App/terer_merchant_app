@@ -214,78 +214,79 @@ class ManageDealsConsumer extends StatelessWidget {
                                 )
                               ]),
                           child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Today\'s Sale',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            fontSize: 11.sp,
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                    Text(
-                                      state.todaysDealsCount.toString(),
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            fontSize: 15.sp,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .secondary,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 4.w),
-                                  width: 2,
-                                  color:
-                                      Theme.of(context).colorScheme.background,
-                                  height: 5.h,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Today\'s Revenue',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            fontSize: 11.sp,
-                                            color:
-                                                Theme.of(context).primaryColor,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                    Text(
-                                      'RM ${state.todaysRevenue.toStringAsFixed(2)}',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            fontSize: 15.sp,
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .secondary,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ]),
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Spacer(),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Today\'s Sale',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall!
+                                        .copyWith(
+                                          fontSize: 11.sp,
+                                          color: Theme.of(context).primaryColor,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                  Text(
+                                    state.todaysDealsCount.toString(),
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall!
+                                        .copyWith(
+                                          fontSize: 15.sp,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .secondary,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                              const Spacer(),
+                              Container(
+                                width: 2,
+                                color: Theme.of(context).colorScheme.background,
+                                height: 5.h,
+                              ),
+                              const Spacer(),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Today\'s Revenue',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall!
+                                        .copyWith(
+                                          fontSize: 11.sp,
+                                          color: Theme.of(context).primaryColor,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                  Text(
+                                    'RM ${state.todaysRevenue.toStringAsFixed(2)}',
+                                    style: Theme.of(context)
+                                        .textTheme
+                                        .bodySmall!
+                                        .copyWith(
+                                          fontSize: 15.sp,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .secondary,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                              Spacer(),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(
@@ -298,27 +299,42 @@ class ManageDealsConsumer extends StatelessWidget {
                         child: GestureDetector(
                           onTap: () {
                             showDateRangePicker(
-                                    builder: (context, child) {
-                                      return Theme(
-                                        data: Theme.of(context).copyWith(
-                                          colorScheme: ColorScheme.light(
-                                            primary:
-                                                Theme.of(context).primaryColor,
-                                            onPrimary: Theme.of(context)
-                                                .colorScheme
-                                                .secondary,
-                                            onSurface: Theme.of(context)
-                                                .colorScheme
-                                                .secondary,
+                              builder: (context, child) {
+                                return Theme(
+                                  data: Theme.of(context).copyWith(
+                                    inputDecorationTheme: InputDecorationTheme(
+                                      labelStyle: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            color: Colors.black,
                                           ),
-                                        ),
-                                        child: child!,
-                                      );
-                                    },
-                                    context: context,
-                                    firstDate: DateTime(2000),
-                                    lastDate: DateTime.now())
-                                .then((value) {
+                                    ),
+                                    textTheme: TextTheme(
+                                      subtitle1: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            color: Colors.black,
+                                          ),
+                                    ),
+                                    colorScheme: ColorScheme.light(
+                                      primary: Theme.of(context).primaryColor,
+                                      onPrimary: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                      onSurface: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                    ),
+                                  ),
+                                  child: child!,
+                                );
+                              },
+                              context: context,
+                              firstDate: DateTime(2000),
+                              lastDate: DateTime.now(),
+                            ).then((value) {
                               if (value != null) {
                                 context.read<ManageDealsBloc>().add(
                                       ManageDealsEvent.fetchCustomerOrders(
@@ -362,7 +378,7 @@ class ManageDealsConsumer extends StatelessWidget {
                               )
                             : state.customerDeals.isEmpty
                                 ? Container(
-                                  alignment: Alignment.center,
+                                    alignment: Alignment.center,
                                     color: Colors.transparent,
                                     child: Text(
                                       'No Deals Available!',
@@ -521,8 +537,8 @@ class ManageDealsConsumer extends StatelessWidget {
                 ),
                 if (state.isShowLatestDealPopup)
                   Positioned(
-                      left: 18.w,
-                      top: 45.h,
+                      right: 2.w,
+                      top: 21.5.h,
                       child: Stack(
                         children: [
                           Container(
@@ -547,7 +563,7 @@ class ManageDealsConsumer extends StatelessWidget {
                                     ),
                               ),
                               Text(
-                                'get ready to verify.',
+                                'Get ready to verify.',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
@@ -590,19 +606,6 @@ class ManageDealsConsumer extends StatelessWidget {
                       ))
               ],
             ),
-            if (state.isShowLatestDealPopup)
-              Align(
-                alignment: Alignment.center,
-                child: ConfettiWidget(
-                  confettiController: state.confettiController,
-                  blastDirection: pi / 2,
-                  maxBlastForce: 5,
-                  minBlastForce: 1,
-                  emissionFrequency: 0.03,
-                  numberOfParticles: 10,
-                  gravity: 0,
-                ),
-              ),
           ],
         );
       },

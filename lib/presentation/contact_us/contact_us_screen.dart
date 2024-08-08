@@ -92,48 +92,37 @@ class ContactUsConsumer extends StatelessWidget {
             inAsyncCall: state.isLoading,
             child: Scaffold(
               appBar: AppBar(
-                shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(15.0),
-                        bottomRight: Radius.circular(15.0))),
+                backgroundColor: Theme.of(context).scaffoldBackgroundColor,
                 toolbarHeight: 8.h,
-                backgroundColor: Theme.of(context).primaryColor,
-                leadingWidth: 20.w,
-                leading: Padding(
-                  padding: EdgeInsets.only(
-                    left: 5.w,
-                  ),
-                  child: Center(
-                    child: ElevatedButton(
-                        onPressed: () {
-                          navigator<NavigationService>().goBack();
-                        },
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          shape: const CircleBorder(),
-                          backgroundColor: Theme.of(context)
-                              .colorScheme
-                              .tertiary
-                              .withOpacity(0.7),
-                          foregroundColor:
-                              Theme.of(context).colorScheme.primary,
-                        ),
-                        child: SvgPicture.asset(
-                          AssetConstants.backSvg,
-                          width: 14.w,
-                        )),
-                  ),
-                ),
-                title: Padding(
-                  padding: EdgeInsets.only(left: 5.w),
-                  child: Text(AppConstants.contactUsTitle,
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                          color: Colors.white, fontWeight: FontWeight.bold)),
-                ),
                 elevation: 0,
+                leading: GestureDetector(
+                  onTap: () {
+                    navigator<NavigationService>().goBack();
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 3.w),
+                    child: SvgPicture.asset(
+                      AssetConstants.backArrowYellow,
+                    ),
+                  ),
+                ),
+                title: Text(
+                  AppConstants.contactUsTitle,
+                  style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                        color: Theme.of(context).primaryColor,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w700,
+                      ),
+                ),
+                centerTitle: true,
               ),
               body: Column(
                 children: [
+                  Container(
+                    height: 2.h,
+                    width: double.infinity,
+                    color: Theme.of(context).primaryColor,
+                  ),
                   Expanded(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
