@@ -10,7 +10,16 @@ extension DateTimeExtension on DateTime {
     return DateFormat("d'$suffix' MMMM yyyy").format(this);
   }
 
-    String get displayDateV2 {
+  String get displayDateV3 {
+    String suffix = 'th';
+    var digit = day % 10;
+    if ((digit > 0 && digit < 4) && (day < 11 || day > 13)) {
+      suffix = ['st', 'nd', 'rd'][digit - 1];
+    }
+    return DateFormat("d'$suffix' MMM").format(this);
+  }
+
+  String get displayDateV2 {
     String suffix = 'th';
     var digit = day % 10;
     if ((digit > 0 && digit < 4) && (day < 11 || day > 13)) {

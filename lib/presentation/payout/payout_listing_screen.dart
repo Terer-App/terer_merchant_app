@@ -161,6 +161,9 @@ class PayoutListingConsumer extends StatelessWidget {
                       onTap: () async {
                         showMonthPicker(
                           context: context,
+
+                          
+                          
                           initialDate: state.selectedDateTime,
                         ).then((date) {
                           if (date != null) {
@@ -244,18 +247,21 @@ class PayoutListingConsumer extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text(
-                                            deal.customerName,
-                                            style: Theme.of(context)
-                                                .textTheme
-                                                .bodySmall!
-                                                .copyWith(
-                                                  fontSize: 13.sp,
-                                                  color: Theme.of(context)
-                                                      .colorScheme
-                                                      .secondary,
-                                                  fontWeight: FontWeight.w700,
-                                                ),
+                                          Expanded(
+                                            child: Text(
+                                              deal.customerName,
+                                              overflow: TextOverflow.ellipsis,
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall!
+                                                  .copyWith(
+                                                    fontSize: 13.sp,
+                                                    color: Theme.of(context)
+                                                        .colorScheme
+                                                        .secondary,
+                                                    fontWeight: FontWeight.w700,
+                                                  ),
+                                            ),
                                           ),
                                           Text(
                                             'Date Paid: ${DateFormat('d MMM y').format(deal.datePurchase)}',
@@ -282,7 +288,7 @@ class PayoutListingConsumer extends StatelessWidget {
                                           SizedBox(
                                             width: 70.w,
                                             child: Text(
-                                              deal.dealName,
+                                              deal.dealName + 'prathmesh',
                                               maxLines: 1,
                                               overflow: TextOverflow.ellipsis,
                                               style: Theme.of(context)

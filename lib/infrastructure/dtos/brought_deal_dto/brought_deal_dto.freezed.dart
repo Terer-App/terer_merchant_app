@@ -31,7 +31,7 @@ mixin _$BroughtDealDto {
   @JsonKey(name: "dealName")
   String get dealName => throw _privateConstructorUsedError;
   @JsonKey(name: "dealPrice")
-  double get dealPrice => throw _privateConstructorUsedError;
+  double? get dealPrice => throw _privateConstructorUsedError;
   @JsonKey(name: "datePurchase")
   DateTime get datePurchase => throw _privateConstructorUsedError;
   @JsonKey(name: "dateExpired")
@@ -64,7 +64,7 @@ abstract class $BroughtDealDtoCopyWith<$Res> {
       @JsonKey(name: "customerName") String customerName,
       @JsonKey(name: "dealId") String dealId,
       @JsonKey(name: "dealName") String dealName,
-      @JsonKey(name: "dealPrice") double dealPrice,
+      @JsonKey(name: "dealPrice") double? dealPrice,
       @JsonKey(name: "datePurchase") DateTime datePurchase,
       @JsonKey(name: "dateExpired") DateTime dateExpired,
       @JsonKey(name: "noOfCoupons") int noOfCoupons,
@@ -123,7 +123,7 @@ class _$BroughtDealDtoCopyWithImpl<$Res>
       dealPrice: dealPrice == freezed
           ? _value.dealPrice
           : dealPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       datePurchase: datePurchase == freezed
           ? _value.datePurchase
           : datePurchase // ignore: cast_nullable_to_non_nullable
@@ -169,7 +169,7 @@ abstract class _$$_BroughtDealDtoCopyWith<$Res>
       @JsonKey(name: "customerName") String customerName,
       @JsonKey(name: "dealId") String dealId,
       @JsonKey(name: "dealName") String dealName,
-      @JsonKey(name: "dealPrice") double dealPrice,
+      @JsonKey(name: "dealPrice") double? dealPrice,
       @JsonKey(name: "datePurchase") DateTime datePurchase,
       @JsonKey(name: "dateExpired") DateTime dateExpired,
       @JsonKey(name: "noOfCoupons") int noOfCoupons,
@@ -230,7 +230,7 @@ class __$$_BroughtDealDtoCopyWithImpl<$Res>
       dealPrice: dealPrice == freezed
           ? _value.dealPrice
           : dealPrice // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       datePurchase: datePurchase == freezed
           ? _value.datePurchase
           : datePurchase // ignore: cast_nullable_to_non_nullable
@@ -301,7 +301,7 @@ class _$_BroughtDealDto implements _BroughtDealDto {
   final String dealName;
   @override
   @JsonKey(name: "dealPrice")
-  final double dealPrice;
+  final double? dealPrice;
   @override
   @JsonKey(name: "datePurchase")
   final DateTime datePurchase;
@@ -401,7 +401,7 @@ abstract class _BroughtDealDto implements BroughtDealDto {
       @JsonKey(name: "dealName")
           required final String dealName,
       @JsonKey(name: "dealPrice")
-          required final double dealPrice,
+          required final double? dealPrice,
       @JsonKey(name: "datePurchase")
           required final DateTime datePurchase,
       @JsonKey(name: "dateExpired")
@@ -437,7 +437,7 @@ abstract class _BroughtDealDto implements BroughtDealDto {
   String get dealName;
   @override
   @JsonKey(name: "dealPrice")
-  double get dealPrice;
+  double? get dealPrice;
   @override
   @JsonKey(name: "datePurchase")
   DateTime get datePurchase;

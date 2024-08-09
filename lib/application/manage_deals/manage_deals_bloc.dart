@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:confetti/confetti.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
@@ -53,24 +52,22 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
 
 // check for latest deal after every 5 sec
       _timer = Timer.periodic(const Duration(seconds: 5), (Timer t) {
-        if (state.isShowLatestDealPopup) {
-          add(ManageDealsEvent.emitFromAnywhere(
-              state: state.copyWith(isShowLatestDealPopup: false)));
-          state.confettiController.stop();
-        } else {
-          add(const ManageDealsEvent.checkForLatestDeal());
-        }
+        add(const ManageDealsEvent.checkForLatestDeal());
       });
     });
 
     // on load
     on<_OnLoad>((event, emit) async {
-      emit(state.copyWith(isLoading: true));
+      emit(state.copyWith(
+        isLoading: true,
+        startDate: state.selectedDateTimeRange.start,
+        endDate: state.selectedDateTimeRange.end,
+      ));
       final res = await state.placeOrderRepository.getCustomersOrders(
-        skip: 0,        
+        skip: 0,
         startDate: DateFormat('dd/MM/y').format(state.startDate),
         endDate: DateFormat('dd/MM/y').format(
-          state.endDate == null ? state.startDate : state.endDate!,
+          state.endDate,
         ),
         limit: APIConstants.limit,
         isTodaysCount: true,
@@ -97,8 +94,7 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
       emit(state.copyWith(skip: state.skip + APIConstants.limit));
       final res = await state.placeOrderRepository.getCustomersOrders(
         startDate: DateFormat('dd/MM/y').format(state.startDate),
-        endDate: DateFormat('dd/MM/y')
-            .format(state.endDate == null ? state.startDate : state.endDate!),
+        endDate: DateFormat('dd/MM/y').format(state.endDate),
         limit: APIConstants.limit,
         skip: state.skip,
       );
@@ -127,6 +123,8 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
       emit(state.copyWith(
         isLoading: true,
         skip: 0,
+        selectedDateTimeRange:
+            DateTimeRange(start: event.startDate, end: event.endDate),
         endDate: event.endDate,
         startDate: event.startDate,
       ));
@@ -134,7 +132,7 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
       final res = await state.placeOrderRepository.getCustomersOrders(
         startDate: DateFormat('dd/MM/y').format(state.startDate),
         endDate: DateFormat('dd/MM/y').format(
-          state.endDate == null ? state.startDate : state.endDate!,
+          state.endDate,
         ),
         limit: APIConstants.limit,
         skip: state.skip,
@@ -156,16 +154,15 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
     });
 
     on<_CheckForLatestDeal>((event, emit) async {
-      final res = await state.placeOrderRepository
-          .getLatestDeals(startTime: DateTime.now().toString());
+      final res = await state.placeOrderRepository.getLatestDeals(
+        startTime: state.latestDealTime.toString(),
+      );
 
       if (res.isNotEmpty) {
         emit(state.copyWith(
           latestDealCount: res.length,
           isShowLatestDealPopup: state.latestDealCount != res.length,
         ));
-
-        state.confettiController.play();
       }
     });
 

@@ -1,15 +1,10 @@
-import 'dart:math';
-
-import 'package:confetti/confetti.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
-
 import 'package:sizer/sizer.dart';
 import '../../application/manage_deals/manage_deals_bloc.dart';
 import '../../domain/core/configs/app_config.dart';
@@ -167,7 +162,7 @@ class ManageDealsConsumer extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             CustomCard(
-                              image: AssetConstants.balance,
+                              image: AssetConstants.createOrder,
                               title: DealsConstants.liveDeals,
                               onClick: () {
                                 navigator<NavigationService>().navigateTo(
@@ -185,7 +180,7 @@ class ManageDealsConsumer extends StatelessWidget {
                               },
                             ),
                             CustomCard(
-                              image: AssetConstants.createOrder,
+                              image: AssetConstants.balance,
                               title: DealsConstants.createOrder,
                               onClick: () {
                                 navigator<NavigationService>()
@@ -301,6 +296,7 @@ class ManageDealsConsumer extends StatelessWidget {
                             showDateRangePicker(
                               builder: (context, child) {
                                 return Theme(
+
                                   data: Theme.of(context).copyWith(
                                     inputDecorationTheme: InputDecorationTheme(
                                       labelStyle: Theme.of(context)
@@ -310,14 +306,15 @@ class ManageDealsConsumer extends StatelessWidget {
                                             color: Colors.black,
                                           ),
                                     ),
-                                    textTheme: TextTheme(
-                                      subtitle1: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            color: Colors.black,
-                                          ),
-                                    ),
+                                    textTheme:
+                                        Theme.of(context).textTheme.copyWith(
+                                              subtitle1: Theme.of(context)
+                                                  .textTheme
+                                                  .subtitle1!
+                                                  .copyWith(
+                                                    fontSize: 12.sp,
+                                                  ),
+                                            ),
                                     colorScheme: ColorScheme.light(
                                       primary: Theme.of(context).primaryColor,
                                       onPrimary: Theme.of(context)
@@ -348,9 +345,9 @@ class ManageDealsConsumer extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                state.endDate == null
-                                    ? state.startDate.displayDateV2
-                                    : '${state.startDate.displayDateV2} - ${state.endDate!.displayDateV2}',
+                                (state.startDate.year == state.endDate.year)
+                                    ? '${state.startDate.displayDateV3} - ${state.endDate.displayDateV2}'
+                                    : '${state.startDate.displayDateV2} - ${state.endDate.displayDateV2}',
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!

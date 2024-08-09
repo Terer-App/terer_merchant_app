@@ -79,6 +79,7 @@ class PayoutListingBloc extends Bloc<PayoutListingEvent, PayoutListingState> {
       emit(
         state.copyWith(
           isLoading: true,
+          skip: 0,
           selectedDateTime: event.startDate,
           isSelectedMonth: event.isMonth,
           startDate: event.startDate,

@@ -21,15 +21,16 @@ class ManageDealsState with _$ManageDealsState {
     required double todaysRevenue,
     required String searchCustomerName,
     required DateTime startDate,
+    required DateTime endDate,
+    required DateTime latestDealTime,
+    required DateTimeRange selectedDateTimeRange,
     required TextEditingController searchCustomerController,
     required List<BroughtDealDto> customerDeals,
     required ShopMerchantRepository shopMerchantRepository,
     required PlaceOrderRepository placeOrderRepository,
     required ScrollController scrollController,
-    required ConfettiController confettiController,
     required ZoomDrawerController zoomDrawerController,
     required Function(int moveTo)? navCallBack,
-    DateTime? endDate,
     BrandUserDto? profile,
   }) = _ManageDealsState;
 
@@ -46,13 +47,15 @@ class ManageDealsState with _$ManageDealsState {
       customerDeals: [],
       todaysRevenue: 0,
       navCallBack: navCallBack,
-
       skip: 0,
+      selectedDateTimeRange: DateTimeRange(
+          start: DateTime(DateTime.now().year, DateTime.now().month, 1),
+          end: DateTime.now()),
       isShowLatestDealPopup: false,
       startDate: DateTime.now(),
+      endDate: DateTime.now(),
       searchCustomerName: '',
-      confettiController:
-          ConfettiController(duration: const Duration(seconds: 2)),
+      latestDealTime: DateTime.now(),
       placeOrderRepository:
           IPlaceOrderRepository(apiUrl: apiUrl, serverUrl: serverUrl),
       appStateNotifier: appStateNotifier,

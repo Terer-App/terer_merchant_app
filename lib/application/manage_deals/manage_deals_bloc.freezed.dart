@@ -975,6 +975,9 @@ mixin _$ManageDealsState {
   double get todaysRevenue => throw _privateConstructorUsedError;
   String get searchCustomerName => throw _privateConstructorUsedError;
   DateTime get startDate => throw _privateConstructorUsedError;
+  DateTime get endDate => throw _privateConstructorUsedError;
+  DateTime get latestDealTime => throw _privateConstructorUsedError;
+  DateTimeRange get selectedDateTimeRange => throw _privateConstructorUsedError;
   TextEditingController get searchCustomerController =>
       throw _privateConstructorUsedError;
   List<BroughtDealDto> get customerDeals => throw _privateConstructorUsedError;
@@ -983,12 +986,9 @@ mixin _$ManageDealsState {
   PlaceOrderRepository get placeOrderRepository =>
       throw _privateConstructorUsedError;
   ScrollController get scrollController => throw _privateConstructorUsedError;
-  ConfettiController get confettiController =>
-      throw _privateConstructorUsedError;
   ZoomDrawerController get zoomDrawerController =>
       throw _privateConstructorUsedError;
   dynamic Function(int)? get navCallBack => throw _privateConstructorUsedError;
-  DateTime? get endDate => throw _privateConstructorUsedError;
   BrandUserDto? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -1020,15 +1020,16 @@ abstract class $ManageDealsStateCopyWith<$Res> {
       double todaysRevenue,
       String searchCustomerName,
       DateTime startDate,
+      DateTime endDate,
+      DateTime latestDealTime,
+      DateTimeRange selectedDateTimeRange,
       TextEditingController searchCustomerController,
       List<BroughtDealDto> customerDeals,
       ShopMerchantRepository shopMerchantRepository,
       PlaceOrderRepository placeOrderRepository,
       ScrollController scrollController,
-      ConfettiController confettiController,
       ZoomDrawerController zoomDrawerController,
       dynamic Function(int)? navCallBack,
-      DateTime? endDate,
       BrandUserDto? profile});
 
   $BrandUserDtoCopyWith<$Res>? get profile;
@@ -1063,15 +1064,16 @@ class _$ManageDealsStateCopyWithImpl<$Res>
     Object? todaysRevenue = freezed,
     Object? searchCustomerName = freezed,
     Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? latestDealTime = freezed,
+    Object? selectedDateTimeRange = freezed,
     Object? searchCustomerController = freezed,
     Object? customerDeals = freezed,
     Object? shopMerchantRepository = freezed,
     Object? placeOrderRepository = freezed,
     Object? scrollController = freezed,
-    Object? confettiController = freezed,
     Object? zoomDrawerController = freezed,
     Object? navCallBack = freezed,
-    Object? endDate = freezed,
     Object? profile = freezed,
   }) {
     return _then(_value.copyWith(
@@ -1147,6 +1149,18 @@ class _$ManageDealsStateCopyWithImpl<$Res>
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      endDate: endDate == freezed
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      latestDealTime: latestDealTime == freezed
+          ? _value.latestDealTime
+          : latestDealTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      selectedDateTimeRange: selectedDateTimeRange == freezed
+          ? _value.selectedDateTimeRange
+          : selectedDateTimeRange // ignore: cast_nullable_to_non_nullable
+              as DateTimeRange,
       searchCustomerController: searchCustomerController == freezed
           ? _value.searchCustomerController
           : searchCustomerController // ignore: cast_nullable_to_non_nullable
@@ -1167,10 +1181,6 @@ class _$ManageDealsStateCopyWithImpl<$Res>
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
-      confettiController: confettiController == freezed
-          ? _value.confettiController
-          : confettiController // ignore: cast_nullable_to_non_nullable
-              as ConfettiController,
       zoomDrawerController: zoomDrawerController == freezed
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
@@ -1179,10 +1189,6 @@ class _$ManageDealsStateCopyWithImpl<$Res>
           ? _value.navCallBack
           : navCallBack // ignore: cast_nullable_to_non_nullable
               as dynamic Function(int)?,
-      endDate: endDate == freezed
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -1228,15 +1234,16 @@ abstract class _$$_ManageDealsStateCopyWith<$Res>
       double todaysRevenue,
       String searchCustomerName,
       DateTime startDate,
+      DateTime endDate,
+      DateTime latestDealTime,
+      DateTimeRange selectedDateTimeRange,
       TextEditingController searchCustomerController,
       List<BroughtDealDto> customerDeals,
       ShopMerchantRepository shopMerchantRepository,
       PlaceOrderRepository placeOrderRepository,
       ScrollController scrollController,
-      ConfettiController confettiController,
       ZoomDrawerController zoomDrawerController,
       dynamic Function(int)? navCallBack,
-      DateTime? endDate,
       BrandUserDto? profile});
 
   @override
@@ -1274,15 +1281,16 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
     Object? todaysRevenue = freezed,
     Object? searchCustomerName = freezed,
     Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? latestDealTime = freezed,
+    Object? selectedDateTimeRange = freezed,
     Object? searchCustomerController = freezed,
     Object? customerDeals = freezed,
     Object? shopMerchantRepository = freezed,
     Object? placeOrderRepository = freezed,
     Object? scrollController = freezed,
-    Object? confettiController = freezed,
     Object? zoomDrawerController = freezed,
     Object? navCallBack = freezed,
-    Object? endDate = freezed,
     Object? profile = freezed,
   }) {
     return _then(_$_ManageDealsState(
@@ -1358,6 +1366,18 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
           ? _value.startDate
           : startDate // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      endDate: endDate == freezed
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      latestDealTime: latestDealTime == freezed
+          ? _value.latestDealTime
+          : latestDealTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      selectedDateTimeRange: selectedDateTimeRange == freezed
+          ? _value.selectedDateTimeRange
+          : selectedDateTimeRange // ignore: cast_nullable_to_non_nullable
+              as DateTimeRange,
       searchCustomerController: searchCustomerController == freezed
           ? _value.searchCustomerController
           : searchCustomerController // ignore: cast_nullable_to_non_nullable
@@ -1378,10 +1398,6 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
-      confettiController: confettiController == freezed
-          ? _value.confettiController
-          : confettiController // ignore: cast_nullable_to_non_nullable
-              as ConfettiController,
       zoomDrawerController: zoomDrawerController == freezed
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
@@ -1390,10 +1406,6 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
           ? _value.navCallBack
           : navCallBack // ignore: cast_nullable_to_non_nullable
               as dynamic Function(int)?,
-      endDate: endDate == freezed
-          ? _value.endDate
-          : endDate // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -1424,15 +1436,16 @@ class _$_ManageDealsState implements _ManageDealsState {
       required this.todaysRevenue,
       required this.searchCustomerName,
       required this.startDate,
+      required this.endDate,
+      required this.latestDealTime,
+      required this.selectedDateTimeRange,
       required this.searchCustomerController,
       required final List<BroughtDealDto> customerDeals,
       required this.shopMerchantRepository,
       required this.placeOrderRepository,
       required this.scrollController,
-      required this.confettiController,
       required this.zoomDrawerController,
       required this.navCallBack,
-      this.endDate,
       this.profile})
       : _customerDeals = customerDeals;
 
@@ -1473,6 +1486,12 @@ class _$_ManageDealsState implements _ManageDealsState {
   @override
   final DateTime startDate;
   @override
+  final DateTime endDate;
+  @override
+  final DateTime latestDealTime;
+  @override
+  final DateTimeRange selectedDateTimeRange;
+  @override
   final TextEditingController searchCustomerController;
   final List<BroughtDealDto> _customerDeals;
   @override
@@ -1488,19 +1507,15 @@ class _$_ManageDealsState implements _ManageDealsState {
   @override
   final ScrollController scrollController;
   @override
-  final ConfettiController confettiController;
-  @override
   final ZoomDrawerController zoomDrawerController;
   @override
   final dynamic Function(int)? navCallBack;
-  @override
-  final DateTime? endDate;
   @override
   final BrandUserDto? profile;
 
   @override
   String toString() {
-    return 'ManageDealsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, isShowLatestDealPopup: $isShowLatestDealPopup, serverUrl: $serverUrl, showMessage: $showMessage, hasMoreDocs: $hasMoreDocs, currentPage: $currentPage, totalDeals: $totalDeals, currentDate: $currentDate, appStateNotifier: $appStateNotifier, skip: $skip, todaysDealsCount: $todaysDealsCount, latestDealCount: $latestDealCount, todaysRevenue: $todaysRevenue, searchCustomerName: $searchCustomerName, startDate: $startDate, searchCustomerController: $searchCustomerController, customerDeals: $customerDeals, shopMerchantRepository: $shopMerchantRepository, placeOrderRepository: $placeOrderRepository, scrollController: $scrollController, confettiController: $confettiController, zoomDrawerController: $zoomDrawerController, navCallBack: $navCallBack, endDate: $endDate, profile: $profile)';
+    return 'ManageDealsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, isShowLatestDealPopup: $isShowLatestDealPopup, serverUrl: $serverUrl, showMessage: $showMessage, hasMoreDocs: $hasMoreDocs, currentPage: $currentPage, totalDeals: $totalDeals, currentDate: $currentDate, appStateNotifier: $appStateNotifier, skip: $skip, todaysDealsCount: $todaysDealsCount, latestDealCount: $latestDealCount, todaysRevenue: $todaysRevenue, searchCustomerName: $searchCustomerName, startDate: $startDate, endDate: $endDate, latestDealTime: $latestDealTime, selectedDateTimeRange: $selectedDateTimeRange, searchCustomerController: $searchCustomerController, customerDeals: $customerDeals, shopMerchantRepository: $shopMerchantRepository, placeOrderRepository: $placeOrderRepository, scrollController: $scrollController, zoomDrawerController: $zoomDrawerController, navCallBack: $navCallBack, profile: $profile)';
   }
 
   @override
@@ -1538,6 +1553,11 @@ class _$_ManageDealsState implements _ManageDealsState {
             const DeepCollectionEquality()
                 .equals(other.searchCustomerName, searchCustomerName) &&
             const DeepCollectionEquality().equals(other.startDate, startDate) &&
+            const DeepCollectionEquality().equals(other.endDate, endDate) &&
+            const DeepCollectionEquality()
+                .equals(other.latestDealTime, latestDealTime) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedDateTimeRange, selectedDateTimeRange) &&
             const DeepCollectionEquality().equals(
                 other.searchCustomerController, searchCustomerController) &&
             const DeepCollectionEquality()
@@ -1549,12 +1569,9 @@ class _$_ManageDealsState implements _ManageDealsState {
             const DeepCollectionEquality()
                 .equals(other.scrollController, scrollController) &&
             const DeepCollectionEquality()
-                .equals(other.confettiController, confettiController) &&
-            const DeepCollectionEquality()
                 .equals(other.zoomDrawerController, zoomDrawerController) &&
             (identical(other.navCallBack, navCallBack) ||
                 other.navCallBack == navCallBack) &&
-            const DeepCollectionEquality().equals(other.endDate, endDate) &&
             const DeepCollectionEquality().equals(other.profile, profile));
   }
 
@@ -1579,15 +1596,16 @@ class _$_ManageDealsState implements _ManageDealsState {
         const DeepCollectionEquality().hash(todaysRevenue),
         const DeepCollectionEquality().hash(searchCustomerName),
         const DeepCollectionEquality().hash(startDate),
+        const DeepCollectionEquality().hash(endDate),
+        const DeepCollectionEquality().hash(latestDealTime),
+        const DeepCollectionEquality().hash(selectedDateTimeRange),
         const DeepCollectionEquality().hash(searchCustomerController),
         const DeepCollectionEquality().hash(_customerDeals),
         const DeepCollectionEquality().hash(shopMerchantRepository),
         const DeepCollectionEquality().hash(placeOrderRepository),
         const DeepCollectionEquality().hash(scrollController),
-        const DeepCollectionEquality().hash(confettiController),
         const DeepCollectionEquality().hash(zoomDrawerController),
         navCallBack,
-        const DeepCollectionEquality().hash(endDate),
         const DeepCollectionEquality().hash(profile)
       ]);
 
@@ -1617,15 +1635,16 @@ abstract class _ManageDealsState implements ManageDealsState {
       required final double todaysRevenue,
       required final String searchCustomerName,
       required final DateTime startDate,
+      required final DateTime endDate,
+      required final DateTime latestDealTime,
+      required final DateTimeRange selectedDateTimeRange,
       required final TextEditingController searchCustomerController,
       required final List<BroughtDealDto> customerDeals,
       required final ShopMerchantRepository shopMerchantRepository,
       required final PlaceOrderRepository placeOrderRepository,
       required final ScrollController scrollController,
-      required final ConfettiController confettiController,
       required final ZoomDrawerController zoomDrawerController,
       required final dynamic Function(int)? navCallBack,
-      final DateTime? endDate,
       final BrandUserDto? profile}) = _$_ManageDealsState;
 
   @override
@@ -1665,6 +1684,12 @@ abstract class _ManageDealsState implements ManageDealsState {
   @override
   DateTime get startDate;
   @override
+  DateTime get endDate;
+  @override
+  DateTime get latestDealTime;
+  @override
+  DateTimeRange get selectedDateTimeRange;
+  @override
   TextEditingController get searchCustomerController;
   @override
   List<BroughtDealDto> get customerDeals;
@@ -1675,13 +1700,9 @@ abstract class _ManageDealsState implements ManageDealsState {
   @override
   ScrollController get scrollController;
   @override
-  ConfettiController get confettiController;
-  @override
   ZoomDrawerController get zoomDrawerController;
   @override
   dynamic Function(int)? get navCallBack;
-  @override
-  DateTime? get endDate;
   @override
   BrandUserDto? get profile;
   @override

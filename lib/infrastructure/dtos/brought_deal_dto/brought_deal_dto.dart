@@ -28,7 +28,7 @@ class BroughtDealDto with _$BroughtDealDto {
         @JsonKey(name: "dealName")
         required String dealName,
         @JsonKey(name: "dealPrice")
-        required double dealPrice,
+        required double? dealPrice,
         @JsonKey(name: "datePurchase")
         required DateTime datePurchase,
         @JsonKey(name: "dateExpired")

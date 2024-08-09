@@ -67,6 +67,7 @@ dependencies:
   package_info_plus: 1.3.0
   awesome_notifications: 0.7.4+1
   easy_debounce: 2.0.3
+  calendar_date_picker2: 
   confetti:
   month_picker_dialog:
 

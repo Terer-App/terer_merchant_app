@@ -13,7 +13,7 @@ _$_BroughtDealDto _$$_BroughtDealDtoFromJson(Map<String, dynamic> json) =>
       customerName: json['customerName'] as String,
       dealId: json['dealId'] as String,
       dealName: json['dealName'] as String,
-      dealPrice: (json['dealPrice'] as num).toDouble(),
+      dealPrice: (json['dealPrice'] as num?)?.toDouble(),
       datePurchase: DateTime.parse(json['datePurchase'] as String),
       dateExpired: DateTime.parse(json['dateExpired'] as String),
       noOfCoupons: json['noOfCoupons'] as int,
