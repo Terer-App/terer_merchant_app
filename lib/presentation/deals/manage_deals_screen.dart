@@ -67,73 +67,85 @@ class ManageDealsConsumer extends StatelessWidget {
                   child: Column(
                     children: [
                       Stack(
-                        clipBehavior: Clip.none,
                         children: [
                           Container(
-                            height: 15.h,
+                            height: 20.h,
                             width: double.maxFinite,
                             decoration: BoxDecoration(
-                              color: Theme.of(context).colorScheme.primary,
+                              color: Theme.of(context).scaffoldBackgroundColor,
                             ),
-                            child: Row(
-                              children: <Widget>[
-                                Padding(
-                                  padding: EdgeInsets.only(top: 6.h, left: 4.w),
-                                  child: IconButton(
-                                    onPressed: () async {
-                                      if (state
-                                          .zoomDrawerController.isOpen!()) {
-                                        state.zoomDrawerController.close!();
-                                      } else {
-                                        state.zoomDrawerController.open!();
-                                      }
-                                    },
-                                    icon: SvgPicture.asset(
-                                      AssetConstants.burgerSvg,
-                                      width: 7.w,
-                                    ),
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 15.h,
+                                  color: Theme.of(context).colorScheme.primary,
+                                  child: Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            top: 6.h, left: 4.w),
+                                        child: IconButton(
+                                          onPressed: () async {
+                                            if (state.zoomDrawerController
+                                                .isOpen!()) {
+                                              state.zoomDrawerController
+                                                  .close!();
+                                            } else {
+                                              state
+                                                  .zoomDrawerController.open!();
+                                            }
+                                          },
+                                          icon: SvgPicture.asset(
+                                            AssetConstants.burgerSvg,
+                                            width: 7.w,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 4.w,
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsets.only(top: 4.h),
+                                        child: RichText(
+                                            text: TextSpan(
+                                                text: 'Hello ',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodySmall!
+                                                    .copyWith(
+                                                      fontSize: 16.sp,
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .secondary,
+                                                    ),
+                                                children: [
+                                              TextSpan(
+                                                text: state.profile!.firstName,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodySmall!
+                                                    .copyWith(
+                                                      fontSize: 16.sp,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .secondary,
+                                                    ),
+                                              )
+                                            ])),
+                                      )
+                                    ],
                                   ),
                                 ),
-                                SizedBox(
-                                  width: 4.w,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(top: 4.h),
-                                  child: RichText(
-                                      text: TextSpan(
-                                          text: 'Hello ',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                fontSize: 16.sp,
-                                                fontWeight: FontWeight.w700,
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .secondary,
-                                              ),
-                                          children: [
-                                        TextSpan(
-                                          text: state.profile!.firstName,
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodySmall!
-                                              .copyWith(
-                                                fontSize: 16.sp,
-                                                fontWeight: FontWeight.w500,
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .secondary,
-                                              ),
-                                        )
-                                      ])),
-                                )
                               ],
                             ),
                           ),
                           Positioned(
-                            bottom: -3.h,
-                            left: 16.w,
+                            left: 14.w,
+                            bottom: 1.8.h,
                             child: SearchCustomerBox(
                                 controller: state.searchCustomerController,
                                 onChange: (val) {
@@ -154,7 +166,7 @@ class ManageDealsConsumer extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: 7.h,
+                        height: 2.h,
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -211,75 +223,77 @@ class ManageDealsConsumer extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Spacer(),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Today\'s Sale',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall!
-                                        .copyWith(
-                                          fontSize: 11.sp,
-                                          color: Theme.of(context).primaryColor,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                  Text(
-                                    state.todaysDealsCount.toString(),
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall!
-                                        .copyWith(
-                                          fontSize: 15.sp,
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ],
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Today\'s Sale',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            fontSize: 11.sp,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Text(
+                                      state.todaysDealsCount.toString(),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            fontSize: 15.sp,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              const Spacer(),
                               Container(
                                 width: 2,
                                 color: Theme.of(context).colorScheme.background,
                                 height: 5.h,
                               ),
-                              const Spacer(),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Today\'s Revenue',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall!
-                                        .copyWith(
-                                          fontSize: 11.sp,
-                                          color: Theme.of(context).primaryColor,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                  Text(
-                                    'RM ${state.todaysRevenue.toStringAsFixed(2)}',
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .bodySmall!
-                                        .copyWith(
-                                          fontSize: 15.sp,
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                  ),
-                                ],
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Today\'s Revenue',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            fontSize: 11.sp,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Text(
+                                      'RM ${state.todaysRevenue.toStringAsFixed(2)}',
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .bodySmall!
+                                          .copyWith(
+                                            fontSize: 15.sp,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .secondary,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              Spacer(),
                             ],
                           ),
                         ),
@@ -296,7 +310,6 @@ class ManageDealsConsumer extends StatelessWidget {
                             showDateRangePicker(
                               builder: (context, child) {
                                 return Theme(
-
                                   data: Theme.of(context).copyWith(
                                     inputDecorationTheme: InputDecorationTheme(
                                       labelStyle: Theme.of(context)
@@ -387,82 +400,74 @@ class ManageDealsConsumer extends StatelessWidget {
                                           ),
                                     ),
                                   )
-                                : ListView.separated(
-                                    controller: state.scrollController,
-                                    physics: const BouncingScrollPhysics(),
-                                    padding: EdgeInsets.only(
-                                      left: 5.w,
-                                      right: 5.w,
-                                      bottom: 8.h,
-                                    ),
-                                    separatorBuilder: ((context, index) {
-                                      return SizedBox(
-                                        height: 2.h,
-                                      );
-                                    }),
-                                    itemBuilder: (ctx, i) {
-                                      final mainIndex = i;
+                                : RefreshIndicator(
+                                    onRefresh: () async {
+                                      context.read<ManageDealsBloc>().add(
+                                              ManageDealsEvent
+                                                  .fetchCustomerOrders(
+                                            endDate: state.endDate,
+                                            startDate: state.startDate,
+                                          ));
+                                    },
+                                    child: ListView.separated(
+                                      controller: state.scrollController,
+                                      physics: const BouncingScrollPhysics(),
+                                      padding: EdgeInsets.only(
+                                        left: 5.w,
+                                        right: 5.w,
+                                        bottom: 8.h,
+                                      ),
+                                      separatorBuilder: ((context, index) {
+                                        return SizedBox(
+                                          height: 2.h,
+                                        );
+                                      }),
+                                      itemBuilder: (ctx, i) {
+                                        final mainIndex = i;
 
-                                      if (mainIndex <
-                                          state.customerDeals.length) {
-                                        final deal =
-                                            state.customerDeals[mainIndex];
-                                        return GestureDetector(
-                                          onTap: () {
-                                            navigator<NavigationService>()
-                                                .navigateTo(
-                                                    CoreRoutes
-                                                        .customerPurchaseDealDetailsRoute,
-                                                    queryParams: {
-                                                  'customerName':
-                                                      deal.customerName,
-                                                  'customerId': deal.userId,
-                                                });
-                                          },
-                                          child: Container(
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 8.w, vertical: 1.h),
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(8.w),
-                                              color: Theme.of(context)
-                                                  .colorScheme
-                                                  .secondary,
-                                            ),
-                                            child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      deal.customerName,
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodySmall!
-                                                          .copyWith(
-                                                            color: Theme.of(
-                                                                    context)
-                                                                .scaffoldBackgroundColor,
-                                                            fontSize: 12.sp,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 60.w,
-                                                      child: Text(
-                                                        deal.dealName,
-                                                        maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
+                                        if (mainIndex <
+                                            state.customerDeals.length) {
+                                          final deal =
+                                              state.customerDeals[mainIndex];
+                                          return GestureDetector(
+                                            onTap: () {
+                                              navigator<NavigationService>()
+                                                  .navigateTo(
+                                                      CoreRoutes
+                                                          .customerPurchaseDealDetailsRoute,
+                                                      queryParams: {
+                                                    'customerName':
+                                                        deal.customerName,
+                                                    'customerId': deal.userId,
+                                                  });
+                                            },
+                                            child: Container(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 8.w,
+                                                  vertical: 1.h),
+                                              decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(8.w),
+                                                color: Theme.of(context)
+                                                    .colorScheme
+                                                    .secondary,
+                                              ),
+                                              child: Row(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        deal.customerName,
                                                         style: Theme.of(context)
                                                             .textTheme
                                                             .bodySmall!
@@ -470,137 +475,166 @@ class ManageDealsConsumer extends StatelessWidget {
                                                               color: Theme.of(
                                                                       context)
                                                                   .scaffoldBackgroundColor,
-                                                              fontSize: 11.sp,
+                                                              fontSize: 12.sp,
                                                               fontWeight:
                                                                   FontWeight
                                                                       .w600,
                                                             ),
                                                       ),
-                                                    ),
-                                                    Text(
-                                                      'Balance: ${deal.noOfCouponsRedeemed}/${deal.noOfCoupons} coupon left',
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodySmall!
-                                                          .copyWith(
-                                                            color: Theme.of(
-                                                                    context)
-                                                                .primaryColor,
-                                                            fontSize: 12.sp,
-                                                            fontWeight:
-                                                                FontWeight.w400,
-                                                          ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                Column(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    SvgPicture.asset(
-                                                      AssetConstants.polygonSvg,
-                                                    )
-                                                  ],
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        );
-                                      } else {
-                                        return SizedBox(
-                                          height: 11.h,
-                                          child: Shimmer.fromColors(
-                                            baseColor: Colors.grey[300]!,
-                                            highlightColor: Colors.grey[400]!,
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(8.w),
-                                                color: Colors.grey[300],
+                                                      SizedBox(
+                                                        width: 60.w,
+                                                        child: Text(
+                                                          deal.dealName,
+                                                          maxLines: 1,
+                                                          overflow: TextOverflow
+                                                              .ellipsis,
+                                                          style:
+                                                              Theme.of(context)
+                                                                  .textTheme
+                                                                  .bodySmall!
+                                                                  .copyWith(
+                                                                    color: Theme.of(
+                                                                            context)
+                                                                        .scaffoldBackgroundColor,
+                                                                    fontSize:
+                                                                        11.sp,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        'Balance: ${deal.giftedCount - (deal.noOfCouponsRedeemed - deal.noOfCoupons)}/${deal.noOfCoupons} coupon left',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall!
+                                                            .copyWith(
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .primaryColor,
+                                                              fontSize: 12.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w400,
+                                                            ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      SvgPicture.asset(
+                                                        AssetConstants
+                                                            .polygonSvg,
+                                                      )
+                                                    ],
+                                                  )
+                                                ],
                                               ),
                                             ),
-                                          ),
-                                        );
-                                      }
-                                    },
-                                    itemCount: state.customerDeals.length +
-                                        (state.hasMoreDocs ? 2 : 0),
+                                          );
+                                        } else {
+                                          return SizedBox(
+                                            height: 11.h,
+                                            child: Shimmer.fromColors(
+                                              baseColor: Colors.grey[300]!,
+                                              highlightColor: Colors.grey[400]!,
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          8.w),
+                                                  color: Colors.grey[300],
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        }
+                                      },
+                                      itemCount: state.customerDeals.length +
+                                          (state.hasMoreDocs ? 2 : 0),
+                                    ),
                                   ),
                       ),
                     ],
                   ),
                 ),
-                if (state.isShowLatestDealPopup)
-                  Positioned(
-                      right: 2.w,
-                      top: 21.5.h,
-                      child: Stack(
-                        children: [
-                          Container(
-                            width: 65.w,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 4.w, vertical: 1.2.h),
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                              borderRadius: BorderRadius.circular(5.w),
-                            ),
-                            child: Column(children: [
-                              Text(
-                                'It’s a SALE!',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall!
-                                    .copyWith(
-                                      color: Theme.of(context)
-                                          .scaffoldBackgroundColor,
-                                      fontSize: 12.sp,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              ),
-                              Text(
-                                'Get ready to verify.',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall!
-                                    .copyWith(
-                                      color: Theme.of(context)
-                                          .scaffoldBackgroundColor,
-                                      fontSize: 12.sp,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              ),
-                              SizedBox(
-                                height: 0.5.h,
-                              ),
-                              PrimaryButton(
-                                  bgColor:
-                                      Theme.of(context).colorScheme.secondary,
-                                  btnTextColor: Theme.of(context).primaryColor,
-                                  textFontSize: 12.sp,
-                                  width: 40.w,
-                                  height: 4.h,
-                                  btnText: 'Verify Now',
-                                  onPressedBtn: () {
-                                    // go to scan tab
-                                    state.navCallBack!(1);
-                                  })
-                            ]),
+                AnimatedPositioned(
+                    curve: Curves.easeIn,
+                    duration: const Duration(seconds: 1),
+                    right: state.isShowLatestDealPopup ? 2.w : -100.w,
+                    top: 21.5.h,
+                    child: Stack(
+                      children: [
+                        Container(
+                          width: 65.w,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 4.w, vertical: 1.2.h),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: BorderRadius.circular(5.w),
                           ),
-                          Positioned(
-                            right: 1.w,
-                            top: 2.h,
-                            child: GestureDetector(
-                              onTap: () {},
-                              child: SvgPicture.asset(
-                                AssetConstants.closeSvg,
-                                width: 8.w,
-                              ),
+                          child: Column(children: [
+                            Text(
+                              'It’s a SALE!',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    color: Theme.of(context)
+                                        .scaffoldBackgroundColor,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                            Text(
+                              'Get ready to verify.',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    color: Theme.of(context)
+                                        .scaffoldBackgroundColor,
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                            ),
+                            SizedBox(
+                              height: 0.5.h,
+                            ),
+                            PrimaryButton(
+                                bgColor:
+                                    Theme.of(context).colorScheme.secondary,
+                                btnTextColor: Theme.of(context).primaryColor,
+                                textFontSize: 12.sp,
+                                width: 40.w,
+                                height: 4.h,
+                                btnText: 'Verify Now',
+                                onPressedBtn: () {
+                                  // go to scan tab
+                                  state.navCallBack!(1);
+                                })
+                          ]),
+                        ),
+                        Positioned(
+                          right: 1.w,
+                          top: 2.h,
+                          child: GestureDetector(
+                            onTap: () {},
+                            child: SvgPicture.asset(
+                              AssetConstants.closeSvg,
+                              width: 8.w,
                             ),
                           ),
-                        ],
-                      ))
+                        ),
+                      ],
+                    ))
               ],
             ),
           ],
@@ -629,11 +663,11 @@ class SearchCustomerBox extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.w),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 5,
-            blurRadius: 7,
-            offset: const Offset(0, 3), // changes position of shadow
-          ),
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 5,
+              blurRadius: 2.0,
+              offset: const Offset(0, 4) // changes position of shadow
+              ),
         ],
       ),
       child: TextField(

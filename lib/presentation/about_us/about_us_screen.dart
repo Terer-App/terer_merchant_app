@@ -68,6 +68,7 @@ class AboutUsScreen extends StatelessWidget {
                           style:
                               Theme.of(context).textTheme.bodyMedium!.copyWith(
                                     fontWeight: FontWeight.bold,
+                                    fontSize: 10.5.sp,
                                     color: Theme.of(context)
                                         .colorScheme
                                         .primaryContainer,
@@ -103,6 +104,7 @@ class AboutUsScreen extends StatelessWidget {
                                 .bodyMedium!
                                 .copyWith(
                                   fontWeight: FontWeight.bold,
+                                  fontSize: 10.5.sp,
                                   color: Theme.of(context)
                                       .colorScheme
                                       .primaryContainer,

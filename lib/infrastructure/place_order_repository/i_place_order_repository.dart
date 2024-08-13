@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:intl/intl.dart';
 
 import '../../domain/constants/api_constants.dart';
 import '../../domain/constants/string_constants.dart';
@@ -198,9 +199,17 @@ class IPlaceOrderRepository extends PlaceOrderRepository {
       bool isTodaysCount = false,
       int skip = 0,
       int limit = 10}) async {
+        
     Map<String, dynamic> resData = {};
+
+    String todayDateStr = '';
+    if (isTodaysCount) {
+      todayDateStr = DateFormat('dd/MM/y')
+          .format(DateTime.now());
+    }
+
     final url =
-        '$apiUrl/${APIConstants.getCustomerOrders}?startDate=$startDate&endDate=$endDate&skip=$skip&limit=$limit&isTodaysCount=$isTodaysCount&customerName=$customerName';
+        '$apiUrl/${APIConstants.getCustomerOrders}?startDate=$startDate&endDate=$endDate&skip=$skip&limit=$limit&isTodaysCount=$isTodaysCount&todayDate=$todayDateStr&customerName=$customerName';
     try {
       final token = await AuthTokenService.getMerchantToken();
       final res = await RESTService.performGETRequest(

@@ -42,7 +42,7 @@ class LiveDealDetailsConsumer extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
             toolbarHeight: 8.h,
             elevation: 0,
             leading: GestureDetector(
@@ -52,14 +52,14 @@ class LiveDealDetailsConsumer extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.only(left: 3.w),
                 child: SvgPicture.asset(
-                  AssetConstants.backArrowWhite,
+                  AssetConstants.backArrowYellow,
                 ),
               ),
             ),
             title: Text(
               'Deal Details',
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: Theme.of(context).scaffoldBackgroundColor,
+                    color: Theme.of(context).primaryColor,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w700,
                   ),
@@ -67,83 +67,105 @@ class LiveDealDetailsConsumer extends StatelessWidget {
             centerTitle: true,
           ),
           body: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 4.h),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
-                  state.dealDetails.title,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w700,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
+                Container(
+                  height: 2.h,
+                  width: double.infinity,
+                  color: Theme.of(context).primaryColor,
                 ),
                 SizedBox(
-                  height: 3.h,
+                  height: 2.h,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Text(
-                      'Redemption Duration',
-                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                            fontSize: 12.sp,
-                            fontWeight: FontWeight.w700,
-                            color:
-                                Theme.of(context).colorScheme.primaryContainer,
-                          ),
-                    ),
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 3.w, vertical: 1.h),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(3.w),
-                          border: Border.all(
-                            color:
-                                Theme.of(context).colorScheme.primaryContainer,
-                          )),
-                      child: Text(
-                        state.dealDetails.redeemDuration == null
-                            ? '-'
-                            : '${state.dealDetails.redeemDuration['value']}'
-                                .toUpperCase(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 5.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        state.dealDetails.title,
                         style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                              fontSize: 13.sp,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w700,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                      ),
+                      SizedBox(
+                        height: 3.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text(
+                            'Redemption Duration',
+                            style:
+                                Theme.of(context).textTheme.bodySmall!.copyWith(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primaryContainer,
+                                    ),
+                          ),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 3.w, vertical: 1.h),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(3.w),
+                                border: Border.all(
+                                  color: Theme.of(context)
+                                      .colorScheme
+                                      .primaryContainer,
+                                )),
+                            child: Text(
+                              state.dealDetails.redeemDuration == null
+                                  ? '-'
+                                  : '${state.dealDetails.redeemDuration['value']}'
+                                      .toUpperCase(),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.w700,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
+                                  ),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 3.h,
+                      ),
+                      Text(
+                        'Product Description',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              fontSize: 12.sp,
                               fontWeight: FontWeight.w700,
                               color: Theme.of(context)
                                   .colorScheme
                                   .primaryContainer,
                             ),
                       ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 3.h,
-                ),
-                Text(
-                  'Product Description',
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w700,
-                        color: Theme.of(context).colorScheme.primaryContainer,
+                      SizedBox(
+                        height: 1.h,
                       ),
+                      Text(
+                        state.dealDetails.description,
+                        textAlign: TextAlign.justify,
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w300,
+                              height: 1.6,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
+                      )
+                    ],
+                  ),
                 ),
-                SizedBox(
-                  height: 1.h,
-                ),
-                Text(
-                  state.dealDetails.description,
-                  textAlign: TextAlign.justify,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        fontSize: 13.sp,
-                        fontWeight: FontWeight.w300,
-                        height: 1.6,
-                        color: Theme.of(context).colorScheme.secondary,
-                      ),
-                )
               ],
             ),
           ),

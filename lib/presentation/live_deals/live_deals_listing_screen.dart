@@ -147,28 +147,29 @@ class LiveDealsListingConsumer extends StatelessWidget {
                                                         ),
                                                   ),
                                                 ),
-                                                SizedBox(
-                                                  width: 50.w,
-                                                  child: Text(
-                                                    product.description
-                                                        .substring(0, 10),
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                    maxLines: 1,
-                                                    softWrap: true,
-                                                    style: Theme.of(context)
-                                                        .textTheme
-                                                        .bodySmall!
-                                                        .copyWith(
-                                                          fontWeight:
-                                                              FontWeight.w400,
-                                                          color:
-                                                              Theme.of(context)
-                                                                  .colorScheme
-                                                                  .secondary,
-                                                        ),
-                                                  ),
-                                                ),
+                                                SizedBox(height: 0.5.h,),
+                                                // SizedBox(
+                                                //   width: 50.w,
+                                                //   child: Text(
+                                                //     product.description
+                                                //         .substring(0, 10),
+                                                //     overflow:
+                                                //         TextOverflow.ellipsis,
+                                                //     maxLines: 1,
+                                                //     softWrap: true,
+                                                //     style: Theme.of(context)
+                                                //         .textTheme
+                                                //         .bodySmall!
+                                                //         .copyWith(
+                                                //           fontWeight:
+                                                //               FontWeight.w400,
+                                                //           color:
+                                                //               Theme.of(context)
+                                                //                   .colorScheme
+                                                //                   .secondary,
+                                                //         ),
+                                                //   ),
+                                                // ),
                                                 Text(
                                                   'MYR ${product.priceRange.maxVariantPrice.amount}',
                                                   style: Theme.of(context)
