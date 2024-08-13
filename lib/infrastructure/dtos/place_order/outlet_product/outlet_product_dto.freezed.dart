@@ -24,7 +24,7 @@ mixin _$OutletProductDto {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'title')
   String get title => throw _privateConstructorUsedError;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', defaultValue: '')
   String get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'createdAt')
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ abstract class $OutletProductDtoCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'description', defaultValue: '') String description,
       @JsonKey(name: 'createdAt') DateTime createdAt,
       @JsonKey(name: 'availableForSale') bool availableForSale,
       @JsonKey(name: 'featuredImage') FeaturedImageDto featuredImage,
@@ -182,7 +182,7 @@ abstract class _$$_OutletProductDtoCopyWith<$Res>
   $Res call(
       {@JsonKey(name: 'id') String id,
       @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'description') String description,
+      @JsonKey(name: 'description', defaultValue: '') String description,
       @JsonKey(name: 'createdAt') DateTime createdAt,
       @JsonKey(name: 'availableForSale') bool availableForSale,
       @JsonKey(name: 'featuredImage') FeaturedImageDto featuredImage,
@@ -286,7 +286,7 @@ class _$_OutletProductDto implements _OutletProductDto {
   const _$_OutletProductDto(
       {@JsonKey(name: 'id') required this.id,
       @JsonKey(name: 'title') required this.title,
-      @JsonKey(name: 'description') required this.description,
+      @JsonKey(name: 'description', defaultValue: '') required this.description,
       @JsonKey(name: 'createdAt') required this.createdAt,
       @JsonKey(name: 'availableForSale') required this.availableForSale,
       @JsonKey(name: 'featuredImage') required this.featuredImage,
@@ -307,7 +307,7 @@ class _$_OutletProductDto implements _OutletProductDto {
   @JsonKey(name: 'title')
   final String title;
   @override
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', defaultValue: '')
   final String description;
   @override
   @JsonKey(name: 'createdAt')
@@ -404,7 +404,7 @@ abstract class _OutletProductDto implements OutletProductDto {
           required final String id,
       @JsonKey(name: 'title')
           required final String title,
-      @JsonKey(name: 'description')
+      @JsonKey(name: 'description', defaultValue: '')
           required final String description,
       @JsonKey(name: 'createdAt')
           required final DateTime createdAt,
@@ -434,7 +434,7 @@ abstract class _OutletProductDto implements OutletProductDto {
   @JsonKey(name: 'title')
   String get title;
   @override
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', defaultValue: '')
   String get description;
   @override
   @JsonKey(name: 'createdAt')
