@@ -49,7 +49,5 @@
 	<string>This app requires access to your camera to scan barcodes</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Requires Photo Library Usage</string>
-	<key>UIApplicationSupportsIndirectInputEvents</key>
-	<true/>
 </dict>
 </plist>
