@@ -13,7 +13,7 @@ _$_CustomerOrderWithHistoryDto _$$_CustomerOrderWithHistoryDtoFromJson(
       userId: json['userId'] as String,
       customerName: json['customerName'] as String,
       dealId: json['dealId'] as String,
-      dealPrice: json['dealPrice'] as int,
+      dealPrice: (json['dealPrice'] as num).toDouble(),
       dealName: json['dealName'] as String,
       datePurchase: DateTime.parse(json['datePurchase'] as String),
       dateExpired: DateTime.parse(json['dateExpired'] as String),

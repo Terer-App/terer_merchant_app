@@ -26,7 +26,7 @@ class CustomerOrderWithHistoryDto with _$CustomerOrderWithHistoryDto {
         @JsonKey(name: 'dealId')
         required String dealId,
         @JsonKey(name: 'dealPrice')
-        required int dealPrice,
+        required double dealPrice,
         @JsonKey(name: 'dealName')
         required String dealName,
         @JsonKey(name: 'datePurchase')
