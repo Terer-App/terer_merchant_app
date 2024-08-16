@@ -664,8 +664,8 @@ class SearchCustomerBox extends StatelessWidget {
         boxShadow: [
           BoxShadow(
               color: Colors.grey.withOpacity(0.5),
-              spreadRadius: 5,
-              blurRadius: 2.0,
+              spreadRadius: 2,
+              blurRadius: 15,
               offset: const Offset(0, 4) // changes position of shadow
               ),
         ],

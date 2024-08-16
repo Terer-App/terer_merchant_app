@@ -56,7 +56,7 @@ class PlaceOrderDealWidget extends StatelessWidget {
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
                 dealName,
-                maxLines: 2,
+                maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                     fontSize: 10.sp,

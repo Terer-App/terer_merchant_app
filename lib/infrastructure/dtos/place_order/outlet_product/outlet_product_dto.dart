@@ -13,7 +13,8 @@ class OutletProductDto with _$OutletProductDto {
   const factory OutletProductDto({
     @JsonKey(name: 'id') required String id,
     @JsonKey(name: 'title') required String title,
-    @JsonKey(name: 'description') required String description,
+    @JsonKey(name: 'description',defaultValue: '') required String? description,
+    @JsonKey(name: 'descriptionHtml', defaultValue: '') required String? descriptionHtml,
     @JsonKey(name: 'createdAt') required DateTime createdAt,
     @JsonKey(name: 'availableForSale') required bool availableForSale,
     @JsonKey(name: 'featuredImage') required FeaturedImageDto featuredImage,

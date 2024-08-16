@@ -136,6 +136,7 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
         ),
         limit: APIConstants.limit,
         skip: state.skip,
+        isTodaysCount: true,
         customerName: state.searchCustomerController.text.trim(),
       );
 
@@ -144,6 +145,8 @@ class ManageDealsBloc extends Bloc<ManageDealsEvent, ManageDealsState> {
           isLoading: false,
           hasMoreDocs: res['deals'].length == APIConstants.limit,
           customerDeals: res['deals'],
+          todaysDealsCount: res['todaysDeals'],
+          todaysRevenue: res['todaysRevenue'],
         ));
       } else {
         emit(state.copyWith(

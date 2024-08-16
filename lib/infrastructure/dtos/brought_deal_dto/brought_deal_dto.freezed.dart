@@ -44,6 +44,8 @@ mixin _$BroughtDealDto {
   int get giftedCount => throw _privateConstructorUsedError;
   @JsonKey(name: "isGifted")
   int get isGifted => throw _privateConstructorUsedError;
+  @JsonKey(name: "isPaid", defaultValue: 0)
+  int? get isPaid => throw _privateConstructorUsedError;
   @JsonKey(name: "lastRedeemedAt")
   String? get lastRedeemedAt => throw _privateConstructorUsedError;
 
@@ -71,6 +73,7 @@ abstract class $BroughtDealDtoCopyWith<$Res> {
       @JsonKey(name: "noOfCouponsRedeemed") int noOfCouponsRedeemed,
       @JsonKey(name: "giftedCount") int giftedCount,
       @JsonKey(name: "isGifted") int isGifted,
+      @JsonKey(name: "isPaid", defaultValue: 0) int? isPaid,
       @JsonKey(name: "lastRedeemedAt") String? lastRedeemedAt});
 }
 
@@ -97,6 +100,7 @@ class _$BroughtDealDtoCopyWithImpl<$Res>
     Object? noOfCouponsRedeemed = freezed,
     Object? giftedCount = freezed,
     Object? isGifted = freezed,
+    Object? isPaid = freezed,
     Object? lastRedeemedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -148,6 +152,10 @@ class _$BroughtDealDtoCopyWithImpl<$Res>
           ? _value.isGifted
           : isGifted // ignore: cast_nullable_to_non_nullable
               as int,
+      isPaid: isPaid == freezed
+          ? _value.isPaid
+          : isPaid // ignore: cast_nullable_to_non_nullable
+              as int?,
       lastRedeemedAt: lastRedeemedAt == freezed
           ? _value.lastRedeemedAt
           : lastRedeemedAt // ignore: cast_nullable_to_non_nullable
@@ -176,6 +184,7 @@ abstract class _$$_BroughtDealDtoCopyWith<$Res>
       @JsonKey(name: "noOfCouponsRedeemed") int noOfCouponsRedeemed,
       @JsonKey(name: "giftedCount") int giftedCount,
       @JsonKey(name: "isGifted") int isGifted,
+      @JsonKey(name: "isPaid", defaultValue: 0) int? isPaid,
       @JsonKey(name: "lastRedeemedAt") String? lastRedeemedAt});
 }
 
@@ -204,6 +213,7 @@ class __$$_BroughtDealDtoCopyWithImpl<$Res>
     Object? noOfCouponsRedeemed = freezed,
     Object? giftedCount = freezed,
     Object? isGifted = freezed,
+    Object? isPaid = freezed,
     Object? lastRedeemedAt = freezed,
   }) {
     return _then(_$_BroughtDealDto(
@@ -255,6 +265,10 @@ class __$$_BroughtDealDtoCopyWithImpl<$Res>
           ? _value.isGifted
           : isGifted // ignore: cast_nullable_to_non_nullable
               as int,
+      isPaid: isPaid == freezed
+          ? _value.isPaid
+          : isPaid // ignore: cast_nullable_to_non_nullable
+              as int?,
       lastRedeemedAt: lastRedeemedAt == freezed
           ? _value.lastRedeemedAt
           : lastRedeemedAt // ignore: cast_nullable_to_non_nullable
@@ -279,6 +293,7 @@ class _$_BroughtDealDto implements _BroughtDealDto {
       @JsonKey(name: "noOfCouponsRedeemed") required this.noOfCouponsRedeemed,
       @JsonKey(name: "giftedCount") required this.giftedCount,
       @JsonKey(name: "isGifted") required this.isGifted,
+      @JsonKey(name: "isPaid", defaultValue: 0) required this.isPaid,
       @JsonKey(name: "lastRedeemedAt") required this.lastRedeemedAt});
 
   factory _$_BroughtDealDto.fromJson(Map<String, dynamic> json) =>
@@ -321,12 +336,15 @@ class _$_BroughtDealDto implements _BroughtDealDto {
   @JsonKey(name: "isGifted")
   final int isGifted;
   @override
+  @JsonKey(name: "isPaid", defaultValue: 0)
+  final int? isPaid;
+  @override
   @JsonKey(name: "lastRedeemedAt")
   final String? lastRedeemedAt;
 
   @override
   String toString() {
-    return 'BroughtDealDto(shopifyOrderId: $shopifyOrderId, userId: $userId, customerName: $customerName, dealId: $dealId, dealName: $dealName, dealPrice: $dealPrice, datePurchase: $datePurchase, dateExpired: $dateExpired, noOfCoupons: $noOfCoupons, noOfCouponsRedeemed: $noOfCouponsRedeemed, giftedCount: $giftedCount, isGifted: $isGifted, lastRedeemedAt: $lastRedeemedAt)';
+    return 'BroughtDealDto(shopifyOrderId: $shopifyOrderId, userId: $userId, customerName: $customerName, dealId: $dealId, dealName: $dealName, dealPrice: $dealPrice, datePurchase: $datePurchase, dateExpired: $dateExpired, noOfCoupons: $noOfCoupons, noOfCouponsRedeemed: $noOfCouponsRedeemed, giftedCount: $giftedCount, isGifted: $isGifted, isPaid: $isPaid, lastRedeemedAt: $lastRedeemedAt)';
   }
 
   @override
@@ -353,6 +371,7 @@ class _$_BroughtDealDto implements _BroughtDealDto {
             const DeepCollectionEquality()
                 .equals(other.giftedCount, giftedCount) &&
             const DeepCollectionEquality().equals(other.isGifted, isGifted) &&
+            const DeepCollectionEquality().equals(other.isPaid, isPaid) &&
             const DeepCollectionEquality()
                 .equals(other.lastRedeemedAt, lastRedeemedAt));
   }
@@ -373,6 +392,7 @@ class _$_BroughtDealDto implements _BroughtDealDto {
       const DeepCollectionEquality().hash(noOfCouponsRedeemed),
       const DeepCollectionEquality().hash(giftedCount),
       const DeepCollectionEquality().hash(isGifted),
+      const DeepCollectionEquality().hash(isPaid),
       const DeepCollectionEquality().hash(lastRedeemedAt));
 
   @JsonKey(ignore: true)
@@ -414,6 +434,8 @@ abstract class _BroughtDealDto implements BroughtDealDto {
           required final int giftedCount,
       @JsonKey(name: "isGifted")
           required final int isGifted,
+      @JsonKey(name: "isPaid", defaultValue: 0)
+          required final int? isPaid,
       @JsonKey(name: "lastRedeemedAt")
           required final String? lastRedeemedAt}) = _$_BroughtDealDto;
 
@@ -456,6 +478,9 @@ abstract class _BroughtDealDto implements BroughtDealDto {
   @override
   @JsonKey(name: "isGifted")
   int get isGifted;
+  @override
+  @JsonKey(name: "isPaid", defaultValue: 0)
+  int? get isPaid;
   @override
   @JsonKey(name: "lastRedeemedAt")
   String? get lastRedeemedAt;

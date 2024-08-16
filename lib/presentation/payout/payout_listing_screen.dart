@@ -96,74 +96,71 @@ class PayoutListingConsumer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     const Spacer(),
-                    GestureDetector(
-                      onTap: () {
-                        showDatePicker(
-                                builder: (context, child) {
-                                  return Theme(
-                                    data: Theme.of(context).copyWith(
-                                      colorScheme: ColorScheme.light(
-                                        primary: Theme.of(context).primaryColor,
-                                        onPrimary: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                        onSurface: Theme.of(context)
-                                            .colorScheme
-                                            .secondary,
-                                      ),
-                                    ),
-                                    child: child!,
-                                  );
-                                },
-                                context: context,
-                                initialDate: state.selectedDateTime,
-                                firstDate: DateTime(2000),
-                                lastDate: DateTime(2100))
-                            .then((value) {
-                          if (value != null) {
-                            context.read<PayoutListingBloc>().add(
-                                PayoutListingEvent
-                                    .fetchBroughtDealsByDayOrMonth(
-                                        isMonth: false,
-                                        startDate: value,
-                                        endDate: value));
-                          }
-                        });
-                      },
-                      child: Row(
-                        children: [
-                          Text(
-                            'Daily',
-                            style:
-                                Theme.of(context).textTheme.bodySmall!.copyWith(
-                                      fontSize: 12.sp,
-                                      fontWeight: FontWeight.w600,
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                          ),
-                          SizedBox(
-                            width: 1.w,
-                          ),
-                          SvgPicture.asset(
-                            AssetConstants.polygon2Svg,
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
-                    Container(
-                      width: 1,
-                      height: 3.h,
-                      color: Theme.of(context).colorScheme.primaryContainer,
-                    ),
-                    const Spacer(),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     showDatePicker(
+                    //             builder: (context, child) {
+                    //               return Theme(
+                    //                 data: Theme.of(context).copyWith(
+                    //                   colorScheme: ColorScheme.light(
+                    //                     primary: Theme.of(context).primaryColor,
+                    //                     onPrimary: Theme.of(context)
+                    //                         .colorScheme
+                    //                         .secondary,
+                    //                     onSurface: Theme.of(context)
+                    //                         .colorScheme
+                    //                         .secondary,
+                    //                   ),
+                    //                 ),
+                    //                 child: child!,
+                    //               );
+                    //             },
+                    //             context: context,
+                    //             initialDate: state.selectedDateTime,
+                    //             firstDate: DateTime(2000),
+                    //             lastDate: DateTime(2100))
+                    //         .then((value) {
+                    //       if (value != null) {
+                    //         context.read<PayoutListingBloc>().add(
+                    //             PayoutListingEvent
+                    //                 .fetchBroughtDealsByDayOrMonth(
+                    //                     isMonth: false,
+                    //                     startDate: value,
+                    //                     endDate: value));
+                    //       }
+                    //     });
+                    //   },
+                    //   child: Row(
+                    //     children: [
+                    //       Text(
+                    //         'Daily',
+                    //         style:
+                    //             Theme.of(context).textTheme.bodySmall!.copyWith(
+                    //                   fontSize: 12.sp,
+                    //                   fontWeight: FontWeight.w600,
+                    //                   color: Theme.of(context).primaryColor,
+                    //                 ),
+                    //       ),
+                    //       SizedBox(
+                    //         width: 1.w,
+                    //       ),
+                    //       SvgPicture.asset(
+                    //         AssetConstants.polygon2Svg,
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+                    // const Spacer(),
+                    // Container(
+                    //   width: 1,
+                    //   height: 3.h,
+                    //   color: Theme.of(context).colorScheme.primaryContainer,
+                    // ),
+                    // const Spacer(),
                     GestureDetector(
                       onTap: () async {
                         showMonthPicker(
                           context: context,
-
-                          
-                          
                           initialDate: state.selectedDateTime,
                         ).then((date) {
                           if (date != null) {
@@ -328,8 +325,8 @@ class PayoutListingConsumer extends StatelessWidget {
                                           const SizedBox(),
                                           Container(
                                             decoration: BoxDecoration(
-                                              color: Theme.of(context)
-                                                  .primaryColor,
+                                              color:    deal.isPaid == 1 ?  Theme.of(context)
+                                                  .primaryColor : Colors.grey.withOpacity(0.8),
                                               borderRadius:
                                                   BorderRadius.circular(2.w),
                                             ),
@@ -337,7 +334,9 @@ class PayoutListingConsumer extends StatelessWidget {
                                               horizontal: 3.w,
                                             ),
                                             child: Text(
-                                              'Paid',
+                                              deal.isPaid == 1
+                                                  ? 'Paid'
+                                                  : 'Pending',
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .bodySmall!
@@ -388,7 +387,7 @@ class PayoutListingConsumer extends StatelessWidget {
               Center(
                 child: PrimaryButton(
                     height: 5.5.h,
-                    width: 75.w,
+                    width: 80.w,
                     btnTextColor: state.invoiceDocLink.isEmpty
                         ? Colors.white.withOpacity(0.5)
                         : Theme.of(context).primaryColor,

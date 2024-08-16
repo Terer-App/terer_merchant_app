@@ -287,14 +287,11 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                               PrimaryButton(
                                   width: 90.w,
                                   height: 7.h,
-                                  bgColor:
-                                      Theme.of(context).colorScheme.secondary,
+                                  bgColor: Theme.of(context).primaryColor,
                                   btnTextColor:
-                                      Theme.of(context).colorScheme.primary,
+                                      Theme.of(context).colorScheme.secondary,
                                   btnBorder: BorderSide(
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .secondary),
+                                      color: Theme.of(context).primaryColor),
                                   btnText: AppConstants.checkout,
                                   onPressedBtn: () {
                                     navigator<NavigationService>().navigateTo(
@@ -303,7 +300,7 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                                             state.selectedOutletProducts);
                                   }),
                               SizedBox(
-                                height: 5.h,
+                                height: 3.h,
                               )
                             ],
                           ),
