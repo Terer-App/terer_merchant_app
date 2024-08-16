@@ -20,6 +20,7 @@ _$_BroughtDealDto _$$_BroughtDealDtoFromJson(Map<String, dynamic> json) =>
       noOfCouponsRedeemed: json['noOfCouponsRedeemed'] as int,
       giftedCount: json['giftedCount'] as int,
       isGifted: json['isGifted'] as int,
+      isPaid: json['isPaid'] as int? ?? 0,
       lastRedeemedAt: json['lastRedeemedAt'] as String?,
     );
 
@@ -37,5 +38,6 @@ Map<String, dynamic> _$$_BroughtDealDtoToJson(_$_BroughtDealDto instance) =>
       'noOfCouponsRedeemed': instance.noOfCouponsRedeemed,
       'giftedCount': instance.giftedCount,
       'isGifted': instance.isGifted,
+      'isPaid': instance.isPaid,
       'lastRedeemedAt': instance.lastRedeemedAt,
     };

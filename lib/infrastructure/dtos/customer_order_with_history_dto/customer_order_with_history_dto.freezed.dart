@@ -30,7 +30,7 @@ mixin _$CustomerOrderWithHistoryDto {
   @JsonKey(name: 'dealId')
   String get dealId => throw _privateConstructorUsedError;
   @JsonKey(name: 'dealPrice')
-  int get dealPrice => throw _privateConstructorUsedError;
+  double get dealPrice => throw _privateConstructorUsedError;
   @JsonKey(name: 'dealName')
   String get dealName => throw _privateConstructorUsedError;
   @JsonKey(name: 'datePurchase')
@@ -71,7 +71,7 @@ abstract class $CustomerOrderWithHistoryDtoCopyWith<$Res> {
       @JsonKey(name: 'dealId')
           String dealId,
       @JsonKey(name: 'dealPrice')
-          int dealPrice,
+          double dealPrice,
       @JsonKey(name: 'dealName')
           String dealName,
       @JsonKey(name: 'datePurchase')
@@ -135,7 +135,7 @@ class _$CustomerOrderWithHistoryDtoCopyWithImpl<$Res>
       dealPrice: dealPrice == freezed
           ? _value.dealPrice
           : dealPrice // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       dealName: dealName == freezed
           ? _value.dealName
           : dealName // ignore: cast_nullable_to_non_nullable
@@ -190,7 +190,7 @@ abstract class _$$_CustomerOrderWithHistoryDtoCopyWith<$Res>
       @JsonKey(name: 'dealId')
           String dealId,
       @JsonKey(name: 'dealPrice')
-          int dealPrice,
+          double dealPrice,
       @JsonKey(name: 'dealName')
           String dealName,
       @JsonKey(name: 'datePurchase')
@@ -258,7 +258,7 @@ class __$$_CustomerOrderWithHistoryDtoCopyWithImpl<$Res>
       dealPrice: dealPrice == freezed
           ? _value.dealPrice
           : dealPrice // ignore: cast_nullable_to_non_nullable
-              as int,
+              as double,
       dealName: dealName == freezed
           ? _value.dealName
           : dealName // ignore: cast_nullable_to_non_nullable
@@ -344,7 +344,7 @@ class _$_CustomerOrderWithHistoryDto implements _CustomerOrderWithHistoryDto {
   final String dealId;
   @override
   @JsonKey(name: 'dealPrice')
-  final int dealPrice;
+  final double dealPrice;
   @override
   @JsonKey(name: 'dealName')
   final String dealName;
@@ -451,7 +451,7 @@ abstract class _CustomerOrderWithHistoryDto
           @JsonKey(name: 'dealId')
               required final String dealId,
           @JsonKey(name: 'dealPrice')
-              required final int dealPrice,
+              required final double dealPrice,
           @JsonKey(name: 'dealName')
               required final String dealName,
           @JsonKey(name: 'datePurchase')
@@ -487,7 +487,7 @@ abstract class _CustomerOrderWithHistoryDto
   String get dealId;
   @override
   @JsonKey(name: 'dealPrice')
-  int get dealPrice;
+  double get dealPrice;
   @override
   @JsonKey(name: 'dealName')
   String get dealName;

@@ -42,7 +42,7 @@ class PayoutListingBloc extends Bloc<PayoutListingEvent, PayoutListingState> {
     // on load
     on<_OnLoad>((event, emit) {
       add(PayoutListingEvent.fetchBroughtDealsByDayOrMonth(
-        isMonth: false,
+        isMonth: true,
         startDate: state.selectedDateTime,
         endDate: state.selectedDateTime,
       ));

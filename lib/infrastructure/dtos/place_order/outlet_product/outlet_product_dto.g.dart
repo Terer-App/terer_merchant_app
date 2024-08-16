@@ -11,6 +11,7 @@ _$_OutletProductDto _$$_OutletProductDtoFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       title: json['title'] as String,
       description: json['description'] as String? ?? '',
+      descriptionHtml: json['descriptionHtml'] as String? ?? '',
       createdAt: DateTime.parse(json['createdAt'] as String),
       availableForSale: json['availableForSale'] as bool,
       featuredImage: FeaturedImageDto.fromJson(
@@ -30,6 +31,7 @@ Map<String, dynamic> _$$_OutletProductDtoToJson(_$_OutletProductDto instance) =>
       'id': instance.id,
       'title': instance.title,
       'description': instance.description,
+      'descriptionHtml': instance.descriptionHtml,
       'createdAt': instance.createdAt.toIso8601String(),
       'availableForSale': instance.availableForSale,
       'featuredImage': instance.featuredImage,

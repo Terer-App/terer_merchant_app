@@ -41,6 +41,8 @@ class BroughtDealDto with _$BroughtDealDto {
         required int giftedCount,
         @JsonKey(name: "isGifted")
         required int isGifted,
+        @JsonKey(name: "isPaid",defaultValue: 0)
+        required int? isPaid,
         @JsonKey(name: "lastRedeemedAt")
         required String? lastRedeemedAt,
     }) = _BroughtDealDto;

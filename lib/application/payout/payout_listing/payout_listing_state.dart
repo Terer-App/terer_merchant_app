@@ -50,7 +50,7 @@ class PayoutListingState with _$PayoutListingState {
         apiUrl: apiUrl,
         serverUrl: serverUrl,
         broughtDeals: [],
-        isSelectedMonth: false,
+        isSelectedMonth: true,
         invoiceDocLink: '',
         placeOrderRepository:
             IPlaceOrderRepository(apiUrl: apiUrl, serverUrl: serverUrl));

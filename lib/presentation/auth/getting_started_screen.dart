@@ -88,6 +88,7 @@ class GettingStartedScreen extends StatelessWidget {
                                 btnTextColor: Theme.of(context).primaryColor,
                                 onPressedBtn: () {
                                   showDialog(
+                                    useSafeArea: false,
                                     barrierColor: Colors.white.withOpacity(0.85),
                                     context: context,
                                     builder: (ctx) {
