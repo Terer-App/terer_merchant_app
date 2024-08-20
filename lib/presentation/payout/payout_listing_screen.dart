@@ -167,13 +167,11 @@ class PayoutListingConsumer extends StatelessWidget {
                             context.read<PayoutListingBloc>().add(
                                   PayoutListingEvent
                                       .fetchBroughtDealsByDayOrMonth(
-                                          isMonth: true,
-                                          startDate: date,
-                                          endDate: date.add(
-                                            const Duration(
-                                              days: 30,
-                                            ),
-                                          )),
+                                    isMonth: true,
+                                    startDate: date,
+                                    endDate: DateTime(date.year, date.month + 1,
+                                        0),
+                                  ),
                                 );
                           }
                         });
@@ -181,7 +179,7 @@ class PayoutListingConsumer extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            'Monthly',
+                            'Month',
                             style:
                                 Theme.of(context).textTheme.bodySmall!.copyWith(
                                       fontSize: 12.sp,
@@ -261,7 +259,7 @@ class PayoutListingConsumer extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            'Date Paid: ${DateFormat('d MMM y').format(deal.datePurchase)}',
+                                            'Purchased: ${DateFormat('d MMM y').format(deal.datePurchase)}',
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodySmall!
@@ -325,8 +323,11 @@ class PayoutListingConsumer extends StatelessWidget {
                                           const SizedBox(),
                                           Container(
                                             decoration: BoxDecoration(
-                                              color:    deal.isPaid == 1 ?  Theme.of(context)
-                                                  .primaryColor : Colors.grey.withOpacity(0.8),
+                                              color: deal.isPaid == 1
+                                                  ? Theme.of(context)
+                                                      .primaryColor
+                                                  : Colors.grey
+                                                      .withOpacity(0.8),
                                               borderRadius:
                                                   BorderRadius.circular(2.w),
                                             ),

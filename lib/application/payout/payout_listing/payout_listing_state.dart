@@ -40,7 +40,7 @@ class PayoutListingState with _$PayoutListingState {
         isMonth: false,
         shopMerchantRepository:
             IShopMerchantRepository(serverUrl: serverUrl, apiUrl: apiUrl),
-        selectedDateTime: DateTime.now(),
+        selectedDateTime: DateTime(DateTime.now().year, DateTime.now().month, 1),
         endDate: DateTime.now(),
         startDate: DateTime.now(),
         appStateNotifier: appStateNotifier,

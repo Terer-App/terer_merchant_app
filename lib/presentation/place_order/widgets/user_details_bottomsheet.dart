@@ -153,8 +153,8 @@ class UserDetailsBottomSheetConsumer extends StatelessWidget {
                           context.read<CartBloc>().add(
                               const CartEvent.onPlaceOrder(isNewUser: true));
                         },
-                        btnTextColor: Theme.of(context).colorScheme.secondary,
-                        bgColor: Theme.of(context).primaryColor,
+                        btnTextColor: Theme.of(context).primaryColor,
+                        bgColor: Theme.of(context).colorScheme.secondary,
                       ),
                       SizedBox(
                         height: 2.h,
@@ -167,8 +167,8 @@ class UserDetailsBottomSheetConsumer extends StatelessWidget {
                             responseObject: 'cancel',
                           );
                         },
-                        btnTextColor: Theme.of(context).scaffoldBackgroundColor,
-                        bgColor: Colors.red,
+                        btnTextColor: Theme.of(context).colorScheme.secondary,
+                        bgColor: Theme.of(context).primaryColor,
                       ),
                       const Spacer(),
                     ],

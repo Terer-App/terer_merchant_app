@@ -54,82 +54,105 @@ class PlaceOrderDealWidget extends StatelessWidget {
             padding: EdgeInsets.all(2.w),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text(
-                dealName,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                    fontSize: 10.sp,
-                    color: Theme.of(context).colorScheme.secondary,
-                    fontWeight: FontWeight.w300),
-              ),
-              Center(
+              Expanded(
                 child: Text(
-                  '$currencyCode $discountedPrice',
-                  maxLines: 1,
-                  softWrap: false,
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: Theme.of(context).colorScheme.primaryContainer,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  dealName,
+                  maxLines: 3,
                   overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              SizedBox(
-                width: 0.5.h,
-              ),
-              Center(
-                child: Text(
-                  '$currencyCode $actualPrice',
-                  maxLines: 2,
-                  softWrap: false,
-                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      decoration: TextDecoration.lineThrough,
-                      decorationColor: Theme.of(context).primaryColor,
+                  style: TextStyle(
                       fontSize: 10.sp,
-                      color: Theme.of(context).colorScheme.secondary),
-                  overflow: TextOverflow.ellipsis,
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontWeight: FontWeight.w300),
                 ),
               ),
-              if (showAdd)
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    if (quantity > 0)
-                      IconButton(
-                        icon: const Icon(Icons.remove),
-                        onPressed: decrement,
-                      ),
-                    if (quantity > 0) Text(quantity.toString()),
-                    if (quantity > 0)
-                      IconButton(
-                        icon: const Icon(Icons.add),
-                        onPressed: increment,
-                      ),
-                    if (quantity == 0)
-                      ElevatedButton(
-                        onPressed: increment,
-                        child: const Text(
-                          'Add',
-                          style: TextStyle(color: Colors.white),
+              Expanded(
+                  flex: showAdd ? 0 : 1,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Center(
+                        child: Text(
+                          '$currencyCode $discountedPrice',
+                          maxLines: 1,
+                          softWrap: false,
+                          style:
+                              Theme.of(context).textTheme.titleSmall!.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
+                                    fontSize: 16.sp,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
-                  ],
-                ),
-              if (!showAdd)
-                Center(
-                  child: Text(
-                    'Quantity : $quantity',
-                    maxLines: 2,
-                    softWrap: false,
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                        decorationColor: Theme.of(context).primaryColor,
-                        fontSize: 10.sp,
-                        color: Theme.of(context).colorScheme.secondary),
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
+                      SizedBox(
+                        width: 0.5.h,
+                      ),
+                      Center(
+                        child: Text(
+                          '$currencyCode $actualPrice',
+                          maxLines: 2,
+                          softWrap: false,
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(
+                                  decoration: TextDecoration.lineThrough,
+                                  decorationColor:
+                                      Theme.of(context).primaryColor,
+                                  fontSize: 10.sp,
+                                  color:
+                                      Theme.of(context).colorScheme.secondary),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      if (showAdd)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (quantity > 0)
+                              IconButton(
+                                icon: const Icon(Icons.remove),
+                                onPressed: decrement,
+                              ),
+                            if (quantity > 0) Text(quantity.toString()),
+                            if (quantity > 0)
+                              IconButton(
+                                icon: const Icon(Icons.add),
+                                onPressed: increment,
+                              ),
+                            if (quantity == 0)
+                              ElevatedButton(
+                                onPressed: increment,
+                                child: const Text(
+                                  'Add',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                          ],
+                        ),
+                      if (!showAdd)
+                        Center(
+                          child: Text(
+                            'Quantity : $quantity',
+                            maxLines: 2,
+                            softWrap: false,
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(
+                                    decorationColor:
+                                        Theme.of(context).primaryColor,
+                                    fontSize: 10.sp,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .secondary),
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ),
+                    ],
+                  ))
             ]),
           )),
         ],

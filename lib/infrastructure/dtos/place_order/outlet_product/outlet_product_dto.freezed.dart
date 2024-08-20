@@ -25,13 +25,9 @@ mixin _$OutletProductDto {
   @JsonKey(name: 'title')
   String get title => throw _privateConstructorUsedError;
   @JsonKey(name: 'description', defaultValue: '')
-<<<<<<< HEAD
-  String get description => throw _privateConstructorUsedError;
-=======
   String? get description => throw _privateConstructorUsedError;
   @JsonKey(name: 'descriptionHtml', defaultValue: '')
   String? get descriptionHtml => throw _privateConstructorUsedError;
->>>>>>> f3157ea86cfef78074e64087be17c84dc707f271
   @JsonKey(name: 'createdAt')
   DateTime get createdAt => throw _privateConstructorUsedError;
   @JsonKey(name: 'availableForSale')
@@ -62,19 +58,6 @@ abstract class $OutletProductDtoCopyWith<$Res> {
           OutletProductDto value, $Res Function(OutletProductDto) then) =
       _$OutletProductDtoCopyWithImpl<$Res>;
   $Res call(
-<<<<<<< HEAD
-      {@JsonKey(name: 'id') String id,
-      @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'description', defaultValue: '') String description,
-      @JsonKey(name: 'createdAt') DateTime createdAt,
-      @JsonKey(name: 'availableForSale') bool availableForSale,
-      @JsonKey(name: 'featuredImage') FeaturedImageDto featuredImage,
-      @JsonKey(name: 'compareAtPriceRange') PriceRangeDto compareAtPriceRange,
-      @JsonKey(name: 'redemDuration') dynamic redeemDuration,
-      @JsonKey(name: 'priceRange') PriceRangeDto priceRange,
-      @JsonKey(name: 'sellerName') dynamic sellerName,
-      @JsonKey(name: 'variantId') String variantId,
-=======
       {@JsonKey(name: 'id')
           String id,
       @JsonKey(name: 'title')
@@ -99,7 +82,6 @@ abstract class $OutletProductDtoCopyWith<$Res> {
           dynamic sellerName,
       @JsonKey(name: 'variantId')
           String variantId,
->>>>>>> f3157ea86cfef78074e64087be17c84dc707f271
       int quantity});
 
   $FeaturedImageDtoCopyWith<$Res> get featuredImage;
@@ -218,19 +200,6 @@ abstract class _$$_OutletProductDtoCopyWith<$Res>
       __$$_OutletProductDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-<<<<<<< HEAD
-      {@JsonKey(name: 'id') String id,
-      @JsonKey(name: 'title') String title,
-      @JsonKey(name: 'description', defaultValue: '') String description,
-      @JsonKey(name: 'createdAt') DateTime createdAt,
-      @JsonKey(name: 'availableForSale') bool availableForSale,
-      @JsonKey(name: 'featuredImage') FeaturedImageDto featuredImage,
-      @JsonKey(name: 'compareAtPriceRange') PriceRangeDto compareAtPriceRange,
-      @JsonKey(name: 'redemDuration') dynamic redeemDuration,
-      @JsonKey(name: 'priceRange') PriceRangeDto priceRange,
-      @JsonKey(name: 'sellerName') dynamic sellerName,
-      @JsonKey(name: 'variantId') String variantId,
-=======
       {@JsonKey(name: 'id')
           String id,
       @JsonKey(name: 'title')
@@ -255,7 +224,6 @@ abstract class _$$_OutletProductDtoCopyWith<$Res>
           dynamic sellerName,
       @JsonKey(name: 'variantId')
           String variantId,
->>>>>>> f3157ea86cfef78074e64087be17c84dc707f271
       int quantity});
 
   @override
@@ -354,19 +322,6 @@ class __$$_OutletProductDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_OutletProductDto implements _OutletProductDto {
   const _$_OutletProductDto(
-<<<<<<< HEAD
-      {@JsonKey(name: 'id') required this.id,
-      @JsonKey(name: 'title') required this.title,
-      @JsonKey(name: 'description', defaultValue: '') required this.description,
-      @JsonKey(name: 'createdAt') required this.createdAt,
-      @JsonKey(name: 'availableForSale') required this.availableForSale,
-      @JsonKey(name: 'featuredImage') required this.featuredImage,
-      @JsonKey(name: 'compareAtPriceRange') required this.compareAtPriceRange,
-      @JsonKey(name: 'redemDuration') required this.redeemDuration,
-      @JsonKey(name: 'priceRange') required this.priceRange,
-      @JsonKey(name: 'sellerName') required this.sellerName,
-      @JsonKey(name: 'variantId') required this.variantId,
-=======
       {@JsonKey(name: 'id')
           required this.id,
       @JsonKey(name: 'title')
@@ -391,7 +346,6 @@ class _$_OutletProductDto implements _OutletProductDto {
           required this.sellerName,
       @JsonKey(name: 'variantId')
           required this.variantId,
->>>>>>> f3157ea86cfef78074e64087be17c84dc707f271
       this.quantity = 0});
 
   factory _$_OutletProductDto.fromJson(Map<String, dynamic> json) =>
@@ -405,14 +359,10 @@ class _$_OutletProductDto implements _OutletProductDto {
   final String title;
   @override
   @JsonKey(name: 'description', defaultValue: '')
-<<<<<<< HEAD
-  final String description;
-=======
   final String? description;
   @override
   @JsonKey(name: 'descriptionHtml', defaultValue: '')
   final String? descriptionHtml;
->>>>>>> f3157ea86cfef78074e64087be17c84dc707f271
   @override
   @JsonKey(name: 'createdAt')
   final DateTime createdAt;
@@ -512,13 +462,9 @@ abstract class _OutletProductDto implements OutletProductDto {
       @JsonKey(name: 'title')
           required final String title,
       @JsonKey(name: 'description', defaultValue: '')
-<<<<<<< HEAD
-          required final String description,
-=======
           required final String? description,
       @JsonKey(name: 'descriptionHtml', defaultValue: '')
           required final String? descriptionHtml,
->>>>>>> f3157ea86cfef78074e64087be17c84dc707f271
       @JsonKey(name: 'createdAt')
           required final DateTime createdAt,
       @JsonKey(name: 'availableForSale')
@@ -548,14 +494,10 @@ abstract class _OutletProductDto implements OutletProductDto {
   String get title;
   @override
   @JsonKey(name: 'description', defaultValue: '')
-<<<<<<< HEAD
-  String get description;
-=======
   String? get description;
   @override
   @JsonKey(name: 'descriptionHtml', defaultValue: '')
   String? get descriptionHtml;
->>>>>>> f3157ea86cfef78074e64087be17c84dc707f271
   @override
   @JsonKey(name: 'createdAt')
   DateTime get createdAt;
