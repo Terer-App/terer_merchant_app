@@ -14,4 +14,10 @@ class CoreRoutes {
   static const String reportsRoute = 'reports';
   static const String createOrderRoute = 'createOrder';
   static const String cartRoute = 'cart';
+  static const String liveDealListingRoute = 'liveDealListing';
+  static const String liveDealDetailsRoute = 'liveDealDetails';
+  static const String payoutListingRoute = 'payoutListing';
+  static const String payoutDetailsRoute = 'payoutDetails';
+  static const String customerPurchaseDealDetailsRoute =
+      'customerPurchaseDealDetails';
 }

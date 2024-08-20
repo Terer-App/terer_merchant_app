@@ -20,7 +20,10 @@ mixin _$ManageDealsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() checkForLatestDeal,
     required TResult Function() loadMore,
+    required TResult Function(DateTime startDate, DateTime endDate)
+        fetchCustomerOrders,
     required TResult Function(ManageDealsState state) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +31,9 @@ mixin _$ManageDealsEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +41,9 @@ mixin _$ManageDealsEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -45,7 +52,9 @@ mixin _$ManageDealsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_CheckForLatestDeal value) checkForLatestDeal,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_FetchCustomerOrders value) fetchCustomerOrders,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +62,9 @@ mixin _$ManageDealsEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -61,7 +72,9 @@ mixin _$ManageDealsEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -125,7 +138,10 @@ class _$_Init implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() checkForLatestDeal,
     required TResult Function() loadMore,
+    required TResult Function(DateTime startDate, DateTime endDate)
+        fetchCustomerOrders,
     required TResult Function(ManageDealsState state) emitFromAnywhere,
   }) {
     return init();
@@ -136,7 +152,9 @@ class _$_Init implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
   }) {
     return init?.call();
@@ -147,7 +165,9 @@ class _$_Init implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -162,7 +182,9 @@ class _$_Init implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_CheckForLatestDeal value) checkForLatestDeal,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_FetchCustomerOrders value) fetchCustomerOrders,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return init(this);
@@ -173,7 +195,9 @@ class _$_Init implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return init?.call(this);
@@ -184,7 +208,9 @@ class _$_Init implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -239,7 +265,10 @@ class _$_OnLoad implements _OnLoad {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() checkForLatestDeal,
     required TResult Function() loadMore,
+    required TResult Function(DateTime startDate, DateTime endDate)
+        fetchCustomerOrders,
     required TResult Function(ManageDealsState state) emitFromAnywhere,
   }) {
     return onLoad();
@@ -250,7 +279,9 @@ class _$_OnLoad implements _OnLoad {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
   }) {
     return onLoad?.call();
@@ -261,7 +292,9 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -276,7 +309,9 @@ class _$_OnLoad implements _OnLoad {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_CheckForLatestDeal value) checkForLatestDeal,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_FetchCustomerOrders value) fetchCustomerOrders,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return onLoad(this);
@@ -287,7 +322,9 @@ class _$_OnLoad implements _OnLoad {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return onLoad?.call(this);
@@ -298,7 +335,9 @@ class _$_OnLoad implements _OnLoad {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -311,6 +350,136 @@ class _$_OnLoad implements _OnLoad {
 
 abstract class _OnLoad implements ManageDealsEvent {
   const factory _OnLoad() = _$_OnLoad;
+}
+
+/// @nodoc
+abstract class _$$_CheckForLatestDealCopyWith<$Res> {
+  factory _$$_CheckForLatestDealCopyWith(_$_CheckForLatestDeal value,
+          $Res Function(_$_CheckForLatestDeal) then) =
+      __$$_CheckForLatestDealCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_CheckForLatestDealCopyWithImpl<$Res>
+    extends _$ManageDealsEventCopyWithImpl<$Res>
+    implements _$$_CheckForLatestDealCopyWith<$Res> {
+  __$$_CheckForLatestDealCopyWithImpl(
+      _$_CheckForLatestDeal _value, $Res Function(_$_CheckForLatestDeal) _then)
+      : super(_value, (v) => _then(v as _$_CheckForLatestDeal));
+
+  @override
+  _$_CheckForLatestDeal get _value => super._value as _$_CheckForLatestDeal;
+}
+
+/// @nodoc
+
+class _$_CheckForLatestDeal implements _CheckForLatestDeal {
+  const _$_CheckForLatestDeal();
+
+  @override
+  String toString() {
+    return 'ManageDealsEvent.checkForLatestDeal()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_CheckForLatestDeal);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function() checkForLatestDeal,
+    required TResult Function() loadMore,
+    required TResult Function(DateTime startDate, DateTime endDate)
+        fetchCustomerOrders,
+    required TResult Function(ManageDealsState state) emitFromAnywhere,
+  }) {
+    return checkForLatestDeal();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
+    TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
+    TResult Function(ManageDealsState state)? emitFromAnywhere,
+  }) {
+    return checkForLatestDeal?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
+    TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
+    TResult Function(ManageDealsState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (checkForLatestDeal != null) {
+      return checkForLatestDeal();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_CheckForLatestDeal value) checkForLatestDeal,
+    required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_FetchCustomerOrders value) fetchCustomerOrders,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return checkForLatestDeal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return checkForLatestDeal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (checkForLatestDeal != null) {
+      return checkForLatestDeal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckForLatestDeal implements ManageDealsEvent {
+  const factory _CheckForLatestDeal() = _$_CheckForLatestDeal;
 }
 
 /// @nodoc
@@ -356,7 +525,10 @@ class _$_LoadMore implements _LoadMore {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() checkForLatestDeal,
     required TResult Function() loadMore,
+    required TResult Function(DateTime startDate, DateTime endDate)
+        fetchCustomerOrders,
     required TResult Function(ManageDealsState state) emitFromAnywhere,
   }) {
     return loadMore();
@@ -367,7 +539,9 @@ class _$_LoadMore implements _LoadMore {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
   }) {
     return loadMore?.call();
@@ -378,7 +552,9 @@ class _$_LoadMore implements _LoadMore {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -393,7 +569,9 @@ class _$_LoadMore implements _LoadMore {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_CheckForLatestDeal value) checkForLatestDeal,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_FetchCustomerOrders value) fetchCustomerOrders,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return loadMore(this);
@@ -404,7 +582,9 @@ class _$_LoadMore implements _LoadMore {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return loadMore?.call(this);
@@ -415,7 +595,9 @@ class _$_LoadMore implements _LoadMore {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -428,6 +610,180 @@ class _$_LoadMore implements _LoadMore {
 
 abstract class _LoadMore implements ManageDealsEvent {
   const factory _LoadMore() = _$_LoadMore;
+}
+
+/// @nodoc
+abstract class _$$_FetchCustomerOrdersCopyWith<$Res> {
+  factory _$$_FetchCustomerOrdersCopyWith(_$_FetchCustomerOrders value,
+          $Res Function(_$_FetchCustomerOrders) then) =
+      __$$_FetchCustomerOrdersCopyWithImpl<$Res>;
+  $Res call({DateTime startDate, DateTime endDate});
+}
+
+/// @nodoc
+class __$$_FetchCustomerOrdersCopyWithImpl<$Res>
+    extends _$ManageDealsEventCopyWithImpl<$Res>
+    implements _$$_FetchCustomerOrdersCopyWith<$Res> {
+  __$$_FetchCustomerOrdersCopyWithImpl(_$_FetchCustomerOrders _value,
+      $Res Function(_$_FetchCustomerOrders) _then)
+      : super(_value, (v) => _then(v as _$_FetchCustomerOrders));
+
+  @override
+  _$_FetchCustomerOrders get _value => super._value as _$_FetchCustomerOrders;
+
+  @override
+  $Res call({
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+  }) {
+    return _then(_$_FetchCustomerOrders(
+      startDate: startDate == freezed
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endDate: endDate == freezed
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FetchCustomerOrders implements _FetchCustomerOrders {
+  const _$_FetchCustomerOrders(
+      {required this.startDate, required this.endDate});
+
+  @override
+  final DateTime startDate;
+  @override
+  final DateTime endDate;
+
+  @override
+  String toString() {
+    return 'ManageDealsEvent.fetchCustomerOrders(startDate: $startDate, endDate: $endDate)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FetchCustomerOrders &&
+            const DeepCollectionEquality().equals(other.startDate, startDate) &&
+            const DeepCollectionEquality().equals(other.endDate, endDate));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(startDate),
+      const DeepCollectionEquality().hash(endDate));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_FetchCustomerOrdersCopyWith<_$_FetchCustomerOrders> get copyWith =>
+      __$$_FetchCustomerOrdersCopyWithImpl<_$_FetchCustomerOrders>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function() checkForLatestDeal,
+    required TResult Function() loadMore,
+    required TResult Function(DateTime startDate, DateTime endDate)
+        fetchCustomerOrders,
+    required TResult Function(ManageDealsState state) emitFromAnywhere,
+  }) {
+    return fetchCustomerOrders(startDate, endDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
+    TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
+    TResult Function(ManageDealsState state)? emitFromAnywhere,
+  }) {
+    return fetchCustomerOrders?.call(startDate, endDate);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
+    TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
+    TResult Function(ManageDealsState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (fetchCustomerOrders != null) {
+      return fetchCustomerOrders(startDate, endDate);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_CheckForLatestDeal value) checkForLatestDeal,
+    required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_FetchCustomerOrders value) fetchCustomerOrders,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return fetchCustomerOrders(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return fetchCustomerOrders?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (fetchCustomerOrders != null) {
+      return fetchCustomerOrders(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FetchCustomerOrders implements ManageDealsEvent {
+  const factory _FetchCustomerOrders(
+      {required final DateTime startDate,
+      required final DateTime endDate}) = _$_FetchCustomerOrders;
+
+  DateTime get startDate;
+  DateTime get endDate;
+  @JsonKey(ignore: true)
+  _$$_FetchCustomerOrdersCopyWith<_$_FetchCustomerOrders> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -506,7 +862,10 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() onLoad,
+    required TResult Function() checkForLatestDeal,
     required TResult Function() loadMore,
+    required TResult Function(DateTime startDate, DateTime endDate)
+        fetchCustomerOrders,
     required TResult Function(ManageDealsState state) emitFromAnywhere,
   }) {
     return emitFromAnywhere(state);
@@ -517,7 +876,9 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(state);
@@ -528,7 +889,9 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? onLoad,
+    TResult Function()? checkForLatestDeal,
     TResult Function()? loadMore,
+    TResult Function(DateTime startDate, DateTime endDate)? fetchCustomerOrders,
     TResult Function(ManageDealsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -543,7 +906,9 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_CheckForLatestDeal value) checkForLatestDeal,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_FetchCustomerOrders value) fetchCustomerOrders,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return emitFromAnywhere(this);
@@ -554,7 +919,9 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(this);
@@ -565,7 +932,9 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_CheckForLatestDeal value)? checkForLatestDeal,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_FetchCustomerOrders value)? fetchCustomerOrders,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -592,6 +961,7 @@ mixin _$ManageDealsState {
   bool get isFailed => throw _privateConstructorUsedError;
   bool get isSuccess => throw _privateConstructorUsedError;
   bool get isAccountDeleted => throw _privateConstructorUsedError;
+  bool get isShowLatestDealPopup => throw _privateConstructorUsedError;
   String get serverUrl => throw _privateConstructorUsedError;
   String get showMessage => throw _privateConstructorUsedError;
   bool get hasMoreDocs => throw _privateConstructorUsedError;
@@ -599,12 +969,26 @@ mixin _$ManageDealsState {
   int get totalDeals => throw _privateConstructorUsedError;
   DateTime get currentDate => throw _privateConstructorUsedError;
   AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
-  List<MerchantDealDto> get todaysDeals => throw _privateConstructorUsedError;
+  int get skip => throw _privateConstructorUsedError;
+  int get todaysDealsCount => throw _privateConstructorUsedError;
+  int get latestDealCount => throw _privateConstructorUsedError;
+  double get todaysRevenue => throw _privateConstructorUsedError;
+  String get searchCustomerName => throw _privateConstructorUsedError;
+  DateTime get startDate => throw _privateConstructorUsedError;
+  DateTime get endDate => throw _privateConstructorUsedError;
+  DateTime get latestDealTime => throw _privateConstructorUsedError;
+  DateTimeRange get selectedDateTimeRange => throw _privateConstructorUsedError;
+  TextEditingController get searchCustomerController =>
+      throw _privateConstructorUsedError;
+  List<BroughtDealDto> get customerDeals => throw _privateConstructorUsedError;
   ShopMerchantRepository get shopMerchantRepository =>
+      throw _privateConstructorUsedError;
+  PlaceOrderRepository get placeOrderRepository =>
       throw _privateConstructorUsedError;
   ScrollController get scrollController => throw _privateConstructorUsedError;
   ZoomDrawerController get zoomDrawerController =>
       throw _privateConstructorUsedError;
+  dynamic Function(int)? get navCallBack => throw _privateConstructorUsedError;
   BrandUserDto? get profile => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -622,6 +1006,7 @@ abstract class $ManageDealsStateCopyWith<$Res> {
       bool isFailed,
       bool isSuccess,
       bool isAccountDeleted,
+      bool isShowLatestDealPopup,
       String serverUrl,
       String showMessage,
       bool hasMoreDocs,
@@ -629,10 +1014,22 @@ abstract class $ManageDealsStateCopyWith<$Res> {
       int totalDeals,
       DateTime currentDate,
       AppStateNotifier appStateNotifier,
-      List<MerchantDealDto> todaysDeals,
+      int skip,
+      int todaysDealsCount,
+      int latestDealCount,
+      double todaysRevenue,
+      String searchCustomerName,
+      DateTime startDate,
+      DateTime endDate,
+      DateTime latestDealTime,
+      DateTimeRange selectedDateTimeRange,
+      TextEditingController searchCustomerController,
+      List<BroughtDealDto> customerDeals,
       ShopMerchantRepository shopMerchantRepository,
+      PlaceOrderRepository placeOrderRepository,
       ScrollController scrollController,
       ZoomDrawerController zoomDrawerController,
+      dynamic Function(int)? navCallBack,
       BrandUserDto? profile});
 
   $BrandUserDtoCopyWith<$Res>? get profile;
@@ -653,6 +1050,7 @@ class _$ManageDealsStateCopyWithImpl<$Res>
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? isAccountDeleted = freezed,
+    Object? isShowLatestDealPopup = freezed,
     Object? serverUrl = freezed,
     Object? showMessage = freezed,
     Object? hasMoreDocs = freezed,
@@ -660,10 +1058,22 @@ class _$ManageDealsStateCopyWithImpl<$Res>
     Object? totalDeals = freezed,
     Object? currentDate = freezed,
     Object? appStateNotifier = freezed,
-    Object? todaysDeals = freezed,
+    Object? skip = freezed,
+    Object? todaysDealsCount = freezed,
+    Object? latestDealCount = freezed,
+    Object? todaysRevenue = freezed,
+    Object? searchCustomerName = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? latestDealTime = freezed,
+    Object? selectedDateTimeRange = freezed,
+    Object? searchCustomerController = freezed,
+    Object? customerDeals = freezed,
     Object? shopMerchantRepository = freezed,
+    Object? placeOrderRepository = freezed,
     Object? scrollController = freezed,
     Object? zoomDrawerController = freezed,
+    Object? navCallBack = freezed,
     Object? profile = freezed,
   }) {
     return _then(_value.copyWith(
@@ -682,6 +1092,10 @@ class _$ManageDealsStateCopyWithImpl<$Res>
       isAccountDeleted: isAccountDeleted == freezed
           ? _value.isAccountDeleted
           : isAccountDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isShowLatestDealPopup: isShowLatestDealPopup == freezed
+          ? _value.isShowLatestDealPopup
+          : isShowLatestDealPopup // ignore: cast_nullable_to_non_nullable
               as bool,
       serverUrl: serverUrl == freezed
           ? _value.serverUrl
@@ -711,14 +1125,58 @@ class _$ManageDealsStateCopyWithImpl<$Res>
           ? _value.appStateNotifier
           : appStateNotifier // ignore: cast_nullable_to_non_nullable
               as AppStateNotifier,
-      todaysDeals: todaysDeals == freezed
-          ? _value.todaysDeals
-          : todaysDeals // ignore: cast_nullable_to_non_nullable
-              as List<MerchantDealDto>,
+      skip: skip == freezed
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      todaysDealsCount: todaysDealsCount == freezed
+          ? _value.todaysDealsCount
+          : todaysDealsCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      latestDealCount: latestDealCount == freezed
+          ? _value.latestDealCount
+          : latestDealCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      todaysRevenue: todaysRevenue == freezed
+          ? _value.todaysRevenue
+          : todaysRevenue // ignore: cast_nullable_to_non_nullable
+              as double,
+      searchCustomerName: searchCustomerName == freezed
+          ? _value.searchCustomerName
+          : searchCustomerName // ignore: cast_nullable_to_non_nullable
+              as String,
+      startDate: startDate == freezed
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endDate: endDate == freezed
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      latestDealTime: latestDealTime == freezed
+          ? _value.latestDealTime
+          : latestDealTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      selectedDateTimeRange: selectedDateTimeRange == freezed
+          ? _value.selectedDateTimeRange
+          : selectedDateTimeRange // ignore: cast_nullable_to_non_nullable
+              as DateTimeRange,
+      searchCustomerController: searchCustomerController == freezed
+          ? _value.searchCustomerController
+          : searchCustomerController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      customerDeals: customerDeals == freezed
+          ? _value.customerDeals
+          : customerDeals // ignore: cast_nullable_to_non_nullable
+              as List<BroughtDealDto>,
       shopMerchantRepository: shopMerchantRepository == freezed
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
               as ShopMerchantRepository,
+      placeOrderRepository: placeOrderRepository == freezed
+          ? _value.placeOrderRepository
+          : placeOrderRepository // ignore: cast_nullable_to_non_nullable
+              as PlaceOrderRepository,
       scrollController: scrollController == freezed
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
@@ -727,6 +1185,10 @@ class _$ManageDealsStateCopyWithImpl<$Res>
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
               as ZoomDrawerController,
+      navCallBack: navCallBack == freezed
+          ? _value.navCallBack
+          : navCallBack // ignore: cast_nullable_to_non_nullable
+              as dynamic Function(int)?,
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -758,6 +1220,7 @@ abstract class _$$_ManageDealsStateCopyWith<$Res>
       bool isFailed,
       bool isSuccess,
       bool isAccountDeleted,
+      bool isShowLatestDealPopup,
       String serverUrl,
       String showMessage,
       bool hasMoreDocs,
@@ -765,10 +1228,22 @@ abstract class _$$_ManageDealsStateCopyWith<$Res>
       int totalDeals,
       DateTime currentDate,
       AppStateNotifier appStateNotifier,
-      List<MerchantDealDto> todaysDeals,
+      int skip,
+      int todaysDealsCount,
+      int latestDealCount,
+      double todaysRevenue,
+      String searchCustomerName,
+      DateTime startDate,
+      DateTime endDate,
+      DateTime latestDealTime,
+      DateTimeRange selectedDateTimeRange,
+      TextEditingController searchCustomerController,
+      List<BroughtDealDto> customerDeals,
       ShopMerchantRepository shopMerchantRepository,
+      PlaceOrderRepository placeOrderRepository,
       ScrollController scrollController,
       ZoomDrawerController zoomDrawerController,
+      dynamic Function(int)? navCallBack,
       BrandUserDto? profile});
 
   @override
@@ -792,6 +1267,7 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
     Object? isFailed = freezed,
     Object? isSuccess = freezed,
     Object? isAccountDeleted = freezed,
+    Object? isShowLatestDealPopup = freezed,
     Object? serverUrl = freezed,
     Object? showMessage = freezed,
     Object? hasMoreDocs = freezed,
@@ -799,10 +1275,22 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
     Object? totalDeals = freezed,
     Object? currentDate = freezed,
     Object? appStateNotifier = freezed,
-    Object? todaysDeals = freezed,
+    Object? skip = freezed,
+    Object? todaysDealsCount = freezed,
+    Object? latestDealCount = freezed,
+    Object? todaysRevenue = freezed,
+    Object? searchCustomerName = freezed,
+    Object? startDate = freezed,
+    Object? endDate = freezed,
+    Object? latestDealTime = freezed,
+    Object? selectedDateTimeRange = freezed,
+    Object? searchCustomerController = freezed,
+    Object? customerDeals = freezed,
     Object? shopMerchantRepository = freezed,
+    Object? placeOrderRepository = freezed,
     Object? scrollController = freezed,
     Object? zoomDrawerController = freezed,
+    Object? navCallBack = freezed,
     Object? profile = freezed,
   }) {
     return _then(_$_ManageDealsState(
@@ -821,6 +1309,10 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
       isAccountDeleted: isAccountDeleted == freezed
           ? _value.isAccountDeleted
           : isAccountDeleted // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isShowLatestDealPopup: isShowLatestDealPopup == freezed
+          ? _value.isShowLatestDealPopup
+          : isShowLatestDealPopup // ignore: cast_nullable_to_non_nullable
               as bool,
       serverUrl: serverUrl == freezed
           ? _value.serverUrl
@@ -850,14 +1342,58 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
           ? _value.appStateNotifier
           : appStateNotifier // ignore: cast_nullable_to_non_nullable
               as AppStateNotifier,
-      todaysDeals: todaysDeals == freezed
-          ? _value._todaysDeals
-          : todaysDeals // ignore: cast_nullable_to_non_nullable
-              as List<MerchantDealDto>,
+      skip: skip == freezed
+          ? _value.skip
+          : skip // ignore: cast_nullable_to_non_nullable
+              as int,
+      todaysDealsCount: todaysDealsCount == freezed
+          ? _value.todaysDealsCount
+          : todaysDealsCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      latestDealCount: latestDealCount == freezed
+          ? _value.latestDealCount
+          : latestDealCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      todaysRevenue: todaysRevenue == freezed
+          ? _value.todaysRevenue
+          : todaysRevenue // ignore: cast_nullable_to_non_nullable
+              as double,
+      searchCustomerName: searchCustomerName == freezed
+          ? _value.searchCustomerName
+          : searchCustomerName // ignore: cast_nullable_to_non_nullable
+              as String,
+      startDate: startDate == freezed
+          ? _value.startDate
+          : startDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      endDate: endDate == freezed
+          ? _value.endDate
+          : endDate // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      latestDealTime: latestDealTime == freezed
+          ? _value.latestDealTime
+          : latestDealTime // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      selectedDateTimeRange: selectedDateTimeRange == freezed
+          ? _value.selectedDateTimeRange
+          : selectedDateTimeRange // ignore: cast_nullable_to_non_nullable
+              as DateTimeRange,
+      searchCustomerController: searchCustomerController == freezed
+          ? _value.searchCustomerController
+          : searchCustomerController // ignore: cast_nullable_to_non_nullable
+              as TextEditingController,
+      customerDeals: customerDeals == freezed
+          ? _value._customerDeals
+          : customerDeals // ignore: cast_nullable_to_non_nullable
+              as List<BroughtDealDto>,
       shopMerchantRepository: shopMerchantRepository == freezed
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
               as ShopMerchantRepository,
+      placeOrderRepository: placeOrderRepository == freezed
+          ? _value.placeOrderRepository
+          : placeOrderRepository // ignore: cast_nullable_to_non_nullable
+              as PlaceOrderRepository,
       scrollController: scrollController == freezed
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
@@ -866,6 +1402,10 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
           ? _value.zoomDrawerController
           : zoomDrawerController // ignore: cast_nullable_to_non_nullable
               as ZoomDrawerController,
+      navCallBack: navCallBack == freezed
+          ? _value.navCallBack
+          : navCallBack // ignore: cast_nullable_to_non_nullable
+              as dynamic Function(int)?,
       profile: profile == freezed
           ? _value.profile
           : profile // ignore: cast_nullable_to_non_nullable
@@ -882,6 +1422,7 @@ class _$_ManageDealsState implements _ManageDealsState {
       required this.isFailed,
       required this.isSuccess,
       required this.isAccountDeleted,
+      required this.isShowLatestDealPopup,
       required this.serverUrl,
       required this.showMessage,
       required this.hasMoreDocs,
@@ -889,12 +1430,24 @@ class _$_ManageDealsState implements _ManageDealsState {
       required this.totalDeals,
       required this.currentDate,
       required this.appStateNotifier,
-      required final List<MerchantDealDto> todaysDeals,
+      required this.skip,
+      required this.todaysDealsCount,
+      required this.latestDealCount,
+      required this.todaysRevenue,
+      required this.searchCustomerName,
+      required this.startDate,
+      required this.endDate,
+      required this.latestDealTime,
+      required this.selectedDateTimeRange,
+      required this.searchCustomerController,
+      required final List<BroughtDealDto> customerDeals,
       required this.shopMerchantRepository,
+      required this.placeOrderRepository,
       required this.scrollController,
       required this.zoomDrawerController,
+      required this.navCallBack,
       this.profile})
-      : _todaysDeals = todaysDeals;
+      : _customerDeals = customerDeals;
 
   @override
   final bool isLoading;
@@ -904,6 +1457,8 @@ class _$_ManageDealsState implements _ManageDealsState {
   final bool isSuccess;
   @override
   final bool isAccountDeleted;
+  @override
+  final bool isShowLatestDealPopup;
   @override
   final String serverUrl;
   @override
@@ -918,25 +1473,49 @@ class _$_ManageDealsState implements _ManageDealsState {
   final DateTime currentDate;
   @override
   final AppStateNotifier appStateNotifier;
-  final List<MerchantDealDto> _todaysDeals;
   @override
-  List<MerchantDealDto> get todaysDeals {
+  final int skip;
+  @override
+  final int todaysDealsCount;
+  @override
+  final int latestDealCount;
+  @override
+  final double todaysRevenue;
+  @override
+  final String searchCustomerName;
+  @override
+  final DateTime startDate;
+  @override
+  final DateTime endDate;
+  @override
+  final DateTime latestDealTime;
+  @override
+  final DateTimeRange selectedDateTimeRange;
+  @override
+  final TextEditingController searchCustomerController;
+  final List<BroughtDealDto> _customerDeals;
+  @override
+  List<BroughtDealDto> get customerDeals {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_todaysDeals);
+    return EqualUnmodifiableListView(_customerDeals);
   }
 
   @override
   final ShopMerchantRepository shopMerchantRepository;
   @override
+  final PlaceOrderRepository placeOrderRepository;
+  @override
   final ScrollController scrollController;
   @override
   final ZoomDrawerController zoomDrawerController;
+  @override
+  final dynamic Function(int)? navCallBack;
   @override
   final BrandUserDto? profile;
 
   @override
   String toString() {
-    return 'ManageDealsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, serverUrl: $serverUrl, showMessage: $showMessage, hasMoreDocs: $hasMoreDocs, currentPage: $currentPage, totalDeals: $totalDeals, currentDate: $currentDate, appStateNotifier: $appStateNotifier, todaysDeals: $todaysDeals, shopMerchantRepository: $shopMerchantRepository, scrollController: $scrollController, zoomDrawerController: $zoomDrawerController, profile: $profile)';
+    return 'ManageDealsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, isShowLatestDealPopup: $isShowLatestDealPopup, serverUrl: $serverUrl, showMessage: $showMessage, hasMoreDocs: $hasMoreDocs, currentPage: $currentPage, totalDeals: $totalDeals, currentDate: $currentDate, appStateNotifier: $appStateNotifier, skip: $skip, todaysDealsCount: $todaysDealsCount, latestDealCount: $latestDealCount, todaysRevenue: $todaysRevenue, searchCustomerName: $searchCustomerName, startDate: $startDate, endDate: $endDate, latestDealTime: $latestDealTime, selectedDateTimeRange: $selectedDateTimeRange, searchCustomerController: $searchCustomerController, customerDeals: $customerDeals, shopMerchantRepository: $shopMerchantRepository, placeOrderRepository: $placeOrderRepository, scrollController: $scrollController, zoomDrawerController: $zoomDrawerController, navCallBack: $navCallBack, profile: $profile)';
   }
 
   @override
@@ -949,6 +1528,8 @@ class _$_ManageDealsState implements _ManageDealsState {
             const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
             const DeepCollectionEquality()
                 .equals(other.isAccountDeleted, isAccountDeleted) &&
+            const DeepCollectionEquality()
+                .equals(other.isShowLatestDealPopup, isShowLatestDealPopup) &&
             const DeepCollectionEquality().equals(other.serverUrl, serverUrl) &&
             const DeepCollectionEquality()
                 .equals(other.showMessage, showMessage) &&
@@ -962,36 +1543,71 @@ class _$_ManageDealsState implements _ManageDealsState {
                 .equals(other.currentDate, currentDate) &&
             const DeepCollectionEquality()
                 .equals(other.appStateNotifier, appStateNotifier) &&
+            const DeepCollectionEquality().equals(other.skip, skip) &&
             const DeepCollectionEquality()
-                .equals(other._todaysDeals, _todaysDeals) &&
+                .equals(other.todaysDealsCount, todaysDealsCount) &&
+            const DeepCollectionEquality()
+                .equals(other.latestDealCount, latestDealCount) &&
+            const DeepCollectionEquality()
+                .equals(other.todaysRevenue, todaysRevenue) &&
+            const DeepCollectionEquality()
+                .equals(other.searchCustomerName, searchCustomerName) &&
+            const DeepCollectionEquality().equals(other.startDate, startDate) &&
+            const DeepCollectionEquality().equals(other.endDate, endDate) &&
+            const DeepCollectionEquality()
+                .equals(other.latestDealTime, latestDealTime) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedDateTimeRange, selectedDateTimeRange) &&
+            const DeepCollectionEquality().equals(
+                other.searchCustomerController, searchCustomerController) &&
+            const DeepCollectionEquality()
+                .equals(other._customerDeals, _customerDeals) &&
             const DeepCollectionEquality()
                 .equals(other.shopMerchantRepository, shopMerchantRepository) &&
+            const DeepCollectionEquality()
+                .equals(other.placeOrderRepository, placeOrderRepository) &&
             const DeepCollectionEquality()
                 .equals(other.scrollController, scrollController) &&
             const DeepCollectionEquality()
                 .equals(other.zoomDrawerController, zoomDrawerController) &&
+            (identical(other.navCallBack, navCallBack) ||
+                other.navCallBack == navCallBack) &&
             const DeepCollectionEquality().equals(other.profile, profile));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(isLoading),
-      const DeepCollectionEquality().hash(isFailed),
-      const DeepCollectionEquality().hash(isSuccess),
-      const DeepCollectionEquality().hash(isAccountDeleted),
-      const DeepCollectionEquality().hash(serverUrl),
-      const DeepCollectionEquality().hash(showMessage),
-      const DeepCollectionEquality().hash(hasMoreDocs),
-      const DeepCollectionEquality().hash(currentPage),
-      const DeepCollectionEquality().hash(totalDeals),
-      const DeepCollectionEquality().hash(currentDate),
-      const DeepCollectionEquality().hash(appStateNotifier),
-      const DeepCollectionEquality().hash(_todaysDeals),
-      const DeepCollectionEquality().hash(shopMerchantRepository),
-      const DeepCollectionEquality().hash(scrollController),
-      const DeepCollectionEquality().hash(zoomDrawerController),
-      const DeepCollectionEquality().hash(profile));
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(isLoading),
+        const DeepCollectionEquality().hash(isFailed),
+        const DeepCollectionEquality().hash(isSuccess),
+        const DeepCollectionEquality().hash(isAccountDeleted),
+        const DeepCollectionEquality().hash(isShowLatestDealPopup),
+        const DeepCollectionEquality().hash(serverUrl),
+        const DeepCollectionEquality().hash(showMessage),
+        const DeepCollectionEquality().hash(hasMoreDocs),
+        const DeepCollectionEquality().hash(currentPage),
+        const DeepCollectionEquality().hash(totalDeals),
+        const DeepCollectionEquality().hash(currentDate),
+        const DeepCollectionEquality().hash(appStateNotifier),
+        const DeepCollectionEquality().hash(skip),
+        const DeepCollectionEquality().hash(todaysDealsCount),
+        const DeepCollectionEquality().hash(latestDealCount),
+        const DeepCollectionEquality().hash(todaysRevenue),
+        const DeepCollectionEquality().hash(searchCustomerName),
+        const DeepCollectionEquality().hash(startDate),
+        const DeepCollectionEquality().hash(endDate),
+        const DeepCollectionEquality().hash(latestDealTime),
+        const DeepCollectionEquality().hash(selectedDateTimeRange),
+        const DeepCollectionEquality().hash(searchCustomerController),
+        const DeepCollectionEquality().hash(_customerDeals),
+        const DeepCollectionEquality().hash(shopMerchantRepository),
+        const DeepCollectionEquality().hash(placeOrderRepository),
+        const DeepCollectionEquality().hash(scrollController),
+        const DeepCollectionEquality().hash(zoomDrawerController),
+        navCallBack,
+        const DeepCollectionEquality().hash(profile)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -1005,6 +1621,7 @@ abstract class _ManageDealsState implements ManageDealsState {
       required final bool isFailed,
       required final bool isSuccess,
       required final bool isAccountDeleted,
+      required final bool isShowLatestDealPopup,
       required final String serverUrl,
       required final String showMessage,
       required final bool hasMoreDocs,
@@ -1012,10 +1629,22 @@ abstract class _ManageDealsState implements ManageDealsState {
       required final int totalDeals,
       required final DateTime currentDate,
       required final AppStateNotifier appStateNotifier,
-      required final List<MerchantDealDto> todaysDeals,
+      required final int skip,
+      required final int todaysDealsCount,
+      required final int latestDealCount,
+      required final double todaysRevenue,
+      required final String searchCustomerName,
+      required final DateTime startDate,
+      required final DateTime endDate,
+      required final DateTime latestDealTime,
+      required final DateTimeRange selectedDateTimeRange,
+      required final TextEditingController searchCustomerController,
+      required final List<BroughtDealDto> customerDeals,
       required final ShopMerchantRepository shopMerchantRepository,
+      required final PlaceOrderRepository placeOrderRepository,
       required final ScrollController scrollController,
       required final ZoomDrawerController zoomDrawerController,
+      required final dynamic Function(int)? navCallBack,
       final BrandUserDto? profile}) = _$_ManageDealsState;
 
   @override
@@ -1026,6 +1655,8 @@ abstract class _ManageDealsState implements ManageDealsState {
   bool get isSuccess;
   @override
   bool get isAccountDeleted;
+  @override
+  bool get isShowLatestDealPopup;
   @override
   String get serverUrl;
   @override
@@ -1041,13 +1672,37 @@ abstract class _ManageDealsState implements ManageDealsState {
   @override
   AppStateNotifier get appStateNotifier;
   @override
-  List<MerchantDealDto> get todaysDeals;
+  int get skip;
+  @override
+  int get todaysDealsCount;
+  @override
+  int get latestDealCount;
+  @override
+  double get todaysRevenue;
+  @override
+  String get searchCustomerName;
+  @override
+  DateTime get startDate;
+  @override
+  DateTime get endDate;
+  @override
+  DateTime get latestDealTime;
+  @override
+  DateTimeRange get selectedDateTimeRange;
+  @override
+  TextEditingController get searchCustomerController;
+  @override
+  List<BroughtDealDto> get customerDeals;
   @override
   ShopMerchantRepository get shopMerchantRepository;
+  @override
+  PlaceOrderRepository get placeOrderRepository;
   @override
   ScrollController get scrollController;
   @override
   ZoomDrawerController get zoomDrawerController;
+  @override
+  dynamic Function(int)? get navCallBack;
   @override
   BrandUserDto? get profile;
   @override

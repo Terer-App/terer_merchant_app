@@ -107,74 +107,73 @@ class UserDetailsBottomSheetConsumer extends StatelessWidget {
                 onTap: () {
                   FocusScope.of(context).unfocus();
                 },
-                child: SafeArea(
-                    child: Column(
-                  children: [
-                    Expanded(
-                      child: ListView(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 5.w,
-                          vertical: 5.w,
-                        ),
-                        children: [
-                          PrimaryTextField(
-                            inputWithLabel: true,
-                            keyboardType: TextInputType.emailAddress,
-                            controller: state.emailController,
-                            onChanged: (_) {
-                              EasyDebounce.debounce(
-                                  'email-debounce', // <-- An ID for this particular debouncer
-                                  const Duration(
-                                      milliseconds:
-                                          500), // <-- The debounce duration
-                                  () => BlocProvider.of<CartBloc>(context).add(
-                                      const CartEvent
-                                          .onChangeEmailAddress()) // <-- The target method
-                                  );
-                            },
-                            isImp: true,
-                            errorText: state.errorEmailId.isEmpty
-                                ? null
-                                : state.errorEmailId,
-                            labelText: CartConstants.email,
-                            hintText: CartConstants.hintEmail,
-                          ),
-                          PrimaryTextField(
-                            inputWithLabel: true,
-                            controller: state.nameController,
-                            onChanged: (_) {
-                              BlocProvider.of<CartBloc>(context)
-                                  .add(const CartEvent.onChangeName());
-                            },
-                            errorText: state.errorName.isEmpty
-                                ? null
-                                : state.errorName,
-                            labelText: CartConstants.name,
-                            hintText: CartConstants.hintName,
-                          ),
-                          SizedBox(
-                            height: 5.h,
-                          ),
-                          PrimaryButton(
-                            btnText: CartConstants.placeOrder,
-                            width: 100.w,
-                            onPressedBtn: () {
-                              context.read<CartBloc>().add(
-                                  const CartEvent.onPlaceOrder(
-                                      isNewUser: true));
-                            },
-                            btnTextColor:
-                                Theme.of(context).scaffoldBackgroundColor,
-                            bgColor: Theme.of(context).primaryColor,
-                          ),
-                          SizedBox(
-                            height: 5.w,
-                          ),
-                        ],
+                child: Padding(
+                  padding: EdgeInsets.only(right: 5.w, top: 5.h, left: 5.w),
+                  child: Column(
+                    children: [
+                      PrimaryTextField(
+                        inputWithLabel: true,
+                        keyboardType: TextInputType.emailAddress,
+                        controller: state.emailController,
+                        onChanged: (_) {
+                          EasyDebounce.debounce(
+                              'email-debounce', // <-- An ID for this particular debouncer
+                              const Duration(
+                                  milliseconds:
+                                      500), // <-- The debounce duration
+                              () => BlocProvider.of<CartBloc>(context).add(
+                                  const CartEvent
+                                      .onChangeEmailAddress()) // <-- The target method
+                              );
+                        },
+                        isImp: true,
+                        errorText: state.errorEmailId.isEmpty
+                            ? null
+                            : state.errorEmailId,
+                        labelText: CartConstants.email,
+                        hintText: CartConstants.hintEmail,
                       ),
-                    )
-                  ],
-                )),
+                      PrimaryTextField(
+                        inputWithLabel: true,
+                        controller: state.nameController,
+                        onChanged: (_) {
+                          BlocProvider.of<CartBloc>(context)
+                              .add(const CartEvent.onChangeName());
+                        },
+                        errorText:
+                            state.errorName.isEmpty ? null : state.errorName,
+                        labelText: CartConstants.name,
+                        hintText: CartConstants.hintName,
+                      ),
+                      const Spacer(),
+                      PrimaryButton(
+                        btnText: CartConstants.placeOrder,
+                        width: 100.w,
+                        onPressedBtn: () {
+                          context.read<CartBloc>().add(
+                              const CartEvent.onPlaceOrder(isNewUser: true));
+                        },
+                        btnTextColor: Theme.of(context).primaryColor,
+                        bgColor: Theme.of(context).colorScheme.secondary,
+                      ),
+                      SizedBox(
+                        height: 2.h,
+                      ),
+                      PrimaryButton(
+                        btnText: AppConstants.cancel,
+                        width: 100.w,
+                        onPressedBtn: () {
+                          navigator<NavigationService>().goBack(
+                            responseObject: 'cancel',
+                          );
+                        },
+                        btnTextColor: Theme.of(context).colorScheme.secondary,
+                        bgColor: Theme.of(context).primaryColor,
+                      ),
+                      const Spacer(),
+                    ],
+                  ),
+                ),
               )),
         );
       },

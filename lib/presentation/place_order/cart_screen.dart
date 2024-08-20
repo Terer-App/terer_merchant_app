@@ -61,20 +61,35 @@ class CartScreenConsumer extends StatelessWidget {
           isDismissible: false,
           backgroundColor: Colors.transparent,
           builder: (BuildContext context) {
-            return UserDetailsBottomSheet(
-              zoomDrawerController: state.zoomDrawerController,
-              selectedCountry: state.selectedCountry,
-              phoneNumber: state.phoneNumberController.text,
-              addedProducts: state.addedProducts,
+            return Container(
+              padding: EdgeInsets.zero, // Remove padding
+              margin: EdgeInsets.zero,
+              child: UserDetailsBottomSheet(
+                zoomDrawerController: state.zoomDrawerController,
+                selectedCountry: state.selectedCountry,
+                phoneNumber: state.phoneNumberController.text,
+                addedProducts: state.addedProducts,
+              ),
             );
           },
         ).then((value) {
-          context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
-              state: state.copyWith(
+          if (value == 'cancel') {
+            state.phoneNumberController.clear();
+            context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
+                    state: state.copyWith(
                   isSuccess: false,
                   isFailed: false,
                   isLoading: false,
-                  showBottomSheet: false)));
+                  showBottomSheet: false,
+                )));
+          } else {
+            context.read<CartBloc>().add(CartEvent.emitFromAnywhere(
+                state: state.copyWith(
+                    isSuccess: false,
+                    isFailed: false,
+                    isLoading: false,
+                    showBottomSheet: false)));
+          }
         });
       }
       if (state.isSuccess) {
@@ -118,53 +133,54 @@ class CartScreenConsumer extends StatelessWidget {
       return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(15.0),
-                  bottomRight: Radius.circular(15.0))),
-          backgroundColor: Theme.of(context).primaryColor,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           toolbarHeight: 8.h,
-          leadingWidth: 20.w,
-          leading: Padding(
-            padding: EdgeInsets.only(
-              left: 5.w,
-            ),
-            child: Center(
-              child: ElevatedButton(
-                  onPressed: () {
-                    navigator<NavigationService>().goBack();
-                  },
-                  style: ElevatedButton.styleFrom(
-                    elevation: 0,
-                    shape: const CircleBorder(),
-                    backgroundColor:
-                        Theme.of(context).colorScheme.tertiary.withOpacity(0.7),
-                    foregroundColor: Theme.of(context).colorScheme.primary,
-                  ),
-                  child: SvgPicture.asset(
-                    AssetConstants.backSvg,
-                    width: 14.w,
-                  )),
-            ),
-          ),
-          title: Padding(
-            padding: EdgeInsets.only(left: 5.w),
-            child: Text(CartConstants.checkout,
-                style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    fontSize: 18.sp,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold)),
-          ),
           elevation: 0,
+          leading: GestureDetector(
+            onTap: () {
+              navigator<NavigationService>().goBack();
+            },
+            child: Padding(
+              padding: EdgeInsets.only(left: 3.w),
+              child: SvgPicture.asset(
+                AssetConstants.backArrowYellow,
+              ),
+            ),
+          ),
+          title: Text(
+            AppConstants.checkout,
+            style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: Theme.of(context).primaryColor,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w700,
+                ),
+          ),
+          centerTitle: true,
         ),
         body: ModalProgressHUD(
           inAsyncCall: state.isLoading,
           child: state.addedProducts.isEmpty
-              ? const Center(
-                  child: Text(CartConstants.cartIsEmpty),
+              ? Column(
+                  children: [
+                    Container(
+                      height: 2.h,
+                      width: double.infinity,
+                      color: Theme.of(context).primaryColor,
+                    ),
+                    const Spacer(),
+                    const Center(
+                      child: Text(CartConstants.cartIsEmpty),
+                    ),
+                    const Spacer(),
+                  ],
                 )
               : Column(
                   children: [
+                    Container(
+                      height: 2.h,
+                      width: double.infinity,
+                      color: Theme.of(context).primaryColor,
+                    ),
                     SizedBox(height: 2.h),
                     Expanded(
                       child: ListView.separated(
@@ -311,47 +327,50 @@ class CartScreenConsumer extends StatelessWidget {
                     AnimatedSwitcher(
                       duration: const Duration(milliseconds: 500),
                       child: state.showKeyboard
-                          ? NumericKeyboard(
-                              onKeyboardTap: (value) {
-                                if (state.phoneNumberController.text.length >=
-                                    15) {
-                                  return;
-                                }
-                                state.phoneNumberController.text =
-                                    state.phoneNumberController.text + value;
-                                context.read<CartBloc>().add(
-                                    CartEvent.emitFromAnywhere(
-                                        state: state.copyWith(
-                                            noUse: !state.noUse)));
-                              },
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              leftIcon: Image.asset(
-                                AssetConstants.backClear,
-                              ),
-                              rightIcon: Image.asset(
-                                AssetConstants.check,
-                              ),
-                              leftButtonFn: () {
-                                if (state
-                                    .phoneNumberController.text.isNotEmpty) {
-                                  state.phoneNumberController.text = state
-                                      .phoneNumberController.text
-                                      .substring(
-                                          0,
-                                          state.phoneNumberController.text
-                                                  .length -
-                                              1);
+                          ? Padding(
+                              padding: EdgeInsets.only(bottom: 2.h),
+                              child: NumericKeyboard(
+                                onKeyboardTap: (value) {
+                                  if (state.phoneNumberController.text.length >=
+                                      15) {
+                                    return;
+                                  }
+                                  state.phoneNumberController.text =
+                                      state.phoneNumberController.text + value;
                                   context.read<CartBloc>().add(
                                       CartEvent.emitFromAnywhere(
                                           state: state.copyWith(
                                               noUse: !state.noUse)));
-                                }
-                              },
-                              rightButtonFn: () {
-                                context
-                                    .read<CartBloc>()
-                                    .add(const CartEvent.toggleKeyboard());
-                              },
+                                },
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                leftIcon: Image.asset(
+                                  AssetConstants.backClear,
+                                ),
+                                rightIcon: Image.asset(
+                                  AssetConstants.check,
+                                ),
+                                leftButtonFn: () {
+                                  if (state
+                                      .phoneNumberController.text.isNotEmpty) {
+                                    state.phoneNumberController.text = state
+                                        .phoneNumberController.text
+                                        .substring(
+                                            0,
+                                            state.phoneNumberController.text
+                                                    .length -
+                                                1);
+                                    context.read<CartBloc>().add(
+                                        CartEvent.emitFromAnywhere(
+                                            state: state.copyWith(
+                                                noUse: !state.noUse)));
+                                  }
+                                },
+                                rightButtonFn: () {
+                                  context
+                                      .read<CartBloc>()
+                                      .add(const CartEvent.toggleKeyboard());
+                                },
+                              ),
                             )
                           : null,
                     ),
@@ -360,7 +379,7 @@ class CartScreenConsumer extends StatelessWidget {
                         padding: EdgeInsets.only(
                             top: 1.h, left: 1.h, right: 1.h, bottom: 5.h),
                         child: PrimaryButton(
-                            width: 60.w,
+                            width: 90.w,
                             btnText: CartConstants.placeOrder,
                             textFontSize: 12.sp,
                             onPressedBtn: () {
