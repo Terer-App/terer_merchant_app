@@ -290,7 +290,7 @@ class IPlaceOrderRepository extends PlaceOrderRepository {
   }) async {
     List<CustomerOrderWithHistoryDto> orders = [];
     final url =
-        '$apiUrl${APIConstants.getCustomerWithRedemption}?customerId=$customerId';
+        '$apiUrl${APIConstants.getCustomerWithRedemption}?customerId=$customerId&showOutlet=true';
 
     try {
       final token = await AuthTokenService.getMerchantToken();

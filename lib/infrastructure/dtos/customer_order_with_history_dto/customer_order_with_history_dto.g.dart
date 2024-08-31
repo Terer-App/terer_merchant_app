@@ -51,6 +51,9 @@ _$_RedemptionHistory _$$_RedemptionHistoryFromJson(Map<String, dynamic> json) =>
       isVerified: json['isVerified'] as bool,
       date: json['date'] as String,
       time: json['time'] as String,
+      outletDetails: json['outletDetails'] == null
+          ? null
+          : OutletDto.fromJson(json['outletDetails'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_RedemptionHistoryToJson(
@@ -61,4 +64,5 @@ Map<String, dynamic> _$$_RedemptionHistoryToJson(
       'isVerified': instance.isVerified,
       'date': instance.date,
       'time': instance.time,
+      'outletDetails': instance.outletDetails,
     };

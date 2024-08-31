@@ -534,6 +534,8 @@ mixin _$RedemptionHistory {
   String get date => throw _privateConstructorUsedError;
   @JsonKey(name: 'time')
   String get time => throw _privateConstructorUsedError;
+  @JsonKey(name: 'outletDetails')
+  OutletDto? get outletDetails => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -551,7 +553,10 @@ abstract class $RedemptionHistoryCopyWith<$Res> {
       @JsonKey(name: 'isGifted') bool isGifted,
       @JsonKey(name: 'isVerified') bool isVerified,
       @JsonKey(name: 'date') String date,
-      @JsonKey(name: 'time') String time});
+      @JsonKey(name: 'time') String time,
+      @JsonKey(name: 'outletDetails') OutletDto? outletDetails});
+
+  $OutletDtoCopyWith<$Res>? get outletDetails;
 }
 
 /// @nodoc
@@ -570,6 +575,7 @@ class _$RedemptionHistoryCopyWithImpl<$Res>
     Object? isVerified = freezed,
     Object? date = freezed,
     Object? time = freezed,
+    Object? outletDetails = freezed,
   }) {
     return _then(_value.copyWith(
       isRedeemed: isRedeemed == freezed
@@ -592,7 +598,22 @@ class _$RedemptionHistoryCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as String,
+      outletDetails: outletDetails == freezed
+          ? _value.outletDetails
+          : outletDetails // ignore: cast_nullable_to_non_nullable
+              as OutletDto?,
     ));
+  }
+
+  @override
+  $OutletDtoCopyWith<$Res>? get outletDetails {
+    if (_value.outletDetails == null) {
+      return null;
+    }
+
+    return $OutletDtoCopyWith<$Res>(_value.outletDetails!, (value) {
+      return _then(_value.copyWith(outletDetails: value));
+    });
   }
 }
 
@@ -608,7 +629,11 @@ abstract class _$$_RedemptionHistoryCopyWith<$Res>
       @JsonKey(name: 'isGifted') bool isGifted,
       @JsonKey(name: 'isVerified') bool isVerified,
       @JsonKey(name: 'date') String date,
-      @JsonKey(name: 'time') String time});
+      @JsonKey(name: 'time') String time,
+      @JsonKey(name: 'outletDetails') OutletDto? outletDetails});
+
+  @override
+  $OutletDtoCopyWith<$Res>? get outletDetails;
 }
 
 /// @nodoc
@@ -629,6 +654,7 @@ class __$$_RedemptionHistoryCopyWithImpl<$Res>
     Object? isVerified = freezed,
     Object? date = freezed,
     Object? time = freezed,
+    Object? outletDetails = freezed,
   }) {
     return _then(_$_RedemptionHistory(
       isRedeemed: isRedeemed == freezed
@@ -651,6 +677,10 @@ class __$$_RedemptionHistoryCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as String,
+      outletDetails: outletDetails == freezed
+          ? _value.outletDetails
+          : outletDetails // ignore: cast_nullable_to_non_nullable
+              as OutletDto?,
     ));
   }
 }
@@ -663,7 +693,8 @@ class _$_RedemptionHistory implements _RedemptionHistory {
       @JsonKey(name: 'isGifted') required this.isGifted,
       @JsonKey(name: 'isVerified') required this.isVerified,
       @JsonKey(name: 'date') required this.date,
-      @JsonKey(name: 'time') required this.time});
+      @JsonKey(name: 'time') required this.time,
+      @JsonKey(name: 'outletDetails') this.outletDetails});
 
   factory _$_RedemptionHistory.fromJson(Map<String, dynamic> json) =>
       _$$_RedemptionHistoryFromJson(json);
@@ -683,10 +714,13 @@ class _$_RedemptionHistory implements _RedemptionHistory {
   @override
   @JsonKey(name: 'time')
   final String time;
+  @override
+  @JsonKey(name: 'outletDetails')
+  final OutletDto? outletDetails;
 
   @override
   String toString() {
-    return 'RedemptionHistory(isRedeemed: $isRedeemed, isGifted: $isGifted, isVerified: $isVerified, date: $date, time: $time)';
+    return 'RedemptionHistory(isRedeemed: $isRedeemed, isGifted: $isGifted, isVerified: $isVerified, date: $date, time: $time, outletDetails: $outletDetails)';
   }
 
   @override
@@ -700,7 +734,9 @@ class _$_RedemptionHistory implements _RedemptionHistory {
             const DeepCollectionEquality()
                 .equals(other.isVerified, isVerified) &&
             const DeepCollectionEquality().equals(other.date, date) &&
-            const DeepCollectionEquality().equals(other.time, time));
+            const DeepCollectionEquality().equals(other.time, time) &&
+            const DeepCollectionEquality()
+                .equals(other.outletDetails, outletDetails));
   }
 
   @JsonKey(ignore: true)
@@ -711,7 +747,8 @@ class _$_RedemptionHistory implements _RedemptionHistory {
       const DeepCollectionEquality().hash(isGifted),
       const DeepCollectionEquality().hash(isVerified),
       const DeepCollectionEquality().hash(date),
-      const DeepCollectionEquality().hash(time));
+      const DeepCollectionEquality().hash(time),
+      const DeepCollectionEquality().hash(outletDetails));
 
   @JsonKey(ignore: true)
   @override
@@ -733,7 +770,8 @@ abstract class _RedemptionHistory implements RedemptionHistory {
           @JsonKey(name: 'isGifted') required final bool isGifted,
           @JsonKey(name: 'isVerified') required final bool isVerified,
           @JsonKey(name: 'date') required final String date,
-          @JsonKey(name: 'time') required final String time}) =
+          @JsonKey(name: 'time') required final String time,
+          @JsonKey(name: 'outletDetails') final OutletDto? outletDetails}) =
       _$_RedemptionHistory;
 
   factory _RedemptionHistory.fromJson(Map<String, dynamic> json) =
@@ -754,6 +792,9 @@ abstract class _RedemptionHistory implements RedemptionHistory {
   @override
   @JsonKey(name: 'time')
   String get time;
+  @override
+  @JsonKey(name: 'outletDetails')
+  OutletDto? get outletDetails;
   @override
   @JsonKey(ignore: true)
   _$$_RedemptionHistoryCopyWith<_$_RedemptionHistory> get copyWith =>

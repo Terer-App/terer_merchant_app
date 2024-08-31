@@ -190,45 +190,48 @@ class CustomerPurchaseDealDetailsConsumer extends StatelessWidget {
                                         SizedBox(
                                           width: 3.w,
                                         ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              redemptionData.isGifted
-                                                  ? 'Gifted'
-                                                  : redemptionData.isRedeemed
-                                                      ? redemptionData
-                                                              .isVerified
-                                                          ? 'Verified'
-                                                          : 'Not Verified'
-                                                      : 'Not Redeem',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodySmall!
-                                                  .copyWith(
-                                                    color: Theme.of(context)
-                                                        .colorScheme
-                                                        .secondary,
-                                                    fontSize: 11.sp,
-                                                    fontWeight: FontWeight.w700,
-                                                  ),
-                                            ),
-                                            Text(
-                                              'Date: ${redemptionData.date}  Time: ${redemptionData.time}',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodySmall!
-                                                  .copyWith(
-                                                    color: Theme.of(context)
-                                                        .colorScheme
-                                                        .secondary,
-                                                    fontWeight: FontWeight.w400,
-                                                  ),
-                                            ),
-                                          ],
+                                        Expanded(
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                redemptionData.isGifted
+                                                    ? 'Gifted'
+                                                    : redemptionData.isRedeemed
+                                                        ? redemptionData
+                                                                .isVerified
+                                                            ? 'Verified${redemptionData.outletDetails != null ? ' by: [${redemptionData.outletDetails!.name}]' : ''}'
+                                                            : 'Not Verified'
+                                                        : 'Not Redeem',
+                                                overflow: TextOverflow.ellipsis,
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodySmall!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .secondary,
+                                                      fontSize: 11.sp,
+                                                      fontWeight: FontWeight.w700,
+                                                    ),
+                                              ),
+                                              Text(
+                                                'Date: ${redemptionData.date}  Time: ${redemptionData.time}',
+                                                style: Theme.of(context)
+                                                    .textTheme
+                                                    .bodySmall!
+                                                    .copyWith(
+                                                      color: Theme.of(context)
+                                                          .colorScheme
+                                                          .secondary,
+                                                      fontWeight: FontWeight.w400,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
                                         )
                                       ],
                                     ),
