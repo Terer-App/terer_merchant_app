@@ -283,7 +283,7 @@ class PayoutListingConsumer extends StatelessWidget {
                                           SizedBox(
                                             width: 70.w,
                                             child: Text(
-                                              deal.dealName + 'prathmesh',
+                                              deal.dealName,
                                               maxLines: 1,
                                               overflow: TextOverflow.ellipsis,
                                               style: Theme.of(context)

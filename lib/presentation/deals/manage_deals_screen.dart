@@ -505,7 +505,7 @@ class ManageDealsConsumer extends StatelessWidget {
                                                         ),
                                                       ),
                                                       Text(
-                                                        'Balance: ${deal.giftedCount - (deal.noOfCouponsRedeemed - deal.noOfCoupons)}/${deal.noOfCoupons} coupon left',
+                                                        'Balance: ${deal.noOfCoupons - deal.giftedCount - deal.noOfCouponsRedeemed}/${deal.noOfCoupons} coupon left',
                                                         style: Theme.of(context)
                                                             .textTheme
                                                             .bodySmall!
