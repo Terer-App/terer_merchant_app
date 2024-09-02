@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 
 import '../../domain/constants/api_constants.dart';
@@ -199,13 +201,11 @@ class IPlaceOrderRepository extends PlaceOrderRepository {
       bool isTodaysCount = false,
       int skip = 0,
       int limit = 10}) async {
-        
     Map<String, dynamic> resData = {};
 
     String todayDateStr = '';
     if (isTodaysCount) {
-      todayDateStr = DateFormat('dd/MM/y')
-          .format(DateTime.now());
+      todayDateStr = DateFormat('dd/MM/y').format(DateTime.now());
     }
 
     final url =
@@ -313,6 +313,31 @@ class IPlaceOrderRepository extends PlaceOrderRepository {
       return orders;
     } catch (e) {
       return orders;
+    }
+  }
+
+  @override
+  Future<Either<String, bool>> verifyPurchaseDeal(
+      {required String dealId}) async {
+    try {
+      final url = '$apiUrl${APIConstants.dealHistory}/?dealId=$dealId';
+
+      final token = await AuthTokenService.getMerchantToken();
+      final res = await RESTService.performPUTRequest(
+        httpUrl: url,
+        token: token,
+        isAuth: true,
+      );
+
+      return right(res.statusCode == 200);
+    } catch (e) {
+      if (e is Response) {
+        Response error = e;
+        final responseError = jsonDecode(error.body);
+        return left(responseError['error']['message']);
+      } else {
+        return left('Something went wrong! please try again');
+      }
     }
   }
 }

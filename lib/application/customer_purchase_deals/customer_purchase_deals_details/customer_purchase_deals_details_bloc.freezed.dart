@@ -21,6 +21,9 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
+    required TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)
+        verifyDeal,
     required TResult Function(CustomerPurchaseDealsDetailsState state)
         emitFromAnywhere,
   }) =>
@@ -30,6 +33,9 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,6 +44,9 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -47,6 +56,7 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_VerifyDeal value) verifyDeal,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +65,7 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) =>
       throw _privateConstructorUsedError;
@@ -63,6 +74,7 @@ mixin _$CustomerPurchaseDealsDetailsEvent {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) =>
@@ -129,6 +141,9 @@ class _$_Init implements _Init {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
+    required TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)
+        verifyDeal,
     required TResult Function(CustomerPurchaseDealsDetailsState state)
         emitFromAnywhere,
   }) {
@@ -141,6 +156,9 @@ class _$_Init implements _Init {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
   }) {
     return init?.call();
@@ -152,6 +170,9 @@ class _$_Init implements _Init {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -167,6 +188,7 @@ class _$_Init implements _Init {
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_VerifyDeal value) verifyDeal,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return init(this);
@@ -178,6 +200,7 @@ class _$_Init implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return init?.call(this);
@@ -189,6 +212,7 @@ class _$_Init implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -245,6 +269,9 @@ class _$_OnLoad implements _OnLoad {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
+    required TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)
+        verifyDeal,
     required TResult Function(CustomerPurchaseDealsDetailsState state)
         emitFromAnywhere,
   }) {
@@ -257,6 +284,9 @@ class _$_OnLoad implements _OnLoad {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
   }) {
     return onLoad?.call();
@@ -268,6 +298,9 @@ class _$_OnLoad implements _OnLoad {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -283,6 +316,7 @@ class _$_OnLoad implements _OnLoad {
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_VerifyDeal value) verifyDeal,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return onLoad(this);
@@ -294,6 +328,7 @@ class _$_OnLoad implements _OnLoad {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return onLoad?.call(this);
@@ -305,6 +340,7 @@ class _$_OnLoad implements _OnLoad {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -363,6 +399,9 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
+    required TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)
+        verifyDeal,
     required TResult Function(CustomerPurchaseDealsDetailsState state)
         emitFromAnywhere,
   }) {
@@ -375,6 +414,9 @@ class _$_LoadMore implements _LoadMore {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
   }) {
     return loadMore?.call();
@@ -386,6 +428,9 @@ class _$_LoadMore implements _LoadMore {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -401,6 +446,7 @@ class _$_LoadMore implements _LoadMore {
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_VerifyDeal value) verifyDeal,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return loadMore(this);
@@ -412,6 +458,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return loadMore?.call(this);
@@ -423,6 +470,7 @@ class _$_LoadMore implements _LoadMore {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -435,6 +483,194 @@ class _$_LoadMore implements _LoadMore {
 
 abstract class _LoadMore implements CustomerPurchaseDealsDetailsEvent {
   const factory _LoadMore() = _$_LoadMore;
+}
+
+/// @nodoc
+abstract class _$$_VerifyDealCopyWith<$Res> {
+  factory _$$_VerifyDealCopyWith(
+          _$_VerifyDeal value, $Res Function(_$_VerifyDeal) then) =
+      __$$_VerifyDealCopyWithImpl<$Res>;
+  $Res call({String dealId, int orderHistoryIndex, int redemptionHistoryIndex});
+}
+
+/// @nodoc
+class __$$_VerifyDealCopyWithImpl<$Res>
+    extends _$CustomerPurchaseDealsDetailsEventCopyWithImpl<$Res>
+    implements _$$_VerifyDealCopyWith<$Res> {
+  __$$_VerifyDealCopyWithImpl(
+      _$_VerifyDeal _value, $Res Function(_$_VerifyDeal) _then)
+      : super(_value, (v) => _then(v as _$_VerifyDeal));
+
+  @override
+  _$_VerifyDeal get _value => super._value as _$_VerifyDeal;
+
+  @override
+  $Res call({
+    Object? dealId = freezed,
+    Object? orderHistoryIndex = freezed,
+    Object? redemptionHistoryIndex = freezed,
+  }) {
+    return _then(_$_VerifyDeal(
+      dealId: dealId == freezed
+          ? _value.dealId
+          : dealId // ignore: cast_nullable_to_non_nullable
+              as String,
+      orderHistoryIndex: orderHistoryIndex == freezed
+          ? _value.orderHistoryIndex
+          : orderHistoryIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+      redemptionHistoryIndex: redemptionHistoryIndex == freezed
+          ? _value.redemptionHistoryIndex
+          : redemptionHistoryIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_VerifyDeal implements _VerifyDeal {
+  const _$_VerifyDeal(
+      {required this.dealId,
+      required this.orderHistoryIndex,
+      required this.redemptionHistoryIndex});
+
+  @override
+  final String dealId;
+  @override
+  final int orderHistoryIndex;
+  @override
+  final int redemptionHistoryIndex;
+
+  @override
+  String toString() {
+    return 'CustomerPurchaseDealsDetailsEvent.verifyDeal(dealId: $dealId, orderHistoryIndex: $orderHistoryIndex, redemptionHistoryIndex: $redemptionHistoryIndex)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_VerifyDeal &&
+            const DeepCollectionEquality().equals(other.dealId, dealId) &&
+            const DeepCollectionEquality()
+                .equals(other.orderHistoryIndex, orderHistoryIndex) &&
+            const DeepCollectionEquality()
+                .equals(other.redemptionHistoryIndex, redemptionHistoryIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(dealId),
+      const DeepCollectionEquality().hash(orderHistoryIndex),
+      const DeepCollectionEquality().hash(redemptionHistoryIndex));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_VerifyDealCopyWith<_$_VerifyDeal> get copyWith =>
+      __$$_VerifyDealCopyWithImpl<_$_VerifyDeal>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function() loadMore,
+    required TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)
+        verifyDeal,
+    required TResult Function(CustomerPurchaseDealsDetailsState state)
+        emitFromAnywhere,
+  }) {
+    return verifyDeal(dealId, orderHistoryIndex, redemptionHistoryIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
+    TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
+  }) {
+    return verifyDeal?.call(dealId, orderHistoryIndex, redemptionHistoryIndex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
+    TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (verifyDeal != null) {
+      return verifyDeal(dealId, orderHistoryIndex, redemptionHistoryIndex);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_VerifyDeal value) verifyDeal,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+  }) {
+    return verifyDeal(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+  }) {
+    return verifyDeal?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    required TResult orElse(),
+  }) {
+    if (verifyDeal != null) {
+      return verifyDeal(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _VerifyDeal implements CustomerPurchaseDealsDetailsEvent {
+  const factory _VerifyDeal(
+      {required final String dealId,
+      required final int orderHistoryIndex,
+      required final int redemptionHistoryIndex}) = _$_VerifyDeal;
+
+  String get dealId;
+  int get orderHistoryIndex;
+  int get redemptionHistoryIndex;
+  @JsonKey(ignore: true)
+  _$$_VerifyDealCopyWith<_$_VerifyDeal> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -515,6 +751,9 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function() loadMore,
+    required TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)
+        verifyDeal,
     required TResult Function(CustomerPurchaseDealsDetailsState state)
         emitFromAnywhere,
   }) {
@@ -527,6 +766,9 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(state);
@@ -538,6 +780,9 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function()? loadMore,
+    TResult Function(
+            String dealId, int orderHistoryIndex, int redemptionHistoryIndex)?
+        verifyDeal,
     TResult Function(CustomerPurchaseDealsDetailsState state)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -553,6 +798,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
     required TResult Function(_LoadMore value) loadMore,
+    required TResult Function(_VerifyDeal value) verifyDeal,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
   }) {
     return emitFromAnywhere(this);
@@ -564,6 +810,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
   }) {
     return emitFromAnywhere?.call(this);
@@ -575,6 +822,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_LoadMore value)? loadMore,
+    TResult Function(_VerifyDeal value)? verifyDeal,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
     required TResult orElse(),
   }) {
@@ -603,6 +851,7 @@ mixin _$CustomerPurchaseDealsDetailsState {
   bool get isSuccess => throw _privateConstructorUsedError;
   bool get noUse => throw _privateConstructorUsedError;
   bool get hasMore => throw _privateConstructorUsedError;
+  String get responseMsg => throw _privateConstructorUsedError;
   String get serverUrl => throw _privateConstructorUsedError;
   String get customerId => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -633,6 +882,7 @@ abstract class $CustomerPurchaseDealsDetailsStateCopyWith<$Res> {
       bool isSuccess,
       bool noUse,
       bool hasMore,
+      String responseMsg,
       String serverUrl,
       String customerId,
       String name,
@@ -663,6 +913,7 @@ class _$CustomerPurchaseDealsDetailsStateCopyWithImpl<$Res>
     Object? isSuccess = freezed,
     Object? noUse = freezed,
     Object? hasMore = freezed,
+    Object? responseMsg = freezed,
     Object? serverUrl = freezed,
     Object? customerId = freezed,
     Object? name = freezed,
@@ -695,6 +946,10 @@ class _$CustomerPurchaseDealsDetailsStateCopyWithImpl<$Res>
           ? _value.hasMore
           : hasMore // ignore: cast_nullable_to_non_nullable
               as bool,
+      responseMsg: responseMsg == freezed
+          ? _value.responseMsg
+          : responseMsg // ignore: cast_nullable_to_non_nullable
+              as String,
       serverUrl: serverUrl == freezed
           ? _value.serverUrl
           : serverUrl // ignore: cast_nullable_to_non_nullable
@@ -760,6 +1015,7 @@ abstract class _$$_CustomerPurchaseDealsDetailsStateCopyWith<$Res>
       bool isSuccess,
       bool noUse,
       bool hasMore,
+      String responseMsg,
       String serverUrl,
       String customerId,
       String name,
@@ -795,6 +1051,7 @@ class __$$_CustomerPurchaseDealsDetailsStateCopyWithImpl<$Res>
     Object? isSuccess = freezed,
     Object? noUse = freezed,
     Object? hasMore = freezed,
+    Object? responseMsg = freezed,
     Object? serverUrl = freezed,
     Object? customerId = freezed,
     Object? name = freezed,
@@ -827,6 +1084,10 @@ class __$$_CustomerPurchaseDealsDetailsStateCopyWithImpl<$Res>
           ? _value.hasMore
           : hasMore // ignore: cast_nullable_to_non_nullable
               as bool,
+      responseMsg: responseMsg == freezed
+          ? _value.responseMsg
+          : responseMsg // ignore: cast_nullable_to_non_nullable
+              as String,
       serverUrl: serverUrl == freezed
           ? _value.serverUrl
           : serverUrl // ignore: cast_nullable_to_non_nullable
@@ -848,7 +1109,7 @@ class __$$_CustomerPurchaseDealsDetailsStateCopyWithImpl<$Res>
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
       orderHistory: orderHistory == freezed
-          ? _value._orderHistory
+          ? _value.orderHistory
           : orderHistory // ignore: cast_nullable_to_non_nullable
               as List<CustomerOrderWithHistoryDto>,
       placeOrderRepository: placeOrderRepository == freezed
@@ -881,17 +1142,17 @@ class _$_CustomerPurchaseDealsDetailsState
       required this.isSuccess,
       required this.noUse,
       required this.hasMore,
+      required this.responseMsg,
       required this.serverUrl,
       required this.customerId,
       required this.name,
       required this.skip,
       required this.scrollController,
-      required final List<CustomerOrderWithHistoryDto> orderHistory,
+      required this.orderHistory,
       required this.placeOrderRepository,
       required this.profile,
       required this.appStateNotifier,
-      required this.apiUrl})
-      : _orderHistory = orderHistory;
+      required this.apiUrl});
 
   @override
   final bool isLoading;
@@ -904,6 +1165,8 @@ class _$_CustomerPurchaseDealsDetailsState
   @override
   final bool hasMore;
   @override
+  final String responseMsg;
+  @override
   final String serverUrl;
   @override
   final String customerId;
@@ -913,13 +1176,8 @@ class _$_CustomerPurchaseDealsDetailsState
   final int skip;
   @override
   final ScrollController scrollController;
-  final List<CustomerOrderWithHistoryDto> _orderHistory;
   @override
-  List<CustomerOrderWithHistoryDto> get orderHistory {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_orderHistory);
-  }
-
+  final List<CustomerOrderWithHistoryDto> orderHistory;
   @override
   final PlaceOrderRepository placeOrderRepository;
   @override
@@ -931,7 +1189,7 @@ class _$_CustomerPurchaseDealsDetailsState
 
   @override
   String toString() {
-    return 'CustomerPurchaseDealsDetailsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, hasMore: $hasMore, serverUrl: $serverUrl, customerId: $customerId, name: $name, skip: $skip, scrollController: $scrollController, orderHistory: $orderHistory, placeOrderRepository: $placeOrderRepository, profile: $profile, appStateNotifier: $appStateNotifier, apiUrl: $apiUrl)';
+    return 'CustomerPurchaseDealsDetailsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, hasMore: $hasMore, responseMsg: $responseMsg, serverUrl: $serverUrl, customerId: $customerId, name: $name, skip: $skip, scrollController: $scrollController, orderHistory: $orderHistory, placeOrderRepository: $placeOrderRepository, profile: $profile, appStateNotifier: $appStateNotifier, apiUrl: $apiUrl)';
   }
 
   @override
@@ -944,6 +1202,8 @@ class _$_CustomerPurchaseDealsDetailsState
             const DeepCollectionEquality().equals(other.isSuccess, isSuccess) &&
             const DeepCollectionEquality().equals(other.noUse, noUse) &&
             const DeepCollectionEquality().equals(other.hasMore, hasMore) &&
+            const DeepCollectionEquality()
+                .equals(other.responseMsg, responseMsg) &&
             const DeepCollectionEquality().equals(other.serverUrl, serverUrl) &&
             const DeepCollectionEquality()
                 .equals(other.customerId, customerId) &&
@@ -952,7 +1212,7 @@ class _$_CustomerPurchaseDealsDetailsState
             const DeepCollectionEquality()
                 .equals(other.scrollController, scrollController) &&
             const DeepCollectionEquality()
-                .equals(other._orderHistory, _orderHistory) &&
+                .equals(other.orderHistory, orderHistory) &&
             const DeepCollectionEquality()
                 .equals(other.placeOrderRepository, placeOrderRepository) &&
             const DeepCollectionEquality().equals(other.profile, profile) &&
@@ -969,12 +1229,13 @@ class _$_CustomerPurchaseDealsDetailsState
       const DeepCollectionEquality().hash(isSuccess),
       const DeepCollectionEquality().hash(noUse),
       const DeepCollectionEquality().hash(hasMore),
+      const DeepCollectionEquality().hash(responseMsg),
       const DeepCollectionEquality().hash(serverUrl),
       const DeepCollectionEquality().hash(customerId),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(skip),
       const DeepCollectionEquality().hash(scrollController),
-      const DeepCollectionEquality().hash(_orderHistory),
+      const DeepCollectionEquality().hash(orderHistory),
       const DeepCollectionEquality().hash(placeOrderRepository),
       const DeepCollectionEquality().hash(profile),
       const DeepCollectionEquality().hash(appStateNotifier),
@@ -996,6 +1257,7 @@ abstract class _CustomerPurchaseDealsDetailsState
       required final bool isSuccess,
       required final bool noUse,
       required final bool hasMore,
+      required final String responseMsg,
       required final String serverUrl,
       required final String customerId,
       required final String name,
@@ -1017,6 +1279,8 @@ abstract class _CustomerPurchaseDealsDetailsState
   bool get noUse;
   @override
   bool get hasMore;
+  @override
+  String get responseMsg;
   @override
   String get serverUrl;
   @override

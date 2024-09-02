@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:http/http.dart';
 
 import '../../../domain/constants/api_constants.dart';
 import '../../../domain/core/configs/app_config.dart';
@@ -88,6 +89,73 @@ class CustomerPurchaseDealsDetailsBloc extends Bloc<
         ));
       }
       isFetching = false;
+    });
+
+    on<_VerifyDeal>((event, emit) async {
+      emit(state.copyWith(isLoading: true));
+      final response = await state.placeOrderRepository
+          .verifyPurchaseDeal(dealId: event.dealId);
+
+      response.fold((l) {
+        emit(
+          state.copyWith(
+            isLoading: false,
+            isFailed: true,
+            isSuccess: false,
+            responseMsg: l,
+          ),
+        );
+      }, (r) {
+        CustomerOrderWithHistoryDto currentOrderHistory =
+            state.orderHistory[event.orderHistoryIndex];
+        RedemptionHistory currentOrderRedemption =
+            currentOrderHistory.redemptionHistory[event.redemptionHistoryIndex];
+        final updatedRedemptionData =
+            currentOrderRedemption.copyWith(isVerified: true);
+        currentOrderHistory.redemptionHistory[event.redemptionHistoryIndex] =
+            updatedRedemptionData;
+
+        final previousOrderHistory = state.orderHistory;
+        previousOrderHistory[event.orderHistoryIndex] = currentOrderHistory;
+
+        emit(
+          state.copyWith(
+            isLoading: false,
+            orderHistory: previousOrderHistory,
+            noUse: !state.noUse,
+          ),
+        );
+      });
+
+      // if (!isVerified) {
+      // emit(state.copyWith(
+      //     isLoading: false,
+      //     isFailed: true,
+      //     isSuccess: false,
+      //     responseMsg: 'Something went wrong! please try again'));
+      // } else {
+      // CustomerOrderWithHistoryDto currentOrderHistory =
+      //     state.orderHistory[event.orderHistoryIndex];
+      // RedemptionHistory currentOrderRedemption =
+      //     currentOrderHistory.redemptionHistory[event.redemptionHistoryIndex];
+      // final updatedRedemptionData =
+      //     currentOrderRedemption.copyWith(isVerified: true);
+      // currentOrderHistory.redemptionHistory[event.redemptionHistoryIndex] =
+      //     updatedRedemptionData;
+
+      // final previousOrderHistory = state.orderHistory;
+      // previousOrderHistory[event.orderHistoryIndex] = currentOrderHistory;
+
+      // emit(
+      //   state.copyWith(
+      //     isLoading: false,
+      //     orderHistory: previousOrderHistory,
+      //     noUse: !state.noUse,
+      //   ),
+      // );
+      // }
+
+      // print(event.dealId);
     });
 
     on<_EmitFromAnywhere>((event, emit) {

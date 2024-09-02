@@ -52,4 +52,6 @@ abstract class PlaceOrderRepository {
   Future<List<BroughtDealDto>> getLatestDeals({
     required String startTime,
   });
+
+  Future<Either<String, bool>> verifyPurchaseDeal({required String dealId});
 }
