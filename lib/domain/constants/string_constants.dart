@@ -337,8 +337,10 @@ class MyProfileConstants {
   //label text
 
   static const String firstName = 'First Name';
+    static const String name = 'Name';
   static const String lastName = 'Last Name';
   static const String email = 'Email Address';
+    static const String access = 'Access';
   static const String brandName = 'Brand Name';
 
   static const String shopName = 'Shop Name';

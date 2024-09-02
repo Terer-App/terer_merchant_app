@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
 import '../../application/profile/profile_bloc.dart';
 import '../../domain/core/configs/app_config.dart';
+import '../../domain/extensions/string_extensions.dart';
 import '../../domain/services/navigation_service/routers/route_names.dart';
 import '../core/custom_toast.dart';
 
@@ -144,7 +145,7 @@ class ProfileConsumer extends StatelessWidget {
                               isTitle: true,
                               enabled: false,
                               controller: state.firstNameController,
-                              titleText: MyProfileConstants.firstName,
+                              titleText: MyProfileConstants.name,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
                               validator: (newVal) {
@@ -158,21 +159,14 @@ class ProfileConsumer extends StatelessWidget {
                             SizedBox(
                               height: 5.w,
                             ),
+                            //email
                             CustomRoundedInput(
                               isTitle: true,
                               enabled: false,
-                              controller: state.lastNameController,
-                              maxLines: 1,
-                              titleText: MyProfileConstants.lastName,
+                              controller: state.brandNameController,
+                              titleText: MyProfileConstants.brandName,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
-                              validator: (newVal) {
-                                if (newVal == null || newVal.isEmpty) {
-                                  return ErrorConstants.requiredError;
-                                }
-
-                                return null;
-                              },
                             ),
                             SizedBox(
                               height: 5.w,
@@ -193,17 +187,15 @@ class ProfileConsumer extends StatelessWidget {
                             CustomRoundedInput(
                               isTitle: true,
                               enabled: false,
-                              controller: state.brandNameController,
-                              titleText: MyProfileConstants.brandName,
+                              controller: TextEditingController(text: state.profile?.role.split('_').join(' ').toLowerCase().capitalizeCamel),
+                              titleText: MyProfileConstants.access,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),
                             ),
                             SizedBox(
                               height: 5.w,
                             ),
-
                             // phone number
-
                             SizedBox(height: 6.h),
                             RichText(
                               text: TextSpan(

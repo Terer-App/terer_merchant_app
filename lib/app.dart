@@ -5,6 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -30,6 +31,12 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: AppConfig.of(context)!.appTitle,
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [Locale('en', 'AU')],
       theme: ThemeData(
         fontFamily: 'Poppins',
         primaryColor: const Color(0xffF9A31A),
@@ -134,9 +141,9 @@ Future appInitializer(AppConfig appConfig) async {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(
-                maxWidth: 430,
-                maxHeight: double.infinity,
-                ),
+              maxWidth: 430,
+              maxHeight: double.infinity,
+            ),
             child: Sizer(
               builder: (context, orientation, deviceType) {
                 // ignore: prefer_const_constructors
