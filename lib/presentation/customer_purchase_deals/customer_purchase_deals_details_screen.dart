@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:sizer/sizer.dart';
@@ -49,7 +50,25 @@ class CustomerPurchaseDealDetailsConsumer extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<CustomerPurchaseDealsDetailsBloc,
         CustomerPurchaseDealsDetailsState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        if (state.isFailed && state.responseMsg.isNotEmpty) {
+          ScaffoldMessenger.of(context).clearSnackBars();
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(state.responseMsg),
+            backgroundColor: Theme.of(context).colorScheme.error,
+            duration: const Duration(seconds: 2),
+          ));
+
+          context.read<CustomerPurchaseDealsDetailsBloc>().add(
+                CustomerPurchaseDealsDetailsEvent.emitFromAnywhere(
+                  state: state.copyWith(
+                    isFailed: false,
+                    responseMsg: '',
+                  ),
+                ),
+              );
+        }
+      },
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
@@ -77,39 +96,29 @@ class CustomerPurchaseDealDetailsConsumer extends StatelessWidget {
             ),
             centerTitle: true,
           ),
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              Expanded(
-                child: ListView.separated(
-                  controller: state.scrollController,
-                  itemBuilder: (context, i) {
-                    final orderData = state.orderHistory[i];
-                    final mainIndex = i;
-                    if (mainIndex < state.orderHistory.length) {
-                      return Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 8.w,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              orderData.dealName,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(
-                                    color:
-                                        Theme.of(context).colorScheme.secondary,
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                            ),
-                            Text(
-                                'Date Purchase: ${orderData.datePurchase.displayDate}',
+          body: ModalProgressHUD(
+            inAsyncCall: state.isLoading,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: ListView.separated(
+                    controller: state.scrollController,
+                    itemBuilder: (context, i) {
+                      final orderData = state.orderHistory[i];
+                      final mainIndex = i;
+                      if (mainIndex < state.orderHistory.length) {
+                        return Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: 8.w,
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                orderData.dealName,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodySmall!
@@ -117,165 +126,220 @@ class CustomerPurchaseDealDetailsConsumer extends StatelessWidget {
                                       color: Theme.of(context)
                                           .colorScheme
                                           .secondary,
-                                      fontSize: 11.sp,
-                                      fontWeight: FontWeight.w500,
-                                    )),
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                            Column(
-                              children: List.generate(
-                                  orderData.redemptionHistory.length, (index) {
-                                final redemptionData =
-                                    orderData.redemptionHistory[index];
-                                return Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(3.w),
-                                              border: Border.all(
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .secondary,
-                                              )),
-                                          width: 11.w,
-                                          height: 11.w,
-                                          child: redemptionData.isRedeemed
-                                              ? CircleAvatar(
-                                                  radius: 4.w,
-                                                  backgroundColor:
-                                                      redemptionData.isGifted
-                                                          ? Theme.of(context)
-                                                              .colorScheme
-                                                              .secondary
-                                                          : Theme.of(context)
-                                                              .primaryColor,
-                                                  child: SvgPicture.asset(
-                                                    redemptionData.isGifted ||
-                                                            redemptionData
-                                                                .isVerified
-                                                        ? AssetConstants.tickSvg
-                                                        : AssetConstants
-                                                            .exMarkSvg,
-                                                    width: redemptionData
-                                                                .isGifted ||
-                                                            redemptionData
-                                                                .isVerified
-                                                        ? 4.w
-                                                        : 2.w,
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                              ),
+                              Text(
+                                  'Date Purchase: ${orderData.datePurchase.displayDate}',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        fontSize: 11.sp,
+                                        fontWeight: FontWeight.w500,
+                                      )),
+                              SizedBox(
+                                height: 2.h,
+                              ),
+                              Column(
+                                children: List.generate(
+                                    orderData.redemptionHistory.length,
+                                    (index) {
+                                  final redemptionData =
+                                      orderData.redemptionHistory[index];
+                                  return GestureDetector(
+                                    onTap: redemptionData.isRedeemed &&
+                                            !redemptionData.isVerified &&
+                                            !redemptionData.isGifted
+                                        ? () {
+                                            context
+                                                .read<
+                                                    CustomerPurchaseDealsDetailsBloc>()
+                                                .add(
+                                                  CustomerPurchaseDealsDetailsEvent
+                                                      .verifyDeal(
+                                                    dealId: redemptionData
+                                                            .redemptionUniqueDealId ??
+                                                        '',
+                                                    orderHistoryIndex: i,
+                                                    redemptionHistoryIndex:
+                                                        index,
                                                   ),
-                                                )
-                                              : Text('${index + 1}',
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodySmall!
-                                                      .copyWith(
-                                                        color: Theme.of(context)
-                                                            .primaryColor,
-                                                        fontSize: 11.sp,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      )),
-                                        ),
-                                        SizedBox(
-                                          width: 3.w,
-                                        ),
-                                        Expanded(
-                                          child: Column(
+                                                );
+                                          }
+                                        : () {},
+                                    child: SizedBox(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Row(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             children: [
-                                              Text(
-                                                redemptionData.isGifted
-                                                    ? 'Gifted'
-                                                    : redemptionData.isRedeemed
-                                                        ? redemptionData
-                                                                .isVerified
-                                                            ? 'Verified${redemptionData.outletDetails != null ? ' by: [${redemptionData.outletDetails!.name}]' : ''}'
-                                                            : 'Not Verified'
-                                                        : 'Not Redeem',
-                                                overflow: TextOverflow.ellipsis,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodySmall!
-                                                    .copyWith(
+                                              Container(
+                                                alignment: Alignment.center,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            3.w),
+                                                    border: Border.all(
                                                       color: Theme.of(context)
                                                           .colorScheme
                                                           .secondary,
-                                                      fontSize: 11.sp,
-                                                      fontWeight: FontWeight.w700,
-                                                    ),
+                                                    )),
+                                                width: 11.w,
+                                                height: 11.w,
+                                                child: redemptionData.isRedeemed
+                                                    ? CircleAvatar(
+                                                        radius: 4.w,
+                                                        backgroundColor:
+                                                            redemptionData
+                                                                    .isGifted
+                                                                ? Theme.of(
+                                                                        context)
+                                                                    .colorScheme
+                                                                    .secondary
+                                                                : Theme.of(
+                                                                        context)
+                                                                    .primaryColor,
+                                                        child: SvgPicture.asset(
+                                                          redemptionData
+                                                                      .isGifted ||
+                                                                  redemptionData
+                                                                      .isVerified
+                                                              ? AssetConstants
+                                                                  .tickSvg
+                                                              : AssetConstants
+                                                                  .exMarkSvg,
+                                                          width: redemptionData
+                                                                      .isGifted ||
+                                                                  redemptionData
+                                                                      .isVerified
+                                                              ? 4.w
+                                                              : 2.w,
+                                                        ),
+                                                      )
+                                                    : Text('${index + 1}',
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall!
+                                                            .copyWith(
+                                                              color: Theme.of(
+                                                                      context)
+                                                                  .primaryColor,
+                                                              fontSize: 11.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            )),
                                               ),
-                                              Text(
-                                                'Date: ${redemptionData.date}  Time: ${redemptionData.time}',
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodySmall!
-                                                    .copyWith(
-                                                      color: Theme.of(context)
-                                                          .colorScheme
-                                                          .secondary,
-                                                      fontWeight: FontWeight.w400,
-                                                    ),
+                                              SizedBox(
+                                                width: 3.w,
                                               ),
+                                              Expanded(
+                                                child: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      redemptionData.isGifted
+                                                          ? 'Gifted'
+                                                          : redemptionData
+                                                                  .isRedeemed
+                                                              ? redemptionData
+                                                                      .isVerified
+                                                                  ? 'Verified${redemptionData.outletDetails != null ? ' by: [${redemptionData.outletDetails!.name}]' : ''}'
+                                                                  : 'Not Verified'
+                                                              : 'Not Redeem',
+                                                      overflow:
+                                                          TextOverflow.ellipsis,
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall!
+                                                          .copyWith(
+                                                            color: Theme.of(
+                                                                    context)
+                                                                .colorScheme
+                                                                .secondary,
+                                                            fontSize: 11.sp,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                          ),
+                                                    ),
+                                                    Text(
+                                                      'Date: ${redemptionData.date}  Time: ${redemptionData.time}',
+                                                      style: Theme.of(context)
+                                                          .textTheme
+                                                          .bodySmall!
+                                                          .copyWith(
+                                                            color: Theme.of(
+                                                                    context)
+                                                                .colorScheme
+                                                                .secondary,
+                                                            fontWeight:
+                                                                FontWeight.w400,
+                                                          ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              )
                                             ],
                                           ),
-                                        )
-                                      ],
+                                          SizedBox(
+                                            height: 1.h,
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                    SizedBox(
-                                      height: 1.h,
-                                    ),
-                                  ],
-                                );
-                              }),
-                            ),
-                            SizedBox(
-                              height: 2.h,
-                            ),
-                          ],
-                        ),
-                      );
-                    } else {
-                      return SizedBox(
-                        height: 20.h,
-                        child: Shimmer.fromColors(
-                          baseColor: Colors.grey[300]!,
-                          highlightColor: Colors.grey[400]!,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.grey[300],
+                                  );
+                                }),
+                              ),
+                              SizedBox(
+                                height: 2.h,
+                              ),
+                            ],
+                          ),
+                        );
+                      } else {
+                        return SizedBox(
+                          height: 20.h,
+                          child: Shimmer.fromColors(
+                            baseColor: Colors.grey[300]!,
+                            highlightColor: Colors.grey[400]!,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                              ),
                             ),
                           ),
-                        ),
+                        );
+                      }
+                    },
+                    separatorBuilder: (context, index) {
+                      return Container(
+                        margin: EdgeInsets.only(bottom: 2.h),
+                        height: 2.h,
+                        width: double.infinity,
+                        color: Theme.of(context).primaryColor,
                       );
-                    }
-                  },
-                  separatorBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(bottom: 2.h),
-                      height: 2.h,
-                      width: double.infinity,
-                      color: Theme.of(context).primaryColor,
-                    );
-                  },
-                  itemCount:
-                      state.orderHistory.length + (state.hasMore ? 2 : 0),
-                ),
-              )
-            ],
+                    },
+                    itemCount:
+                        state.orderHistory.length + (state.hasMore ? 2 : 0),
+                  ),
+                )
+              ],
+            ),
           ),
         );
       },

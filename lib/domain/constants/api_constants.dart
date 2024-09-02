@@ -4,6 +4,7 @@ class APIConstants {
   static const String merchantApis = 'merchant/dev/api/';
 
   static const String products = 'products/';
+  static const String merchant = 'merchant/';
 
   static const String loginAsMerchant = '${merchantApis}login.php';
   static const String merchantProfile = '${merchantApis}profile.php';
@@ -34,6 +35,7 @@ class APIConstants {
   static const String invoiceDocLink = 'invoice/doc-link';
   static const String getCustomerOrders = 'brands/get-customer-orders';
   static const String getLatestOrders = 'brands/get-latest-orders';
-  static const String getCustomerWithRedemption = 'brands/get-customer-orders-with-redemption';
-
+  static const String getCustomerWithRedemption =
+      'brands/get-customer-orders-with-redemption';
+  static const String dealHistory = '$merchant/deal_history/verify';
 }

@@ -54,6 +54,7 @@ _$_RedemptionHistory _$$_RedemptionHistoryFromJson(Map<String, dynamic> json) =>
       outletDetails: json['outletDetails'] == null
           ? null
           : OutletDto.fromJson(json['outletDetails'] as Map<String, dynamic>),
+      redemptionUniqueDealId: json['redemptionUniqueDealId'] as String? ?? '',
     );
 
 Map<String, dynamic> _$$_RedemptionHistoryToJson(
@@ -65,4 +66,5 @@ Map<String, dynamic> _$$_RedemptionHistoryToJson(
       'date': instance.date,
       'time': instance.time,
       'outletDetails': instance.outletDetails,
+      'redemptionUniqueDealId': instance.redemptionUniqueDealId,
     };

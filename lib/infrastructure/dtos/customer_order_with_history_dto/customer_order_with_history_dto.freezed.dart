@@ -288,7 +288,7 @@ class __$$_CustomerOrderWithHistoryDtoCopyWithImpl<$Res>
           : isGifted // ignore: cast_nullable_to_non_nullable
               as int,
       redemptionHistory: redemptionHistory == freezed
-          ? _value._redemptionHistory
+          ? _value.redemptionHistory
           : redemptionHistory // ignore: cast_nullable_to_non_nullable
               as List<RedemptionHistory>,
     ));
@@ -299,33 +299,19 @@ class __$$_CustomerOrderWithHistoryDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_CustomerOrderWithHistoryDto implements _CustomerOrderWithHistoryDto {
   const _$_CustomerOrderWithHistoryDto(
-      {@JsonKey(name: 'shopifyOrderId')
-          required this.shopifyOrderId,
-      @JsonKey(name: 'userId')
-          required this.userId,
-      @JsonKey(name: 'customerName')
-          required this.customerName,
-      @JsonKey(name: 'dealId')
-          required this.dealId,
-      @JsonKey(name: 'dealPrice')
-          required this.dealPrice,
-      @JsonKey(name: 'dealName')
-          required this.dealName,
-      @JsonKey(name: 'datePurchase')
-          required this.datePurchase,
-      @JsonKey(name: 'dateExpired')
-          required this.dateExpired,
-      @JsonKey(name: 'noOfCoupons')
-          required this.noOfCoupons,
-      @JsonKey(name: 'noOfCouponsRedeemed')
-          required this.noOfCouponsRedeemed,
-      @JsonKey(name: 'giftedCount')
-          required this.giftedCount,
-      @JsonKey(name: 'isGifted')
-          required this.isGifted,
-      @JsonKey(name: 'redemptionHistory')
-          required final List<RedemptionHistory> redemptionHistory})
-      : _redemptionHistory = redemptionHistory;
+      {@JsonKey(name: 'shopifyOrderId') required this.shopifyOrderId,
+      @JsonKey(name: 'userId') required this.userId,
+      @JsonKey(name: 'customerName') required this.customerName,
+      @JsonKey(name: 'dealId') required this.dealId,
+      @JsonKey(name: 'dealPrice') required this.dealPrice,
+      @JsonKey(name: 'dealName') required this.dealName,
+      @JsonKey(name: 'datePurchase') required this.datePurchase,
+      @JsonKey(name: 'dateExpired') required this.dateExpired,
+      @JsonKey(name: 'noOfCoupons') required this.noOfCoupons,
+      @JsonKey(name: 'noOfCouponsRedeemed') required this.noOfCouponsRedeemed,
+      @JsonKey(name: 'giftedCount') required this.giftedCount,
+      @JsonKey(name: 'isGifted') required this.isGifted,
+      @JsonKey(name: 'redemptionHistory') required this.redemptionHistory});
 
   factory _$_CustomerOrderWithHistoryDto.fromJson(Map<String, dynamic> json) =>
       _$$_CustomerOrderWithHistoryDtoFromJson(json);
@@ -366,13 +352,9 @@ class _$_CustomerOrderWithHistoryDto implements _CustomerOrderWithHistoryDto {
   @override
   @JsonKey(name: 'isGifted')
   final int isGifted;
-  final List<RedemptionHistory> _redemptionHistory;
   @override
   @JsonKey(name: 'redemptionHistory')
-  List<RedemptionHistory> get redemptionHistory {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_redemptionHistory);
-  }
+  final List<RedemptionHistory> redemptionHistory;
 
   @override
   String toString() {
@@ -404,7 +386,7 @@ class _$_CustomerOrderWithHistoryDto implements _CustomerOrderWithHistoryDto {
                 .equals(other.giftedCount, giftedCount) &&
             const DeepCollectionEquality().equals(other.isGifted, isGifted) &&
             const DeepCollectionEquality()
-                .equals(other._redemptionHistory, _redemptionHistory));
+                .equals(other.redemptionHistory, redemptionHistory));
   }
 
   @JsonKey(ignore: true)
@@ -423,7 +405,7 @@ class _$_CustomerOrderWithHistoryDto implements _CustomerOrderWithHistoryDto {
       const DeepCollectionEquality().hash(noOfCouponsRedeemed),
       const DeepCollectionEquality().hash(giftedCount),
       const DeepCollectionEquality().hash(isGifted),
-      const DeepCollectionEquality().hash(_redemptionHistory));
+      const DeepCollectionEquality().hash(redemptionHistory));
 
   @JsonKey(ignore: true)
   @override
@@ -536,6 +518,8 @@ mixin _$RedemptionHistory {
   String get time => throw _privateConstructorUsedError;
   @JsonKey(name: 'outletDetails')
   OutletDto? get outletDetails => throw _privateConstructorUsedError;
+  @JsonKey(name: 'redemptionUniqueDealId', defaultValue: '')
+  String? get redemptionUniqueDealId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -549,12 +533,20 @@ abstract class $RedemptionHistoryCopyWith<$Res> {
           RedemptionHistory value, $Res Function(RedemptionHistory) then) =
       _$RedemptionHistoryCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'isRedeemed') bool isRedeemed,
-      @JsonKey(name: 'isGifted') bool isGifted,
-      @JsonKey(name: 'isVerified') bool isVerified,
-      @JsonKey(name: 'date') String date,
-      @JsonKey(name: 'time') String time,
-      @JsonKey(name: 'outletDetails') OutletDto? outletDetails});
+      {@JsonKey(name: 'isRedeemed')
+          bool isRedeemed,
+      @JsonKey(name: 'isGifted')
+          bool isGifted,
+      @JsonKey(name: 'isVerified')
+          bool isVerified,
+      @JsonKey(name: 'date')
+          String date,
+      @JsonKey(name: 'time')
+          String time,
+      @JsonKey(name: 'outletDetails')
+          OutletDto? outletDetails,
+      @JsonKey(name: 'redemptionUniqueDealId', defaultValue: '')
+          String? redemptionUniqueDealId});
 
   $OutletDtoCopyWith<$Res>? get outletDetails;
 }
@@ -576,6 +568,7 @@ class _$RedemptionHistoryCopyWithImpl<$Res>
     Object? date = freezed,
     Object? time = freezed,
     Object? outletDetails = freezed,
+    Object? redemptionUniqueDealId = freezed,
   }) {
     return _then(_value.copyWith(
       isRedeemed: isRedeemed == freezed
@@ -602,6 +595,10 @@ class _$RedemptionHistoryCopyWithImpl<$Res>
           ? _value.outletDetails
           : outletDetails // ignore: cast_nullable_to_non_nullable
               as OutletDto?,
+      redemptionUniqueDealId: redemptionUniqueDealId == freezed
+          ? _value.redemptionUniqueDealId
+          : redemptionUniqueDealId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -625,12 +622,20 @@ abstract class _$$_RedemptionHistoryCopyWith<$Res>
       __$$_RedemptionHistoryCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'isRedeemed') bool isRedeemed,
-      @JsonKey(name: 'isGifted') bool isGifted,
-      @JsonKey(name: 'isVerified') bool isVerified,
-      @JsonKey(name: 'date') String date,
-      @JsonKey(name: 'time') String time,
-      @JsonKey(name: 'outletDetails') OutletDto? outletDetails});
+      {@JsonKey(name: 'isRedeemed')
+          bool isRedeemed,
+      @JsonKey(name: 'isGifted')
+          bool isGifted,
+      @JsonKey(name: 'isVerified')
+          bool isVerified,
+      @JsonKey(name: 'date')
+          String date,
+      @JsonKey(name: 'time')
+          String time,
+      @JsonKey(name: 'outletDetails')
+          OutletDto? outletDetails,
+      @JsonKey(name: 'redemptionUniqueDealId', defaultValue: '')
+          String? redemptionUniqueDealId});
 
   @override
   $OutletDtoCopyWith<$Res>? get outletDetails;
@@ -655,6 +660,7 @@ class __$$_RedemptionHistoryCopyWithImpl<$Res>
     Object? date = freezed,
     Object? time = freezed,
     Object? outletDetails = freezed,
+    Object? redemptionUniqueDealId = freezed,
   }) {
     return _then(_$_RedemptionHistory(
       isRedeemed: isRedeemed == freezed
@@ -681,6 +687,10 @@ class __$$_RedemptionHistoryCopyWithImpl<$Res>
           ? _value.outletDetails
           : outletDetails // ignore: cast_nullable_to_non_nullable
               as OutletDto?,
+      redemptionUniqueDealId: redemptionUniqueDealId == freezed
+          ? _value.redemptionUniqueDealId
+          : redemptionUniqueDealId // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -689,12 +699,20 @@ class __$$_RedemptionHistoryCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RedemptionHistory implements _RedemptionHistory {
   const _$_RedemptionHistory(
-      {@JsonKey(name: 'isRedeemed') required this.isRedeemed,
-      @JsonKey(name: 'isGifted') required this.isGifted,
-      @JsonKey(name: 'isVerified') required this.isVerified,
-      @JsonKey(name: 'date') required this.date,
-      @JsonKey(name: 'time') required this.time,
-      @JsonKey(name: 'outletDetails') this.outletDetails});
+      {@JsonKey(name: 'isRedeemed')
+          required this.isRedeemed,
+      @JsonKey(name: 'isGifted')
+          required this.isGifted,
+      @JsonKey(name: 'isVerified')
+          required this.isVerified,
+      @JsonKey(name: 'date')
+          required this.date,
+      @JsonKey(name: 'time')
+          required this.time,
+      @JsonKey(name: 'outletDetails')
+          this.outletDetails,
+      @JsonKey(name: 'redemptionUniqueDealId', defaultValue: '')
+          this.redemptionUniqueDealId});
 
   factory _$_RedemptionHistory.fromJson(Map<String, dynamic> json) =>
       _$$_RedemptionHistoryFromJson(json);
@@ -717,10 +735,13 @@ class _$_RedemptionHistory implements _RedemptionHistory {
   @override
   @JsonKey(name: 'outletDetails')
   final OutletDto? outletDetails;
+  @override
+  @JsonKey(name: 'redemptionUniqueDealId', defaultValue: '')
+  final String? redemptionUniqueDealId;
 
   @override
   String toString() {
-    return 'RedemptionHistory(isRedeemed: $isRedeemed, isGifted: $isGifted, isVerified: $isVerified, date: $date, time: $time, outletDetails: $outletDetails)';
+    return 'RedemptionHistory(isRedeemed: $isRedeemed, isGifted: $isGifted, isVerified: $isVerified, date: $date, time: $time, outletDetails: $outletDetails, redemptionUniqueDealId: $redemptionUniqueDealId)';
   }
 
   @override
@@ -736,7 +757,9 @@ class _$_RedemptionHistory implements _RedemptionHistory {
             const DeepCollectionEquality().equals(other.date, date) &&
             const DeepCollectionEquality().equals(other.time, time) &&
             const DeepCollectionEquality()
-                .equals(other.outletDetails, outletDetails));
+                .equals(other.outletDetails, outletDetails) &&
+            const DeepCollectionEquality()
+                .equals(other.redemptionUniqueDealId, redemptionUniqueDealId));
   }
 
   @JsonKey(ignore: true)
@@ -748,7 +771,8 @@ class _$_RedemptionHistory implements _RedemptionHistory {
       const DeepCollectionEquality().hash(isVerified),
       const DeepCollectionEquality().hash(date),
       const DeepCollectionEquality().hash(time),
-      const DeepCollectionEquality().hash(outletDetails));
+      const DeepCollectionEquality().hash(outletDetails),
+      const DeepCollectionEquality().hash(redemptionUniqueDealId));
 
   @JsonKey(ignore: true)
   @override
@@ -766,13 +790,20 @@ class _$_RedemptionHistory implements _RedemptionHistory {
 
 abstract class _RedemptionHistory implements RedemptionHistory {
   const factory _RedemptionHistory(
-          {@JsonKey(name: 'isRedeemed') required final bool isRedeemed,
-          @JsonKey(name: 'isGifted') required final bool isGifted,
-          @JsonKey(name: 'isVerified') required final bool isVerified,
-          @JsonKey(name: 'date') required final String date,
-          @JsonKey(name: 'time') required final String time,
-          @JsonKey(name: 'outletDetails') final OutletDto? outletDetails}) =
-      _$_RedemptionHistory;
+      {@JsonKey(name: 'isRedeemed')
+          required final bool isRedeemed,
+      @JsonKey(name: 'isGifted')
+          required final bool isGifted,
+      @JsonKey(name: 'isVerified')
+          required final bool isVerified,
+      @JsonKey(name: 'date')
+          required final String date,
+      @JsonKey(name: 'time')
+          required final String time,
+      @JsonKey(name: 'outletDetails')
+          final OutletDto? outletDetails,
+      @JsonKey(name: 'redemptionUniqueDealId', defaultValue: '')
+          final String? redemptionUniqueDealId}) = _$_RedemptionHistory;
 
   factory _RedemptionHistory.fromJson(Map<String, dynamic> json) =
       _$_RedemptionHistory.fromJson;
@@ -795,6 +826,9 @@ abstract class _RedemptionHistory implements RedemptionHistory {
   @override
   @JsonKey(name: 'outletDetails')
   OutletDto? get outletDetails;
+  @override
+  @JsonKey(name: 'redemptionUniqueDealId', defaultValue: '')
+  String? get redemptionUniqueDealId;
   @override
   @JsonKey(ignore: true)
   _$$_RedemptionHistoryCopyWith<_$_RedemptionHistory> get copyWith =>

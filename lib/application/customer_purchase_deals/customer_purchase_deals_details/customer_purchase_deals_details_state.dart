@@ -1,6 +1,6 @@
 part of 'customer_purchase_deals_details_bloc.dart';
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class CustomerPurchaseDealsDetailsState
     with _$CustomerPurchaseDealsDetailsState {
   const factory CustomerPurchaseDealsDetailsState({
@@ -9,6 +9,7 @@ class CustomerPurchaseDealsDetailsState
     required bool isSuccess,
     required bool noUse,
     required bool hasMore,
+    required String responseMsg,
     required String serverUrl,
     required String customerId,
     required String name,
@@ -34,6 +35,7 @@ class CustomerPurchaseDealsDetailsState
       isSuccess: false,
       hasMore: false,
       skip: 0,
+      responseMsg: '',
       customerId: customerId,
       name: name,
       scrollController: ScrollController(),

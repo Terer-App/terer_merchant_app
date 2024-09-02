@@ -18,7 +18,7 @@ CustomerOrderWithHistoryDto customerOrderWithHistoryDtoFromJson(String str) =>
 String customerOrderWithHistoryDtoToJson(CustomerOrderWithHistoryDto data) =>
     json.encode(data.toJson());
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class CustomerOrderWithHistoryDto with _$CustomerOrderWithHistoryDto {
   const factory CustomerOrderWithHistoryDto({
     @JsonKey(name: 'shopifyOrderId') required String shopifyOrderId,
@@ -41,7 +41,7 @@ class CustomerOrderWithHistoryDto with _$CustomerOrderWithHistoryDto {
       _$CustomerOrderWithHistoryDtoFromJson(json);
 }
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class RedemptionHistory with _$RedemptionHistory {
   const factory RedemptionHistory({
     @JsonKey(name: 'isRedeemed') required bool isRedeemed,
@@ -50,6 +50,8 @@ class RedemptionHistory with _$RedemptionHistory {
     @JsonKey(name: 'date') required String date,
     @JsonKey(name: 'time') required String time,
     @JsonKey(name: 'outletDetails') OutletDto? outletDetails,
+    @JsonKey(name: 'redemptionUniqueDealId', defaultValue: '')
+        String? redemptionUniqueDealId,
   }) = _RedemptionHistory;
 
   factory RedemptionHistory.fromJson(Map<String, dynamic> json) =>
