@@ -8,6 +8,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:sizer/sizer.dart';
 import '../../application/manage_deals/manage_deals_bloc.dart';
 import '../../domain/core/configs/app_config.dart';
+import '../../domain/core/configs/custom_localization.dart';
 import '../../domain/core/configs/injection.dart';
 import '../../domain/extensions/date_time_extension.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
@@ -305,79 +306,88 @@ class ManageDealsConsumer extends StatelessWidget {
                         alignment: Alignment.center,
                         width: 100.w,
                         padding: EdgeInsets.only(bottom: 2.h),
-                        child: GestureDetector(
-                          onTap: () {
-                            showDateRangePicker(
-                              builder: (context, child) {
-                                return Theme(
-                                  data: Theme.of(context).copyWith(
-                                    inputDecorationTheme: InputDecorationTheme(
-                                      labelStyle: Theme.of(context)
-                                          .textTheme
-                                          .bodySmall!
-                                          .copyWith(
-                                            color: Colors.black,
-                                          ),
-                                    ),
-                                    textTheme:
-                                        Theme.of(context).textTheme.copyWith(
-                                              subtitle1: Theme.of(context)
-                                                  .textTheme
-                                                  .subtitle1!
-                                                  .copyWith(
-                                                    fontSize: 12.sp,
-                                                  ),
+                        child:    Localizations.override(
+                        context: context,
+                        locale:  const Locale('en', 'Custom'),
+                        delegates: const [
+                             CustomMaterialLocalizationsDelegate('dd/MM/yyyy'),
+                        ],
+                          child: GestureDetector(
+                            onTap: () {
+                              showDateRangePicker(
+                                fieldStartHintText: 'dd/MM/yyyy',
+                                fieldEndHintText: 'dd/MM/yyyy',
+                                builder: (context, child) {
+                                  return Theme(
+                                    data: Theme.of(context).copyWith(
+                                      inputDecorationTheme: InputDecorationTheme(
+                                        labelStyle: Theme.of(context)
+                                            .textTheme
+                                            .bodySmall!
+                                            .copyWith(
+                                              color: Colors.black,
                                             ),
-                                    colorScheme: ColorScheme.light(
-                                      primary: Theme.of(context).primaryColor,
-                                      onPrimary: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
-                                      onSurface: Theme.of(context)
-                                          .colorScheme
-                                          .secondary,
+                                      ),
+                                      textTheme:
+                                          Theme.of(context).textTheme.copyWith(
+                                                subtitle1: Theme.of(context)
+                                                    .textTheme
+                                                    .subtitle1!
+                                                    .copyWith(
+                                                      fontSize: 12.sp,
+                                                    ),
+                                              ),
+                                      colorScheme: ColorScheme.light(
+                                        primary: Theme.of(context).primaryColor,
+                                        onPrimary: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        onSurface: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                      ),
                                     ),
-                                  ),
-                                  child: child!,
-                                );
-                              },
-                              context: context,
-                              firstDate: DateTime(2000),
-                              lastDate: DateTime.now(),
-                            ).then((value) {
-                              if (value != null) {
-                                context.read<ManageDealsBloc>().add(
-                                      ManageDealsEvent.fetchCustomerOrders(
-                                          startDate: value.start,
-                                          endDate: value.end),
-                                    );
-                              }
-                            });
-                          },
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                (state.startDate.year == state.endDate.year)
-                                    ? '${state.startDate.displayDateV3} - ${state.endDate.displayDateV2}'
-                                    : '${state.startDate.displayDateV2} - ${state.endDate.displayDateV2}',
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodyMedium!
-                                    .copyWith(
-                                      fontSize: 12.sp,
-                                      fontWeight: FontWeight.w700,
-                                      color: Theme.of(context).primaryColor,
-                                    ),
-                              ),
-                              SizedBox(
-                                width: 2.w,
-                              ),
-                              SvgPicture.asset(
-                                AssetConstants.polygon2Svg,
-                                width: 3.5.w,
-                              )
-                            ],
+                                    child: child!,
+                                  );
+                                },
+                                context: context,
+                                firstDate: DateTime(2000),
+                                lastDate: DateTime.now(),
+                              ).then((value) {
+                                if (value != null) {
+                                  context.read<ManageDealsBloc>().add(
+                                        ManageDealsEvent.fetchCustomerOrders(
+                                            startDate: value.start,
+                                            endDate: value.end),
+                                      );
+                                }
+                              });
+                            },
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  (state.startDate.year == state.endDate.year)
+                                      ? '${state.startDate.displayDateV3} - ${state.endDate.displayDateV2}'
+                                      : '${state.startDate.displayDateV2} - ${state.endDate.displayDateV2}',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyMedium!
+                                      .copyWith(
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w700,
+                                        color: Theme.of(context).primaryColor,
+                                      ),
+                                ),
+                                SizedBox(
+                                  width: 2.w,
+                                ),
+                                SvgPicture.asset(
+                                  AssetConstants.polygon2Svg,
+                                  width: 3.5.w,
+                                )
+                              ],
+                            ),
                           ),
                         ),
                       ),
