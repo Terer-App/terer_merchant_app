@@ -163,76 +163,62 @@ class ReportsConsumer extends StatelessWidget {
                         color: Theme.of(context).primaryColor,
                       ),
                     ),
-                    Localizations.override(
-                        context: context,
-                        locale:  Locale('en', 'Custom'),
-                        delegates: [
-                            const CustomMaterialLocalizationsDelegate('dd/MM/yyyy'),
-                        ],
-                        child: Builder(builder: (context) {
-                          return GestureDetector(
-                            onTap: () {
-                              showDatePicker(
-                                  context: context,
-                                  initialDate: state.currentDate,
-                                  firstDate: DateTime(2000),
-                                  lastDate: DateTime.now(),
-                                  builder: (context, child) {
-                                    return Theme(
-                                      data: Theme.of(context).copyWith(
-                                        colorScheme: ColorScheme.light(
-                                          primary: Theme.of(context)
-                                              .colorScheme
-                                              .primary,
-                                          onPrimary: Theme.of(context)
-                                              .scaffoldBackgroundColor,
-                                          onSurface: Theme.of(context)
-                                              .colorScheme
-                                              .secondary,
-                                        ),
-                                        dialogTheme: DialogTheme(
-                                          backgroundColor: Theme.of(context)
-                                              .scaffoldBackgroundColor,
-                                        ),
-                                        textButtonTheme: TextButtonThemeData(
-                                          style: TextButton.styleFrom(
-                                            foregroundColor: Theme.of(context)
-                                                .colorScheme
-                                                .secondary,
-                                          ),
-                                        ),
-                                      ),
-                                      child: child!,
-                                    );
-                                  }).then((value) {
-                                if (value != null) {
-                                  context
-                                      .read<ReportsBloc>()
-                                      .add(ReportsEvent.emitFromAnywhere(
-                                          state: state.copyWith(
-                                        currentDate: value,
-                                      )));
-                                  context.read<ReportsBloc>().add(
-                                      const ReportsEvent.onDateChange(
-                                          isNext: false,
-                                          isSelectedParticular: true));
-                                }
-                              });
-                            },
-                            child: Text(
-                              DateFormat('dd MMM yyyy')
-                                  .format(state.currentDate),
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .titleMedium!
-                                  .copyWith(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 16.sp,
-                                    color: Theme.of(context).primaryColor,
+                    GestureDetector(
+                      onTap: () {
+                        showDatePicker(
+                            context: context,
+                            initialDate: state.currentDate,
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime.now(),
+                            builder: (context, child) {
+                              return Theme(
+                                data: Theme.of(context).copyWith(
+                                  colorScheme: ColorScheme.light(
+                                    primary:
+                                        Theme.of(context).colorScheme.primary,
+                                    onPrimary: Theme.of(context)
+                                        .scaffoldBackgroundColor,
+                                    onSurface:
+                                        Theme.of(context).colorScheme.secondary,
                                   ),
-                            ),
-                          );
-                        })),
+                                  dialogTheme: DialogTheme(
+                                    backgroundColor: Theme.of(context)
+                                        .scaffoldBackgroundColor,
+                                  ),
+                                  textButtonTheme: TextButtonThemeData(
+                                    style: TextButton.styleFrom(
+                                      foregroundColor: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                    ),
+                                  ),
+                                ),
+                                child: child!,
+                              );
+                            }).then((value) {
+                          if (value != null) {
+                            context
+                                .read<ReportsBloc>()
+                                .add(ReportsEvent.emitFromAnywhere(
+                                    state: state.copyWith(
+                                  currentDate: value,
+                                )));
+                            context.read<ReportsBloc>().add(
+                                const ReportsEvent.onDateChange(
+                                    isNext: false, isSelectedParticular: true));
+                          }
+                        });
+                      },
+                      child: Text(
+                        DateFormat('dd MMM yyyy').format(state.currentDate),
+                        style:
+                            Theme.of(context).textTheme.titleMedium!.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16.sp,
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                      ),
+                    ),
                     (DateFormat('yyyy-dd-MM').format(state.currentDate) !=
                             DateFormat('yyyy-dd-MM').format(DateTime.now()))
                         ? GestureDetector(
