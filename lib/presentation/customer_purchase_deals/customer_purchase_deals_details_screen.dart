@@ -12,6 +12,7 @@ import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
 import '../../domain/extensions/date_time_extension.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
+import '../core/custom_button.dart';
 
 class CustomerPurchaseDealDetailsScreen extends StatelessWidget {
   final String name;
@@ -156,20 +157,123 @@ class CustomerPurchaseDealDetailsConsumer extends StatelessWidget {
                                             !redemptionData.isVerified &&
                                             !redemptionData.isGifted
                                         ? () {
-                                            context
-                                                .read<
-                                                    CustomerPurchaseDealsDetailsBloc>()
-                                                .add(
-                                                  CustomerPurchaseDealsDetailsEvent
-                                                      .verifyDeal(
-                                                    dealId: redemptionData
-                                                            .redemptionUniqueDealId ??
-                                                        '',
-                                                    orderHistoryIndex: i,
-                                                    redemptionHistoryIndex:
-                                                        index,
-                                                  ),
+                                            showModalBottomSheet(
+                                              context: context,
+                                              builder: (context) {
+                                                return Wrap(
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                              horizontal: 4.w,
+                                                              vertical: 2.h),
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Center(
+                                                            child: Text(
+                                                              'Are you sure, you want to verify?',
+                                                              style: Theme.of(
+                                                                      context)
+                                                                  .textTheme
+                                                                  .bodySmall!
+                                                                  .copyWith(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                    fontSize:
+                                                                        14.sp,
+                                                                    color: Theme.of(
+                                                                            context)
+                                                                        .colorScheme
+                                                                        .primaryContainer,
+                                                                  ),
+                                                            ),
+                                                          ),
+                                                          SizedBox(
+                                                            height: 2.h,
+                                                          ),
+                                                          Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              SecondaryButton(
+                                                                bgColor: Theme.of(
+                                                                        context)
+                                                                    .colorScheme
+                                                                    .primary,
+                                                                btnTextColor: Theme.of(
+                                                                        context)
+                                                                    .colorScheme
+                                                                    .secondary,
+                                                                btnText: 'No',
+                                                                textFontWeight:
+                                                                    FontWeight
+                                                                        .w900,
+                                                                textFontSize:
+                                                                    12.sp,
+                                                                btnBorderRadius:
+                                                                    12.w,
+                                                                height: 50,
+                                                                width: 42.w,
+                                                                onPressedBtn:
+                                                                    () {
+                                                                  navigator<
+                                                                          NavigationService>()
+                                                                      .goBack(
+                                                                          responseObject:
+                                                                              false);
+                                                                },
+                                                              ),
+                                                              SecondaryButton(
+                                                                btnText: 'Yes',
+                                                                textFontWeight:
+                                                                    FontWeight
+                                                                        .w900,
+                                                                textFontSize:
+                                                                    12.sp,
+                                                                btnBorderRadius:
+                                                                    12.w,
+                                                                height: 50,
+                                                                width: 42.w,
+                                                                onPressedBtn:
+                                                                    () {
+                                                                  navigator<
+                                                                          NavigationService>()
+                                                                      .goBack(
+                                                                          responseObject:
+                                                                              true);
+                                                                },
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ],
                                                 );
+                                              },
+                                            ).then((value) {
+                                              if (value && value == true) {
+                                                context
+                                                    .read<
+                                                        CustomerPurchaseDealsDetailsBloc>()
+                                                    .add(
+                                                      CustomerPurchaseDealsDetailsEvent
+                                                          .verifyDeal(
+                                                        dealId: redemptionData
+                                                                .redemptionUniqueDealId ??
+                                                            '',
+                                                        orderHistoryIndex: i,
+                                                        redemptionHistoryIndex:
+                                                            index,
+                                                      ),
+                                                    );
+                                              }
+                                            });
                                           }
                                         : () {},
                                     child: SizedBox(
