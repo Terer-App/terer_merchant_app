@@ -19,8 +19,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
       add(const ProfileEvent.onLoad());
     });
     on<_OnLoad>((event, emit) {
-      state.firstNameController.text = state.profile!.firstName;
-      state.lastNameController.text = state.profile!.lastName;
+      state.firstNameController.text = '${state.profile!.firstName} ${state.profile!.lastName}';
       state.emailController.text = state.profile!.email;
       state.brandNameController.text = state.profile!.brand.name;
       emit(

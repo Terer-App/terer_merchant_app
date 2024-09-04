@@ -7,6 +7,7 @@ import 'package:shimmer/shimmer.dart';
 import 'package:sizer/sizer.dart';
 import '../../../application/reports/reports_bloc.dart';
 import '../../../domain/core/configs/app_config.dart';
+import '../../../domain/core/configs/custom_localization.dart';
 import '../../../infrastructure/enums/deal_type.dart';
 import '../widgets/balance_deal_item.dart';
 

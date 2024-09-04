@@ -46,8 +46,6 @@ class AppConstants {
   static const String submitText = 'Submit';
   static const String updateText = 'Update';
   static const String webLink = 'www.terer.co';
-  static const String tryZeroWebLink = 'www.tryzero.co';
-
   static String updateAvailable = 'Update Available';
   static String ignore = 'Ignore';
   static String installNow = 'Install Now';
@@ -250,12 +248,9 @@ class AboutUsConstants {
   //label text
 
   static const String para1 =
-      'Terer is on a mission to increase customer efficiency and encourage long-term savings through our bulk buy redemption platform. In return, Terer merchants are able to increase resources to meet customer loyalty. For more info please visit our website ';
+      'Terer is on a mission to increase customer efficiency and encourage long term savings through our multiple redemption platform. In return, Terer merchants are able to increase customer retention and cart value. For more info please visit our website\n';
 
-  static const String para2 =
-      'Zero is on a mission to help local businesses thrive by providing FREE digital services to create an online store quick and easy. For more info please visit our website ';
-
-  static const String companyRegNo = 'Digital Zero Sdn Bhd\n(1429317-K)';
+  static const String companyRegNo = 'Terer Sdn Bhd\n(formerly known as Digital Zero Sdn Bhd)';
 }
 
 class ContactUsConstants {
@@ -310,6 +305,7 @@ class DealsConstants {
 
   static const String manageDeals = 'Manage Deals';
   static const String balance = 'Balance';
+  static const String liveDeals = 'Live Deals';
   static const String expireAT = 'Valid till';
   static const String balanceReport = 'Balance Report';
 
@@ -341,8 +337,10 @@ class MyProfileConstants {
   //label text
 
   static const String firstName = 'First Name';
+    static const String name = 'Name';
   static const String lastName = 'Last Name';
   static const String email = 'Email Address';
+    static const String access = 'Access';
   static const String brandName = 'Brand Name';
 
   static const String shopName = 'Shop Name';

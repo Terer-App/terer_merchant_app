@@ -5,7 +5,6 @@ class AssetConstants {
   static const String vectorPath = '${basePath}vectors/';
   static const String backgroundImage = '${imagePath}background.png';
   static const String logoImage = '${imagePath}logo.png';
-  static const String zeroImage = '${imagePath}zero.png';
 
   static const String backImage = '${imagePath}back.png';
   static const String coffeeImage = '${imagePath}coffee.png';
@@ -26,6 +25,8 @@ class AssetConstants {
   static const String createOrder = '${imagePath}create_order.png';
 
   static const String appBarBackSvg = '${imagePath}app_bar_back.svg';
+  static const String backArrowYellow = '${vectorPath}back-arrow.svg';
+  static const String backArrowWhite = '${vectorPath}back-arrow-2.svg';
   static const String emptyCartSvg = '${imagePath}empty_cart.svg';
   static const String backSvg = '${vectorPath}back.svg';
   static const String reportSvg = '${vectorPath}report.svg';
@@ -58,6 +59,12 @@ class AssetConstants {
   static const String warningSvg = '${vectorPath}warning.svg';
   static const String uploadArrowSvg = '${vectorPath}upload-arrow.svg';
   static const String uploadDashSvg = '${vectorPath}upload-dash.svg';
+  static const String polygonSvg = '${vectorPath}polygon.svg';
+  static const String polygon2Svg = '${vectorPath}polygon2.svg';
+  static const String closeSvg = '${vectorPath}close.svg';
+
+
+
 
   static const String cupAnimation = '${animationPath}cup_animation.gif';
   static const updateRocket = '${animationPath}update-rocket.gif';

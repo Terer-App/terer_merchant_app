@@ -5,6 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:provider/provider.dart';
 import 'package:sizer/sizer.dart';
@@ -30,6 +31,12 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       title: AppConfig.of(context)!.appTitle,
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [Locale('en', 'AU')],
       theme: ThemeData(
         fontFamily: 'Poppins',
         primaryColor: const Color(0xffF9A31A),
@@ -61,19 +68,8 @@ class MainApp extends StatelessWidget {
           ),
         ),
       ),
-      builder: (context, child) => Container(
-          alignment: Alignment.center,
-          decoration: SizerUtil.width == 430
-              ? const BoxDecoration(
-                  border: Border.symmetric(
-                    vertical: BorderSide(
-                      color: Colors.black,
-                      width: 2,
-                    ),
-                  ),
-                )
-              : null,
-          child: child!),
+      builder: (context, child) =>
+          Container(alignment: Alignment.center, child: child!),
       navigatorKey: navigator<NavigationService>().navigatorKey,
       onGenerateRoute: Provider.of<AppStateNotifier>(context).isAuthorized
           ? authorizedNavigation
@@ -90,7 +86,7 @@ Future appInitializer(AppConfig appConfig) async {
 
   BrandUserDto? profile;
   bool isAuthorized = await AuthTokenService.isLogin();
-
+  // print(await AuthTokenService.getMerchantToken());
   if (isAuthorized) {
     profile = await IShopMerchantRepository(
       serverUrl: appConfig.serverUrl,
@@ -264,8 +260,7 @@ Future initMessagingService({
     await fcm.requestPermission();
     isPermissionGranted = true;
   } catch (error) {
-        debugPrint(error.toString());
-
+    debugPrint(error.toString());
   }
   //when app is in terminated state
   FirebaseMessaging.instance.getInitialMessage().then((message) {

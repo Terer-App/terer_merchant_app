@@ -29,140 +29,132 @@ class _SelectOutletState extends State<SelectOutlet> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5.w),
+      padding: EdgeInsets.only(right: 5.w, left: 5.w, bottom: 5.h, top: 2.5.h),
       decoration: BoxDecoration(
           color: Theme.of(context).scaffoldBackgroundColor,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(5.w), topRight: Radius.circular(5.w))),
-      child: Stack(
+      child: Column(
         children: [
-          Column(
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Expanded(
-                      child: SizedBox(
-                    height: 20.w,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(widget.brand.name,
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                color:
-                                    Theme.of(context).colorScheme.secondary)),
-                        const Spacer(),
-                        Text(
-                          'Select location',
-                          style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              color: Theme.of(context).colorScheme.secondary),
-                        ),
-                      ],
-                    ),
-                  )),
-                  Image.network(
-                    widget.brand.logo,
-                    height: 20.w,
-                    width: 20.w,
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 1.h,
-              ),
               Expanded(
-                child: ListView.separated(
-                  padding: EdgeInsets.only(bottom: 10.h),
-                  itemCount: widget.outlets.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    final outlet = widget.outlets[index];
-                    return Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: (selectedOutlet != null &&
-                                  outlet == selectedOutlet!)
-                              ? Theme.of(context).primaryColor
-                              : Colors.grey.shade300, // Border color
-                          width: 2.0, // Border width
-                        ),
-                        borderRadius:
-                            BorderRadius.circular(12.0), // Border corner radius
-                      ),
-                      child: ListTile(
-                        leading: CircleAvatar(
-                          backgroundImage: NetworkImage(outlet.logo ?? ''),
-                        ),
-                        title: Text(
-                          outlet.name ?? '',
-                          style: TextStyle(fontSize: 12.sp),
-                        ),
-                        onTap: () {
-                          selectedOutlet = outlet;
-                          setState(() {});
-                          // Navigator.pop(context); // Close the bottom sheet
-                        },
-                      ),
-                    );
-                  },
-                  separatorBuilder: (context, index) {
-                    return const SizedBox(
-                      height: 5,
-                    );
-                  },
+                  child: SizedBox(
+                height: 20.w,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(widget.brand.name,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: Theme.of(context).colorScheme.secondary)),
+                    const Spacer(),
+                    Text(
+                      'Select location',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          color: Theme.of(context).colorScheme.secondary),
+                    ),
+                  ],
                 ),
+              )),
+              Image.network(
+                widget.brand.logo,
+                height: 20.w,
+                width: 20.w,
               )
             ],
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                SecondaryButton(
-                  bgColor: Theme.of(context).colorScheme.primary,
-                  btnTextColor: Theme.of(context).colorScheme.secondary,
-                  btnText: 'Cancel',
-                  textFontWeight: FontWeight.w900,
-                  textFontSize: 12.sp,
-                  btnBorderRadius: 12.w,
-                  height: 50,
-                  width: 42.w,
-                  onPressedBtn: () {
-                    if (widget.alreadySelectedOutlet == null) {
-                      if (widget.isHome) {
-                        Navigator.of(context).pop();
+          SizedBox(
+            height: 1.h,
+          ),
+          Expanded(
+            child: ListView.separated(
+              padding: EdgeInsets.only(bottom: 10.h),
+              itemCount: widget.outlets.length,
+              itemBuilder: (BuildContext context, int index) {
+                final outlet = widget.outlets[index];
+                return Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color:
+                          (selectedOutlet != null && outlet == selectedOutlet!)
+                              ? Theme.of(context).primaryColor
+                              : Colors.grey.shade300, // Border color
+                      width: 2.0, // Border width
+                    ),
+                    borderRadius:
+                        BorderRadius.circular(12.0), // Border corner radius
+                  ),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundImage: NetworkImage(outlet.logo ?? ''),
+                    ),
+                    title: Text(
+                      outlet.name ?? '',
+                      style: TextStyle(fontSize: 12.sp),
+                    ),
+                    onTap: () {
+                      selectedOutlet = outlet;
+                      setState(() {});
+                      // Navigator.pop(context); // Close the bottom sheet
+                    },
+                  ),
+                );
+              },
+              separatorBuilder: (context, index) {
+                return const SizedBox(
+                  height: 5,
+                );
+              },
+            ),
+          ),
+          SizedBox(height: 2.h,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SecondaryButton(
+                bgColor: Theme.of(context).colorScheme.primary,
+                btnTextColor: Theme.of(context).colorScheme.secondary,
+                btnText: 'Cancel',
+                textFontWeight: FontWeight.w900,
+                textFontSize: 12.sp,
+                btnBorderRadius: 12.w,
+                height: 50,
+                width: 42.w,
+                onPressedBtn: () {
+                  if (widget.alreadySelectedOutlet == null) {
+                    if (widget.isHome) {
+                      Navigator.of(context).pop();
 
-                        navigator<NavigationService>().navigateTo(
-                            CoreRoutes.homeRoute,
-                            isClearStack: true);
-                      } else {
-                        Navigator.of(context).pop();
-                        Navigator.of(context).pop();
-                      }
+                      navigator<NavigationService>()
+                          .navigateTo(CoreRoutes.homeRoute, isClearStack: true);
                     } else {
                       Navigator.of(context).pop();
+                      Navigator.of(context).pop();
                     }
-                  },
-                ),
-                SecondaryButton(
-                  btnText: 'Confirm',
-                  textFontWeight: FontWeight.w900,
-                  textFontSize: 12.sp,
-                  btnBorderRadius: 12.w,
-                  height: 50,
-                  width: 42.w,
-                  onPressedBtn: () {
-                    if (selectedOutlet != null) {
-                      Navigator.of(context).pop(selectedOutlet);
-                    }
-                  },
-                ),
-              ],
-            ),
-          )
+                  } else {
+                    Navigator.of(context).pop();
+                  }
+                },
+              ),
+              SecondaryButton(
+                btnText: 'Confirm',
+                textFontWeight: FontWeight.w900,
+                textFontSize: 12.sp,
+                btnBorderRadius: 12.w,
+                height: 50,
+                width: 42.w,
+                onPressedBtn: () {
+                  if (selectedOutlet != null) {
+                    Navigator.of(context).pop(selectedOutlet);
+                  }
+                },
+              ),
+            ],
+          ),
         ],
       ),
     );

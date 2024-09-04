@@ -10,7 +10,16 @@ class CustomNavbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 15.w,
-      color: Theme.of(context).primaryColor,
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.white.withOpacity(0.4),
+            blurRadius: 20,
+            spreadRadius: 10.w
+          )
+        ]
+      ),
     );
   }
 }
