@@ -166,7 +166,7 @@ class CustomerPurchaseDealDetailsConsumer extends StatelessWidget {
                                                       padding:
                                                           EdgeInsets.symmetric(
                                                               horizontal: 4.w,
-                                                              vertical: 2.h),
+                                                              vertical: 4.h),
                                                       child: Column(
                                                         crossAxisAlignment:
                                                             CrossAxisAlignment
@@ -174,7 +174,7 @@ class CustomerPurchaseDealDetailsConsumer extends StatelessWidget {
                                                         children: [
                                                           Center(
                                                             child: Text(
-                                                              'Are you sure, you want to verify?',
+                                                              'Are you sure you want to verify?',
                                                               style: Theme.of(
                                                                       context)
                                                                   .textTheme
@@ -188,7 +188,7 @@ class CustomerPurchaseDealDetailsConsumer extends StatelessWidget {
                                                                     color: Theme.of(
                                                                             context)
                                                                         .colorScheme
-                                                                        .primaryContainer,
+                                                                        .secondary,
                                                                   ),
                                                             ),
                                                           ),

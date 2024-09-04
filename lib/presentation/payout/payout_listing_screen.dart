@@ -169,8 +169,8 @@ class PayoutListingConsumer extends StatelessWidget {
                                       .fetchBroughtDealsByDayOrMonth(
                                     isMonth: true,
                                     startDate: date,
-                                    endDate: DateTime(date.year, date.month + 1,
-                                        0),
+                                    endDate:
+                                        DateTime(date.year, date.month + 1, 0),
                                   ),
                                 );
                           }
@@ -385,28 +385,29 @@ class PayoutListingConsumer extends StatelessWidget {
               SizedBox(
                 height: 4.h,
               ),
-              Center(
-                child: PrimaryButton(
-                    height: 5.5.h,
-                    width: 80.w,
-                    btnTextColor: state.invoiceDocLink.isEmpty
-                        ? Colors.white.withOpacity(0.5)
-                        : Theme.of(context).primaryColor,
-                    btnBorder:
-                        state.invoiceDocLink.isEmpty ? BorderSide.none : null,
-                    bgColor: Theme.of(context).colorScheme.secondary,
-                    btnText: 'Extract Invoice',
-                    onPressedBtn: state.invoiceDocLink.isEmpty
-                        ? null
-                        : () {
-                            launchUrl(
-                              Uri.parse(
-                                state.invoiceDocLink,
-                              ),
-                              mode: LaunchMode.externalApplication,
-                            );
-                          }),
-              ),
+              if (state.profile.role == 'OWNER')
+                Center(
+                  child: PrimaryButton(
+                      height: 5.5.h,
+                      width: 80.w,
+                      btnTextColor: state.invoiceDocLink.isEmpty
+                          ? Colors.white.withOpacity(0.5)
+                          : Theme.of(context).primaryColor,
+                      btnBorder:
+                          state.invoiceDocLink.isEmpty ? BorderSide.none : null,
+                      bgColor: Theme.of(context).colorScheme.secondary,
+                      btnText: 'Extract Invoice',
+                      onPressedBtn: state.invoiceDocLink.isEmpty
+                          ? null
+                          : () {
+                              launchUrl(
+                                Uri.parse(
+                                  state.invoiceDocLink,
+                                ),
+                                mode: LaunchMode.externalApplication,
+                              );
+                            }),
+                ),
               SizedBox(
                 height: 4.h,
               ),
