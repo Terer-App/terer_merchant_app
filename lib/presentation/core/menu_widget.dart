@@ -64,7 +64,7 @@ class MenuWidget extends StatelessWidget {
                   color: Theme.of(context).colorScheme.secondary),
             ),
             SizedBox(
-              height: 7.h,
+              height: 9.h,
             ),
             MenuItem(
               zoomDrawerController: zoomDrawerController,
@@ -195,7 +195,7 @@ class MenuItem extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 1.5.h,
+            height: 1.8.h,
           ),
         ],
       ),

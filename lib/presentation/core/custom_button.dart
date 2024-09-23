@@ -12,7 +12,7 @@ class PrimaryButton extends StatelessWidget {
   final BorderSide? btnBorder;
   final Widget? newChild;
   final EdgeInsets? btnPadding;
-  final Function? onPressedBtn;
+  final Function()? onPressedBtn;
 
   const PrimaryButton({
     Key? key,
@@ -32,7 +32,7 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () => onPressedBtn!(),
+      onPressed: onPressedBtn,
       style: ElevatedButton.styleFrom(
         fixedSize: Size(width ?? 100, height ?? 50),
         padding: btnPadding,

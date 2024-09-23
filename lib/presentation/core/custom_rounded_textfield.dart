@@ -93,7 +93,10 @@ class _CustomRoundedInputState extends State<CustomRoundedInput> {
 
   @override
   Widget build(BuildContext context) {
-    OutlineInputBorder outlineInputBorder = OutlineInputBorder(
+    OutlineInputBorder outlineInputBorder = 
+    
+    OutlineInputBorder(
+    
       borderSide: widget.borderSide ??
           const BorderSide(
             width: 1,
@@ -156,6 +159,8 @@ class _CustomRoundedInputState extends State<CustomRoundedInput> {
               maxLength: widget.maxLength,
               decoration: InputDecoration(
                 counterText: '',
+      
+        
                 fillColor: !widget.enabled
                     ? Colors.grey.withOpacity(0.5)
                     : Theme.of(context).colorScheme.onTertiary,

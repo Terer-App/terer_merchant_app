@@ -12,12 +12,18 @@ import '../dtos/brand/user/brand_user_dto.dart';
 
 import '../../domain/services/network_service/rest_service.dart';
 import '../dtos/outlet/outlet_dto.dart';
+import '../dtos/place_order/outlet_product/outlet_product_dto.dart';
+import '../dtos/shop_product/shop_product_dto.dart';
 import '../enums/deal_type.dart';
 
 class IShopMerchantRepository extends ShopMerchantRepository {
   final String serverUrl;
+  final String apiUrl;
 
-  IShopMerchantRepository({required this.serverUrl});
+  IShopMerchantRepository({
+    required this.serverUrl,
+    this.apiUrl = '',
+  });
 
   @override
   Future<BrandUserDto?> merchantProfile({String? token}) async {
@@ -148,14 +154,11 @@ class IShopMerchantRepository extends ShopMerchantRepository {
   }
 
   @override
-  Future<Either<String, Map<String, dynamic>>> verifyCustomerDeal({
-    required Map<String, dynamic> data
-  }) async {
+  Future<Either<String, Map<String, dynamic>>> verifyCustomerDeal(
+      {required Map<String, dynamic> data}) async {
     final url = serverUrl + APIConstants.verifyCustomerDeal;
     try {
       final token = await AuthTokenService.getMerchantToken();
-
-      print(json.encode(data));
 
       final res = await RESTService.performPOSTRequest(
         httpUrl: url,
@@ -175,8 +178,9 @@ class IShopMerchantRepository extends ShopMerchantRepository {
           'isSuccess': response['response_code'] == 'DEAL_VERIFIED',
         };
         if (response['dealInfo'] != null) {
-          responseData['dealInfo'] = DealInfoDto.fromJson(
-              response['dealInfo'] as Map<String, dynamic>);
+          responseData['dealInfo'] =
+              DealInfoDto.fromJson(response['dealInfo'] as Map<String, dynamic>)
+                  .copyWith(redeemDeals: (data['dealRefId'] as Map).length);
         }
         return right(responseData);
       } else {
@@ -253,8 +257,6 @@ class IShopMerchantRepository extends ShopMerchantRepository {
         data['date'] = currentDate;
       }
 
-      print(data);
-
       final res = await RESTService.performPOSTRequest(
         httpUrl: url,
         param: data,
@@ -309,12 +311,78 @@ class IShopMerchantRepository extends ShopMerchantRepository {
       final response = json.decode(res.body);
       List<OutletDto> outlets = [];
       if (response['status'] == 1) {
-        outlets =
-            (response['outlets'] as List).map((e) => OutletDto.fromJson(e)).toList();
+        outlets = (response['outlets'] as List)
+            .map((e) => OutletDto.fromJson(e))
+            .toList();
       }
       return outlets;
     } catch (e) {
       return [];
+    }
+  }
+
+  @override
+  Future<List<OutletProductDto>> getProductsByMerchant(
+    ) async {
+    final url = '$apiUrl${APIConstants.getMerchantProducts}';
+    try {
+      final token = await AuthTokenService.getMerchantToken();
+      final res = await RESTService.performGETRequest(
+        httpUrl: url,
+        token: token,
+        isAuth: true,
+      );
+
+      final response = json.decode(res.body);
+      List<OutletProductDto> products = [];
+      if (res.statusCode == 200 && (response['data'] ?? []).isNotEmpty) {
+        products = (response['data'] as List)
+            .map((e) => OutletProductDto.fromJson(e))
+            .toList();
+      }
+      return products;
+    } catch (e) {
+      return [];
+    }
+  }
+
+  @override
+  Future<ShopProductDto?> getProductById({required String productId}) async {
+    ShopProductDto? product;
+    try {
+      String url = '$serverUrl${APIConstants.getProductById}';
+
+      Map<String, dynamic> jsonBody = {
+        'pid': productId,
+      };
+
+      http.Response response = await RESTService.performPOSTRequest(
+        httpUrl: url,
+        body: jsonEncode({...jsonBody}),
+      );
+      if (response.statusCode != 200) {
+        return product;
+      }
+
+      final mappedResponse =
+          (json.decode(response.body) as Map<String, dynamic>);
+
+      if (mappedResponse['status'] == 1 &&
+          mappedResponse['response_code'] == 'PRODUCT_INFO') {
+        Map<String, dynamic> parseData = mappedResponse['data']['product'];
+        parseData['variantId'] =
+            ((parseData['variants']['edges'] ?? []) as List).isEmpty
+                ? ''
+                : parseData['variants']['edges'][0]['node']['id'];
+
+        product = ShopProductDtoExtension.parseRawDataToProductDTO(parseData);
+
+        return product;
+      } else {
+        return product;
+      }
+    } catch (error) {
+      return product;
     }
   }
 }
