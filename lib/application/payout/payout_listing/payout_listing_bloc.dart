@@ -64,7 +64,7 @@ class PayoutListingBloc extends Bloc<PayoutListingEvent, PayoutListingState> {
         ),
       );
 
-      List<BroughtDealDto> updatedDeals = [...res, ...state.broughtDeals];
+      List<BroughtDealDto> updatedDeals = [...state.broughtDeals, ...res];
 
       emit(state.copyWith(
         isLoading: false,
