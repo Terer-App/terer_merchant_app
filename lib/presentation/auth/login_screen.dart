@@ -27,12 +27,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String serverUrl = AppConfig.of(context)!.serverUrl;
- String apiUrl = AppConfig.of(context)!.apiUrl;
+    String apiUrl = AppConfig.of(context)!.apiUrl;
     return BlocProvider(
-      create: (context) => LoginBloc(LoginState.initial(
-        serverUrl: serverUrl,
-        apiUrl: apiUrl
-      )),
+      create: (context) =>
+          LoginBloc(LoginState.initial(serverUrl: serverUrl, apiUrl: apiUrl)),
       child: const LoginConsumer(),
     );
   }
@@ -82,7 +80,7 @@ class LoginConsumer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 6.h,
+                    height: 12.h,
                   ),
                   Row(
                     children: [

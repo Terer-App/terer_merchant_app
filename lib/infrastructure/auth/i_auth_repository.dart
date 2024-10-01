@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:flutter/material.dart';
 import '../../domain/constants/api_constants.dart';
 import '../../domain/services/network_service/rest_service.dart';
 
@@ -44,7 +45,7 @@ class IAuthRepository extends AuthRepository {
     final url =  serverUrl +
         (isRemove ? APIConstants.removeFcmToken : APIConstants.addFcmToken);
     try {
-      print('fcm : $fcmToken');
+      debugPrint('fcm : $fcmToken');
       final res = await RESTService.performPOSTRequest(
           isAuth: true,
           httpUrl: url,
@@ -54,7 +55,7 @@ class IAuthRepository extends AuthRepository {
             'isCustomer': false,
             'brandId': brandId
           }));
-      print(res.body);
+      debugPrint(res.body);
     } catch (e) {
       //
     }
