@@ -986,8 +986,6 @@ mixin _$ManageDealsState {
   PlaceOrderRepository get placeOrderRepository =>
       throw _privateConstructorUsedError;
   ScrollController get scrollController => throw _privateConstructorUsedError;
-  ZoomDrawerController get zoomDrawerController =>
-      throw _privateConstructorUsedError;
   dynamic Function(int)? get navCallBack => throw _privateConstructorUsedError;
   BrandUserDto? get profile => throw _privateConstructorUsedError;
 
@@ -1028,7 +1026,6 @@ abstract class $ManageDealsStateCopyWith<$Res> {
       ShopMerchantRepository shopMerchantRepository,
       PlaceOrderRepository placeOrderRepository,
       ScrollController scrollController,
-      ZoomDrawerController zoomDrawerController,
       dynamic Function(int)? navCallBack,
       BrandUserDto? profile});
 
@@ -1072,7 +1069,6 @@ class _$ManageDealsStateCopyWithImpl<$Res>
     Object? shopMerchantRepository = freezed,
     Object? placeOrderRepository = freezed,
     Object? scrollController = freezed,
-    Object? zoomDrawerController = freezed,
     Object? navCallBack = freezed,
     Object? profile = freezed,
   }) {
@@ -1181,10 +1177,6 @@ class _$ManageDealsStateCopyWithImpl<$Res>
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
-      zoomDrawerController: zoomDrawerController == freezed
-          ? _value.zoomDrawerController
-          : zoomDrawerController // ignore: cast_nullable_to_non_nullable
-              as ZoomDrawerController,
       navCallBack: navCallBack == freezed
           ? _value.navCallBack
           : navCallBack // ignore: cast_nullable_to_non_nullable
@@ -1242,7 +1234,6 @@ abstract class _$$_ManageDealsStateCopyWith<$Res>
       ShopMerchantRepository shopMerchantRepository,
       PlaceOrderRepository placeOrderRepository,
       ScrollController scrollController,
-      ZoomDrawerController zoomDrawerController,
       dynamic Function(int)? navCallBack,
       BrandUserDto? profile});
 
@@ -1289,7 +1280,6 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
     Object? shopMerchantRepository = freezed,
     Object? placeOrderRepository = freezed,
     Object? scrollController = freezed,
-    Object? zoomDrawerController = freezed,
     Object? navCallBack = freezed,
     Object? profile = freezed,
   }) {
@@ -1398,10 +1388,6 @@ class __$$_ManageDealsStateCopyWithImpl<$Res>
           ? _value.scrollController
           : scrollController // ignore: cast_nullable_to_non_nullable
               as ScrollController,
-      zoomDrawerController: zoomDrawerController == freezed
-          ? _value.zoomDrawerController
-          : zoomDrawerController // ignore: cast_nullable_to_non_nullable
-              as ZoomDrawerController,
       navCallBack: navCallBack == freezed
           ? _value.navCallBack
           : navCallBack // ignore: cast_nullable_to_non_nullable
@@ -1444,7 +1430,6 @@ class _$_ManageDealsState implements _ManageDealsState {
       required this.shopMerchantRepository,
       required this.placeOrderRepository,
       required this.scrollController,
-      required this.zoomDrawerController,
       required this.navCallBack,
       this.profile})
       : _customerDeals = customerDeals;
@@ -1507,15 +1492,13 @@ class _$_ManageDealsState implements _ManageDealsState {
   @override
   final ScrollController scrollController;
   @override
-  final ZoomDrawerController zoomDrawerController;
-  @override
   final dynamic Function(int)? navCallBack;
   @override
   final BrandUserDto? profile;
 
   @override
   String toString() {
-    return 'ManageDealsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, isShowLatestDealPopup: $isShowLatestDealPopup, serverUrl: $serverUrl, showMessage: $showMessage, hasMoreDocs: $hasMoreDocs, currentPage: $currentPage, totalDeals: $totalDeals, currentDate: $currentDate, appStateNotifier: $appStateNotifier, skip: $skip, todaysDealsCount: $todaysDealsCount, latestDealCount: $latestDealCount, todaysRevenue: $todaysRevenue, searchCustomerName: $searchCustomerName, startDate: $startDate, endDate: $endDate, latestDealTime: $latestDealTime, selectedDateTimeRange: $selectedDateTimeRange, searchCustomerController: $searchCustomerController, customerDeals: $customerDeals, shopMerchantRepository: $shopMerchantRepository, placeOrderRepository: $placeOrderRepository, scrollController: $scrollController, zoomDrawerController: $zoomDrawerController, navCallBack: $navCallBack, profile: $profile)';
+    return 'ManageDealsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, isShowLatestDealPopup: $isShowLatestDealPopup, serverUrl: $serverUrl, showMessage: $showMessage, hasMoreDocs: $hasMoreDocs, currentPage: $currentPage, totalDeals: $totalDeals, currentDate: $currentDate, appStateNotifier: $appStateNotifier, skip: $skip, todaysDealsCount: $todaysDealsCount, latestDealCount: $latestDealCount, todaysRevenue: $todaysRevenue, searchCustomerName: $searchCustomerName, startDate: $startDate, endDate: $endDate, latestDealTime: $latestDealTime, selectedDateTimeRange: $selectedDateTimeRange, searchCustomerController: $searchCustomerController, customerDeals: $customerDeals, shopMerchantRepository: $shopMerchantRepository, placeOrderRepository: $placeOrderRepository, scrollController: $scrollController, navCallBack: $navCallBack, profile: $profile)';
   }
 
   @override
@@ -1568,8 +1551,6 @@ class _$_ManageDealsState implements _ManageDealsState {
                 .equals(other.placeOrderRepository, placeOrderRepository) &&
             const DeepCollectionEquality()
                 .equals(other.scrollController, scrollController) &&
-            const DeepCollectionEquality()
-                .equals(other.zoomDrawerController, zoomDrawerController) &&
             (identical(other.navCallBack, navCallBack) ||
                 other.navCallBack == navCallBack) &&
             const DeepCollectionEquality().equals(other.profile, profile));
@@ -1604,7 +1585,6 @@ class _$_ManageDealsState implements _ManageDealsState {
         const DeepCollectionEquality().hash(shopMerchantRepository),
         const DeepCollectionEquality().hash(placeOrderRepository),
         const DeepCollectionEquality().hash(scrollController),
-        const DeepCollectionEquality().hash(zoomDrawerController),
         navCallBack,
         const DeepCollectionEquality().hash(profile)
       ]);
@@ -1643,7 +1623,6 @@ abstract class _ManageDealsState implements ManageDealsState {
       required final ShopMerchantRepository shopMerchantRepository,
       required final PlaceOrderRepository placeOrderRepository,
       required final ScrollController scrollController,
-      required final ZoomDrawerController zoomDrawerController,
       required final dynamic Function(int)? navCallBack,
       final BrandUserDto? profile}) = _$_ManageDealsState;
 
@@ -1699,8 +1678,6 @@ abstract class _ManageDealsState implements ManageDealsState {
   PlaceOrderRepository get placeOrderRepository;
   @override
   ScrollController get scrollController;
-  @override
-  ZoomDrawerController get zoomDrawerController;
   @override
   dynamic Function(int)? get navCallBack;
   @override
