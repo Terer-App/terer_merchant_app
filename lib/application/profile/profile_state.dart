@@ -11,7 +11,6 @@ class ProfileState with _$ProfileState {
     required String showMessage,
     required AppStateNotifier appStateNotifier,
     required ShopMerchantRepository shopMerchantRepository,
-    required ZoomDrawerController zoomDrawerController,
     required TextEditingController firstNameController,
     required TextEditingController lastNameController,
     required TextEditingController emailController,
@@ -22,12 +21,10 @@ class ProfileState with _$ProfileState {
   factory ProfileState.initial({
     required AppStateNotifier appStateNotifier,
     required String serverUrl,
-    required ZoomDrawerController zoomDrawerController,
   }) {
     return ProfileState(
       appStateNotifier: appStateNotifier,
       profile: appStateNotifier.profile,
-      zoomDrawerController: zoomDrawerController,
       isLoading: true,
       isFailed: false,
       isSuccess: false,

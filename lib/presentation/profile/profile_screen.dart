@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
@@ -25,9 +26,7 @@ import '../core/custom_alert.dart';
 import '../core/custom_rounded_textfield.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final ZoomDrawerController zoomDrawerController;
-
-  const ProfileScreen({super.key, required this.zoomDrawerController});
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,6 @@ class ProfileScreen extends StatelessWidget {
         Provider.of<AppStateNotifier>(context);
     return BlocProvider(
       create: (context) => ProfileBloc(ProfileState.initial(
-        zoomDrawerController: zoomDrawerController,
         appStateNotifier: appStateNotifier,
         serverUrl: serverUrl,
       ))
@@ -112,11 +110,7 @@ class ProfileConsumer extends StatelessWidget {
               centerTitle: true,
               leading: IconButton(
                 onPressed: () async {
-                  if (state.zoomDrawerController.isOpen!()) {
-                    state.zoomDrawerController.close!();
-                  } else {
-                    state.zoomDrawerController.open!();
-                  }
+                  ZoomDrawer.of(context)!.toggle();
                 },
                 icon: SvgPicture.asset(
                   AssetConstants.burgerSvg,
@@ -187,7 +181,12 @@ class ProfileConsumer extends StatelessWidget {
                             CustomRoundedInput(
                               isTitle: true,
                               enabled: false,
-                              controller: TextEditingController(text: state.profile?.role.split('_').join(' ').toLowerCase().capitalizeCamel),
+                              controller: TextEditingController(
+                                  text: state.profile?.role
+                                      .split('_')
+                                      .join(' ')
+                                      .toLowerCase()
+                                      .capitalizeCamel),
                               titleText: MyProfileConstants.access,
                               contentPadding: EdgeInsets.symmetric(
                                   horizontal: 4.w, vertical: 4.w),

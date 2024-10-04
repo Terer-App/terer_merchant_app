@@ -65,19 +65,16 @@ class HomeScreenConsumer extends StatelessWidget {
                     },
                     child: state.currentPage == 0
                         ? ManageDealsScreen(
-                          navCallBack: (index){
-                            context.read<HomeScreenBloc>().add(HomeScreenEvent.changePage(currentPage: index));
-                          },
-                            zoomDrawerController: zoomDrawerController,
+                            navCallBack: (index) {
+                              context.read<HomeScreenBloc>().add(
+                                  HomeScreenEvent.changePage(
+                                      currentPage: index));
+                            },
                           )
                         : state.currentPage == 1
-                            ? ScanScreen(
-                                zoomDrawerController: zoomDrawerController,
-                              ) :
-                             state.currentPage == 2
-                                ? ProfileScreen(
-                                    zoomDrawerController: zoomDrawerController,
-                                  )
+                            ? ScanScreen()
+                            : state.currentPage == 2
+                                ? const ProfileScreen()
                                 : Container(),
                   ),
                   bottomNavigationBar: const CustomNavbar(),
