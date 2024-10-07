@@ -363,7 +363,7 @@ class CustomerPurchaseDealDetailsConsumer extends StatelessWidget {
                                                                   .isRedeemed
                                                               ? redemptionData
                                                                       .isVerified
-                                                                  ? 'Verified${redemptionData.outletDetails != null ? ' by: [${redemptionData.outletDetails!.name}]' : ''}'
+                                                                  ? 'Verified${redemptionData.outletDetails != null ? ': [${redemptionData.outletDetails!.name}]' : ''}'
                                                                   : 'Not Verified'
                                                               : 'Not Redeem',
                                                       overflow:
