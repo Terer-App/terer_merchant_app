@@ -596,8 +596,6 @@ mixin _$ProfileState {
   AppStateNotifier get appStateNotifier => throw _privateConstructorUsedError;
   ShopMerchantRepository get shopMerchantRepository =>
       throw _privateConstructorUsedError;
-  ZoomDrawerController get zoomDrawerController =>
-      throw _privateConstructorUsedError;
   TextEditingController get firstNameController =>
       throw _privateConstructorUsedError;
   TextEditingController get lastNameController =>
@@ -627,7 +625,6 @@ abstract class $ProfileStateCopyWith<$Res> {
       String showMessage,
       AppStateNotifier appStateNotifier,
       ShopMerchantRepository shopMerchantRepository,
-      ZoomDrawerController zoomDrawerController,
       TextEditingController firstNameController,
       TextEditingController lastNameController,
       TextEditingController emailController,
@@ -655,7 +652,6 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
     Object? showMessage = freezed,
     Object? appStateNotifier = freezed,
     Object? shopMerchantRepository = freezed,
-    Object? zoomDrawerController = freezed,
     Object? firstNameController = freezed,
     Object? lastNameController = freezed,
     Object? emailController = freezed,
@@ -695,10 +691,6 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
               as ShopMerchantRepository,
-      zoomDrawerController: zoomDrawerController == freezed
-          ? _value.zoomDrawerController
-          : zoomDrawerController // ignore: cast_nullable_to_non_nullable
-              as ZoomDrawerController,
       firstNameController: firstNameController == freezed
           ? _value.firstNameController
           : firstNameController // ignore: cast_nullable_to_non_nullable
@@ -750,7 +742,6 @@ abstract class _$$_ProfileStateCopyWith<$Res>
       String showMessage,
       AppStateNotifier appStateNotifier,
       ShopMerchantRepository shopMerchantRepository,
-      ZoomDrawerController zoomDrawerController,
       TextEditingController firstNameController,
       TextEditingController lastNameController,
       TextEditingController emailController,
@@ -782,7 +773,6 @@ class __$$_ProfileStateCopyWithImpl<$Res>
     Object? showMessage = freezed,
     Object? appStateNotifier = freezed,
     Object? shopMerchantRepository = freezed,
-    Object? zoomDrawerController = freezed,
     Object? firstNameController = freezed,
     Object? lastNameController = freezed,
     Object? emailController = freezed,
@@ -822,10 +812,6 @@ class __$$_ProfileStateCopyWithImpl<$Res>
           ? _value.shopMerchantRepository
           : shopMerchantRepository // ignore: cast_nullable_to_non_nullable
               as ShopMerchantRepository,
-      zoomDrawerController: zoomDrawerController == freezed
-          ? _value.zoomDrawerController
-          : zoomDrawerController // ignore: cast_nullable_to_non_nullable
-              as ZoomDrawerController,
       firstNameController: firstNameController == freezed
           ? _value.firstNameController
           : firstNameController // ignore: cast_nullable_to_non_nullable
@@ -862,7 +848,6 @@ class _$_ProfileState implements _ProfileState {
       required this.showMessage,
       required this.appStateNotifier,
       required this.shopMerchantRepository,
-      required this.zoomDrawerController,
       required this.firstNameController,
       required this.lastNameController,
       required this.emailController,
@@ -886,8 +871,6 @@ class _$_ProfileState implements _ProfileState {
   @override
   final ShopMerchantRepository shopMerchantRepository;
   @override
-  final ZoomDrawerController zoomDrawerController;
-  @override
   final TextEditingController firstNameController;
   @override
   final TextEditingController lastNameController;
@@ -900,7 +883,7 @@ class _$_ProfileState implements _ProfileState {
 
   @override
   String toString() {
-    return 'ProfileState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, zoomDrawerController: $zoomDrawerController, firstNameController: $firstNameController, lastNameController: $lastNameController, emailController: $emailController, brandNameController: $brandNameController, profile: $profile)';
+    return 'ProfileState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, isAccountDeleted: $isAccountDeleted, serverUrl: $serverUrl, showMessage: $showMessage, appStateNotifier: $appStateNotifier, shopMerchantRepository: $shopMerchantRepository, firstNameController: $firstNameController, lastNameController: $lastNameController, emailController: $emailController, brandNameController: $brandNameController, profile: $profile)';
   }
 
   @override
@@ -920,8 +903,6 @@ class _$_ProfileState implements _ProfileState {
                 .equals(other.appStateNotifier, appStateNotifier) &&
             const DeepCollectionEquality()
                 .equals(other.shopMerchantRepository, shopMerchantRepository) &&
-            const DeepCollectionEquality()
-                .equals(other.zoomDrawerController, zoomDrawerController) &&
             const DeepCollectionEquality()
                 .equals(other.firstNameController, firstNameController) &&
             const DeepCollectionEquality()
@@ -944,7 +925,6 @@ class _$_ProfileState implements _ProfileState {
       const DeepCollectionEquality().hash(showMessage),
       const DeepCollectionEquality().hash(appStateNotifier),
       const DeepCollectionEquality().hash(shopMerchantRepository),
-      const DeepCollectionEquality().hash(zoomDrawerController),
       const DeepCollectionEquality().hash(firstNameController),
       const DeepCollectionEquality().hash(lastNameController),
       const DeepCollectionEquality().hash(emailController),
@@ -967,7 +947,6 @@ abstract class _ProfileState implements ProfileState {
       required final String showMessage,
       required final AppStateNotifier appStateNotifier,
       required final ShopMerchantRepository shopMerchantRepository,
-      required final ZoomDrawerController zoomDrawerController,
       required final TextEditingController firstNameController,
       required final TextEditingController lastNameController,
       required final TextEditingController emailController,
@@ -990,8 +969,6 @@ abstract class _ProfileState implements ProfileState {
   AppStateNotifier get appStateNotifier;
   @override
   ShopMerchantRepository get shopMerchantRepository;
-  @override
-  ZoomDrawerController get zoomDrawerController;
   @override
   TextEditingController get firstNameController;
   @override
