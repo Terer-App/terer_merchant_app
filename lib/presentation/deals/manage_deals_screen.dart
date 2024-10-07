@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:provider/provider.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:sizer/sizer.dart';
@@ -19,11 +20,9 @@ import '../core/custom_button.dart';
 
 class ManageDealsScreen extends StatelessWidget {
   final Function(int moveTo)? navCallBack;
-  final ZoomDrawerController zoomDrawerController;
 
   const ManageDealsScreen({
     super.key,
-    required this.zoomDrawerController,
     required this.navCallBack,
   });
 
@@ -40,7 +39,6 @@ class ManageDealsScreen extends StatelessWidget {
         navCallBack: navCallBack,
         serverUrl: serverUrl,
         apiUrl: apiUrl,
-        zoomDrawerController: zoomDrawerController,
       ))
         ..add(const ManageDealsEvent.init()),
       child: const ManageDealsConsumer(),
@@ -87,14 +85,7 @@ class ManageDealsConsumer extends StatelessWidget {
                                             top: 6.h, left: 4.w),
                                         child: IconButton(
                                           onPressed: () async {
-                                            if (state.zoomDrawerController
-                                                .isOpen!()) {
-                                              state.zoomDrawerController
-                                                  .close!();
-                                            } else {
-                                              state
-                                                  .zoomDrawerController.open!();
-                                            }
+                                            ZoomDrawer.of(context)!.toggle();
                                           },
                                           icon: SvgPicture.asset(
                                             AssetConstants.burgerSvg,
@@ -306,12 +297,12 @@ class ManageDealsConsumer extends StatelessWidget {
                         alignment: Alignment.center,
                         width: 100.w,
                         padding: EdgeInsets.only(bottom: 2.h),
-                        child:    Localizations.override(
-                        context: context,
-                        locale:  const Locale('en', 'Custom'),
-                        delegates: const [
-                             CustomMaterialLocalizationsDelegate('dd/MM/yyyy'),
-                        ],
+                        child: Localizations.override(
+                          context: context,
+                          locale: const Locale('en', 'Custom'),
+                          delegates: const [
+                            CustomMaterialLocalizationsDelegate('dd/MM/yyyy'),
+                          ],
                           child: GestureDetector(
                             onTap: () {
                               showDateRangePicker(
@@ -320,7 +311,8 @@ class ManageDealsConsumer extends StatelessWidget {
                                 builder: (context, child) {
                                   return Theme(
                                     data: Theme.of(context).copyWith(
-                                      inputDecorationTheme: InputDecorationTheme(
+                                      inputDecorationTheme:
+                                          InputDecorationTheme(
                                         labelStyle: Theme.of(context)
                                             .textTheme
                                             .bodySmall!

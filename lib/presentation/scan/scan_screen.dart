@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_zoom_drawer/config.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -26,10 +27,7 @@ import '../core/custom_alert.dart';
 import 'widgets/select_outlet.dart';
 
 class ScanScreen extends StatefulWidget {
-  final ZoomDrawerController zoomDrawerController;
-
-  const ScanScreen({Key? key, required this.zoomDrawerController})
-      : super(key: key);
+  const ScanScreen({Key? key}) : super(key: key);
 
   @override
   State<ScanScreen> createState() => _ScanScreenState();
@@ -317,11 +315,7 @@ class _ScanScreenState extends State<ScanScreen> {
         centerTitle: true,
         leading: IconButton(
           onPressed: () async {
-            if (widget.zoomDrawerController.isOpen!()) {
-              widget.zoomDrawerController.close!();
-            } else {
-              widget.zoomDrawerController.open!();
-            }
+            ZoomDrawer.of(context)!.toggle();
           },
           icon: SvgPicture.asset(
             AssetConstants.burgerSvg,

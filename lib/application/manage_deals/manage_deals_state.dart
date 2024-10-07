@@ -29,7 +29,6 @@ class ManageDealsState with _$ManageDealsState {
     required ShopMerchantRepository shopMerchantRepository,
     required PlaceOrderRepository placeOrderRepository,
     required ScrollController scrollController,
-    required ZoomDrawerController zoomDrawerController,
     required Function(int moveTo)? navCallBack,
     BrandUserDto? profile,
   }) = _ManageDealsState;
@@ -39,7 +38,6 @@ class ManageDealsState with _$ManageDealsState {
     required String serverUrl,
     required String apiUrl,
     required Function(int moveTo)? navCallBack,
-    required ZoomDrawerController zoomDrawerController,
   }) {
     return ManageDealsState(
       currentDate: DateTime.now(),
@@ -59,7 +57,6 @@ class ManageDealsState with _$ManageDealsState {
       placeOrderRepository:
           IPlaceOrderRepository(apiUrl: apiUrl, serverUrl: serverUrl),
       appStateNotifier: appStateNotifier,
-      zoomDrawerController: zoomDrawerController,
       scrollController: ScrollController(),
       searchCustomerController: TextEditingController(),
       isLoading: true,
