@@ -19,6 +19,8 @@ class BroughtDealDto with _$BroughtDealDto {
     const factory BroughtDealDto({
         @JsonKey(name: "shopifyOrderId")
         required String shopifyOrderId,
+        @JsonKey(name: "invoiceNumber")
+        required String invoiceNumber,
         @JsonKey(name: "userId")
         required String userId,
         @JsonKey(name: "customerName")
