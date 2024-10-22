@@ -34,6 +34,8 @@ mixin _$BroughtDealDto {
   String get dealName => throw _privateConstructorUsedError;
   @JsonKey(name: "dealPrice")
   double? get dealPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: "dealQuantity")
+  int? get dealQuantity => throw _privateConstructorUsedError;
   @JsonKey(name: "datePurchase")
   DateTime get datePurchase => throw _privateConstructorUsedError;
   @JsonKey(name: "dateExpired")
@@ -70,6 +72,7 @@ abstract class $BroughtDealDtoCopyWith<$Res> {
       @JsonKey(name: "dealId") String dealId,
       @JsonKey(name: "dealName") String dealName,
       @JsonKey(name: "dealPrice") double? dealPrice,
+      @JsonKey(name: "dealQuantity") int? dealQuantity,
       @JsonKey(name: "datePurchase") DateTime datePurchase,
       @JsonKey(name: "dateExpired") DateTime dateExpired,
       @JsonKey(name: "noOfCoupons") int noOfCoupons,
@@ -98,6 +101,7 @@ class _$BroughtDealDtoCopyWithImpl<$Res>
     Object? dealId = freezed,
     Object? dealName = freezed,
     Object? dealPrice = freezed,
+    Object? dealQuantity = freezed,
     Object? datePurchase = freezed,
     Object? dateExpired = freezed,
     Object? noOfCoupons = freezed,
@@ -136,6 +140,10 @@ class _$BroughtDealDtoCopyWithImpl<$Res>
           ? _value.dealPrice
           : dealPrice // ignore: cast_nullable_to_non_nullable
               as double?,
+      dealQuantity: dealQuantity == freezed
+          ? _value.dealQuantity
+          : dealQuantity // ignore: cast_nullable_to_non_nullable
+              as int?,
       datePurchase: datePurchase == freezed
           ? _value.datePurchase
           : datePurchase // ignore: cast_nullable_to_non_nullable
@@ -187,6 +195,7 @@ abstract class _$$_BroughtDealDtoCopyWith<$Res>
       @JsonKey(name: "dealId") String dealId,
       @JsonKey(name: "dealName") String dealName,
       @JsonKey(name: "dealPrice") double? dealPrice,
+      @JsonKey(name: "dealQuantity") int? dealQuantity,
       @JsonKey(name: "datePurchase") DateTime datePurchase,
       @JsonKey(name: "dateExpired") DateTime dateExpired,
       @JsonKey(name: "noOfCoupons") int noOfCoupons,
@@ -217,6 +226,7 @@ class __$$_BroughtDealDtoCopyWithImpl<$Res>
     Object? dealId = freezed,
     Object? dealName = freezed,
     Object? dealPrice = freezed,
+    Object? dealQuantity = freezed,
     Object? datePurchase = freezed,
     Object? dateExpired = freezed,
     Object? noOfCoupons = freezed,
@@ -255,6 +265,10 @@ class __$$_BroughtDealDtoCopyWithImpl<$Res>
           ? _value.dealPrice
           : dealPrice // ignore: cast_nullable_to_non_nullable
               as double?,
+      dealQuantity: dealQuantity == freezed
+          ? _value.dealQuantity
+          : dealQuantity // ignore: cast_nullable_to_non_nullable
+              as int?,
       datePurchase: datePurchase == freezed
           ? _value.datePurchase
           : datePurchase // ignore: cast_nullable_to_non_nullable
@@ -302,6 +316,7 @@ class _$_BroughtDealDto implements _BroughtDealDto {
       @JsonKey(name: "dealId") required this.dealId,
       @JsonKey(name: "dealName") required this.dealName,
       @JsonKey(name: "dealPrice") required this.dealPrice,
+      @JsonKey(name: "dealQuantity") required this.dealQuantity,
       @JsonKey(name: "datePurchase") required this.datePurchase,
       @JsonKey(name: "dateExpired") required this.dateExpired,
       @JsonKey(name: "noOfCoupons") required this.noOfCoupons,
@@ -336,6 +351,9 @@ class _$_BroughtDealDto implements _BroughtDealDto {
   @JsonKey(name: "dealPrice")
   final double? dealPrice;
   @override
+  @JsonKey(name: "dealQuantity")
+  final int? dealQuantity;
+  @override
   @JsonKey(name: "datePurchase")
   final DateTime datePurchase;
   @override
@@ -362,7 +380,7 @@ class _$_BroughtDealDto implements _BroughtDealDto {
 
   @override
   String toString() {
-    return 'BroughtDealDto(shopifyOrderId: $shopifyOrderId, invoiceNumber: $invoiceNumber, userId: $userId, customerName: $customerName, dealId: $dealId, dealName: $dealName, dealPrice: $dealPrice, datePurchase: $datePurchase, dateExpired: $dateExpired, noOfCoupons: $noOfCoupons, noOfCouponsRedeemed: $noOfCouponsRedeemed, giftedCount: $giftedCount, isGifted: $isGifted, isPaid: $isPaid, lastRedeemedAt: $lastRedeemedAt)';
+    return 'BroughtDealDto(shopifyOrderId: $shopifyOrderId, invoiceNumber: $invoiceNumber, userId: $userId, customerName: $customerName, dealId: $dealId, dealName: $dealName, dealPrice: $dealPrice, dealQuantity: $dealQuantity, datePurchase: $datePurchase, dateExpired: $dateExpired, noOfCoupons: $noOfCoupons, noOfCouponsRedeemed: $noOfCouponsRedeemed, giftedCount: $giftedCount, isGifted: $isGifted, isPaid: $isPaid, lastRedeemedAt: $lastRedeemedAt)';
   }
 
   @override
@@ -380,6 +398,8 @@ class _$_BroughtDealDto implements _BroughtDealDto {
             const DeepCollectionEquality().equals(other.dealId, dealId) &&
             const DeepCollectionEquality().equals(other.dealName, dealName) &&
             const DeepCollectionEquality().equals(other.dealPrice, dealPrice) &&
+            const DeepCollectionEquality()
+                .equals(other.dealQuantity, dealQuantity) &&
             const DeepCollectionEquality()
                 .equals(other.datePurchase, datePurchase) &&
             const DeepCollectionEquality()
@@ -407,6 +427,7 @@ class _$_BroughtDealDto implements _BroughtDealDto {
       const DeepCollectionEquality().hash(dealId),
       const DeepCollectionEquality().hash(dealName),
       const DeepCollectionEquality().hash(dealPrice),
+      const DeepCollectionEquality().hash(dealQuantity),
       const DeepCollectionEquality().hash(datePurchase),
       const DeepCollectionEquality().hash(dateExpired),
       const DeepCollectionEquality().hash(noOfCoupons),
@@ -445,6 +466,8 @@ abstract class _BroughtDealDto implements BroughtDealDto {
           required final String dealName,
       @JsonKey(name: "dealPrice")
           required final double? dealPrice,
+      @JsonKey(name: "dealQuantity")
+          required final int? dealQuantity,
       @JsonKey(name: "datePurchase")
           required final DateTime datePurchase,
       @JsonKey(name: "dateExpired")
@@ -486,6 +509,9 @@ abstract class _BroughtDealDto implements BroughtDealDto {
   @override
   @JsonKey(name: "dealPrice")
   double? get dealPrice;
+  @override
+  @JsonKey(name: "dealQuantity")
+  int? get dealQuantity;
   @override
   @JsonKey(name: "datePurchase")
   DateTime get datePurchase;

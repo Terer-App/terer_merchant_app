@@ -299,7 +299,7 @@ class PayoutListingConsumer extends StatelessWidget {
                                             ),
                                           ),
                                           Text(
-                                            'RM${deal.dealPrice}',
+                                            'RM${(deal.dealPrice ?? 0) * (deal.dealQuantity ?? 1)}',
                                             style: Theme.of(context)
                                                 .textTheme
                                                 .bodySmall!
@@ -320,10 +320,10 @@ class PayoutListingConsumer extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                           Container(
+                                          Container(
                                             decoration: BoxDecoration(
                                               color: Theme.of(context)
-                                                      .primaryColor,
+                                                  .primaryColor,
                                               borderRadius:
                                                   BorderRadius.circular(2.w),
                                             ),
@@ -331,7 +331,9 @@ class PayoutListingConsumer extends StatelessWidget {
                                               horizontal: 3.w,
                                             ),
                                             child: Text(
-                                              deal.invoiceNumber.isEmpty?deal.shopifyOrderId: '${deal.invoiceNumber} (${deal.shopifyOrderId})',
+                                              deal.invoiceNumber.isEmpty
+                                                  ? deal.shopifyOrderId
+                                                  : '${deal.invoiceNumber} (${deal.shopifyOrderId})',
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .bodySmall!
@@ -340,7 +342,8 @@ class PayoutListingConsumer extends StatelessWidget {
                                                         .scaffoldBackgroundColor,
                                                     fontWeight: FontWeight.w500,
                                                   ),
-                                            ),),
+                                            ),
+                                          ),
                                           const SizedBox(),
                                           Container(
                                             decoration: BoxDecoration(
