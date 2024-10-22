@@ -22,6 +22,8 @@ BroughtDealDto _$BroughtDealDtoFromJson(Map<String, dynamic> json) {
 mixin _$BroughtDealDto {
   @JsonKey(name: "shopifyOrderId")
   String get shopifyOrderId => throw _privateConstructorUsedError;
+  @JsonKey(name: "invoiceNumber")
+  String get invoiceNumber => throw _privateConstructorUsedError;
   @JsonKey(name: "userId")
   String get userId => throw _privateConstructorUsedError;
   @JsonKey(name: "customerName")
@@ -62,6 +64,7 @@ abstract class $BroughtDealDtoCopyWith<$Res> {
       _$BroughtDealDtoCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: "shopifyOrderId") String shopifyOrderId,
+      @JsonKey(name: "invoiceNumber") String invoiceNumber,
       @JsonKey(name: "userId") String userId,
       @JsonKey(name: "customerName") String customerName,
       @JsonKey(name: "dealId") String dealId,
@@ -89,6 +92,7 @@ class _$BroughtDealDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? shopifyOrderId = freezed,
+    Object? invoiceNumber = freezed,
     Object? userId = freezed,
     Object? customerName = freezed,
     Object? dealId = freezed,
@@ -107,6 +111,10 @@ class _$BroughtDealDtoCopyWithImpl<$Res>
       shopifyOrderId: shopifyOrderId == freezed
           ? _value.shopifyOrderId
           : shopifyOrderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      invoiceNumber: invoiceNumber == freezed
+          ? _value.invoiceNumber
+          : invoiceNumber // ignore: cast_nullable_to_non_nullable
               as String,
       userId: userId == freezed
           ? _value.userId
@@ -173,6 +181,7 @@ abstract class _$$_BroughtDealDtoCopyWith<$Res>
   @override
   $Res call(
       {@JsonKey(name: "shopifyOrderId") String shopifyOrderId,
+      @JsonKey(name: "invoiceNumber") String invoiceNumber,
       @JsonKey(name: "userId") String userId,
       @JsonKey(name: "customerName") String customerName,
       @JsonKey(name: "dealId") String dealId,
@@ -202,6 +211,7 @@ class __$$_BroughtDealDtoCopyWithImpl<$Res>
   @override
   $Res call({
     Object? shopifyOrderId = freezed,
+    Object? invoiceNumber = freezed,
     Object? userId = freezed,
     Object? customerName = freezed,
     Object? dealId = freezed,
@@ -220,6 +230,10 @@ class __$$_BroughtDealDtoCopyWithImpl<$Res>
       shopifyOrderId: shopifyOrderId == freezed
           ? _value.shopifyOrderId
           : shopifyOrderId // ignore: cast_nullable_to_non_nullable
+              as String,
+      invoiceNumber: invoiceNumber == freezed
+          ? _value.invoiceNumber
+          : invoiceNumber // ignore: cast_nullable_to_non_nullable
               as String,
       userId: userId == freezed
           ? _value.userId
@@ -282,6 +296,7 @@ class __$$_BroughtDealDtoCopyWithImpl<$Res>
 class _$_BroughtDealDto implements _BroughtDealDto {
   const _$_BroughtDealDto(
       {@JsonKey(name: "shopifyOrderId") required this.shopifyOrderId,
+      @JsonKey(name: "invoiceNumber") required this.invoiceNumber,
       @JsonKey(name: "userId") required this.userId,
       @JsonKey(name: "customerName") required this.customerName,
       @JsonKey(name: "dealId") required this.dealId,
@@ -302,6 +317,9 @@ class _$_BroughtDealDto implements _BroughtDealDto {
   @override
   @JsonKey(name: "shopifyOrderId")
   final String shopifyOrderId;
+  @override
+  @JsonKey(name: "invoiceNumber")
+  final String invoiceNumber;
   @override
   @JsonKey(name: "userId")
   final String userId;
@@ -344,7 +362,7 @@ class _$_BroughtDealDto implements _BroughtDealDto {
 
   @override
   String toString() {
-    return 'BroughtDealDto(shopifyOrderId: $shopifyOrderId, userId: $userId, customerName: $customerName, dealId: $dealId, dealName: $dealName, dealPrice: $dealPrice, datePurchase: $datePurchase, dateExpired: $dateExpired, noOfCoupons: $noOfCoupons, noOfCouponsRedeemed: $noOfCouponsRedeemed, giftedCount: $giftedCount, isGifted: $isGifted, isPaid: $isPaid, lastRedeemedAt: $lastRedeemedAt)';
+    return 'BroughtDealDto(shopifyOrderId: $shopifyOrderId, invoiceNumber: $invoiceNumber, userId: $userId, customerName: $customerName, dealId: $dealId, dealName: $dealName, dealPrice: $dealPrice, datePurchase: $datePurchase, dateExpired: $dateExpired, noOfCoupons: $noOfCoupons, noOfCouponsRedeemed: $noOfCouponsRedeemed, giftedCount: $giftedCount, isGifted: $isGifted, isPaid: $isPaid, lastRedeemedAt: $lastRedeemedAt)';
   }
 
   @override
@@ -354,6 +372,8 @@ class _$_BroughtDealDto implements _BroughtDealDto {
             other is _$_BroughtDealDto &&
             const DeepCollectionEquality()
                 .equals(other.shopifyOrderId, shopifyOrderId) &&
+            const DeepCollectionEquality()
+                .equals(other.invoiceNumber, invoiceNumber) &&
             const DeepCollectionEquality().equals(other.userId, userId) &&
             const DeepCollectionEquality()
                 .equals(other.customerName, customerName) &&
@@ -381,6 +401,7 @@ class _$_BroughtDealDto implements _BroughtDealDto {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(shopifyOrderId),
+      const DeepCollectionEquality().hash(invoiceNumber),
       const DeepCollectionEquality().hash(userId),
       const DeepCollectionEquality().hash(customerName),
       const DeepCollectionEquality().hash(dealId),
@@ -412,6 +433,8 @@ abstract class _BroughtDealDto implements BroughtDealDto {
   const factory _BroughtDealDto(
       {@JsonKey(name: "shopifyOrderId")
           required final String shopifyOrderId,
+      @JsonKey(name: "invoiceNumber")
+          required final String invoiceNumber,
       @JsonKey(name: "userId")
           required final String userId,
       @JsonKey(name: "customerName")
@@ -445,6 +468,9 @@ abstract class _BroughtDealDto implements BroughtDealDto {
   @override
   @JsonKey(name: "shopifyOrderId")
   String get shopifyOrderId;
+  @override
+  @JsonKey(name: "invoiceNumber")
+  String get invoiceNumber;
   @override
   @JsonKey(name: "userId")
   String get userId;

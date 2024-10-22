@@ -320,6 +320,27 @@ class PayoutListingConsumer extends StatelessWidget {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
+                                           Container(
+                                            decoration: BoxDecoration(
+                                              color: Theme.of(context)
+                                                      .primaryColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(2.w),
+                                            ),
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 3.w,
+                                            ),
+                                            child: Text(
+                                              deal.invoiceNumber.isEmpty?deal.shopifyOrderId: '${deal.invoiceNumber} (${deal.shopifyOrderId})',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall!
+                                                  .copyWith(
+                                                    color: Theme.of(context)
+                                                        .scaffoldBackgroundColor,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),),
                                           const SizedBox(),
                                           Container(
                                             decoration: BoxDecoration(

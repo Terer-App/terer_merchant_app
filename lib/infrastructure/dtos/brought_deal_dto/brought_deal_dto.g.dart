@@ -9,6 +9,7 @@ part of 'brought_deal_dto.dart';
 _$_BroughtDealDto _$$_BroughtDealDtoFromJson(Map<String, dynamic> json) =>
     _$_BroughtDealDto(
       shopifyOrderId: json['shopifyOrderId'] as String,
+      invoiceNumber: json['invoiceNumber'] as String,
       userId: json['userId'] as String,
       customerName: json['customerName'] as String,
       dealId: json['dealId'] as String,
@@ -27,6 +28,7 @@ _$_BroughtDealDto _$$_BroughtDealDtoFromJson(Map<String, dynamic> json) =>
 Map<String, dynamic> _$$_BroughtDealDtoToJson(_$_BroughtDealDto instance) =>
     <String, dynamic>{
       'shopifyOrderId': instance.shopifyOrderId,
+      'invoiceNumber': instance.invoiceNumber,
       'userId': instance.userId,
       'customerName': instance.customerName,
       'dealId': instance.dealId,
