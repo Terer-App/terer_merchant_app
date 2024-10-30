@@ -171,7 +171,7 @@ class LiveDealsListingConsumer extends StatelessWidget {
                                                 //   ),
                                                 // ),
                                                 Text(
-                                                  'MYR ${product.priceRange.maxVariantPrice.amount}',
+                                                  'MYR ${product.priceRange.minVariantPrice.amount}',
                                                   style: Theme.of(context)
                                                       .textTheme
                                                       .bodySmall!
@@ -185,7 +185,7 @@ class LiveDealsListingConsumer extends StatelessWidget {
                                                       ),
                                                 ),
                                                 Text(
-                                                  'MYR ${product.compareAtPriceRange.maxVariantPrice.amount}',
+                                                  'MYR ${product.compareAtPriceRange.minVariantPrice.amount}',
                                                   style: Theme.of(context)
                                                       .textTheme
                                                       .bodySmall!

@@ -6,12 +6,12 @@ part 'max_variant_price_dto.freezed.dart';
 part 'max_variant_price_dto.g.dart';
 
 @freezed
-class MaxVariantPriceDto with _$MaxVariantPriceDto {
-  const factory MaxVariantPriceDto({
+class MinVariantPriceDto with _$MinVariantPriceDto {
+  const factory MinVariantPriceDto({
     @JsonKey(name: 'amount') required String amount,
     @JsonKey(name: 'currencyCode') required String currencyCode,
-  }) = _MaxVariantPriceDto;
+  }) = _MinVariantPriceDto;
 
-  factory MaxVariantPriceDto.fromJson(Map<String, dynamic> json) =>
-      _$MaxVariantPriceDtoFromJson(json);
+  factory MinVariantPriceDto.fromJson(Map<String, dynamic> json) =>
+      _$MinVariantPriceDtoFromJson(json);
 }

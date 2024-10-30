@@ -191,20 +191,20 @@ class CartScreenConsumer extends StatelessWidget {
                                 currencyCode: state
                                     .addedProducts[index]
                                     .compareAtPriceRange
-                                    .maxVariantPrice
+                                    .minVariantPrice
                                     .currencyCode,
                                 actualPrice: calculatePrice(
                                     state
                                         .addedProducts[index]
                                         .compareAtPriceRange
-                                        .maxVariantPrice
+                                        .minVariantPrice
                                         .amount,
                                     state.addedProducts[index].quantity),
                                 assetImage: state
                                     .addedProducts[index].featuredImage.url,
                                 discountedPrice: calculatePrice(
                                     state.addedProducts[index].priceRange
-                                        .maxVariantPrice.amount,
+                                        .minVariantPrice.amount,
                                     state.addedProducts[index].quantity),
                                 quantity: state.addedProducts[index].quantity,
                                 showAdd: false,

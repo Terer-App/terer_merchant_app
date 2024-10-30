@@ -31,8 +31,8 @@ class ShopProductDto with _$ShopProductDto {
     @JsonKey(name: 'images', defaultValue: []) required List<String> images,
     @JsonKey(name: 'featuredImage', defaultValue: '')
         required String featuredImage,
-    @JsonKey(name: 'priceRange') required MaxVariantPriceDto priceRange,
-    @JsonKey(name: 'compareAtPriceRange') required MaxVariantPriceDto compareAtPriceRange,
+    @JsonKey(name: 'priceRange') required MinVariantPriceDto priceRange,
+    @JsonKey(name: 'compareAtPriceRange') required MinVariantPriceDto compareAtPriceRange,
   }) = _ShopProductDto;
 
   factory ShopProductDto.fromJson(Map<String, dynamic> json) =>
@@ -60,9 +60,9 @@ extension ShopProductDtoExtension on ShopProductDto {
       'sellerAddress': (rawData['sellerAddress'] ?? {})['value'],
       'sellerPhone': (rawData['sellerPhone'] ?? {})['value'],
       'featuredImage': (rawData['featuredImage'] ?? {})['url'],
-      'priceRange': (rawData['priceRange'] ?? {})['maxVariantPrice'],
+      'priceRange': (rawData['priceRange'] ?? {})['minVariantPrice'],
       'compareAtPriceRange':
-          (rawData['compareAtPriceRange'] ?? {})['maxVariantPrice'],
+          (rawData['compareAtPriceRange'] ?? {})['minVariantPrice'],
       'redemDuration': (rawData['redemDuration'] ?? {})['value'],
       'hours': (rawData['hours'] ?? {})['value'],
       'images': images
@@ -84,9 +84,9 @@ extension ShopProductDtoExtension on ShopProductDto {
       'sellerAddress': (rawData['sellerAddress'] ?? {})['value'],
       'sellerPhone': (rawData['sellerPhone'] ?? {})['value'],
       'featuredImage': (rawData['featuredImage'] ?? {})['url'],
-      'priceRange': (rawData['priceRange'] ?? {})['maxVariantPrice'],
+      'priceRange': (rawData['priceRange'] ?? {})['minVariantPrice'],
       'compareAtPriceRange':
-          (rawData['compareAtPriceRange'] ?? {})['maxVariantPrice'],
+          (rawData['compareAtPriceRange'] ?? {})['minVariantPrice'],
       'hours': (rawData['hours'] ?? {})['value'],
       'images': []
     };
