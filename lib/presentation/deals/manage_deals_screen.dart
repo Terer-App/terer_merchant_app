@@ -183,14 +183,14 @@ class ManageDealsConsumer extends StatelessWidget {
                                     .navigateTo(CoreRoutes.payoutListingRoute);
                               },
                             ),
-                            CustomCard(
-                              image: AssetConstants.balance,
-                              title: DealsConstants.createOrder,
-                              onClick: () {
-                                navigator<NavigationService>()
-                                    .navigateTo(CoreRoutes.createOrderRoute);
-                              },
-                            ),
+                            // CustomCard(
+                            //   image: AssetConstants.balance,
+                            //   title: DealsConstants.createOrder,
+                            //   onClick: () {
+                            //     navigator<NavigationService>()
+                            //         .navigateTo(CoreRoutes.createOrderRoute);
+                            //   },
+                            // ),
                           ],
                         ),
                       ),

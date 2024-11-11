@@ -235,14 +235,14 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                                             currencyCode: state
                                                 .searchedOutletProducts[index]
                                                 .compareAtPriceRange
-                                                .maxVariantPrice
+                                                .minVariantPrice
                                                 .currencyCode,
                                             actualPrice: calculatePrice(
                                                 state
                                                     .searchedOutletProducts[
                                                         index]
                                                     .compareAtPriceRange
-                                                    .maxVariantPrice
+                                                    .minVariantPrice
                                                     .amount,
                                                 state
                                                     .searchedOutletProducts[
@@ -257,7 +257,7 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                                                     .searchedOutletProducts[
                                                         index]
                                                     .priceRange
-                                                    .maxVariantPrice
+                                                    .minVariantPrice
                                                     .amount,
                                                 state
                                                     .searchedOutletProducts[

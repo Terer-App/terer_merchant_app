@@ -20,8 +20,8 @@ PriceRangeDto _$PriceRangeDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PriceRangeDto {
-  @JsonKey(name: 'maxVariantPrice')
-  MaxVariantPriceDto get maxVariantPrice => throw _privateConstructorUsedError;
+  @JsonKey(name: 'minVariantPrice')
+  MinVariantPriceDto get minVariantPrice => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +35,9 @@ abstract class $PriceRangeDtoCopyWith<$Res> {
           PriceRangeDto value, $Res Function(PriceRangeDto) then) =
       _$PriceRangeDtoCopyWithImpl<$Res>;
   $Res call(
-      {@JsonKey(name: 'maxVariantPrice') MaxVariantPriceDto maxVariantPrice});
+      {@JsonKey(name: 'minVariantPrice') MinVariantPriceDto minVariantPrice});
 
-  $MaxVariantPriceDtoCopyWith<$Res> get maxVariantPrice;
+  $MinVariantPriceDtoCopyWith<$Res> get minVariantPrice;
 }
 
 /// @nodoc
@@ -51,20 +51,20 @@ class _$PriceRangeDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? maxVariantPrice = freezed,
+    Object? minVariantPrice = freezed,
   }) {
     return _then(_value.copyWith(
-      maxVariantPrice: maxVariantPrice == freezed
-          ? _value.maxVariantPrice
-          : maxVariantPrice // ignore: cast_nullable_to_non_nullable
-              as MaxVariantPriceDto,
+      minVariantPrice: minVariantPrice == freezed
+          ? _value.minVariantPrice
+          : minVariantPrice // ignore: cast_nullable_to_non_nullable
+              as MinVariantPriceDto,
     ));
   }
 
   @override
-  $MaxVariantPriceDtoCopyWith<$Res> get maxVariantPrice {
-    return $MaxVariantPriceDtoCopyWith<$Res>(_value.maxVariantPrice, (value) {
-      return _then(_value.copyWith(maxVariantPrice: value));
+  $MinVariantPriceDtoCopyWith<$Res> get minVariantPrice {
+    return $MinVariantPriceDtoCopyWith<$Res>(_value.minVariantPrice, (value) {
+      return _then(_value.copyWith(minVariantPrice: value));
     });
   }
 }
@@ -77,10 +77,10 @@ abstract class _$$_PriceRangeDtoCopyWith<$Res>
       __$$_PriceRangeDtoCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@JsonKey(name: 'maxVariantPrice') MaxVariantPriceDto maxVariantPrice});
+      {@JsonKey(name: 'minVariantPrice') MinVariantPriceDto minVariantPrice});
 
   @override
-  $MaxVariantPriceDtoCopyWith<$Res> get maxVariantPrice;
+  $MinVariantPriceDtoCopyWith<$Res> get minVariantPrice;
 }
 
 /// @nodoc
@@ -96,13 +96,13 @@ class __$$_PriceRangeDtoCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? maxVariantPrice = freezed,
+    Object? minVariantPrice = freezed,
   }) {
     return _then(_$_PriceRangeDto(
-      maxVariantPrice: maxVariantPrice == freezed
-          ? _value.maxVariantPrice
-          : maxVariantPrice // ignore: cast_nullable_to_non_nullable
-              as MaxVariantPriceDto,
+      minVariantPrice: minVariantPrice == freezed
+          ? _value.minVariantPrice
+          : minVariantPrice // ignore: cast_nullable_to_non_nullable
+              as MinVariantPriceDto,
     ));
   }
 }
@@ -111,18 +111,18 @@ class __$$_PriceRangeDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_PriceRangeDto implements _PriceRangeDto {
   const _$_PriceRangeDto(
-      {@JsonKey(name: 'maxVariantPrice') required this.maxVariantPrice});
+      {@JsonKey(name: 'minVariantPrice') required this.minVariantPrice});
 
   factory _$_PriceRangeDto.fromJson(Map<String, dynamic> json) =>
       _$$_PriceRangeDtoFromJson(json);
 
   @override
-  @JsonKey(name: 'maxVariantPrice')
-  final MaxVariantPriceDto maxVariantPrice;
+  @JsonKey(name: 'minVariantPrice')
+  final MinVariantPriceDto minVariantPrice;
 
   @override
   String toString() {
-    return 'PriceRangeDto(maxVariantPrice: $maxVariantPrice)';
+    return 'PriceRangeDto(minVariantPrice: $minVariantPrice)';
   }
 
   @override
@@ -131,13 +131,13 @@ class _$_PriceRangeDto implements _PriceRangeDto {
         (other.runtimeType == runtimeType &&
             other is _$_PriceRangeDto &&
             const DeepCollectionEquality()
-                .equals(other.maxVariantPrice, maxVariantPrice));
+                .equals(other.minVariantPrice, minVariantPrice));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(maxVariantPrice));
+      runtimeType, const DeepCollectionEquality().hash(minVariantPrice));
 
   @JsonKey(ignore: true)
   @override
@@ -154,16 +154,16 @@ class _$_PriceRangeDto implements _PriceRangeDto {
 
 abstract class _PriceRangeDto implements PriceRangeDto {
   const factory _PriceRangeDto(
-          {@JsonKey(name: 'maxVariantPrice')
-              required final MaxVariantPriceDto maxVariantPrice}) =
+          {@JsonKey(name: 'minVariantPrice')
+              required final MinVariantPriceDto minVariantPrice}) =
       _$_PriceRangeDto;
 
   factory _PriceRangeDto.fromJson(Map<String, dynamic> json) =
       _$_PriceRangeDto.fromJson;
 
   @override
-  @JsonKey(name: 'maxVariantPrice')
-  MaxVariantPriceDto get maxVariantPrice;
+  @JsonKey(name: 'minVariantPrice')
+  MinVariantPriceDto get minVariantPrice;
   @override
   @JsonKey(ignore: true)
   _$$_PriceRangeDtoCopyWith<_$_PriceRangeDto> get copyWith =>

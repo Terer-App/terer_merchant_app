@@ -25,9 +25,9 @@ _$_ShopProductDto _$$_ShopProductDtoFromJson(Map<String, dynamic> json) =>
               .toList() ??
           [],
       featuredImage: json['featuredImage'] as String? ?? '',
-      priceRange: MaxVariantPriceDto.fromJson(
+      priceRange: MinVariantPriceDto.fromJson(
           json['priceRange'] as Map<String, dynamic>),
-      compareAtPriceRange: MaxVariantPriceDto.fromJson(
+      compareAtPriceRange: MinVariantPriceDto.fromJson(
           json['compareAtPriceRange'] as Map<String, dynamic>),
     );
 

@@ -8,11 +8,11 @@ part of 'price_range_dto.dart';
 
 _$_PriceRangeDto _$$_PriceRangeDtoFromJson(Map<String, dynamic> json) =>
     _$_PriceRangeDto(
-      maxVariantPrice: MaxVariantPriceDto.fromJson(
-          json['maxVariantPrice'] as Map<String, dynamic>),
+      minVariantPrice: MinVariantPriceDto.fromJson(
+          json['minVariantPrice'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_PriceRangeDtoToJson(_$_PriceRangeDto instance) =>
     <String, dynamic>{
-      'maxVariantPrice': instance.maxVariantPrice,
+      'minVariantPrice': instance.minVariantPrice,
     };

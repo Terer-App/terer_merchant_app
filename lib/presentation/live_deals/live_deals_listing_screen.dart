@@ -132,7 +132,7 @@ class LiveDealsListingConsumer extends StatelessWidget {
                                                     product.title,
                                                     overflow:
                                                         TextOverflow.ellipsis,
-                                                    maxLines: 1,
+                                                    maxLines: 3,
                                                     softWrap: true,
                                                     style: Theme.of(context)
                                                         .textTheme
@@ -147,7 +147,9 @@ class LiveDealsListingConsumer extends StatelessWidget {
                                                         ),
                                                   ),
                                                 ),
-                                                SizedBox(height: 0.5.h,),
+                                                SizedBox(
+                                                  height: 0.5.h,
+                                                ),
                                                 // SizedBox(
                                                 //   width: 50.w,
                                                 //   child: Text(
@@ -170,39 +172,39 @@ class LiveDealsListingConsumer extends StatelessWidget {
                                                 //         ),
                                                 //   ),
                                                 // ),
-                                                Text(
-                                                  'MYR ${product.priceRange.maxVariantPrice.amount}',
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodySmall!
-                                                      .copyWith(
-                                                        fontSize: 14.sp,
-                                                        fontWeight:
-                                                            FontWeight.w700,
-                                                        color: Theme.of(context)
-                                                            .colorScheme
-                                                            .primaryContainer,
-                                                      ),
-                                                ),
-                                                Text(
-                                                  'MYR ${product.compareAtPriceRange.maxVariantPrice.amount}',
-                                                  style: Theme.of(context)
-                                                      .textTheme
-                                                      .bodySmall!
-                                                      .copyWith(
-                                                        decoration:
-                                                            TextDecoration
-                                                                .lineThrough,
-                                                        decorationColor:
-                                                            Theme.of(context)
-                                                                .primaryColor,
-                                                        fontWeight:
-                                                            FontWeight.w400,
-                                                        color: Theme.of(context)
-                                                            .colorScheme
-                                                            .secondary,
-                                                      ),
-                                                ),
+                                                // Text(
+                                                //   'MYR ${product.priceRange.minVariantPrice.amount}',
+                                                //   style: Theme.of(context)
+                                                //       .textTheme
+                                                //       .bodySmall!
+                                                //       .copyWith(
+                                                //         fontSize: 14.sp,
+                                                //         fontWeight:
+                                                //             FontWeight.w700,
+                                                //         color: Theme.of(context)
+                                                //             .colorScheme
+                                                //             .primaryContainer,
+                                                //       ),
+                                                // ),
+                                                // Text(
+                                                //   'MYR ${product.compareAtPriceRange.minVariantPrice.amount}',
+                                                //   style: Theme.of(context)
+                                                //       .textTheme
+                                                //       .bodySmall!
+                                                //       .copyWith(
+                                                //         decoration:
+                                                //             TextDecoration
+                                                //                 .lineThrough,
+                                                //         decorationColor:
+                                                //             Theme.of(context)
+                                                //                 .primaryColor,
+                                                //         fontWeight:
+                                                //             FontWeight.w400,
+                                                //         color: Theme.of(context)
+                                                //             .colorScheme
+                                                //             .secondary,
+                                                //       ),
+                                                // ),
                                               ],
                                             ),
                                             Column(
