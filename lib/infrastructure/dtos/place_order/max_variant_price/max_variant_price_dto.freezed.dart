@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-MaxVariantPriceDto _$MaxVariantPriceDtoFromJson(Map<String, dynamic> json) {
-  return _MaxVariantPriceDto.fromJson(json);
+MinVariantPriceDto _$MinVariantPriceDtoFromJson(Map<String, dynamic> json) {
+  return _MinVariantPriceDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$MaxVariantPriceDto {
+mixin _$MinVariantPriceDto {
   @JsonKey(name: 'amount')
   String get amount => throw _privateConstructorUsedError;
   @JsonKey(name: 'currencyCode')
@@ -27,28 +27,28 @@ mixin _$MaxVariantPriceDto {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MaxVariantPriceDtoCopyWith<MaxVariantPriceDto> get copyWith =>
+  $MinVariantPriceDtoCopyWith<MinVariantPriceDto> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MaxVariantPriceDtoCopyWith<$Res> {
-  factory $MaxVariantPriceDtoCopyWith(
-          MaxVariantPriceDto value, $Res Function(MaxVariantPriceDto) then) =
-      _$MaxVariantPriceDtoCopyWithImpl<$Res>;
+abstract class $MinVariantPriceDtoCopyWith<$Res> {
+  factory $MinVariantPriceDtoCopyWith(
+          MinVariantPriceDto value, $Res Function(MinVariantPriceDto) then) =
+      _$MinVariantPriceDtoCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: 'amount') String amount,
       @JsonKey(name: 'currencyCode') String currencyCode});
 }
 
 /// @nodoc
-class _$MaxVariantPriceDtoCopyWithImpl<$Res>
-    implements $MaxVariantPriceDtoCopyWith<$Res> {
-  _$MaxVariantPriceDtoCopyWithImpl(this._value, this._then);
+class _$MinVariantPriceDtoCopyWithImpl<$Res>
+    implements $MinVariantPriceDtoCopyWith<$Res> {
+  _$MinVariantPriceDtoCopyWithImpl(this._value, this._then);
 
-  final MaxVariantPriceDto _value;
+  final MinVariantPriceDto _value;
   // ignore: unused_field
-  final $Res Function(MaxVariantPriceDto) _then;
+  final $Res Function(MinVariantPriceDto) _then;
 
   @override
   $Res call({
@@ -69,11 +69,11 @@ class _$MaxVariantPriceDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_MaxVariantPriceDtoCopyWith<$Res>
-    implements $MaxVariantPriceDtoCopyWith<$Res> {
-  factory _$$_MaxVariantPriceDtoCopyWith(_$_MaxVariantPriceDto value,
-          $Res Function(_$_MaxVariantPriceDto) then) =
-      __$$_MaxVariantPriceDtoCopyWithImpl<$Res>;
+abstract class _$$_MinVariantPriceDtoCopyWith<$Res>
+    implements $MinVariantPriceDtoCopyWith<$Res> {
+  factory _$$_MinVariantPriceDtoCopyWith(_$_MinVariantPriceDto value,
+          $Res Function(_$_MinVariantPriceDto) then) =
+      __$$_MinVariantPriceDtoCopyWithImpl<$Res>;
   @override
   $Res call(
       {@JsonKey(name: 'amount') String amount,
@@ -81,22 +81,22 @@ abstract class _$$_MaxVariantPriceDtoCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MaxVariantPriceDtoCopyWithImpl<$Res>
-    extends _$MaxVariantPriceDtoCopyWithImpl<$Res>
-    implements _$$_MaxVariantPriceDtoCopyWith<$Res> {
-  __$$_MaxVariantPriceDtoCopyWithImpl(
-      _$_MaxVariantPriceDto _value, $Res Function(_$_MaxVariantPriceDto) _then)
-      : super(_value, (v) => _then(v as _$_MaxVariantPriceDto));
+class __$$_MinVariantPriceDtoCopyWithImpl<$Res>
+    extends _$MinVariantPriceDtoCopyWithImpl<$Res>
+    implements _$$_MinVariantPriceDtoCopyWith<$Res> {
+  __$$_MinVariantPriceDtoCopyWithImpl(
+      _$_MinVariantPriceDto _value, $Res Function(_$_MinVariantPriceDto) _then)
+      : super(_value, (v) => _then(v as _$_MinVariantPriceDto));
 
   @override
-  _$_MaxVariantPriceDto get _value => super._value as _$_MaxVariantPriceDto;
+  _$_MinVariantPriceDto get _value => super._value as _$_MinVariantPriceDto;
 
   @override
   $Res call({
     Object? amount = freezed,
     Object? currencyCode = freezed,
   }) {
-    return _then(_$_MaxVariantPriceDto(
+    return _then(_$_MinVariantPriceDto(
       amount: amount == freezed
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -111,13 +111,13 @@ class __$$_MaxVariantPriceDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MaxVariantPriceDto implements _MaxVariantPriceDto {
-  const _$_MaxVariantPriceDto(
+class _$_MinVariantPriceDto implements _MinVariantPriceDto {
+  const _$_MinVariantPriceDto(
       {@JsonKey(name: 'amount') required this.amount,
       @JsonKey(name: 'currencyCode') required this.currencyCode});
 
-  factory _$_MaxVariantPriceDto.fromJson(Map<String, dynamic> json) =>
-      _$$_MaxVariantPriceDtoFromJson(json);
+  factory _$_MinVariantPriceDto.fromJson(Map<String, dynamic> json) =>
+      _$$_MinVariantPriceDtoFromJson(json);
 
   @override
   @JsonKey(name: 'amount')
@@ -128,14 +128,14 @@ class _$_MaxVariantPriceDto implements _MaxVariantPriceDto {
 
   @override
   String toString() {
-    return 'MaxVariantPriceDto(amount: $amount, currencyCode: $currencyCode)';
+    return 'MinVariantPriceDto(amount: $amount, currencyCode: $currencyCode)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MaxVariantPriceDto &&
+            other is _$_MinVariantPriceDto &&
             const DeepCollectionEquality().equals(other.amount, amount) &&
             const DeepCollectionEquality()
                 .equals(other.currencyCode, currencyCode));
@@ -150,26 +150,26 @@ class _$_MaxVariantPriceDto implements _MaxVariantPriceDto {
 
   @JsonKey(ignore: true)
   @override
-  _$$_MaxVariantPriceDtoCopyWith<_$_MaxVariantPriceDto> get copyWith =>
-      __$$_MaxVariantPriceDtoCopyWithImpl<_$_MaxVariantPriceDto>(
+  _$$_MinVariantPriceDtoCopyWith<_$_MinVariantPriceDto> get copyWith =>
+      __$$_MinVariantPriceDtoCopyWithImpl<_$_MinVariantPriceDto>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MaxVariantPriceDtoToJson(
+    return _$$_MinVariantPriceDtoToJson(
       this,
     );
   }
 }
 
-abstract class _MaxVariantPriceDto implements MaxVariantPriceDto {
-  const factory _MaxVariantPriceDto(
+abstract class _MinVariantPriceDto implements MinVariantPriceDto {
+  const factory _MinVariantPriceDto(
           {@JsonKey(name: 'amount') required final String amount,
           @JsonKey(name: 'currencyCode') required final String currencyCode}) =
-      _$_MaxVariantPriceDto;
+      _$_MinVariantPriceDto;
 
-  factory _MaxVariantPriceDto.fromJson(Map<String, dynamic> json) =
-      _$_MaxVariantPriceDto.fromJson;
+  factory _MinVariantPriceDto.fromJson(Map<String, dynamic> json) =
+      _$_MinVariantPriceDto.fromJson;
 
   @override
   @JsonKey(name: 'amount')
@@ -179,6 +179,6 @@ abstract class _MaxVariantPriceDto implements MaxVariantPriceDto {
   String get currencyCode;
   @override
   @JsonKey(ignore: true)
-  _$$_MaxVariantPriceDtoCopyWith<_$_MaxVariantPriceDto> get copyWith =>
+  _$$_MinVariantPriceDtoCopyWith<_$_MinVariantPriceDto> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -10,8 +10,8 @@ part 'price_range_dto.g.dart';
 @freezed
 class PriceRangeDto with _$PriceRangeDto {
   const factory PriceRangeDto({
-    @JsonKey(name: 'maxVariantPrice')
-        required MaxVariantPriceDto maxVariantPrice,
+    @JsonKey(name: 'minVariantPrice')
+        required MinVariantPriceDto minVariantPrice,
   }) = _PriceRangeDto;
 
   factory PriceRangeDto.fromJson(Map<String, dynamic> json) =>

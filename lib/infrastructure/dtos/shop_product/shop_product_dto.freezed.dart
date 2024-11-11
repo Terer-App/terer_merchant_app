@@ -49,9 +49,9 @@ mixin _$ShopProductDto {
   @JsonKey(name: 'featuredImage', defaultValue: '')
   String get featuredImage => throw _privateConstructorUsedError;
   @JsonKey(name: 'priceRange')
-  MaxVariantPriceDto get priceRange => throw _privateConstructorUsedError;
+  MinVariantPriceDto get priceRange => throw _privateConstructorUsedError;
   @JsonKey(name: 'compareAtPriceRange')
-  MaxVariantPriceDto get compareAtPriceRange =>
+  MinVariantPriceDto get compareAtPriceRange =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -95,12 +95,12 @@ abstract class $ShopProductDtoCopyWith<$Res> {
       @JsonKey(name: 'featuredImage', defaultValue: '')
           String featuredImage,
       @JsonKey(name: 'priceRange')
-          MaxVariantPriceDto priceRange,
+          MinVariantPriceDto priceRange,
       @JsonKey(name: 'compareAtPriceRange')
-          MaxVariantPriceDto compareAtPriceRange});
+          MinVariantPriceDto compareAtPriceRange});
 
-  $MaxVariantPriceDtoCopyWith<$Res> get priceRange;
-  $MaxVariantPriceDtoCopyWith<$Res> get compareAtPriceRange;
+  $MinVariantPriceDtoCopyWith<$Res> get priceRange;
+  $MinVariantPriceDtoCopyWith<$Res> get compareAtPriceRange;
 }
 
 /// @nodoc
@@ -191,24 +191,24 @@ class _$ShopProductDtoCopyWithImpl<$Res>
       priceRange: priceRange == freezed
           ? _value.priceRange
           : priceRange // ignore: cast_nullable_to_non_nullable
-              as MaxVariantPriceDto,
+              as MinVariantPriceDto,
       compareAtPriceRange: compareAtPriceRange == freezed
           ? _value.compareAtPriceRange
           : compareAtPriceRange // ignore: cast_nullable_to_non_nullable
-              as MaxVariantPriceDto,
+              as MinVariantPriceDto,
     ));
   }
 
   @override
-  $MaxVariantPriceDtoCopyWith<$Res> get priceRange {
-    return $MaxVariantPriceDtoCopyWith<$Res>(_value.priceRange, (value) {
+  $MinVariantPriceDtoCopyWith<$Res> get priceRange {
+    return $MinVariantPriceDtoCopyWith<$Res>(_value.priceRange, (value) {
       return _then(_value.copyWith(priceRange: value));
     });
   }
 
   @override
-  $MaxVariantPriceDtoCopyWith<$Res> get compareAtPriceRange {
-    return $MaxVariantPriceDtoCopyWith<$Res>(_value.compareAtPriceRange,
+  $MinVariantPriceDtoCopyWith<$Res> get compareAtPriceRange {
+    return $MinVariantPriceDtoCopyWith<$Res>(_value.compareAtPriceRange,
         (value) {
       return _then(_value.copyWith(compareAtPriceRange: value));
     });
@@ -252,14 +252,14 @@ abstract class _$$_ShopProductDtoCopyWith<$Res>
       @JsonKey(name: 'featuredImage', defaultValue: '')
           String featuredImage,
       @JsonKey(name: 'priceRange')
-          MaxVariantPriceDto priceRange,
+          MinVariantPriceDto priceRange,
       @JsonKey(name: 'compareAtPriceRange')
-          MaxVariantPriceDto compareAtPriceRange});
+          MinVariantPriceDto compareAtPriceRange});
 
   @override
-  $MaxVariantPriceDtoCopyWith<$Res> get priceRange;
+  $MinVariantPriceDtoCopyWith<$Res> get priceRange;
   @override
-  $MaxVariantPriceDtoCopyWith<$Res> get compareAtPriceRange;
+  $MinVariantPriceDtoCopyWith<$Res> get compareAtPriceRange;
 }
 
 /// @nodoc
@@ -352,11 +352,11 @@ class __$$_ShopProductDtoCopyWithImpl<$Res>
       priceRange: priceRange == freezed
           ? _value.priceRange
           : priceRange // ignore: cast_nullable_to_non_nullable
-              as MaxVariantPriceDto,
+              as MinVariantPriceDto,
       compareAtPriceRange: compareAtPriceRange == freezed
           ? _value.compareAtPriceRange
           : compareAtPriceRange // ignore: cast_nullable_to_non_nullable
-              as MaxVariantPriceDto,
+              as MinVariantPriceDto,
     ));
   }
 }
@@ -445,10 +445,10 @@ class _$_ShopProductDto implements _ShopProductDto {
   final String featuredImage;
   @override
   @JsonKey(name: 'priceRange')
-  final MaxVariantPriceDto priceRange;
+  final MinVariantPriceDto priceRange;
   @override
   @JsonKey(name: 'compareAtPriceRange')
-  final MaxVariantPriceDto compareAtPriceRange;
+  final MinVariantPriceDto compareAtPriceRange;
 
   @override
   String toString() {
@@ -552,9 +552,9 @@ abstract class _ShopProductDto implements ShopProductDto {
           @JsonKey(name: 'featuredImage', defaultValue: '')
               required final String featuredImage,
           @JsonKey(name: 'priceRange')
-              required final MaxVariantPriceDto priceRange,
+              required final MinVariantPriceDto priceRange,
           @JsonKey(name: 'compareAtPriceRange')
-              required final MaxVariantPriceDto compareAtPriceRange}) =
+              required final MinVariantPriceDto compareAtPriceRange}) =
       _$_ShopProductDto;
 
   factory _ShopProductDto.fromJson(Map<String, dynamic> json) =
@@ -604,10 +604,10 @@ abstract class _ShopProductDto implements ShopProductDto {
   String get featuredImage;
   @override
   @JsonKey(name: 'priceRange')
-  MaxVariantPriceDto get priceRange;
+  MinVariantPriceDto get priceRange;
   @override
   @JsonKey(name: 'compareAtPriceRange')
-  MaxVariantPriceDto get compareAtPriceRange;
+  MinVariantPriceDto get compareAtPriceRange;
   @override
   @JsonKey(ignore: true)
   _$$_ShopProductDtoCopyWith<_$_ShopProductDto> get copyWith =>

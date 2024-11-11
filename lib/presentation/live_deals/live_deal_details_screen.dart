@@ -82,7 +82,9 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        SizedBox(height: 2.h,),
+                        SizedBox(
+                          height: 2.h,
+                        ),
                         Text(
                           state.dealDetails.title,
                           style: Theme.of(context)
@@ -94,60 +96,60 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
                         ),
-                        SizedBox(
-                          height: 3.h,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Redemption Duration',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodySmall!
-                                  .copyWith(
-                                    fontSize: 12.sp,
-                                    fontWeight: FontWeight.w700,
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer,
-                                  ),
-                            ),
-                            SizedBox(
-                              height: 1.h,
-                            ),
-                            Container(
-                              width: 100.w,
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 3.w, vertical: 1.5.h),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(3.w),
-                                  border: Border.all(
-                                    color: Theme.of(context)
-                                        .colorScheme
-                                        .primaryContainer,
-                                  )),
-                              child: Text(
-                                state.dealDetails.redeemDuration == null
-                                    ? '-'
-                                    : '${state.dealDetails.redeemDuration['value']}'
-                                        .toUpperCase(),
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                    .textTheme
-                                    .bodySmall!
-                                    .copyWith(
-                                      fontSize: 15.sp,
-                                      fontWeight: FontWeight.w700,
-                                      color: Theme.of(context)
-                                          .colorScheme
-                                          .primaryContainer,
-                                    ),
-                              ),
-                            )
-                          ],
-                        ),
+                        // SizedBox(
+                        //   height: 3.h,
+                        // ),
+                        // Column(
+                        //   mainAxisAlignment: MainAxisAlignment.start,
+                        //   crossAxisAlignment: CrossAxisAlignment.start,
+                        //   children: [
+                        //     Text(
+                        //       'Redemption Duration',
+                        //       style: Theme.of(context)
+                        //           .textTheme
+                        //           .bodySmall!
+                        //           .copyWith(
+                        //             fontSize: 12.sp,
+                        //             fontWeight: FontWeight.w700,
+                        //             color: Theme.of(context)
+                        //                 .colorScheme
+                        //                 .primaryContainer,
+                        //           ),
+                        //     ),
+                        //     SizedBox(
+                        //       height: 1.h,
+                        //     ),
+                        //     Container(
+                        //       width: 100.w,
+                        //       padding: EdgeInsets.symmetric(
+                        //           horizontal: 3.w, vertical: 1.5.h),
+                        //       decoration: BoxDecoration(
+                        //           borderRadius: BorderRadius.circular(3.w),
+                        //           border: Border.all(
+                        //             color: Theme.of(context)
+                        //                 .colorScheme
+                        //                 .primaryContainer,
+                        //           )),
+                        //       child: Text(
+                        //         state.dealDetails.redeemDuration == null
+                        //             ? '-'
+                        //             : '${state.dealDetails.redeemDuration['value']}'
+                        //                 .toUpperCase(),
+                        //         textAlign: TextAlign.center,
+                        //         style: Theme.of(context)
+                        //             .textTheme
+                        //             .bodySmall!
+                        //             .copyWith(
+                        //               fontSize: 15.sp,
+                        //               fontWeight: FontWeight.w700,
+                        //               color: Theme.of(context)
+                        //                   .colorScheme
+                        //                   .primaryContainer,
+                        //             ),
+                        //       ),
+                        //     )
+                        //   ],
+                        // ),
                         SizedBox(
                           height: 3.h,
                         ),
