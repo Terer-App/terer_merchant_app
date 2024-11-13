@@ -19,6 +19,7 @@ class PlaceOrderState with _$PlaceOrderState {
       required List<OutletProductDto> selectedOutletProducts,
       required List<OutletProductDto> searchedOutletProducts,
       required TextEditingController searchController,
+      
       OutletDto? selectedOutlet}) = _PlaceOrderState;
 
   factory PlaceOrderState.initial({

@@ -40,6 +40,7 @@ class IPlaceOrderRepository extends PlaceOrderRepository {
             .map((e) => OutletProductDto.fromJson(e))
             .toList();
       }
+      
       return outletProducts;
     } catch (e) {
       return [];

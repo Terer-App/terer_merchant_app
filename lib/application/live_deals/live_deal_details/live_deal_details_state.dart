@@ -11,13 +11,17 @@ class LiveDealDetailsState with _$LiveDealDetailsState {
     required String apiUrl,
     required ShopMerchantRepository shopMerchantRepository,
     required OutletProductDto dealDetails,
+    ProductVariantDto? selectedVariant,
   }) = _LiveDealDetailsState;
 
-  factory LiveDealDetailsState.initial(
-      {required String serverUrl,
-      required OutletProductDto dealDetails,
-       required String apiUrl}) {
+  factory LiveDealDetailsState.initial({
+    required String serverUrl,
+    required OutletProductDto dealDetails,
+    required String apiUrl,
+    ProductVariantDto? selectedVariant,
+  }) {
     return LiveDealDetailsState(
+      selectedVariant: selectedVariant,
       isLoading: false,
       isFailed: false,
       isSuccess: false,

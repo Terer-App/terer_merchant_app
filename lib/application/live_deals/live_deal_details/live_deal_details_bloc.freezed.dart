@@ -21,6 +21,7 @@ mixin _$LiveDealDetailsEvent {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function(LiveDealDetailsState state) emitFromAnywhere,
+    required TResult Function(String productId) onVariantChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$LiveDealDetailsEvent {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$LiveDealDetailsEvent {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$LiveDealDetailsEvent {
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_OnVariantChange value) onVariantChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$LiveDealDetailsEvent {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$LiveDealDetailsEvent {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$_Init implements _Init {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function(LiveDealDetailsState state) emitFromAnywhere,
+    required TResult Function(String productId) onVariantChange,
   }) {
     return init();
   }
@@ -131,6 +138,7 @@ class _$_Init implements _Init {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
   }) {
     return init?.call();
   }
@@ -141,6 +149,7 @@ class _$_Init implements _Init {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -155,6 +164,7 @@ class _$_Init implements _Init {
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_OnVariantChange value) onVariantChange,
   }) {
     return init(this);
   }
@@ -165,6 +175,7 @@ class _$_Init implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
   }) {
     return init?.call(this);
   }
@@ -175,6 +186,7 @@ class _$_Init implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -230,6 +242,7 @@ class _$_OnLoad implements _OnLoad {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function(LiveDealDetailsState state) emitFromAnywhere,
+    required TResult Function(String productId) onVariantChange,
   }) {
     return onLoad();
   }
@@ -240,6 +253,7 @@ class _$_OnLoad implements _OnLoad {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
   }) {
     return onLoad?.call();
   }
@@ -250,6 +264,7 @@ class _$_OnLoad implements _OnLoad {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
     required TResult orElse(),
   }) {
     if (onLoad != null) {
@@ -264,6 +279,7 @@ class _$_OnLoad implements _OnLoad {
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_OnVariantChange value) onVariantChange,
   }) {
     return onLoad(this);
   }
@@ -274,6 +290,7 @@ class _$_OnLoad implements _OnLoad {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
   }) {
     return onLoad?.call(this);
   }
@@ -284,6 +301,7 @@ class _$_OnLoad implements _OnLoad {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
     required TResult orElse(),
   }) {
     if (onLoad != null) {
@@ -374,6 +392,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     required TResult Function() init,
     required TResult Function() onLoad,
     required TResult Function(LiveDealDetailsState state) emitFromAnywhere,
+    required TResult Function(String productId) onVariantChange,
   }) {
     return emitFromAnywhere(state);
   }
@@ -384,6 +403,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
   }) {
     return emitFromAnywhere?.call(state);
   }
@@ -394,6 +414,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function()? init,
     TResult Function()? onLoad,
     TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
     required TResult orElse(),
   }) {
     if (emitFromAnywhere != null) {
@@ -408,6 +429,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     required TResult Function(_Init value) init,
     required TResult Function(_OnLoad value) onLoad,
     required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_OnVariantChange value) onVariantChange,
   }) {
     return emitFromAnywhere(this);
   }
@@ -418,6 +440,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
   }) {
     return emitFromAnywhere?.call(this);
   }
@@ -428,6 +451,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_Init value)? init,
     TResult Function(_OnLoad value)? onLoad,
     TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
     required TResult orElse(),
   }) {
     if (emitFromAnywhere != null) {
@@ -448,6 +472,153 @@ abstract class _EmitFromAnywhere implements LiveDealDetailsEvent {
 }
 
 /// @nodoc
+abstract class _$$_OnVariantChangeCopyWith<$Res> {
+  factory _$$_OnVariantChangeCopyWith(
+          _$_OnVariantChange value, $Res Function(_$_OnVariantChange) then) =
+      __$$_OnVariantChangeCopyWithImpl<$Res>;
+  $Res call({String productId});
+}
+
+/// @nodoc
+class __$$_OnVariantChangeCopyWithImpl<$Res>
+    extends _$LiveDealDetailsEventCopyWithImpl<$Res>
+    implements _$$_OnVariantChangeCopyWith<$Res> {
+  __$$_OnVariantChangeCopyWithImpl(
+      _$_OnVariantChange _value, $Res Function(_$_OnVariantChange) _then)
+      : super(_value, (v) => _then(v as _$_OnVariantChange));
+
+  @override
+  _$_OnVariantChange get _value => super._value as _$_OnVariantChange;
+
+  @override
+  $Res call({
+    Object? productId = freezed,
+  }) {
+    return _then(_$_OnVariantChange(
+      productId: productId == freezed
+          ? _value.productId
+          : productId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OnVariantChange implements _OnVariantChange {
+  const _$_OnVariantChange({required this.productId});
+
+  @override
+  final String productId;
+
+  @override
+  String toString() {
+    return 'LiveDealDetailsEvent.onVariantChange(productId: $productId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OnVariantChange &&
+            const DeepCollectionEquality().equals(other.productId, productId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(productId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OnVariantChangeCopyWith<_$_OnVariantChange> get copyWith =>
+      __$$_OnVariantChangeCopyWithImpl<_$_OnVariantChange>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() onLoad,
+    required TResult Function(LiveDealDetailsState state) emitFromAnywhere,
+    required TResult Function(String productId) onVariantChange,
+  }) {
+    return onVariantChange(productId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
+  }) {
+    return onVariantChange?.call(productId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? onLoad,
+    TResult Function(LiveDealDetailsState state)? emitFromAnywhere,
+    TResult Function(String productId)? onVariantChange,
+    required TResult orElse(),
+  }) {
+    if (onVariantChange != null) {
+      return onVariantChange(productId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_OnLoad value) onLoad,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_OnVariantChange value) onVariantChange,
+  }) {
+    return onVariantChange(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
+  }) {
+    return onVariantChange?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_OnLoad value)? onLoad,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnVariantChange value)? onVariantChange,
+    required TResult orElse(),
+  }) {
+    if (onVariantChange != null) {
+      return onVariantChange(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnVariantChange implements LiveDealDetailsEvent {
+  const factory _OnVariantChange({required final String productId}) =
+      _$_OnVariantChange;
+
+  String get productId;
+  @JsonKey(ignore: true)
+  _$$_OnVariantChangeCopyWith<_$_OnVariantChange> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$LiveDealDetailsState {
   bool get isLoading => throw _privateConstructorUsedError;
   bool get isFailed => throw _privateConstructorUsedError;
@@ -458,6 +629,7 @@ mixin _$LiveDealDetailsState {
   ShopMerchantRepository get shopMerchantRepository =>
       throw _privateConstructorUsedError;
   OutletProductDto get dealDetails => throw _privateConstructorUsedError;
+  ProductVariantDto? get selectedVariant => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LiveDealDetailsStateCopyWith<LiveDealDetailsState> get copyWith =>
@@ -477,9 +649,11 @@ abstract class $LiveDealDetailsStateCopyWith<$Res> {
       String serverUrl,
       String apiUrl,
       ShopMerchantRepository shopMerchantRepository,
-      OutletProductDto dealDetails});
+      OutletProductDto dealDetails,
+      ProductVariantDto? selectedVariant});
 
   $OutletProductDtoCopyWith<$Res> get dealDetails;
+  $ProductVariantDtoCopyWith<$Res>? get selectedVariant;
 }
 
 /// @nodoc
@@ -501,6 +675,7 @@ class _$LiveDealDetailsStateCopyWithImpl<$Res>
     Object? apiUrl = freezed,
     Object? shopMerchantRepository = freezed,
     Object? dealDetails = freezed,
+    Object? selectedVariant = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: isLoading == freezed
@@ -535,6 +710,10 @@ class _$LiveDealDetailsStateCopyWithImpl<$Res>
           ? _value.dealDetails
           : dealDetails // ignore: cast_nullable_to_non_nullable
               as OutletProductDto,
+      selectedVariant: selectedVariant == freezed
+          ? _value.selectedVariant
+          : selectedVariant // ignore: cast_nullable_to_non_nullable
+              as ProductVariantDto?,
     ));
   }
 
@@ -542,6 +721,17 @@ class _$LiveDealDetailsStateCopyWithImpl<$Res>
   $OutletProductDtoCopyWith<$Res> get dealDetails {
     return $OutletProductDtoCopyWith<$Res>(_value.dealDetails, (value) {
       return _then(_value.copyWith(dealDetails: value));
+    });
+  }
+
+  @override
+  $ProductVariantDtoCopyWith<$Res>? get selectedVariant {
+    if (_value.selectedVariant == null) {
+      return null;
+    }
+
+    return $ProductVariantDtoCopyWith<$Res>(_value.selectedVariant!, (value) {
+      return _then(_value.copyWith(selectedVariant: value));
     });
   }
 }
@@ -561,10 +751,13 @@ abstract class _$$_LiveDealDetailsStateCopyWith<$Res>
       String serverUrl,
       String apiUrl,
       ShopMerchantRepository shopMerchantRepository,
-      OutletProductDto dealDetails});
+      OutletProductDto dealDetails,
+      ProductVariantDto? selectedVariant});
 
   @override
   $OutletProductDtoCopyWith<$Res> get dealDetails;
+  @override
+  $ProductVariantDtoCopyWith<$Res>? get selectedVariant;
 }
 
 /// @nodoc
@@ -588,6 +781,7 @@ class __$$_LiveDealDetailsStateCopyWithImpl<$Res>
     Object? apiUrl = freezed,
     Object? shopMerchantRepository = freezed,
     Object? dealDetails = freezed,
+    Object? selectedVariant = freezed,
   }) {
     return _then(_$_LiveDealDetailsState(
       isLoading: isLoading == freezed
@@ -622,6 +816,10 @@ class __$$_LiveDealDetailsStateCopyWithImpl<$Res>
           ? _value.dealDetails
           : dealDetails // ignore: cast_nullable_to_non_nullable
               as OutletProductDto,
+      selectedVariant: selectedVariant == freezed
+          ? _value.selectedVariant
+          : selectedVariant // ignore: cast_nullable_to_non_nullable
+              as ProductVariantDto?,
     ));
   }
 }
@@ -637,7 +835,8 @@ class _$_LiveDealDetailsState implements _LiveDealDetailsState {
       required this.serverUrl,
       required this.apiUrl,
       required this.shopMerchantRepository,
-      required this.dealDetails});
+      required this.dealDetails,
+      this.selectedVariant});
 
   @override
   final bool isLoading;
@@ -655,10 +854,12 @@ class _$_LiveDealDetailsState implements _LiveDealDetailsState {
   final ShopMerchantRepository shopMerchantRepository;
   @override
   final OutletProductDto dealDetails;
+  @override
+  final ProductVariantDto? selectedVariant;
 
   @override
   String toString() {
-    return 'LiveDealDetailsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, serverUrl: $serverUrl, apiUrl: $apiUrl, shopMerchantRepository: $shopMerchantRepository, dealDetails: $dealDetails)';
+    return 'LiveDealDetailsState(isLoading: $isLoading, isFailed: $isFailed, isSuccess: $isSuccess, noUse: $noUse, serverUrl: $serverUrl, apiUrl: $apiUrl, shopMerchantRepository: $shopMerchantRepository, dealDetails: $dealDetails, selectedVariant: $selectedVariant)';
   }
 
   @override
@@ -675,7 +876,9 @@ class _$_LiveDealDetailsState implements _LiveDealDetailsState {
             const DeepCollectionEquality()
                 .equals(other.shopMerchantRepository, shopMerchantRepository) &&
             const DeepCollectionEquality()
-                .equals(other.dealDetails, dealDetails));
+                .equals(other.dealDetails, dealDetails) &&
+            const DeepCollectionEquality()
+                .equals(other.selectedVariant, selectedVariant));
   }
 
   @override
@@ -688,7 +891,8 @@ class _$_LiveDealDetailsState implements _LiveDealDetailsState {
       const DeepCollectionEquality().hash(serverUrl),
       const DeepCollectionEquality().hash(apiUrl),
       const DeepCollectionEquality().hash(shopMerchantRepository),
-      const DeepCollectionEquality().hash(dealDetails));
+      const DeepCollectionEquality().hash(dealDetails),
+      const DeepCollectionEquality().hash(selectedVariant));
 
   @JsonKey(ignore: true)
   @override
@@ -706,7 +910,8 @@ abstract class _LiveDealDetailsState implements LiveDealDetailsState {
       required final String serverUrl,
       required final String apiUrl,
       required final ShopMerchantRepository shopMerchantRepository,
-      required final OutletProductDto dealDetails}) = _$_LiveDealDetailsState;
+      required final OutletProductDto dealDetails,
+      final ProductVariantDto? selectedVariant}) = _$_LiveDealDetailsState;
 
   @override
   bool get isLoading;
@@ -724,6 +929,8 @@ abstract class _LiveDealDetailsState implements LiveDealDetailsState {
   ShopMerchantRepository get shopMerchantRepository;
   @override
   OutletProductDto get dealDetails;
+  @override
+  ProductVariantDto? get selectedVariant;
   @override
   @JsonKey(ignore: true)
   _$$_LiveDealDetailsStateCopyWith<_$_LiveDealDetailsState> get copyWith =>

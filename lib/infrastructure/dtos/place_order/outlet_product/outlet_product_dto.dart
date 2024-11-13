@@ -1,6 +1,7 @@
 // ignore_for_file: invalid_annotation_target
 
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:terer_merchant/infrastructure/dtos/place_order/outlet_product/product_variant/product_variant_dto.dart';
 
 import '../featured_image/featured_image_dto.dart';
 import '../price_range/price_range_dto.dart';
@@ -25,6 +26,10 @@ class OutletProductDto with _$OutletProductDto {
     @JsonKey(name: 'sellerName') required dynamic sellerName,
     @JsonKey(name: 'variantId') required String variantId,
     @Default(0) int quantity,
+    @JsonKey(name: 'variants', defaultValue: [])
+    required List<ProductVariantDto> variants,
+    @JsonKey(name: 'variantsAvailable', defaultValue: false)
+    required bool variantsAvailable,
   }) = _OutletProductDto;
 
   factory OutletProductDto.fromJson(Map<String, dynamic> json) =>

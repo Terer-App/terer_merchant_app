@@ -3,6 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/shop_merchant/shop_merchant_repository.dart';
 import '../../../infrastructure/dtos/place_order/outlet_product/outlet_product_dto.dart';
+import '../../../infrastructure/dtos/place_order/outlet_product/product_variant/product_variant_dto.dart';
 import '../../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 
 part 'live_deal_details_event.dart';
@@ -18,6 +19,12 @@ class LiveDealDetailsBloc extends Bloc<LiveDealDetailsEvent, LiveDealDetailsStat
 
     on<_EmitFromAnywhere>((event, emit) {
       emit(event.state);
+    });
+
+    on<_OnVariantChange>((event, emit) {
+      final ProductVariantDto productVariant = state.dealDetails.variants
+          .firstWhere((variant) => variant.id == event.productId);
+      emit(state.copyWith(selectedVariant: productVariant));
     });
   }
 }

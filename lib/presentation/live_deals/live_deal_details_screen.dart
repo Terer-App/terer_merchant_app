@@ -27,6 +27,8 @@ class LiveDealDetailsScreen extends StatelessWidget {
         serverUrl: serverUrl,
         apiUrl: apiUrl,
         dealDetails: dealDetails,
+        selectedVariant:
+            dealDetails.variants.isNotEmpty ? dealDetails.variants.first : null,
       )),
       child: const LiveDealDetailsConsumer(),
     );
@@ -96,60 +98,121 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                                 color: Theme.of(context).colorScheme.secondary,
                               ),
                         ),
-                        // SizedBox(
-                        //   height: 3.h,
-                        // ),
-                        // Column(
-                        //   mainAxisAlignment: MainAxisAlignment.start,
-                        //   crossAxisAlignment: CrossAxisAlignment.start,
-                        //   children: [
-                        //     Text(
-                        //       'Redemption Duration',
-                        //       style: Theme.of(context)
-                        //           .textTheme
-                        //           .bodySmall!
-                        //           .copyWith(
-                        //             fontSize: 12.sp,
-                        //             fontWeight: FontWeight.w700,
-                        //             color: Theme.of(context)
-                        //                 .colorScheme
-                        //                 .primaryContainer,
-                        //           ),
-                        //     ),
-                        //     SizedBox(
-                        //       height: 1.h,
-                        //     ),
-                        //     Container(
-                        //       width: 100.w,
-                        //       padding: EdgeInsets.symmetric(
-                        //           horizontal: 3.w, vertical: 1.5.h),
-                        //       decoration: BoxDecoration(
-                        //           borderRadius: BorderRadius.circular(3.w),
-                        //           border: Border.all(
-                        //             color: Theme.of(context)
-                        //                 .colorScheme
-                        //                 .primaryContainer,
-                        //           )),
-                        //       child: Text(
-                        //         state.dealDetails.redeemDuration == null
-                        //             ? '-'
-                        //             : '${state.dealDetails.redeemDuration['value']}'
-                        //                 .toUpperCase(),
-                        //         textAlign: TextAlign.center,
-                        //         style: Theme.of(context)
-                        //             .textTheme
-                        //             .bodySmall!
-                        //             .copyWith(
-                        //               fontSize: 15.sp,
-                        //               fontWeight: FontWeight.w700,
-                        //               color: Theme.of(context)
-                        //                   .colorScheme
-                        //                   .primaryContainer,
-                        //             ),
-                        //       ),
-                        //     )
-                        //   ],
-                        // ),
+                        SizedBox(
+                          height: 3.h,
+                        ),
+                        if (state.dealDetails.variants.isNotEmpty)
+                          SizedBox(
+                            height: 5.h,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              shrinkWrap: true,
+                              itemCount: state.dealDetails.variants.length,
+                              itemBuilder: (context, index) {
+                                final variant =
+                                    state.dealDetails.variants[index];
+                                final bool isSelected =
+                                    variant.id == state.selectedVariant?.id;
+                                return GestureDetector(
+                                  onTap: () {
+                                    context.read<LiveDealDetailsBloc>().add(
+                                        LiveDealDetailsEvent.onVariantChange(
+                                            productId: variant.id));
+                                  },
+                                  child: Container(
+                                    width: 15.w,
+                                    margin: EdgeInsets.only(right: 3.w),
+                                    decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: isSelected
+                                              ? Theme.of(context)
+                                                  .colorScheme
+                                                  .primary
+                                              : Theme.of(context)
+                                                  .colorScheme
+                                                  .primaryContainer,
+                                        ),
+                                        color: isSelected
+                                            ? Theme.of(context)
+                                                .colorScheme
+                                                .primary
+                                            : Colors.transparent,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                    child: Center(
+                                      child: Text(
+                                        variant.title,
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .bodyMedium!
+                                            .copyWith(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .onSecondary,
+                                              fontWeight: isSelected
+                                                  ? FontWeight.bold
+                                                  : FontWeight.w500,
+                                            ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Redemption Duration',
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodySmall!
+                                  .copyWith(
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w700,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
+                                  ),
+                            ),
+                            SizedBox(
+                              height: 1.h,
+                            ),
+                            Container(
+                              width: 100.w,
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 3.w, vertical: 1.5.h),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(3.w),
+                                  border: Border.all(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primaryContainer,
+                                  )),
+                              child: Text(
+                                state.dealDetails.redeemDuration == null
+                                    ? '-'
+                                    : '${state.dealDetails.redeemDuration['value']}'
+                                        .toUpperCase(),
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .primaryContainer,
+                                    ),
+                              ),
+                            )
+                          ],
+                        ),
+
                         SizedBox(
                           height: 3.h,
                         ),

@@ -25,6 +25,8 @@ mixin _$PlaceOrderEvent {
     required TResult Function(String productId) onDecrementDealQuantity,
     required TResult Function(String query) onSearchDeals,
     required TResult Function(String outletId) onLoadOutletProducts,
+    required TResult Function(List<ProductVariantDto> variants, int index)
+        onUpdateSelectedVariant,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,6 +38,8 @@ mixin _$PlaceOrderEvent {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,6 +51,8 @@ mixin _$PlaceOrderEvent {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,6 +67,8 @@ mixin _$PlaceOrderEvent {
         onDecrementDealQuantity,
     required TResult Function(_OnSearchDeals value) onSearchDeals,
     required TResult Function(_OnLoadOutletProducts value) onLoadOutletProducts,
+    required TResult Function(_OnUpdateSelectedVariant value)
+        onUpdateSelectedVariant,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -72,6 +80,7 @@ mixin _$PlaceOrderEvent {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +92,7 @@ mixin _$PlaceOrderEvent {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -150,6 +160,8 @@ class _$_Init implements _Init {
     required TResult Function(String productId) onDecrementDealQuantity,
     required TResult Function(String query) onSearchDeals,
     required TResult Function(String outletId) onLoadOutletProducts,
+    required TResult Function(List<ProductVariantDto> variants, int index)
+        onUpdateSelectedVariant,
   }) {
     return init();
   }
@@ -164,6 +176,8 @@ class _$_Init implements _Init {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
   }) {
     return init?.call();
   }
@@ -178,6 +192,8 @@ class _$_Init implements _Init {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -198,6 +214,8 @@ class _$_Init implements _Init {
         onDecrementDealQuantity,
     required TResult Function(_OnSearchDeals value) onSearchDeals,
     required TResult Function(_OnLoadOutletProducts value) onLoadOutletProducts,
+    required TResult Function(_OnUpdateSelectedVariant value)
+        onUpdateSelectedVariant,
   }) {
     return init(this);
   }
@@ -212,6 +230,7 @@ class _$_Init implements _Init {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
   }) {
     return init?.call(this);
   }
@@ -226,6 +245,7 @@ class _$_Init implements _Init {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -320,6 +340,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     required TResult Function(String productId) onDecrementDealQuantity,
     required TResult Function(String query) onSearchDeals,
     required TResult Function(String outletId) onLoadOutletProducts,
+    required TResult Function(List<ProductVariantDto> variants, int index)
+        onUpdateSelectedVariant,
   }) {
     return emitFromAnywhere(state);
   }
@@ -334,6 +356,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
   }) {
     return emitFromAnywhere?.call(state);
   }
@@ -348,6 +372,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (emitFromAnywhere != null) {
@@ -368,6 +394,8 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
         onDecrementDealQuantity,
     required TResult Function(_OnSearchDeals value) onSearchDeals,
     required TResult Function(_OnLoadOutletProducts value) onLoadOutletProducts,
+    required TResult Function(_OnUpdateSelectedVariant value)
+        onUpdateSelectedVariant,
   }) {
     return emitFromAnywhere(this);
   }
@@ -382,6 +410,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
   }) {
     return emitFromAnywhere?.call(this);
   }
@@ -396,6 +425,7 @@ class _$_EmitFromAnywhere implements _EmitFromAnywhere {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (emitFromAnywhere != null) {
@@ -463,6 +493,8 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     required TResult Function(String productId) onDecrementDealQuantity,
     required TResult Function(String query) onSearchDeals,
     required TResult Function(String outletId) onLoadOutletProducts,
+    required TResult Function(List<ProductVariantDto> variants, int index)
+        onUpdateSelectedVariant,
   }) {
     return onSwitchOutlet();
   }
@@ -477,6 +509,8 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
   }) {
     return onSwitchOutlet?.call();
   }
@@ -491,6 +525,8 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onSwitchOutlet != null) {
@@ -511,6 +547,8 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
         onDecrementDealQuantity,
     required TResult Function(_OnSearchDeals value) onSearchDeals,
     required TResult Function(_OnLoadOutletProducts value) onLoadOutletProducts,
+    required TResult Function(_OnUpdateSelectedVariant value)
+        onUpdateSelectedVariant,
   }) {
     return onSwitchOutlet(this);
   }
@@ -525,6 +563,7 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
   }) {
     return onSwitchOutlet?.call(this);
   }
@@ -539,6 +578,7 @@ class _$_OnSwitchOutlet implements _OnSwitchOutlet {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onSwitchOutlet != null) {
@@ -627,6 +667,8 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     required TResult Function(String productId) onDecrementDealQuantity,
     required TResult Function(String query) onSearchDeals,
     required TResult Function(String outletId) onLoadOutletProducts,
+    required TResult Function(List<ProductVariantDto> variants, int index)
+        onUpdateSelectedVariant,
   }) {
     return onIncrementDealQuantity(productId);
   }
@@ -641,6 +683,8 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
   }) {
     return onIncrementDealQuantity?.call(productId);
   }
@@ -655,6 +699,8 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onIncrementDealQuantity != null) {
@@ -675,6 +721,8 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
         onDecrementDealQuantity,
     required TResult Function(_OnSearchDeals value) onSearchDeals,
     required TResult Function(_OnLoadOutletProducts value) onLoadOutletProducts,
+    required TResult Function(_OnUpdateSelectedVariant value)
+        onUpdateSelectedVariant,
   }) {
     return onIncrementDealQuantity(this);
   }
@@ -689,6 +737,7 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
   }) {
     return onIncrementDealQuantity?.call(this);
   }
@@ -703,6 +752,7 @@ class _$_OnIncrementDealQuantity implements _OnIncrementDealQuantity {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onIncrementDealQuantity != null) {
@@ -797,6 +847,8 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     required TResult Function(String productId) onDecrementDealQuantity,
     required TResult Function(String query) onSearchDeals,
     required TResult Function(String outletId) onLoadOutletProducts,
+    required TResult Function(List<ProductVariantDto> variants, int index)
+        onUpdateSelectedVariant,
   }) {
     return onDecrementDealQuantity(productId);
   }
@@ -811,6 +863,8 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
   }) {
     return onDecrementDealQuantity?.call(productId);
   }
@@ -825,6 +879,8 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onDecrementDealQuantity != null) {
@@ -845,6 +901,8 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
         onDecrementDealQuantity,
     required TResult Function(_OnSearchDeals value) onSearchDeals,
     required TResult Function(_OnLoadOutletProducts value) onLoadOutletProducts,
+    required TResult Function(_OnUpdateSelectedVariant value)
+        onUpdateSelectedVariant,
   }) {
     return onDecrementDealQuantity(this);
   }
@@ -859,6 +917,7 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
   }) {
     return onDecrementDealQuantity?.call(this);
   }
@@ -873,6 +932,7 @@ class _$_OnDecrementDealQuantity implements _OnDecrementDealQuantity {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onDecrementDealQuantity != null) {
@@ -964,6 +1024,8 @@ class _$_OnSearchDeals implements _OnSearchDeals {
     required TResult Function(String productId) onDecrementDealQuantity,
     required TResult Function(String query) onSearchDeals,
     required TResult Function(String outletId) onLoadOutletProducts,
+    required TResult Function(List<ProductVariantDto> variants, int index)
+        onUpdateSelectedVariant,
   }) {
     return onSearchDeals(query);
   }
@@ -978,6 +1040,8 @@ class _$_OnSearchDeals implements _OnSearchDeals {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
   }) {
     return onSearchDeals?.call(query);
   }
@@ -992,6 +1056,8 @@ class _$_OnSearchDeals implements _OnSearchDeals {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onSearchDeals != null) {
@@ -1012,6 +1078,8 @@ class _$_OnSearchDeals implements _OnSearchDeals {
         onDecrementDealQuantity,
     required TResult Function(_OnSearchDeals value) onSearchDeals,
     required TResult Function(_OnLoadOutletProducts value) onLoadOutletProducts,
+    required TResult Function(_OnUpdateSelectedVariant value)
+        onUpdateSelectedVariant,
   }) {
     return onSearchDeals(this);
   }
@@ -1026,6 +1094,7 @@ class _$_OnSearchDeals implements _OnSearchDeals {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
   }) {
     return onSearchDeals?.call(this);
   }
@@ -1040,6 +1109,7 @@ class _$_OnSearchDeals implements _OnSearchDeals {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onSearchDeals != null) {
@@ -1131,6 +1201,8 @@ class _$_OnLoadOutletProducts implements _OnLoadOutletProducts {
     required TResult Function(String productId) onDecrementDealQuantity,
     required TResult Function(String query) onSearchDeals,
     required TResult Function(String outletId) onLoadOutletProducts,
+    required TResult Function(List<ProductVariantDto> variants, int index)
+        onUpdateSelectedVariant,
   }) {
     return onLoadOutletProducts(outletId);
   }
@@ -1145,6 +1217,8 @@ class _$_OnLoadOutletProducts implements _OnLoadOutletProducts {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
   }) {
     return onLoadOutletProducts?.call(outletId);
   }
@@ -1159,6 +1233,8 @@ class _$_OnLoadOutletProducts implements _OnLoadOutletProducts {
     TResult Function(String productId)? onDecrementDealQuantity,
     TResult Function(String query)? onSearchDeals,
     TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onLoadOutletProducts != null) {
@@ -1179,6 +1255,8 @@ class _$_OnLoadOutletProducts implements _OnLoadOutletProducts {
         onDecrementDealQuantity,
     required TResult Function(_OnSearchDeals value) onSearchDeals,
     required TResult Function(_OnLoadOutletProducts value) onLoadOutletProducts,
+    required TResult Function(_OnUpdateSelectedVariant value)
+        onUpdateSelectedVariant,
   }) {
     return onLoadOutletProducts(this);
   }
@@ -1193,6 +1271,7 @@ class _$_OnLoadOutletProducts implements _OnLoadOutletProducts {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
   }) {
     return onLoadOutletProducts?.call(this);
   }
@@ -1207,6 +1286,7 @@ class _$_OnLoadOutletProducts implements _OnLoadOutletProducts {
     TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
     TResult Function(_OnSearchDeals value)? onSearchDeals,
     TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
     required TResult orElse(),
   }) {
     if (onLoadOutletProducts != null) {
@@ -1224,6 +1304,205 @@ abstract class _OnLoadOutletProducts implements PlaceOrderEvent {
   @JsonKey(ignore: true)
   _$$_OnLoadOutletProductsCopyWith<_$_OnLoadOutletProducts> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_OnUpdateSelectedVariantCopyWith<$Res> {
+  factory _$$_OnUpdateSelectedVariantCopyWith(_$_OnUpdateSelectedVariant value,
+          $Res Function(_$_OnUpdateSelectedVariant) then) =
+      __$$_OnUpdateSelectedVariantCopyWithImpl<$Res>;
+  $Res call({List<ProductVariantDto> variants, int index});
+}
+
+/// @nodoc
+class __$$_OnUpdateSelectedVariantCopyWithImpl<$Res>
+    extends _$PlaceOrderEventCopyWithImpl<$Res>
+    implements _$$_OnUpdateSelectedVariantCopyWith<$Res> {
+  __$$_OnUpdateSelectedVariantCopyWithImpl(_$_OnUpdateSelectedVariant _value,
+      $Res Function(_$_OnUpdateSelectedVariant) _then)
+      : super(_value, (v) => _then(v as _$_OnUpdateSelectedVariant));
+
+  @override
+  _$_OnUpdateSelectedVariant get _value =>
+      super._value as _$_OnUpdateSelectedVariant;
+
+  @override
+  $Res call({
+    Object? variants = freezed,
+    Object? index = freezed,
+  }) {
+    return _then(_$_OnUpdateSelectedVariant(
+      variants: variants == freezed
+          ? _value._variants
+          : variants // ignore: cast_nullable_to_non_nullable
+              as List<ProductVariantDto>,
+      index: index == freezed
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_OnUpdateSelectedVariant implements _OnUpdateSelectedVariant {
+  const _$_OnUpdateSelectedVariant(
+      {required final List<ProductVariantDto> variants, required this.index})
+      : _variants = variants;
+
+  final List<ProductVariantDto> _variants;
+  @override
+  List<ProductVariantDto> get variants {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_variants);
+  }
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'PlaceOrderEvent.onUpdateSelectedVariant(variants: $variants, index: $index)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_OnUpdateSelectedVariant &&
+            const DeepCollectionEquality().equals(other._variants, _variants) &&
+            const DeepCollectionEquality().equals(other.index, index));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_variants),
+      const DeepCollectionEquality().hash(index));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_OnUpdateSelectedVariantCopyWith<_$_OnUpdateSelectedVariant>
+      get copyWith =>
+          __$$_OnUpdateSelectedVariantCopyWithImpl<_$_OnUpdateSelectedVariant>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(PlaceOrderState state) emitFromAnywhere,
+    required TResult Function() onSwitchOutlet,
+    required TResult Function(String productId) onIncrementDealQuantity,
+    required TResult Function(String productId) onDecrementDealQuantity,
+    required TResult Function(String query) onSearchDeals,
+    required TResult Function(String outletId) onLoadOutletProducts,
+    required TResult Function(List<ProductVariantDto> variants, int index)
+        onUpdateSelectedVariant,
+  }) {
+    return onUpdateSelectedVariant(variants, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(PlaceOrderState state)? emitFromAnywhere,
+    TResult Function()? onSwitchOutlet,
+    TResult Function(String productId)? onIncrementDealQuantity,
+    TResult Function(String productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
+    TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
+  }) {
+    return onUpdateSelectedVariant?.call(variants, index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(PlaceOrderState state)? emitFromAnywhere,
+    TResult Function()? onSwitchOutlet,
+    TResult Function(String productId)? onIncrementDealQuantity,
+    TResult Function(String productId)? onDecrementDealQuantity,
+    TResult Function(String query)? onSearchDeals,
+    TResult Function(String outletId)? onLoadOutletProducts,
+    TResult Function(List<ProductVariantDto> variants, int index)?
+        onUpdateSelectedVariant,
+    required TResult orElse(),
+  }) {
+    if (onUpdateSelectedVariant != null) {
+      return onUpdateSelectedVariant(variants, index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_EmitFromAnywhere value) emitFromAnywhere,
+    required TResult Function(_OnSwitchOutlet value) onSwitchOutlet,
+    required TResult Function(_OnIncrementDealQuantity value)
+        onIncrementDealQuantity,
+    required TResult Function(_OnDecrementDealQuantity value)
+        onDecrementDealQuantity,
+    required TResult Function(_OnSearchDeals value) onSearchDeals,
+    required TResult Function(_OnLoadOutletProducts value) onLoadOutletProducts,
+    required TResult Function(_OnUpdateSelectedVariant value)
+        onUpdateSelectedVariant,
+  }) {
+    return onUpdateSelectedVariant(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
+    TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
+    TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
+    TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
+  }) {
+    return onUpdateSelectedVariant?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_EmitFromAnywhere value)? emitFromAnywhere,
+    TResult Function(_OnSwitchOutlet value)? onSwitchOutlet,
+    TResult Function(_OnIncrementDealQuantity value)? onIncrementDealQuantity,
+    TResult Function(_OnDecrementDealQuantity value)? onDecrementDealQuantity,
+    TResult Function(_OnSearchDeals value)? onSearchDeals,
+    TResult Function(_OnLoadOutletProducts value)? onLoadOutletProducts,
+    TResult Function(_OnUpdateSelectedVariant value)? onUpdateSelectedVariant,
+    required TResult orElse(),
+  }) {
+    if (onUpdateSelectedVariant != null) {
+      return onUpdateSelectedVariant(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OnUpdateSelectedVariant implements PlaceOrderEvent {
+  const factory _OnUpdateSelectedVariant(
+      {required final List<ProductVariantDto> variants,
+      required final int index}) = _$_OnUpdateSelectedVariant;
+
+  List<ProductVariantDto> get variants;
+  int get index;
+  @JsonKey(ignore: true)
+  _$$_OnUpdateSelectedVariantCopyWith<_$_OnUpdateSelectedVariant>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

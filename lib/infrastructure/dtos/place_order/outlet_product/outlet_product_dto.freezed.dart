@@ -45,6 +45,10 @@ mixin _$OutletProductDto {
   @JsonKey(name: 'variantId')
   String get variantId => throw _privateConstructorUsedError;
   int get quantity => throw _privateConstructorUsedError;
+  @JsonKey(name: 'variants', defaultValue: [])
+  List<ProductVariantDto> get variants => throw _privateConstructorUsedError;
+  @JsonKey(name: 'variantsAvailable', defaultValue: false)
+  bool get variantsAvailable => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -82,7 +86,11 @@ abstract class $OutletProductDtoCopyWith<$Res> {
           dynamic sellerName,
       @JsonKey(name: 'variantId')
           String variantId,
-      int quantity});
+      int quantity,
+      @JsonKey(name: 'variants', defaultValue: [])
+          List<ProductVariantDto> variants,
+      @JsonKey(name: 'variantsAvailable', defaultValue: false)
+          bool variantsAvailable});
 
   $FeaturedImageDtoCopyWith<$Res> get featuredImage;
   $PriceRangeDtoCopyWith<$Res> get compareAtPriceRange;
@@ -113,6 +121,8 @@ class _$OutletProductDtoCopyWithImpl<$Res>
     Object? sellerName = freezed,
     Object? variantId = freezed,
     Object? quantity = freezed,
+    Object? variants = freezed,
+    Object? variantsAvailable = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -167,6 +177,14 @@ class _$OutletProductDtoCopyWithImpl<$Res>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      variants: variants == freezed
+          ? _value.variants
+          : variants // ignore: cast_nullable_to_non_nullable
+              as List<ProductVariantDto>,
+      variantsAvailable: variantsAvailable == freezed
+          ? _value.variantsAvailable
+          : variantsAvailable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 
@@ -224,7 +242,11 @@ abstract class _$$_OutletProductDtoCopyWith<$Res>
           dynamic sellerName,
       @JsonKey(name: 'variantId')
           String variantId,
-      int quantity});
+      int quantity,
+      @JsonKey(name: 'variants', defaultValue: [])
+          List<ProductVariantDto> variants,
+      @JsonKey(name: 'variantsAvailable', defaultValue: false)
+          bool variantsAvailable});
 
   @override
   $FeaturedImageDtoCopyWith<$Res> get featuredImage;
@@ -260,6 +282,8 @@ class __$$_OutletProductDtoCopyWithImpl<$Res>
     Object? sellerName = freezed,
     Object? variantId = freezed,
     Object? quantity = freezed,
+    Object? variants = freezed,
+    Object? variantsAvailable = freezed,
   }) {
     return _then(_$_OutletProductDto(
       id: id == freezed
@@ -314,6 +338,14 @@ class __$$_OutletProductDtoCopyWithImpl<$Res>
           ? _value.quantity
           : quantity // ignore: cast_nullable_to_non_nullable
               as int,
+      variants: variants == freezed
+          ? _value._variants
+          : variants // ignore: cast_nullable_to_non_nullable
+              as List<ProductVariantDto>,
+      variantsAvailable: variantsAvailable == freezed
+          ? _value.variantsAvailable
+          : variantsAvailable // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -346,7 +378,12 @@ class _$_OutletProductDto implements _OutletProductDto {
           required this.sellerName,
       @JsonKey(name: 'variantId')
           required this.variantId,
-      this.quantity = 0});
+      this.quantity = 0,
+      @JsonKey(name: 'variants', defaultValue: [])
+          required final List<ProductVariantDto> variants,
+      @JsonKey(name: 'variantsAvailable', defaultValue: false)
+          required this.variantsAvailable})
+      : _variants = variants;
 
   factory _$_OutletProductDto.fromJson(Map<String, dynamic> json) =>
       _$$_OutletProductDtoFromJson(json);
@@ -390,10 +427,21 @@ class _$_OutletProductDto implements _OutletProductDto {
   @override
   @JsonKey()
   final int quantity;
+  final List<ProductVariantDto> _variants;
+  @override
+  @JsonKey(name: 'variants', defaultValue: [])
+  List<ProductVariantDto> get variants {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_variants);
+  }
+
+  @override
+  @JsonKey(name: 'variantsAvailable', defaultValue: false)
+  final bool variantsAvailable;
 
   @override
   String toString() {
-    return 'OutletProductDto(id: $id, title: $title, description: $description, descriptionHtml: $descriptionHtml, createdAt: $createdAt, availableForSale: $availableForSale, featuredImage: $featuredImage, compareAtPriceRange: $compareAtPriceRange, redeemDuration: $redeemDuration, priceRange: $priceRange, sellerName: $sellerName, variantId: $variantId, quantity: $quantity)';
+    return 'OutletProductDto(id: $id, title: $title, description: $description, descriptionHtml: $descriptionHtml, createdAt: $createdAt, availableForSale: $availableForSale, featuredImage: $featuredImage, compareAtPriceRange: $compareAtPriceRange, redeemDuration: $redeemDuration, priceRange: $priceRange, sellerName: $sellerName, variantId: $variantId, quantity: $quantity, variants: $variants, variantsAvailable: $variantsAvailable)';
   }
 
   @override
@@ -421,7 +469,10 @@ class _$_OutletProductDto implements _OutletProductDto {
             const DeepCollectionEquality()
                 .equals(other.sellerName, sellerName) &&
             const DeepCollectionEquality().equals(other.variantId, variantId) &&
-            const DeepCollectionEquality().equals(other.quantity, quantity));
+            const DeepCollectionEquality().equals(other.quantity, quantity) &&
+            const DeepCollectionEquality().equals(other._variants, _variants) &&
+            const DeepCollectionEquality()
+                .equals(other.variantsAvailable, variantsAvailable));
   }
 
   @JsonKey(ignore: true)
@@ -440,7 +491,9 @@ class _$_OutletProductDto implements _OutletProductDto {
       const DeepCollectionEquality().hash(priceRange),
       const DeepCollectionEquality().hash(sellerName),
       const DeepCollectionEquality().hash(variantId),
-      const DeepCollectionEquality().hash(quantity));
+      const DeepCollectionEquality().hash(quantity),
+      const DeepCollectionEquality().hash(_variants),
+      const DeepCollectionEquality().hash(variantsAvailable));
 
   @JsonKey(ignore: true)
   @override
@@ -481,7 +534,11 @@ abstract class _OutletProductDto implements OutletProductDto {
           required final dynamic sellerName,
       @JsonKey(name: 'variantId')
           required final String variantId,
-      final int quantity}) = _$_OutletProductDto;
+      final int quantity,
+      @JsonKey(name: 'variants', defaultValue: [])
+          required final List<ProductVariantDto> variants,
+      @JsonKey(name: 'variantsAvailable', defaultValue: false)
+          required final bool variantsAvailable}) = _$_OutletProductDto;
 
   factory _OutletProductDto.fromJson(Map<String, dynamic> json) =
       _$_OutletProductDto.fromJson;
@@ -524,6 +581,12 @@ abstract class _OutletProductDto implements OutletProductDto {
   String get variantId;
   @override
   int get quantity;
+  @override
+  @JsonKey(name: 'variants', defaultValue: [])
+  List<ProductVariantDto> get variants;
+  @override
+  @JsonKey(name: 'variantsAvailable', defaultValue: false)
+  bool get variantsAvailable;
   @override
   @JsonKey(ignore: true)
   _$$_OutletProductDtoCopyWith<_$_OutletProductDto> get copyWith =>

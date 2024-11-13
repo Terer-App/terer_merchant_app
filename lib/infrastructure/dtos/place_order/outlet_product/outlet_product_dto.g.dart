@@ -24,6 +24,12 @@ _$_OutletProductDto _$$_OutletProductDtoFromJson(Map<String, dynamic> json) =>
       sellerName: json['sellerName'],
       variantId: json['variantId'] as String,
       quantity: json['quantity'] as int? ?? 0,
+      variants: (json['variants'] as List<dynamic>?)
+              ?.map(
+                  (e) => ProductVariantDto.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      variantsAvailable: json['variantsAvailable'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$$_OutletProductDtoToJson(_$_OutletProductDto instance) =>
@@ -41,4 +47,6 @@ Map<String, dynamic> _$$_OutletProductDtoToJson(_$_OutletProductDto instance) =>
       'sellerName': instance.sellerName,
       'variantId': instance.variantId,
       'quantity': instance.quantity,
+      'variants': instance.variants,
+      'variantsAvailable': instance.variantsAvailable,
     };

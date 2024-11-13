@@ -96,38 +96,43 @@ class ManageDealsConsumer extends StatelessWidget {
                                       SizedBox(
                                         width: 4.w,
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.only(top: 4.h),
-                                        child: RichText(
-                                            text: TextSpan(
-                                                text: 'Hello ',
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodySmall!
-                                                    .copyWith(
-                                                      fontSize: 16.sp,
-                                                      fontWeight:
-                                                          FontWeight.w700,
-                                                      color: Theme.of(context)
-                                                          .colorScheme
-                                                          .secondary,
-                                                    ),
-                                                children: [
-                                              TextSpan(
-                                                text: state.profile!.firstName,
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .bodySmall!
-                                                    .copyWith(
-                                                      fontSize: 16.sp,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      color: Theme.of(context)
-                                                          .colorScheme
-                                                          .secondary,
-                                                    ),
-                                              )
-                                            ])),
+                                      Expanded(
+                                        child: Padding(
+                                          padding: EdgeInsets.only(top: 4.h),
+                                          child: RichText(
+                                              overflow: TextOverflow.ellipsis,
+                                              text: TextSpan(
+                                                  text: 'Hello ',
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodySmall!
+                                                      .copyWith(
+                                                        fontSize: 16.sp,
+                                                        fontWeight:
+                                                            FontWeight.w700,
+                                                        color: Theme.of(context)
+                                                            .colorScheme
+                                                            .secondary,
+                                                      ),
+                                                  children: [
+                                                TextSpan(
+                                                  text: state.profile!.firstName,
+                                                  
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodySmall!
+                                                      .copyWith(
+                                                      
+                                                        fontSize: 16.sp,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: Theme.of(context)
+                                                            .colorScheme
+                                                            .secondary,
+                                                      ),
+                                                )
+                                              ])),
+                                        ),
                                       )
                                     ],
                                   ),
@@ -183,14 +188,14 @@ class ManageDealsConsumer extends StatelessWidget {
                                     .navigateTo(CoreRoutes.payoutListingRoute);
                               },
                             ),
-                            // CustomCard(
-                            //   image: AssetConstants.balance,
-                            //   title: DealsConstants.createOrder,
-                            //   onClick: () {
-                            //     navigator<NavigationService>()
-                            //         .navigateTo(CoreRoutes.createOrderRoute);
-                            //   },
-                            // ),
+                            CustomCard(
+                              image: AssetConstants.balance,
+                              title: DealsConstants.createOrder,
+                              onClick: () {
+                                navigator<NavigationService>()
+                                    .navigateTo(CoreRoutes.createOrderRoute);
+                              },
+                            ),
                           ],
                         ),
                       ),

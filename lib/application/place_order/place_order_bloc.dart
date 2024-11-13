@@ -7,6 +7,8 @@ import '../../domain/place_order/place_order_repository.dart';
 import '../../domain/shop_merchant/shop_merchant_repository.dart';
 import '../../infrastructure/dtos/outlet/outlet_dto.dart';
 import '../../infrastructure/dtos/place_order/outlet_product/outlet_product_dto.dart';
+import '../../infrastructure/dtos/place_order/outlet_product/product_variant/product_variant_dto.dart';
+import '../../infrastructure/dtos/place_order/price/price_dto.dart';
 import '../../infrastructure/place_order_repository/i_place_order_repository.dart';
 import '../../infrastructure/shop_merchant_repository/i_shop_merchant_repository.dart';
 
@@ -47,19 +49,36 @@ class PlaceOrderBloc extends Bloc<PlaceOrderEvent, PlaceOrderState> {
       final res = await state.placeOrderRepository
           .getOutletProducts(outletId: event.outletId);
 
+      final updatedRes = res.map((outletProduct) {
+        final updatedVariants = outletProduct.variants
+            .asMap()
+            .map((index, variant) {
+              return MapEntry(
+                index,
+                variant.copyWith(
+                  redemptionDuration: outletProduct.redeemDuration,
+                  isSelected: index == 0 ? true : variant.isSelected,
+                ),
+              );
+            })
+            .values
+            .toList();
+        return outletProduct.copyWith(variants: updatedVariants);
+      }).toList();
+
       if (res.length == 1) {
         emit(
           state.copyWith(
               isLoading: false,
-              outletProducts: res,
-              searchedOutletProducts: res),
+              outletProducts: updatedRes,
+              searchedOutletProducts: updatedRes),
         );
       } else {
         emit(
           state.copyWith(
               isLoading: false,
-              outletProducts: res,
-              searchedOutletProducts: res),
+              outletProducts: updatedRes,
+              searchedOutletProducts: updatedRes),
         );
       }
     });
@@ -125,6 +144,25 @@ class PlaceOrderBloc extends Bloc<PlaceOrderEvent, PlaceOrderState> {
     // emit from anywhere
     on<_EmitFromAnywhere>((event, emit) {
       emit(event.state);
+    });
+
+    on<_OnUpdateSelectedVariant>((event, emit) async {
+      final updatedRes = state.searchedOutletProducts.map((outletProduct) {
+        if (state.searchedOutletProducts.indexOf(outletProduct) ==
+            event.index) {
+          return outletProduct.copyWith(variants: event.variants);
+        }
+        return outletProduct;
+      }).toList();
+      List<OutletProductDto> selectedDeals =
+          updatedRes.where((deal) => deal.quantity > 0).toList();
+      emit(
+        state.copyWith(
+            isLoading: false,
+            outletProducts: updatedRes,
+            selectedOutletProducts: selectedDeals,
+            searchedOutletProducts: updatedRes),
+      );
     });
   }
 }

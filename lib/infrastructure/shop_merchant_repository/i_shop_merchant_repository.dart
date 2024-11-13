@@ -327,6 +327,7 @@ class IShopMerchantRepository extends ShopMerchantRepository {
     final url = '$apiUrl${APIConstants.getMerchantProducts}';
     try {
       final token = await AuthTokenService.getMerchantToken();
+      print(token);
       final res = await RESTService.performGETRequest(
         httpUrl: url,
         token: token,

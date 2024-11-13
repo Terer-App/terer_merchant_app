@@ -229,63 +229,70 @@ class PlaceOrderScreenConsumer extends StatelessWidget {
                                           .copyWith(bottom: 120),
                                       itemBuilder: (context, index) {
                                         return PlaceOrderDealWidget(
-                                            dealName: state
-                                                .searchedOutletProducts[index]
-                                                .title,
-                                            currencyCode: state
-                                                .searchedOutletProducts[index]
-                                                .compareAtPriceRange
-                                                .minVariantPrice
-                                                .currencyCode,
-                                            actualPrice: calculatePrice(
-                                                state
-                                                    .searchedOutletProducts[
-                                                        index]
-                                                    .compareAtPriceRange
-                                                    .minVariantPrice
-                                                    .amount,
-                                                state
-                                                    .searchedOutletProducts[
-                                                        index]
-                                                    .quantity),
-                                            assetImage: state
-                                                .searchedOutletProducts[index]
-                                                .featuredImage
-                                                .url,
-                                            discountedPrice: calculatePrice(
-                                                state
-                                                    .searchedOutletProducts[
-                                                        index]
-                                                    .priceRange
-                                                    .minVariantPrice
-                                                    .amount,
-                                                state
-                                                    .searchedOutletProducts[
-                                                        index]
-                                                    .quantity),
-                                            quantity: state
-                                                .searchedOutletProducts[index]
-                                                .quantity,
-                                            increment: () {
-                                              context
-                                                  .read<PlaceOrderBloc>()
-                                                  .add(PlaceOrderEvent
-                                                      .onIncrementDealQuantity(
-                                                          productId: state
-                                                              .searchedOutletProducts[
-                                                                  index]
-                                                              .id));
-                                            },
-                                            decrement: () {
-                                              context
-                                                  .read<PlaceOrderBloc>()
-                                                  .add(PlaceOrderEvent
-                                                      .onDecrementDealQuantity(
-                                                          productId: state
-                                                              .searchedOutletProducts[
-                                                                  index]
-                                                              .id));
-                                            });
+                                            variantAvailable: state.searchedOutletProducts[index].variantsAvailable,
+                                          dealName: state
+                                              .searchedOutletProducts[index]
+                                              .title,
+                                          // currencyCode: state
+                                          //     .searchedOutletProducts[index]
+                                          //     .compareAtPriceRange
+                                          //     .minVariantPrice
+                                          //     .currencyCode,
+                                          // actualPrice: calculatePrice(
+                                          //     state
+                                          //         .searchedOutletProducts[index]
+                                          //         .compareAtPriceRange
+                                          //         .minVariantPrice
+                                          //         .amount,
+                                          //     state
+                                          //         .searchedOutletProducts[index]
+                                          //         .quantity),
+                                          assetImage: state
+                                              .searchedOutletProducts[index]
+                                              .featuredImage
+                                              .url,
+                                          // discountedPrice: calculatePrice(
+                                          //     state
+                                          //         .searchedOutletProducts[index]
+                                          //         .priceRange
+                                          //         .minVariantPrice
+                                          //         .amount,
+                                          //     state
+                                          //         .searchedOutletProducts[index]
+                                          //         .quantity),
+                                          quantity: state
+                                              .searchedOutletProducts[index]
+                                              .quantity,
+                                          products: state
+                                              .searchedOutletProducts[index]
+                                              .variants,
+                                          increment: () {
+                                            context.read<PlaceOrderBloc>().add(
+                                                PlaceOrderEvent
+                                                    .onIncrementDealQuantity(
+                                                        productId: state
+                                                            .searchedOutletProducts[
+                                                                index]
+                                                            .id));
+                                          },
+                                          decrement: () {
+                                            context.read<PlaceOrderBloc>().add(
+                                                PlaceOrderEvent
+                                                    .onDecrementDealQuantity(
+                                                        productId: state
+                                                            .searchedOutletProducts[
+                                                                index]
+                                                            .id));
+                                          },
+                                          onProductSelectionChanged:
+                                              (variants) {
+                                            context.read<PlaceOrderBloc>().add(
+                                                PlaceOrderEvent
+                                                    .onUpdateSelectedVariant(
+                                                      index: index,
+                                                        variants: variants));
+                                          },
+                                        );
                                       },
                                       separatorBuilder: (context, index) {
                                         return SizedBox(

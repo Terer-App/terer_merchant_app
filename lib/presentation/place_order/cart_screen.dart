@@ -187,27 +187,32 @@ class CartScreenConsumer extends StatelessWidget {
                           padding: EdgeInsets.symmetric(horizontal: 5.w),
                           itemBuilder: (context, index) {
                             return PlaceOrderDealWidget(
+                              variantAvailable: state.addedProducts[index].variantsAvailable,
                                 dealName: state.addedProducts[index].title,
-                                currencyCode: state
-                                    .addedProducts[index]
-                                    .compareAtPriceRange
-                                    .minVariantPrice
-                                    .currencyCode,
-                                actualPrice: calculatePrice(
-                                    state
-                                        .addedProducts[index]
-                                        .compareAtPriceRange
-                                        .minVariantPrice
-                                        .amount,
-                                    state.addedProducts[index].quantity),
+                                // currencyCode: state
+                                //     .addedProducts[index]
+                                //     .compareAtPriceRange
+                                //     .minVariantPrice
+                                //     .currencyCode,
+                                // actualPrice: calculatePrice(
+                                //     state
+                                //         .addedProducts[index]
+                                //         .compareAtPriceRange
+                                //         .minVariantPrice
+                                //         .amount,
+                                //     state.addedProducts[index].quantity),
                                 assetImage: state
                                     .addedProducts[index].featuredImage.url,
-                                discountedPrice: calculatePrice(
-                                    state.addedProducts[index].priceRange
-                                        .minVariantPrice.amount,
-                                    state.addedProducts[index].quantity),
+                                // discountedPrice: calculatePrice(
+                                //     state.addedProducts[index].priceRange
+                                //         .minVariantPrice.amount,
+                                //     state.addedProducts[index].quantity),
                                 quantity: state.addedProducts[index].quantity,
                                 showAdd: false,
+                                onProductSelectionChanged: (p0) {
+                                  
+                                },
+                                products: state.addedProducts[index].variants,
                                 increment: () {},
                                 decrement: () {});
                           },
