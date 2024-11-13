@@ -84,6 +84,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         emit(state.copyWith(isLoading: true));
         List<Map<String, dynamic>> selectedProducts = state.addedProducts
             .map((product) => {
+          
                   'id': product.variantId,
                   'qty': product.quantity,
                 })

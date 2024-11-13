@@ -8,6 +8,7 @@ import '../../application/live_deals/live_deal_details/live_deal_details_bloc.da
 import '../../domain/constants/asset_constants.dart';
 import '../../domain/core/configs/app_config.dart';
 import '../../domain/core/configs/injection.dart';
+import '../../domain/extensions/generic_helper.dart';
 import '../../domain/services/navigation_service/navigation_service.dart';
 import '../../infrastructure/dtos/place_order/outlet_product/outlet_product_dto.dart';
 
@@ -87,21 +88,64 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                         SizedBox(
                           height: 2.h,
                         ),
-                        Text(
-                          state.dealDetails.title,
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w700,
-                                color: Theme.of(context).colorScheme.secondary,
+                        Row(
+                          children: [
+                            Expanded(
+                              flex: 1,
+                              child: Text(
+                                state.dealDetails.title,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodySmall!
+                                    .copyWith(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w700,
+                                      color: Theme.of(context)
+                                          .colorScheme
+                                          .secondary,
+                                    ),
                               ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  '${state.selectedVariant!.price.currencyCode} ${calculatePrice(state.selectedVariant!.price.amount, state.selectedVariant!.quantity)}',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodyLarge!
+                                      .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: 16.sp,
+                                      ),
+                                ),
+                                Text(
+                                  '${state.selectedVariant!.compareAtPrice.currencyCode} ${calculatePrice(state.selectedVariant!.compareAtPrice.amount, state.selectedVariant!.quantity)}',
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primaryContainer
+                                            .withOpacity(.5),
+                                        decoration: TextDecoration.lineThrough,
+                                        fontWeight: FontWeight.w500,
+                                        // fontSize: 1.sp,
+                                      ),
+                                )
+                              ],
+                            ),
+                          ],
                         ),
                         SizedBox(
-                          height: 3.h,
+                          height: 1.h,
                         ),
-                        if (state.dealDetails.variants.isNotEmpty)
+                        if (state.dealDetails.variants.isNotEmpty &&
+                            state.dealDetails.variantsAvailable)
                           SizedBox(
                             height: 5.h,
                             child: ListView.builder(
@@ -148,7 +192,7 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                                             .copyWith(
                                               color: Theme.of(context)
                                                   .colorScheme
-                                                  .onSecondary,
+                                                  .secondary,
                                               fontWeight: isSelected
                                                   ? FontWeight.bold
                                                   : FontWeight.w500,
@@ -160,7 +204,11 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                               },
                             ),
                           ),
-
+                        if (state.dealDetails.variants.isNotEmpty &&
+                            state.dealDetails.variantsAvailable)
+                          SizedBox(
+                            height: 1.h,
+                          ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -193,10 +241,13 @@ class LiveDealDetailsConsumer extends StatelessWidget {
                                         .primaryContainer,
                                   )),
                               child: Text(
-                                state.dealDetails.redeemDuration == null
-                                    ? '-'
-                                    : '${state.dealDetails.redeemDuration['value']}'
-                                        .toUpperCase(),
+                                GenericHelper.formatSku(
+                                    sku: state.selectedVariant?.sku,
+                                    redemptionDuration: state
+                                                .dealDetails.redeemDuration ==
+                                            null
+                                        ? '-'
+                                        : '${state.dealDetails.redeemDuration['value']}'),
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context)
                                     .textTheme
@@ -253,5 +304,11 @@ class LiveDealDetailsConsumer extends StatelessWidget {
         );
       },
     );
+  }
+
+  String calculatePrice(String priceString, int quantity) {
+    double price = double.tryParse(priceString) ?? 0.0;
+    double totalPrice = quantity * price;
+    return totalPrice.toStringAsFixed(2);
   }
 }

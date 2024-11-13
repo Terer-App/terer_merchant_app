@@ -56,7 +56,10 @@ class PlaceOrderBloc extends Bloc<PlaceOrderEvent, PlaceOrderState> {
               return MapEntry(
                 index,
                 variant.copyWith(
-                  redemptionDuration: outletProduct.redeemDuration,
+                  redemptionDuration: outletProduct.redeemDuration == null
+                      ? '-'
+                      : '${outletProduct.redeemDuration['value']}'
+                          .toUpperCase(),
                   isSelected: index == 0 ? true : variant.isSelected,
                 ),
               );
@@ -150,7 +153,12 @@ class PlaceOrderBloc extends Bloc<PlaceOrderEvent, PlaceOrderState> {
       final updatedRes = state.searchedOutletProducts.map((outletProduct) {
         if (state.searchedOutletProducts.indexOf(outletProduct) ==
             event.index) {
-          return outletProduct.copyWith(variants: event.variants);
+    
+          return outletProduct.copyWith(
+            variants: event.variants,
+            variantId:
+                event.variants.firstWhere((element) => element.isSelected).id,
+          );
         }
         return outletProduct;
       }).toList();
