@@ -344,7 +344,33 @@ class PayoutListingConsumer extends StatelessWidget {
                                                   ),
                                             ),
                                           ),
-                                          const SizedBox(),
+                                          SizedBox(
+                                            width: 2.w,
+                                          ),
+                                          Container(
+                                            decoration: BoxDecoration(
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .secondary,
+                                              borderRadius:
+                                                  BorderRadius.circular(2.w),
+                                            ),
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 3.w,
+                                            ),
+                                            child: Text(
+                                              deal.noOfCoupons.toString(),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .bodySmall!
+                                                  .copyWith(
+                                                    color: Theme.of(context)
+                                                        .scaffoldBackgroundColor,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
+                                            ),
+                                          ),
+                                          const Spacer(),
                                           Container(
                                             decoration: BoxDecoration(
                                               color: deal.isPaid == 1
