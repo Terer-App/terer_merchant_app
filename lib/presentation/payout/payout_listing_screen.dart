@@ -359,7 +359,7 @@ class PayoutListingConsumer extends StatelessWidget {
                                               horizontal: 3.w,
                                             ),
                                             child: Text(
-                                              deal.noOfCoupons.toString(),
+                                              '${deal.noOfCoupons} ${deal.noOfCoupons > 1 ? 'coupons' : 'coupon'}',
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .bodySmall!
